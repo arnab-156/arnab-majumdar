@@ -28,22 +28,22 @@ export const TicTacToe: NextPage<MyComponentProps> = () => {
     const [currPlayer, setPlayer] = useState<Player>(fPlayer);
 
     const handleTileClick = (item: string, index: number, player: Player) => {
-
         if (item === "" && !winner) {
+            setPlayer(player === fPlayer ? sPlayer : fPlayer)
             const newTTLArray = tttList;
             newTTLArray[index] = player;
             setTttList(newTTLArray);
-            setPlayer(player === fPlayer ? sPlayer : fPlayer)
-            didYouWin(newTTLArray);
+            didYouWin(newTTLArray, player);
         }
     };
 
     useEffect(() => {
-        didYouWin(tttList);
-    }, [tttList])
+        didYouWin(tttList, currPlayer);
+    }, [tttList, currPlayer])
 
     useEffect(() => {
-    }, [winner !== false])
+
+    }, [winner])
 
     const allEqual = (a: string | Player, b: string | Player, c: string | Player): boolean => a === b && b === c;
 
@@ -65,12 +65,14 @@ export const TicTacToe: NextPage<MyComponentProps> = () => {
         return [...args].some(func => func === true);
     }
 
-    const didYouWin = (tttList: string[]) => {
+    const didYouWin = (tttList: string[], player: Player) => {
         if (tttList.filter(el => el === "").length < 5) {
-            const winner = anyAnyisTrue(permutation1, permutation2, permutation3, permutation4, permutation5, permutation6, permutation7)
+            const winnerIsThr = anyAnyisTrue(permutation1, permutation2, permutation3, permutation4, permutation5, permutation6, permutation7)
 
-            if (winner) {
-                setWinner(currPlayer)
+            if (winnerIsThr) {
+                setWinner(player === fPlayer ? sPlayer : fPlayer);
+            } else {
+                setPlayer(player === fPlayer ? sPlayer : fPlayer)
             }
         }
     };
@@ -90,6 +92,7 @@ export const TicTacToe: NextPage<MyComponentProps> = () => {
                 {
                     tttList.map((item, index) => (
                         <button
+                            key={index}
                             onClick={() => handleTileClick(item, index, currPlayer)}
                             className="border shadow-md hover:bg-gray-400"
                         >
