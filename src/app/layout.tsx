@@ -48,11 +48,11 @@ export default function RootLayout({
                                         title="linked in profile of arnab"
                                     >
                                         <Image
-                                            className="w-max hover:scale-110 mr-2"
-                                            src="/linkedin.png"
+                                            className="hover:scale-110 mr-2"
+                                            src="/linkedin.gif"
                                             alt="instagram link"
-                                            width={20}
-                                            height={20}
+                                            width={30}
+                                            height={30}
                                         />
                                     </a>
                                     <a
@@ -60,15 +60,14 @@ export default function RootLayout({
                                         title="instagram logo icons"
                                     >
                                         <Image
-                                            className="w-max hover:scale-110"
-                                            src="/instagram.png"
+                                            className="hover:scale-110"
+                                            src="/insta.gif"
                                             alt="instagram link"
-                                            width={20}
-                                            height={20}
+                                            width={30}
+                                            height={30}
                                         />
                                     </a>
                                 </div>
-                                <span className="text-xs text-gray-300">These Icons are made by Pixel perfect from www.flaticon.com</span>
                             </div>
 
                         </div>
