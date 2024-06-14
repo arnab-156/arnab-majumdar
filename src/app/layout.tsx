@@ -28,7 +28,7 @@ export default function RootLayout({
                             </div>
                             <Image
                                 className="hidden group-hover:block relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert rounded-2xl w-max"
-                                src="/majumdar_arnab_copy.jpg"
+                                src="/headshot.gif"
                                 alt="headshot of arnab majumdar"
                                 width={150}
                                 height={300}
