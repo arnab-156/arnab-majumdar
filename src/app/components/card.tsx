@@ -13,7 +13,7 @@ interface MyComponentProps {
 export const Card: NextPage<MyComponentProps> = ({ title, description, url, urlText, imageUrl }) => {
     return (
         <Link
-            className="mr-4 ml-4 rounded shadow-md"
+            className="mr-4 ml-4 mb-4 rounded shadow-md"
             href={url}
         >
             <div className="bg-gray-200 p-4 rounded shadow-md max-w-sm sm:max-w-md md:max-w-sm lg:max-w-xl hover:bg-gray-300 active:bg-gray-400">
