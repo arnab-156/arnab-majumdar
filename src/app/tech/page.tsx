@@ -16,7 +16,7 @@ export default function Tech() {
         </p>
         <div className="m-8">
           <Card
-            title="Free Trivia for you to enjoy on the go!"
+            title="Free Tic Tac Toe game for you to enjoy on the go!"
             url="/games/tic-tac-toe"
             urlText="Click here to Play"
             imageUrl="/tic-tac-toe.gif"
@@ -25,7 +25,7 @@ export default function Tech() {
         </div>
         <div className="m-8">
           <Card
-            title="Free Trivia for you to enjoy on the go!"
+            title="Coming soon: Free Trivia for you to enjoy on the go!"
             url="/games/quiz"
             urlText="Click here to Play"
             imageUrl="/quiz.png"
@@ -35,7 +35,7 @@ export default function Tech() {
 
         <div className="m-8">
           <Card
-            title="Resume Generator!"
+            title="Coming soon: Resume Generator!"
             url="/tech/create-resume"
             urlText="Click here to Start"
             imageUrl="/cv.png"
@@ -45,7 +45,7 @@ export default function Tech() {
 
         <div className="m-8">
           <Card
-            title="Free Trivia for you to enjoy on the go!"
+            title="Coming soon: Free Trivia for you to enjoy on the go!"
             url="/games/quiz"
             urlText="Click here to Play"
             imageUrl="/tic-tac-toe.gif"
