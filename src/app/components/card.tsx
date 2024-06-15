@@ -5,12 +5,11 @@ import type { NextPage } from 'next';
 interface MyComponentProps {
     title: string;
     url: string;
-    urlText: string;
     description?: string; // Optional property
     imageUrl: string;
 }
 
-export const Card: NextPage<MyComponentProps> = ({ title, description, url, urlText, imageUrl }) => {
+export const Card: NextPage<MyComponentProps> = ({ title, description, url, imageUrl }) => {
     return (
         <Link
             className="mr-4 ml-4 mb-4 rounded shadow-md"

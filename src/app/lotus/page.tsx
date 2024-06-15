@@ -6,7 +6,6 @@ const cardInformationList = [{
   title: "welcome",
   url: "#",
   urlText: "",
-  imageUrl: "",
   description: "",
 }]
 
@@ -21,7 +20,6 @@ export default function Lotus() {
         <Card
           title="More information to come!"
           url="#"
-          urlText="To be announced"
           imageUrl={urlImageDefault}
           description="more information to come."
         />
@@ -29,7 +27,6 @@ export default function Lotus() {
         <Card
           title="More information to come!"
           url="#"
-          urlText="To be announced"
           imageUrl={urlImageDefault}
           description="more information to come."
         />
@@ -37,7 +34,6 @@ export default function Lotus() {
         <Card
           title="More information to come!"
           url="#"
-          urlText="To be announced"
           imageUrl={urlImageDefault}
           description="more information to come."
         />
@@ -45,7 +41,6 @@ export default function Lotus() {
         <Card
           title="More information to come!"
           url="#"
-          urlText="To be announced"
           imageUrl={urlImageDefault}
           description="more information to come."
         />

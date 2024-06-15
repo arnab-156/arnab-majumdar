@@ -18,7 +18,6 @@ export default function Tech() {
           <Card
             title="Free Tic Tac Toe game for you to enjoy on the go!"
             url="/games/tic-tac-toe"
-            urlText="Click here to Play"
             imageUrl="/tic-tac-toe.gif"
             description="Simple Tik Tac Toe Game for when you are bored."
           />
@@ -27,7 +26,6 @@ export default function Tech() {
           <Card
             title="Coming soon: Free Trivia for you to enjoy on the go!"
             url="/games/quiz"
-            urlText="Click here to Play"
             imageUrl="/quiz.png"
             description="Log in to unlock you this free content and service!"
           />
@@ -37,7 +35,6 @@ export default function Tech() {
           <Card
             title="Coming soon: Resume Generator!"
             url="/tech/create-resume"
-            urlText="Click here to Start"
             imageUrl="/cv.png"
             description="Log in to unlock you this free service to create your own resume! Limits may apply!"
           />
@@ -47,7 +44,6 @@ export default function Tech() {
           <Card
             title="Coming soon: Free Trivia for you to enjoy on the go!"
             url="/games/quiz"
-            urlText="Click here to Play"
             imageUrl="/tic-tac-toe.gif"
           />
         </div>
@@ -56,7 +52,6 @@ export default function Tech() {
           <Card
             title="Free Trivia for you to enjoy on the go!"
             url="/games/quiz"
-            urlText="Click here to Play"
             imageUrl="/tic-tac-toe.gif"
           />
         </div>
@@ -65,7 +60,6 @@ export default function Tech() {
           <Card
             title="Free Trivia for you to enjoy on the go!"
             url="/games/quiz"
-            urlText="Click here to Play"
             imageUrl="/tic-tac-toe.gif"
             description="example 3"
           />
