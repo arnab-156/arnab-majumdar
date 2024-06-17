@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { Card } from "../components/card"
 
-
 const urlImageDefault = "/headshot.gif"
 
 export default function About() {
@@ -32,6 +31,7 @@ export default function About() {
               and help people around me to do their best.</li>
           </ul>
         </div>
+
         <div className="m-8">
           All my career there has been no dearth of achievements but the most satisfying so far has been:
           <ul className="list-disc pl-4 ml-6">
