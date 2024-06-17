@@ -1,24 +1,17 @@
 'use client'
-
-import Image from "next/image";
-import Link from 'next/link';
 import { useEffect, useState } from "react";
+import Link from 'next/link';
 import type { NextPage } from 'next';
-
-interface MyComponentProps {
-
-}
 
 type Player = "X" | "O"
 
-export const TicTacToe: NextPage<MyComponentProps> = () => {
-    const [tttList, setTttList] = useState(
-        [
-            "", "", "",
-            "", "", "",
-            "", "", ""
-        ]
-    );
+export const TicTacToe: NextPage = () => {
+    const initialArray = [
+        "", "", "",
+        "", "", "",
+        "", "", ""
+    ];
+    const [tttList, setTttList] = useState(initialArray);
 
     const [winner, setWinner] = useState<Player | false>(false);
 
@@ -77,9 +70,15 @@ export const TicTacToe: NextPage<MyComponentProps> = () => {
         }
     };
 
+    const handleRefresh = () => {
+        setPlayer(fPlayer);
+        setWinner(false);
+        setTttList(initialArray);
+    };
+
     return (
         <div className="w-full max-width-500 h-screen bg-gray-200 p-4 rounded shadow-md hover:bg-gray-300 active:bg-gray-400">
-            <h3 className="font-bold text-overflow-ellipsis overflow-hidden line-clamp-1">Click to start</h3>
+            {/* <h3 className="font-bold text-overflow-ellipsis overflow-hidden line-clamp-1"></h3> */}
             {
                 winner !== false && (
                     <div>
@@ -100,6 +99,19 @@ export const TicTacToe: NextPage<MyComponentProps> = () => {
                         </button>
                     ))
                 }
+            </div>
+            <div className="my-4">
+                <button
+                    onClick={handleRefresh}
+                    className="bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded-md focus:outline-none"
+                >
+                    Refresh
+                </button>
+                <Link
+                    className="p-2 m-2 hover:text-lg hover:underline"
+                    href="/tech">
+                    Go Back
+                </Link>
             </div>
         </div>
     );

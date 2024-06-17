@@ -5,6 +5,18 @@ export default function DashboardPage() {
     <main className="flex min-h-screen flex-col items-center justify-between pt-20 ">
       <div className="mb-32 grid text-center lg:w-half lg:max-w-5xl lg:grid-cols-3 lg:text-left">
         <h1 className="text-3xl font-bold text-center mt-8">Dashboard</h1>
+
+        <div>
+          <iframe
+            id="inlineFrameCalculator"
+            title="Inline Frame Example"
+            width="400"
+            height="800"
+            allow="fullscreen"
+            src="https://arnab-majumdar.github.io/calculator/"
+          />
+
+        </div>
         <div className="m-8">
           Log in( or log out button when logged in):
           <ul className="list-disc m-5">

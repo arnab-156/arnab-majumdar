@@ -7,7 +7,7 @@ export default function Tech() {
         <h1 className="text-3xl font-bold text-center mt-8">Technology</h1>
         <p className="m-6">
           Highlights simple lightweight sub projects for fun and pleasure.
-          Made to demonstate simple web technology to games and ultities to
+          Made to demonstate simple web technology to games and utilities to
           use when from your phone.
         </p>
         <p className="m-6">
@@ -36,32 +36,33 @@ export default function Tech() {
             title="Coming soon: Resume Generator!"
             url="/tech/create-resume"
             imageUrl="/cv.png"
-            description="Log in to unlock you this free service to create your own resume! Limits may apply!"
+            description="Log in to unlock you this free service to create your own resume!"
           />
         </div>
 
         <div className="m-8">
           <Card
-            title="Coming soon: Free Trivia for you to enjoy on the go!"
-            url="/games/quiz"
+            title="Coming soon: Calculator"
+            url="#"
             imageUrl="/tic-tac-toe.gif"
           />
         </div>
 
         <div className="m-8">
           <Card
-            title="Free Trivia for you to enjoy on the go!"
-            url="/games/quiz"
+            title="Coming soon: Course - Launch your website for free!"
+            url="#"
             imageUrl="/tic-tac-toe.gif"
+            description="Technology education resources that are available to you!"
           />
         </div>
 
         <div className="m-8">
           <Card
-            title="Free Trivia for you to enjoy on the go!"
-            url="/games/quiz"
+            title="Coming soon: Fashion Business 101"
+            url="#"
             imageUrl="/tic-tac-toe.gif"
-            description="example 3"
+            description="Start your Fashion Business and all you need to know!"
           />
         </div>
 

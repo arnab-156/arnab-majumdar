@@ -1,46 +1,28 @@
 import Image from "next/image";
+import Link from 'next/link';
 
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between pt-20 ">
       <div className="mb-32 grid text-center lg:w-half lg:max-w-5xl lg:grid-cols-3 lg:text-left">
-        <h1 className="text-3xl font-bold text-center mt-8">About Arnab</h1>
-        <div className="m-8">
-          Ever since I was a young boy, I was told exactly how to talk, walk,
-          or understand the world around me. My own learning experiences and
-          challenges meant my quest for the world has been different than others.
-          I am a problem solver and a creative thinker with over 15 years of
-          experience in the fashion and technology complex. A seemingly ordinary
-          journey from “unorganized” textile mills in Ichalkaranji, India to the
-          sophisticated “organized” retail and technology companies such as
-          Reliance, Walmart, FedEx, and now EXPR has been extraordinary for me,
-          and I have learned these things:
-          <ul className="list-disc m-5">
-            <li>Listening and being an empathetic leader works slowly but surely
-              just like the race between The Tortoise and the Hare.</li>
-            <li>I love to compete and achieve individually as well as a team.
-              I always think of how to get better, improve processes,
-              and help people around me to do their best.</li>
-          </ul>
-        </div>
-        <div className="m-8">
-          All my career there has been no dearth of achievements but the most satisfying so far has been:
-          <ul className="list-disc m-5">
-            <li>Winning the Best Graduation Project at my undergraduate degree.</li>
-            <li>When my HR from Shoprunner told me I was one of her top 10 hires of
-              all time. On hard days, I remind myself of that!</li>
-            <li>Problem-solving complex Web Accessibility issues and evangelizing
-              good practices with everyone on the team and stakeholders
-              at Bonobos and Shoprunner.</li>
-          </ul>
+        <h1 className="text-3xl font-bold text-center mt-8 text-gray">Welcome to my website</h1>
+        <p className="rounded-md bg-yellow-500/50 py-4 px-8 text-white text-center font-bold m-4">
+          To save cost and energy, the website goes to sleep after some inactivity,
+          please refresh your page or be patient wile initial page load.
+        </p>
+        <p className="text-xl text-center m-2 mt-8">
+          In this website you will see personal projects, real-life projects and some concepts that I have worked on.
+          On the top, you will see buttons to go to specific landing page of various topics.
+          Footer of the page has more information on how to connect with me.
 
-          <p className="">
-            I love learning about the world, am an outstanding painter, and love table tennis and tennis.
-            I live with my husband, my cat, and several plants. My blessings are being made into a
-            well-rounded individual by my parents and to have their love and support. My goal is to always
-            support my husband and to make the world a “bit” more fun to live in for everyone.
-          </p>
-        </div>
+          If you are so keep to support, please continue to support
+          <Link className="p-2 m-2 hover:text-lg hover:underline" href="https://lotusmahal.com/" >Lotus Mahal</Link>
+        </p>
+        <p className="rounded-md bg-gray-500/50 py-4 px-8 text-white text-center font-bold m-4">
+          Technologies used: Next.js React TypeScript Tailwind css.
+          Deployed on onrender.com
+          Images and icons are either person or downloaded from royalty free sources.
+        </p>
       </div>
     </main>
   );
