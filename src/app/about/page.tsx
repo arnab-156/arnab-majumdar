@@ -11,7 +11,7 @@ export default function About() {
           title="About Arnab!"
           url="#"
           imageUrl={urlImageDefault}
-          description="more information to come."
+          description="Arnab is a creative problem solver who loves working in a teams that are ideas driven!"
         />
         <div className="m-8">
           Ever since I was a young boy, I was told exactly how to talk, walk,
