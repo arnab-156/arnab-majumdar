@@ -77,7 +77,7 @@ export const TicTacToe: NextPage = () => {
     };
 
     return (
-        <div className="w-full max-width-500 h-screen bg-gray-200 p-4 rounded shadow-md hover:bg-gray-300 active:bg-gray-400">
+        <div className="w-full max-width-500 h-screen bg-gray-200 p-4 rounded shadow-md hover:bg-gray-300 active:bg-gray-400 dark:text-black">
             {/* <h3 className="font-bold text-overflow-ellipsis overflow-hidden line-clamp-1"></h3> */}
             {
                 winner !== false && (
