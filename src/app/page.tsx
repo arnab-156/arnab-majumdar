@@ -11,7 +11,7 @@ export default function Home() {
           To save cost and energy, the website goes to sleep after some inactivity,
           please refresh the page or be patient while initial page loads.
         </p>
-        <p className="shadow-md rounded-md text-xl text-center py-4 px-8 m-4">
+        <p className="shadow-md rounded-md text-center py-4 px-8 m-4">
           In this website you will learn about Arnab and his personal projects, real-life and concept projects.
           On the top, you will see buttons to go to specific landing page of various topics.
           Footer of the page has more information on how to connect with me.

@@ -43,7 +43,7 @@ export default function Tech() {
         <div className="m-8">
           <Card
             title="Coming soon: Calculator"
-            url="#"
+            url="/tech/calculator"
             imageUrl="/tic-tac-toe.gif"
           />
         </div>
