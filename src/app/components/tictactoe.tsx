@@ -46,26 +46,24 @@ export const TicTacToe: NextPage = () => {
         }
         return allEqual(a, b, c);
     }
-    const permutation1 = allEqualForNonEmpty(tttList[0], tttList[1], tttList[2])
-    const permutation2 = allEqualForNonEmpty(tttList[0], tttList[3], tttList[6])
-    const permutation3 = allEqualForNonEmpty(tttList[0], tttList[4], tttList[8])
-    const permutation4 = allEqualForNonEmpty(tttList[3], tttList[4], tttList[5])
-    const permutation5 = allEqualForNonEmpty(tttList[2], tttList[5], tttList[8])
-    const permutation6 = allEqualForNonEmpty(tttList[6], tttList[7], tttList[8])
-    const permutation7 = allEqualForNonEmpty(tttList[2], tttList[4], tttList[6])
+    const permutation1 = allEqualForNonEmpty(tttList[0], tttList[1], tttList[2]);
+    const permutation2 = allEqualForNonEmpty(tttList[0], tttList[3], tttList[6]);
+    const permutation3 = allEqualForNonEmpty(tttList[0], tttList[4], tttList[8]);
+    const permutation4 = allEqualForNonEmpty(tttList[3], tttList[4], tttList[5]);
+    const permutation5 = allEqualForNonEmpty(tttList[2], tttList[5], tttList[8]);
+    const permutation6 = allEqualForNonEmpty(tttList[6], tttList[7], tttList[8]);
+    const permutation7 = allEqualForNonEmpty(tttList[2], tttList[4], tttList[6]);
 
-    function anyAnyisTrue(...args: boolean[]) {
-        return [...args].some(func => func === true);
-    }
+    const anyAnyisTrue = (...args: boolean[]) => [...args].some(func => func === true);
 
     const didYouWin = (tttList: string[], player: Player) => {
         if (tttList.filter(el => el === "").length < 5) {
-            const winnerIsThr = anyAnyisTrue(permutation1, permutation2, permutation3, permutation4, permutation5, permutation6, permutation7)
+            const winnerIsThr = anyAnyisTrue(permutation1, permutation2, permutation3, permutation4, permutation5, permutation6, permutation7);
 
             if (winnerIsThr) {
                 setWinner(player === fPlayer ? sPlayer : fPlayer);
             } else {
-                setPlayer(player === fPlayer ? sPlayer : fPlayer)
+                setPlayer(player === fPlayer ? sPlayer : fPlayer);
             }
         }
     };
@@ -78,11 +76,10 @@ export const TicTacToe: NextPage = () => {
 
     return (
         <div className="w-full max-width-500 h-screen bg-gray-200 p-4 rounded shadow-md hover:bg-gray-300 active:bg-gray-400 dark:text-black">
-            {/* <h3 className="font-bold text-overflow-ellipsis overflow-hidden line-clamp-1"></h3> */}
             {
                 winner !== false && (
-                    <div>
-                        <h1> Winner has been Declared! {winner} </h1>
+                    <div className="m-4">
+                        <h1 className="font-bold text-overflow-ellipsis overflow-hidden line-clamp-1"> Winner has been Declared! {winner} </h1>
                     </div>
                 )
             }
