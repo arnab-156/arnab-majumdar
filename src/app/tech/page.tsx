@@ -1,5 +1,5 @@
 import { Card } from "../components/card"
-import { CalculatorIcon } from "../components/icons";
+import { CalculatorIcon, ApparelIcon } from "../components/icons";
 
 export default function Tech() {
   return (
@@ -41,6 +41,7 @@ export default function Tech() {
             url="/games/quiz"
             imageUrl="/quiz.png"
             description="Log in to unlock you this free content and service!"
+            customClassName="invert"
           />
         </div>
 
@@ -50,6 +51,7 @@ export default function Tech() {
             url="/tech/create-resume"
             imageUrl="/cv.png"
             description="Log in to unlock you this free service to create your own resume!"
+            customClassName="invert"
           />
         </div>
 
@@ -59,6 +61,7 @@ export default function Tech() {
             url="#"
             imageUrl="/tic-tac-toe.gif"
             description="Technology education resources that are available to you!"
+            customClassName="invert"
           />
         </div>
 
@@ -66,11 +69,12 @@ export default function Tech() {
           <Card
             title="Coming soon: Fashion Business 101"
             url="#"
-            imageUrl="/tic-tac-toe.gif"
-            description="Start your Fashion Business and all you need to know!"
-          />
+            description="Start your Fashion Business and all you need to know! Coming in 2025!"
+            customClassName="invert"
+          >
+            <ApparelIcon height="100px" width="100px" />
+          </Card>
         </div>
-
       </div>
     </main>
   );

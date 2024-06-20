@@ -48,7 +48,6 @@ export default function Home() {
             title="Go to Games and Utilities"
             url="/tech"
             description="Play games, trivia, and use calculator. Features will be added frequently such as tip calculator and resume builder are coming soon!"
-            customClassName="invert"
           >
             <CalculatorIcon height="100px" width="100px" />
           </Card>
