@@ -108,7 +108,7 @@ export const Calculator: NextPage = () => {
                             ${elem === "+/-" ? "bg-black hover:text-yellow-500" : "bg-yellow-500 hover:bg-yellow-700"}
                             `}
                         onClick={() => handleOnClick(elem, currentValue, secondValue, error)}
-                        key={i}>{elem}
+                        key={`${elem}-${i}`}>{elem}
                     </button>)))}
                 <Link
                     href={"/tech"}
