@@ -32,11 +32,11 @@ export const TicTacToe: NextPage = () => {
 
     useEffect(() => {
         didYouWin(tttList, currPlayer);
-    }, [tttList, currPlayer])
+    }, [tttList, currPlayer]);
 
     useEffect(() => {
 
-    }, [winner])
+    }, [winner]);
 
     const allEqual = (a: string | Player, b: string | Player, c: string | Player): boolean => a === b && b === c;
 

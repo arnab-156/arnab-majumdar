@@ -7,11 +7,12 @@ interface MyComponentProps {
     title: string;
     url: string;
     description?: string;
-    imageUrl: string;
+    imageUrl?: string;
     customClassName?: string;
+    children?: React.ReactNode;
 }
 
-export const Card: NextPage<MyComponentProps> = ({ title, description, url, imageUrl, customClassName }) => {
+export const Card: NextPage<MyComponentProps> = ({ title, description, url, imageUrl, children, customClassName }) => {
     return (
         <Link
             className={classNames(`card-component mr-4 ml-4 mb-4 rounded shadow-md content-center`, customClassName)}
@@ -23,7 +24,7 @@ export const Card: NextPage<MyComponentProps> = ({ title, description, url, imag
                     <p className="text-overflow-ellipsis overflow-hidden line-clamp-4">
                         {description}
                     </p>
-                    <Image
+                    {imageUrl && !children && <Image
                         className="mx-auto m-4 rounded"
                         src={imageUrl}
                         alt={`product tile image for ${title}`}
@@ -31,7 +32,12 @@ export const Card: NextPage<MyComponentProps> = ({ title, description, url, imag
                         height={100}
                         priority
                         unoptimized
-                    />
+                    />}
+                    {children && <div className="min-h-26 flex justify-center m-4">
+                        {
+                            children
+                        }
+                    </div>}
                 </section>
             </div>
         </Link>

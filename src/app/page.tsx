@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between pt-20 ">
       <div className="mb-32 grid text-center lg:w-half lg:max-w-5xl lg:grid-cols-3 lg:text-left">
-        <h1 className="text-3xl font-bold text-center mt-8 text-gray">Welcome</h1>
+        <h1 className="text-3xl font-bold text-center m-8 uppercase">Welcome</h1>
         <p className="shadow-md rounded-md bg-yellow-500/50 py-4 px-8 text-white text-center font-bold m-4">
           To save cost and energy, the website goes to sleep after some inactivity,
           please refresh the page or be patient while initial page loads.
@@ -24,7 +24,7 @@ export default function Home() {
           Deployed on onrender.com
           Images and icons are either personal or downloaded from royalty free sources.
         </p>
-        <p className="shadow-md rounded-md text-xl py-4 px-8 m-4">
+        <p className="shadow-md rounded-md px-8 m-4">
           <Card
             title="About Arnab!"
             url="/about"

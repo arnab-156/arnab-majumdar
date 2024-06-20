@@ -5,14 +5,17 @@ const urlImageDefault = "/headshot.gif"
 
 export default function About() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between pt-20 ">
-      <div className="mb-32 text-center lg:w-half lg:max-w-5xl p-2">
-        <Card
-          title="About Arnab!"
-          url="#"
-          imageUrl={urlImageDefault}
-          description="Arnab is a creative problem solver who loves working in a teams that are ideas driven!"
-        />
+    <main className="flex min-h-screen flex-col items-center justify-between pt-20">
+      <div className=" grid text-center lg:w-half lg:max-w-5xl lg:grid-cols-3 lg:text-left">
+        <div className="m-8">
+          <Card
+            title="About Arnab!"
+            url="https://www.linkedin.com/in/arnab156/"
+            imageUrl={urlImageDefault}
+            description="Arnab is a creative problem solver who loves working in a teams that are ideas driven!"
+          />
+        </div>
+
         <div className="m-8">
           Ever since I was a young boy, I was told exactly how to talk, walk,
           or understand the world around me. My own learning experiences and
@@ -43,7 +46,7 @@ export default function About() {
               at Bonobos and Shoprunner.</li>
           </ul>
 
-          <p className="m-8">
+          <p className="m-8 mb-20">
             I love learning about the world, am an outstanding painter, and love table tennis and tennis.
             I live with my husband, my cat, and several plants. My blessings are being made into a
             well-rounded individual by my parents and to have their love and support. My goal is to always
