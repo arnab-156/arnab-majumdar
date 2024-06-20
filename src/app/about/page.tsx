@@ -6,7 +6,7 @@ const urlImageDefault = "/headshot.gif"
 export default function About() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between pt-20">
-      <div className=" grid text-center lg:w-half lg:max-w-5xl lg:grid-cols-3 lg:text-left">
+      <div className="grid text-center lg:w-half lg:max-w-5xl lg:grid-cols-3 lg:text-left">
         <div className="m-8">
           <Card
             title="About Arnab!"
@@ -26,7 +26,7 @@ export default function About() {
           sophisticated “organized” retail and technology companies such as
           Reliance, Walmart, FedEx, and now EXPR has been extraordinary for me,
           and I have learned these things:
-          <ul className="list-disc pl-4 ml-6">
+          <ul className="pl-4 ml-6 text-center">
             <li>Listening and being an empathetic leader works slowly but surely
               just like the race between The Tortoise and the Hare.</li>
             <li>I love to compete and achieve individually as well as a team.
