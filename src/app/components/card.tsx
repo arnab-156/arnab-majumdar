@@ -1,18 +1,20 @@
+import type { NextPage } from 'next';
+import classNames from 'classnames';
 import Image from "next/image";
 import Link from 'next/link';
-import type { NextPage } from 'next';
 
 interface MyComponentProps {
     title: string;
     url: string;
     description?: string;
     imageUrl: string;
+    customClassName?: string;
 }
 
-export const Card: NextPage<MyComponentProps> = ({ title, description, url, imageUrl }) => {
+export const Card: NextPage<MyComponentProps> = ({ title, description, url, imageUrl, customClassName }) => {
     return (
         <Link
-            className="mr-4 ml-4 mb-4 rounded shadow-md content-center"
+            className={classNames(`card-component mr-4 ml-4 mb-4 rounded shadow-md content-center`, customClassName)}
             href={url}
         >
             <div className="bg-gray-200 p-4 rounded shadow-md hover:bg-gray-300 active:bg-gray-400 dark:bg-gray-900 hover:text-black">
