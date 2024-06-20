@@ -33,11 +33,11 @@ export const Card: NextPage<MyComponentProps> = ({ title, description, url, imag
                         priority
                         unoptimized
                     />}
-                    <div className="flex justify-center">
+                    {children && <div className="min-h-26 flex justify-center m-4">
                         {
                             children
                         }
-                    </div>
+                    </div>}
                 </section>
             </div>
         </Link>

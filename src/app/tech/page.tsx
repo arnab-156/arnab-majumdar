@@ -29,7 +29,7 @@ export default function Tech() {
           <Card
             title="Basic Calculator"
             url="/tech/calculator"
-            customClassName=""
+            description="Play around with a basic react Calculator"
           >
             <CalculatorIcon height="100px" width="100px" />
           </Card>
