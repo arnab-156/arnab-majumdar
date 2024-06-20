@@ -1,4 +1,5 @@
 import { Card } from "../components/card"
+import { CalculatorIcon } from "../components/icons";
 
 export default function Tech() {
   return (
@@ -23,6 +24,17 @@ export default function Tech() {
             description="Simple Tik Tac Toe Game for when you are bored."
           />
         </div>
+
+        <div className="m-8">
+          <Card
+            title="Basic Calculator"
+            url="/tech/calculator"
+            customClassName=""
+          >
+            <CalculatorIcon height="100px" width="100px" />
+          </Card>
+        </div>
+
         <div className="m-8">
           <Card
             title="Coming soon: Free Trivia for you to enjoy on the go!"
@@ -38,14 +50,6 @@ export default function Tech() {
             url="/tech/create-resume"
             imageUrl="/cv.png"
             description="Log in to unlock you this free service to create your own resume!"
-          />
-        </div>
-
-        <div className="m-8">
-          <Card
-            title="Coming soon: Calculator"
-            url="/tech/calculator"
-            imageUrl="/tic-tac-toe.gif"
           />
         </div>
 

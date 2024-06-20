@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from 'next/link';
+import { MenuIcon } from "../components/icons";
 
 export const Navigation = () => {
     return (<nav className="flex flex-col items-center justify-between">
@@ -7,9 +8,7 @@ export const Navigation = () => {
             <section className="group fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30 hover:h-64 hover:bg-yellow-600 hover:opacity-90">
                 <span className="animate-bounce group-hover:hidden">
                     <button type="button" className="focus:outline-none">
-                        <span className="block w-6 h-1 bg-gray-800 rounded-full"></span>
-                        <span className="block w-6 h-1 mt-1 bg-gray-800 rounded-full"></span>
-                        <span className="block w-6 h-1 mt-1 bg-gray-800 rounded-full"></span>
+                        <MenuIcon height="1.5rem" width="1.5rem" />
                     </button>
                 </span>
                 <div className="hidden group-hover:grid grid-cols-2 gap-2 sm:grid-cols-1">
