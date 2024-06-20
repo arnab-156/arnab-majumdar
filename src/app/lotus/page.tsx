@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Card } from "../components/card"
+import { PaintIcon, GreetingCardIcon, ApparelIcon } from "../components/icons";
 
 const urlImageDefault = "/headshot.gif"
 
@@ -24,24 +25,27 @@ export default function Lotus() {
           imageUrl={urlImageDefault}
           description="more information to come."
           customClassName="invert"
-        />
+        >
+          <GreetingCardIcon height="100px" width="100px" />
+        </Card>
 
         <Card
           title="Potrait Paintings"
           url="#"
-          imageUrl={urlImageDefault}
           description="more information to come."
           customClassName="invert"
-        />
+        >
+          <PaintIcon height="100px" width="100px" />
+        </Card>
 
         <Card
           title="Made of Chicago"
           url="/moc"
-          imageUrl={urlImageDefault}
           description="concept to consumer"
           customClassName="invert"
-        />
-
+        >
+          <ApparelIcon height="100px" width="100px" />
+        </Card>
       </div>
     </main>
   );

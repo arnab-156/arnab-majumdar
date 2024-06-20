@@ -18,7 +18,7 @@ export const Navigation = () => {
                     <Link className="p-2 m-2 hover:text-lg hover:underline" href="/lotus">lotus mahal</Link>
                     {/* <Link className="p-2 m-2 hover:text-lg hover:underline" href="/dashboard">login</Link> */}
                     <Link className="p-2 m-2 hover:text-lg hover:underline" href="/">home</Link>
-                    <Link className="p-2 m-2 hover:text-lg hover:underline" href="/about">about</Link>
+                    {/* <Link className="p-2 m-2 hover:text-lg hover:underline" href="/about">about</Link> */}
                 </div>
                 <Image
                     className="hidden group-hover:block relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] rounded-2xl mr-2"
