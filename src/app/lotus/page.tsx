@@ -15,7 +15,7 @@ export default function Lotus() {
         </p>
         <Card
           title="Go to Lotus Mahal!"
-          url="#"
+          url="https://lotusmahal.com/"
           imageUrl={urlImageDefault}
           description="Boutique collections of rare and beautiful treasures, inexpensive but invaluable. Click here!"
         >
