@@ -1,5 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { TriviaContext } from '../contexts/TriviaContext';
+import { createContext } from 'react';
+
+interface TriviaContextValue {
+    data: Record<string, unknown> | null; // Interface for data type
+    setData: (newData: Record<string, unknown> | null) => void; // Function type
+}
+
+const TriviaContext = createContext<TriviaContextValue>({
+    data: null, // Initial value for the data
+    setData: () => { },
+});
 
 export function TriviaProvider({ children }: any) {
     const [data, setData] = useState(null);
