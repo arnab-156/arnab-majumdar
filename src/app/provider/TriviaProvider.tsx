@@ -6,7 +6,7 @@ interface TriviaContextValue {
     setData: (newData: Record<string, unknown> | null) => void; // Function type
 }
 
-const TriviaContext = createContext<TriviaContextValue>({
+export const TriviaContext = createContext<TriviaContextValue>({
     data: null, // Initial value for the data
     setData: () => { },
 });

@@ -1,6 +1,6 @@
 'use client'
 import React, { useContext, useState } from 'react';
-import { TriviaContext } from "../../contexts/TriviaContext";
+import { TriviaContext } from "../../provider/TriviaProvider";
 import { PauseIcon, PlayIcon } from '../../components/icons';
 
 
