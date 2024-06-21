@@ -45,7 +45,7 @@ export const Navigation = () => {
                             <Image
                                 className="hover:scale-110 mr-2"
                                 src="/linkedin.gif"
-                                alt="instagram link"
+                                alt="linkedin image"
                                 width={30}
                                 height={30}
                                 unoptimized
@@ -58,7 +58,7 @@ export const Navigation = () => {
                             <Image
                                 className="hover:scale-110"
                                 src="/insta.gif"
-                                alt="instagram link"
+                                alt="instagram image"
                                 width={30}
                                 height={30}
                                 unoptimized

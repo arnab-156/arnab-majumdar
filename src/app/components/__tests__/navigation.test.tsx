@@ -12,4 +12,7 @@ test('loads and displays greeting', async () => {
     expect(screen.getByText('technology')).toBeInTheDocument();
     expect(screen.getByText('home')).toBeInTheDocument();
     expect(screen.getByText('lotus mahal')).toBeInTheDocument();
+    expect(screen.getByAltText('headshot of arnab majumdar')).toBeInTheDocument();
+    expect(screen.getByAltText('instagram image')).toBeInTheDocument();
+    expect(screen.getByAltText('linkedin image')).toBeInTheDocument();
 });
