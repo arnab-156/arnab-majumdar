@@ -37,11 +37,10 @@ export default function Tech() {
 
         <div className="m-8">
           <Card
-            title="Coming soon: Free Trivia for you to enjoy on the go!"
+            title="Free Trivia for you to enjoy on the go!"
             url="/games/quiz"
             imageUrl="/quiz.png"
             description="Log in to unlock you this free content and service!"
-            customClassName="invert"
           />
         </div>
 

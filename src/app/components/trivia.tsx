@@ -32,7 +32,6 @@ function decodeEntities(text: string) {
     });
 }
 
-
 export const Trivia: NextPage = () => {
     const { data } = useContext(TriviaContext);
     const [questionNumber, setQuestionNumber] = useState<number>(0);
@@ -47,8 +46,9 @@ export const Trivia: NextPage = () => {
 
     const maxQuestions: number = data !== null ? Number(data.length) : 0;
 
-    // re arrange the data
+    // arrange the data
     const choices = (question: TriviaPropInterface | Record<string, any> = $default) => {
+        setQuestions(question.question);
         const newRandomizedchoices: Array<string> = [...(question.incorrect_answers), question.correct_answer].sort(() => Math.random() - 0.5);
         setCorrectAnswer(question.correct_answer);
         setOptions(newRandomizedchoices);
@@ -56,7 +56,6 @@ export const Trivia: NextPage = () => {
 
 
     useEffect(() => {
-
         choices(data[questionNumber - 1]);
 
     }, [data, questionNumber]);
@@ -100,14 +99,14 @@ export const Trivia: NextPage = () => {
                         <ol>
                             {
                                 options?.map((el, idx) => (
-                                    <li key={`${decodeEntities(el)}-${idx}`} className='list-none my-4'>
+                                    <li key={`${(el)}-${idx}`} className='list-none my-4'>
                                         <input
                                             type="radio"
-                                            id={`${decodeEntities(el)}-${idx}`}
+                                            id={`${(el)}-${idx}`}
                                             name="answer"
-                                            value={decodeEntities(el)}
+                                            value={(el)}
                                             onChange={handleChange}
-                                            checked={selectedValue === decodeEntities(el)}
+                                            checked={selectedValue === (el)}
                                             className='px-2 py-2'
                                         />
                                         <label>{decodeEntities(el)}</label>
