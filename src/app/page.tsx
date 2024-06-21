@@ -23,12 +23,8 @@ export default function Home() {
         </div>
 
         <p className="shadow-md rounded-md bg-yellow-500/75 py-4 px-8 text-white text-center font-bold m-4">
-          To save cost and energy, the website goes to sleep after some inactivity,
-          please refresh the page or be patient while initial page loads.
-          <br />
-          If you are so keep to support, please continue to support
-          <Link className="p-2 m-2 hover:text-lg hover:underline" href="https://lotusmahal.com/">Lotus Mahal</Link>
-          . Images and icons are either personal/royalty free.
+          <p className="m-2"><strong className="text-black">Made with Love, Free to Use.</strong> All images and icons are carefully chosen to be either personal creations or royalty-free.</p>
+          <p className="m-2"><strong className="text-black">Thank you for your support!</strong> Please visit <Link className="p-1 m-2 rounded-md bg-blue-300 hover:text-lg hover:underline" href="https://lotusmahal.com/" aria-label="go to lotusmahal.com">Lotus Mahal</Link>.</p>
         </p>
 
         <p className="shadow-md rounded-md bg-gray-500/50 py-4 px-8 text-white text-center font-bold m-4">
@@ -39,7 +35,9 @@ export default function Home() {
             <li>Next.js</li>
             <li>Tailwind css</li>
             <li>JavaScript</li>
-            <li>Deployed on onrender.com</li>
+            <li>React Testing Library</li>
+            <li>Jest</li>
+            <li>Deployed on Vercel & Onrender</li>
           </ul>
         </p>
 
