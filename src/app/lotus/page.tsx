@@ -1,9 +1,8 @@
-import Image from "next/image";
-import { Card } from "../components/card"
+import { Card } from "../components/card";
 import { PaintIcon, GreetingCardIcon, ApparelIcon, LotusIcon } from "../components/icons";
-const pink = '#9d174d';
 
-const urlImageDefault = "/headshot.gif"
+const pink = '#9d174d';
+const urlImageDefault = "/headshot.gif";
 
 export default function Lotus() {
   return (

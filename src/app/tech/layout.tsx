@@ -1,5 +1,5 @@
 export default function TechLayout({
-    children, // will be a page or nested layout
+    children,
 }: {
     children: React.ReactNode
 }) {
