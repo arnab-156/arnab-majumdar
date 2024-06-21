@@ -1,6 +1,5 @@
-'use client'
-import React, { useContext, useState } from 'react';
-import { TriviaContext } from "../../provider/TriviaProvider";
+'use client';
+import React, { useState } from 'react';
 import { PauseIcon, PlayIcon } from '../../components/icons';
 
 

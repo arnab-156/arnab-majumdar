@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from 'next/link';
 import { Card } from "../app/components/card";
 import { CalculatorIcon } from "./components/icons";
@@ -50,7 +49,6 @@ export default function Home() {
             <CalculatorIcon height="100px" width="100px" />
           </Card>
         </div>
-
       </div>
     </main>
   );

@@ -1,5 +1,4 @@
 "use client"
-// import { TriviaProvider } from "../../provider/TriviaProvider";
 
 export default function TriviaLayout({
     children,
@@ -8,9 +7,7 @@ export default function TriviaLayout({
 }) {
     return (
         <section>
-            {/* <TriviaProvider> */}
             {children}
-            {/* </TriviaProvider> */}
         </section>
     )
 }

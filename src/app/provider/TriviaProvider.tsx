@@ -2,12 +2,12 @@ import React, { useEffect, useState } from "react";
 import { createContext } from 'react';
 
 interface TriviaContextValue {
-    data: Record<string, unknown> | null; // Interface for data type
-    setData: (newData: Record<string, unknown> | null) => void; // Function type
+    data: Record<string, unknown> | null;
+    setData: (newData: Record<string, unknown> | null) => void;
 }
 
 export const TriviaContext = createContext<TriviaContextValue>({
-    data: null, // Initial value for the data
+    data: null,
     setData: () => { },
 });
 
@@ -21,7 +21,6 @@ export function TriviaProvider({ children }: any) {
             const fetchedData = await response.json();
             setData(fetchedData.results);
         };
-
 
         fetchData();
     }, [info]);
