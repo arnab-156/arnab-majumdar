@@ -78,13 +78,12 @@ export const Trivia: NextPage = () => {
                 setMsg("Woohooo!! Correct");
                 setScore(score + 1);
             } else {
-
                 setMsg("your selected answer was wrong");
             }
 
             questionNumber + 1 < maxQuestions ? setQuestionNumber(questionNumber + 1) : setComplete(!complete);
         } else {
-            console.warn("No answer selected");
+            setMsg("Select an answer!");
         }
     };
 
