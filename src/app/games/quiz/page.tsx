@@ -1,12 +1,15 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { TriviaProvider } from '@/app/provider/TriviaProvider';
 import { PauseIcon, PlayIcon } from '../../components/icons';
+import { Trivia } from '../../components/trivia';
 
 
-export default function Trivia() {
+export default function Quiz() {
   const [startTrivia, setStartTrivia] = useState<boolean>(false);
-  // const { data } = useContext(TriviaContext);
-  // console.log("🚀 ~ Trivia ~ data:", data);
+
+  useEffect(() => {
+  }, [startTrivia]);
 
   return (
     <main className="flex min-h-screen flex-col pt-20 m-4 p-2 rounded content-center">
@@ -22,8 +25,9 @@ export default function Trivia() {
       {
         startTrivia && (
           <div className='block w-full text-center px-3 py-2 my-4 font-bold font-mono bg-gray-200'>
-            <h1>TRIVIA COMPONENT</h1>
-            <div>Coming soon!</div>
+            <TriviaProvider>
+              <Trivia />
+            </TriviaProvider>
           </div>)
       }
     </main>
