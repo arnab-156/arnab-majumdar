@@ -26,6 +26,12 @@ interface TriviaPropInterface {
     incorrect_answers: string[];
 }
 
+function decodeEntities(text: string) {
+    return text.replace(/&#(\d+);/g, (match, decimal) => {
+        return String.fromCharCode(decimal);
+    });
+}
+
 
 export const Trivia: NextPage = () => {
     const { data } = useContext(TriviaContext);
@@ -94,16 +100,17 @@ export const Trivia: NextPage = () => {
                         <ol>
                             {
                                 options?.map((el, idx) => (
-                                    <li key={`${el}-${idx}`} className='list-none my-4'>
+                                    <li key={`${decodeEntities(el)}-${idx}`} className='list-none my-4'>
                                         <input
                                             type="radio"
-                                            id={`${el}-${idx}`}
+                                            id={`${decodeEntities(el)}-${idx}`}
                                             name="answer"
-                                            value={el}
-                                            onChange={handleChange} checked={selectedValue === el}
+                                            value={decodeEntities(el)}
+                                            onChange={handleChange}
+                                            checked={selectedValue === decodeEntities(el)}
                                             className='px-2 py-2'
                                         />
-                                        <label>{el}</label>
+                                        <label>{decodeEntities(el)}</label>
                                     </li>)
                                 )
                             }
@@ -130,7 +137,7 @@ export const Trivia: NextPage = () => {
                     </fieldset>
                 </form>
 
-                <div className="flex w-full justify-end px-3 py-3 my-4 font-bold font-mono text-3xl pb-28 mr-4">
+                <div className="flex w-full justify-end px-4 py-3 my-4 font-bold font-mono text-3xl pb-28 mr-4">
                     {complete && `your final score is: `}{score} out of {maxQuestions}
                 </div>
                 <Link
