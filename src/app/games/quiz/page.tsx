@@ -20,7 +20,7 @@ export default function Quiz() {
         onClick={() => setStartTrivia(!startTrivia)}
         className="text-xl text-center flex justify-center mt-8 hover:text-white"
       >
-        {startTrivia ? <PauseIcon height="100px" width="100px" /> : <PlayIcon height="100px" width="100px" />}
+        {startTrivia ? <PauseIcon height="100px" width="100px" /> : <PlayIcon height="100px" width="100px" color="gray" />}
       </button>
       {
         startTrivia && (

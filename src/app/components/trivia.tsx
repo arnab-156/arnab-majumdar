@@ -29,12 +29,13 @@ interface TriviaPropInterface {
 
 export const Trivia: NextPage = () => {
     const { data } = useContext(TriviaContext);
-
     const [questionNumber, setQuestionNumber] = useState<number>(0);
     const [question, setQuestions] = useState<string>(String(data[questionNumber].question));
     const [correctAnswer, setCorrectAnswer] = useState<string>(String(data[questionNumber].correct_answer));
     const [score, setScore] = useState<number>(0);
     const [options, setOptions] = useState<string[]>();
+    const [complete, setComplete] = useState<boolean>(false);
+    const [msg, setMsg] = useState<string | undefined>(undefined)
 
     const [selectedValue, setSelectedValue] = useState<string | null>(null);
 
@@ -54,6 +55,10 @@ export const Trivia: NextPage = () => {
 
     }, [data, questionNumber]);
 
+    useEffect(() => {
+        setTimeout(() => setMsg(undefined), 2000);
+    }, [msg]);
+
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setSelectedValue(event.target.value);
@@ -62,15 +67,17 @@ export const Trivia: NextPage = () => {
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault(); // Prevent default form submission
 
-        if (selectedValue) {
+        if (selectedValue && questionNumber < maxQuestions) {
 
             if (selectedValue === correctAnswer) {
-                console.log("you win!! Selected answer:", selectedValue);
+                setMsg("Woohooo!! Correct");
                 setScore(score + 1);
-                setQuestionNumber(questionNumber + 1);
             } else {
-                console.log("your Selected answer was wrong", selectedValue);
+
+                setMsg("your selected answer was wrong");
             }
+
+            questionNumber + 1 < maxQuestions ? setQuestionNumber(questionNumber + 1) : setComplete(!complete);
         } else {
             console.warn("No answer selected");
         }
@@ -80,7 +87,7 @@ export const Trivia: NextPage = () => {
         <div className="m-4 p-2 rounded content-center">
             <div className="block pb-28">
 
-                <h1 className="text-lg m-2 p-4"> Question #{questionNumber + 1}: {question}  </h1>
+                <h1 className="text-lg m-2 p-4"> <strong>Question#{questionNumber + 1}:</strong> {question}  </h1>
 
                 <form className="flex flex-col m-4 p-4 bg-gray-500/80 rounded" onSubmit={handleSubmit}>
                     <fieldset>
@@ -101,20 +108,34 @@ export const Trivia: NextPage = () => {
                                 )
                             }
                         </ol>
-                        <div className='mt-4'>
-                            <button
+                        {
+                            msg && (<div className='mt-4'>
+                                <div>
+                                    <p className='px-4 py-2 font-medium text-center rounded-lg'>{msg}</p>
+                                </div>
+                            </div>)
+                        }
+
+                        {
+                            complete ? (<div className='mt-4'>
+                                <div>
+                                    <p className='px-4 py-2 font-medium text-center rounded-lg'>Completed!</p>
+                                </div>
+                            </div>) : <button
                                 type="submit"
                                 className={`px-4 py-2 font-medium text-center rounded-lg shadow-md bg-blue-200 hover:bg-blue-400`}>
                                 Submit
                             </button>
-                        </div>
+                        }
                     </fieldset>
                 </form>
 
-                {/* Evaluate the answer and update score */}
-                <div className="mt-4 pb-28">
-                    {score}
+                <div className="flex w-full justify-end px-3 py-3 my-4 font-bold font-mono text-3xl pb-28 mr-4">
+                    {complete && `your final score is: `}{score} out of {maxQuestions}
                 </div>
+                <Link
+                    href={"/tech"}
+                    className='px-6 py-2 font-small text-center rounded-sm shadow-md bg-yellow-200 ml-2'>Go Back</Link>
             </div>
 
         </div>
