@@ -1,0 +1,23 @@
+@keyframes gradientChange {
+    0% {
+        background-position: 0% 30%;
+    }
+
+    25% {
+        background-position: 50% 60%;
+    }
+
+    50% {
+        background-position: 70% 90%;
+    }
+
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+.gradientAnimation {
+    background-image: linear-gradient(to right, var(--brand-light-pink) 0%, white 50%, var(--brand-blue) 100%);
+    background-size: 200% 100%;
+    animation: gradientChange 5s ease-in-out infinite;
+}
