@@ -14,12 +14,14 @@ export default function MoC() {
           Made of ChicagoⓇ is a Chicago based fashion active wear brand primarily selling on custom designed compact vending machines!
         </p>
         <Card
-          title="More information to come!"
+          title="Interactive Vending Machines"
           url="#"
-          description="more information to come."
+          description="Activewear where you need it!"
         >
-          <ApparelIcon height="100px" width="100px" />
+          <img src="https://live.staticflickr.com/65535/53808934296_8330a5b182_w.jpg" width="338" height="400" alt="madeofchicago" className="rounded" />
         </Card>
+
+
 
         <Card
           title="More information to come!"
