@@ -1,5 +1,5 @@
 import { Card } from "../components/card"
-import { CalculatorIcon, ApparelIcon } from "../components/icons";
+import { CalculatorIcon, ComputerIcon } from "../components/icons";
 import { cardWrapperStyle } from "../utility/stylevariables";
 
 export default function Tech() {
@@ -45,7 +45,7 @@ export default function Tech() {
           />
         </div>
 
-        <div className="m-8">
+        <div className="m-4 p-4">
           <Card
             title="Coming soon: Resume Generator!"
             url="/tech/create-resume"
@@ -55,25 +55,25 @@ export default function Tech() {
           />
         </div>
 
-        <div className="m-8">
+        <div className="m-4 p-4">
           <Card
-            title="Coming soon: Course - Launch your website for free!"
+            title="Coming soon: Launch your website!"
             url="#"
-            imageUrl="/tic-tac-toe.gif"
             description="Technology education resources that are available to you!"
             customClassName="invert"
-          />
+          >
+            <ComputerIcon height="100px" width="100px" />
+          </Card>
         </div>
 
-        <div className="m-8">
+        <div className={cardWrapperStyle}>
           <Card
-            title="Coming soon: Fashion Business 101"
-            url="#"
-            description="Start your Fashion Business and all you need to know! Coming in 2025!"
-            customClassName="invert"
-          >
-            <ApparelIcon height="100px" width="100px" />
-          </Card>
+            title="Made of Chicago"
+            url="/moc"
+            imageUrl="https://live.staticflickr.com/65535/53809112039_8d183992a8_w.jpg"
+            description="Design + Technology: Click here to learn more about the design process!"
+            customClassName=""
+          />
         </div>
       </div>
     </main>

@@ -29,14 +29,14 @@ export default function Home() {
             description="All images and icons are carefully chosen to be either personal creations or royalty-free!"
             backgroundTheme={yellowBackgroundTheme}
           >
-            <p className="my-4 pb-4"><strong >Thank you for your support!</strong> Please visit <Link className={`${buttonStyle}`} href="https://lotusmahal.com/" aria-label="go to lotusmahal.com">Lotus Mahal.</Link></p>
+            <p className="my-4 pb-4"><strong >Thank you for your support!</strong> Please visit <Link className={`${buttonStyle}`} href="/lotus" aria-label="go to lotusmahal.com">Lotus Mahal.</Link></p>
           </Card>
         </div>
 
         <div className={cardWrapperStyle}>
           <Card
             title="Technologies used:"
-            url="/tech"
+            url=""
           >
             <ul className="list-disc grid grid-cols-2">
               <li className="hover:underline">React</li>

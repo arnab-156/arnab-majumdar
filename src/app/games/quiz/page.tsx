@@ -12,7 +12,7 @@ export default function Quiz() {
   }, [startTrivia]);
 
   return (
-    <main className="flex min-h-screen flex-col pt-20 m-4 p-2 rounded content-center">
+    <main className="flex min-h-screen flex-col pt-8 m-4 p-2 rounded content-center">
 
       <h1 className="text-3xl font-bold text-center mt-8">Trivia</h1>
 
@@ -24,7 +24,7 @@ export default function Quiz() {
       </button>
       {
         startTrivia && (
-          <div className='block w-full text-center px-3 py-2 my-4 font-bold font-mono bg-gray-200'>
+          <div className='block text-center px-3 py-2 font-bold font-mono bg-gray-200 max-w-3xl mx-auto my-0 justify center'>
             <TriviaProvider>
               <Trivia />
             </TriviaProvider>
