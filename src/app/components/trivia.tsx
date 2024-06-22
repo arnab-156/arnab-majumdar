@@ -4,6 +4,7 @@ import { useEffect, useState, useContext } from "react";
 import Link from 'next/link';
 import { TriviaContext } from '../provider/TriviaProvider';
 import { decodeEntities } from '../utility/utilities';
+import { buttonStyle, invertedButtonStyle } from '../utility/stylevariables';
 
 const $default = {
     "type": "multiple",
@@ -82,7 +83,7 @@ export const Trivia: NextPage = () => {
     };
 
     return (
-        <div className="m-4 p-2 rounded content-center">
+        <div className="m-4 p-2 rounded content-center pb-28">
             <div className="block pb-28">
                 <h1 className="text-lg m-2 p-4"><strong>Question#{questionNumber + 1}: </strong>{question}</h1>
                 <form className="flex flex-col m-4 p-4 bg-gray-500/80 rounded" onSubmit={handleSubmit}>
@@ -132,11 +133,10 @@ export const Trivia: NextPage = () => {
                 </div>
                 <Link
                     href={"/tech"}
-                    className='px-6 py-2 font-small text-center rounded-sm shadow-md bg-yellow-200 ml-2'>
+                    className={`${invertedButtonStyle} px-6 py-2`}>
                     Go Back
                 </Link>
             </div>
-
         </div>
     );
 }

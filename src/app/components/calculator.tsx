@@ -24,7 +24,7 @@ export const Calculator: NextPage = () => {
         setSecondValue("0");
         setError(undefined);
         setCurrentValue('0');
-    }
+    };
 
     const calculateValue = (operation: string, currentValue: string, secondValue: string) => {
         switch (operation) {
@@ -51,7 +51,7 @@ export const Calculator: NextPage = () => {
             default:
                 break;
         }
-    }
+    };
 
     const handleOperatorsClick = (val: string, firstValue: string, secondValue: string, currOperation?: string) => {
         switch (val) {

@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import Link from 'next/link';
 import type { NextPage } from 'next';
+import { buttonStyle, invertedButtonStyle } from "../utility/stylevariables";
 
 type Player = "X" | "O"
 
@@ -100,12 +101,12 @@ export const TicTacToe: NextPage = () => {
             <div className="my-4">
                 <button
                     onClick={handleRefresh}
-                    className="bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded-md focus:outline-none"
+                    className={`${invertedButtonStyle} py-2 px-4`}
                 >
                     Refresh
                 </button>
                 <Link
-                    className="p-2 m-2 hover:text-lg hover:underline"
+                    className={`${buttonStyle} py-2.5 px-4`}
                     href="/tech">
                     Go Back
                 </Link>
