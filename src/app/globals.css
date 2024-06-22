@@ -19,6 +19,24 @@
   }
 }
 
+@keyframes gradientChange {
+  0% {
+    background-position: 0% 30%;
+  }
+
+  25% {
+    background-position: 50% 60%;
+  }
+
+  50% {
+    background-position: 70% 90%;
+  }
+
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(to bottom,
