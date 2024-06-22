@@ -10,15 +10,16 @@ interface MyComponentProps {
     imageUrl?: string;
     customClassName?: string;
     children?: React.ReactNode;
+    backgroundTheme?: string;
 }
 
-export const Card: NextPage<MyComponentProps> = ({ title, description, url, imageUrl, children, customClassName }) => {
+export const Card: NextPage<MyComponentProps> = ({ title, description, url, imageUrl, children, customClassName, backgroundTheme = "" }) => {
     return (
         <Link
             className={classNames(`card-component mr-4 ml-4 mb-4 rounded shadow-md content-center`, customClassName)}
             href={url}
         >
-            <div className="bg-gray-200 p-4 rounded shadow-md hover:bg-gray-300 active:bg-gray-400 dark:bg-gray-900 hover:text-black">
+            <div className={`p-4 rounded shadow-md bg-gray-200 hover:bg-gray-300 active:bg-gray-400 dark:bg-gray-900 ${backgroundTheme}`}>
                 <h3 className="font-bold text-overflow-ellipsis overflow-hidden line-clamp-1">{title}</h3>
                 <section className="p-2 flex flex-col justify-center">
                     <p className="text-overflow-ellipsis overflow-hidden line-clamp-4">

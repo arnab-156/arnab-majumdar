@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { Card } from "../app/components/card";
 import { CalculatorIcon } from "./components/icons";
-import { cardWrapperStyle } from './utility/stylevariables';
+import { cardWrapperStyle, yellowBackgroundTheme, buttonStyle } from './utility/stylevariables';
 
 export default function Home() {
   return (
@@ -27,8 +27,9 @@ export default function Home() {
             title="Made with Love, Free to Use"
             url="/tech"
             description="All images and icons are carefully chosen to be either personal creations or royalty-free!"
+            backgroundTheme={yellowBackgroundTheme}
           >
-            <p className="m-2"><strong >Thank you for your support!</strong> Please visit <Link className="p-1 m-2 rounded-md bg-blue-300 hover:text-lg hover:underline" href="https://lotusmahal.com/" aria-label="go to lotusmahal.com">Lotus Mahal.</Link></p>
+            <p className="my-4 pb-4"><strong >Thank you for your support!</strong> Please visit <Link className={`${buttonStyle}`} href="https://lotusmahal.com/" aria-label="go to lotusmahal.com">Lotus Mahal.</Link></p>
           </Card>
         </div>
 
@@ -55,7 +56,7 @@ export default function Home() {
           <Card
             title="Go to Games and Utilities"
             url="/tech"
-            description="Play games, trivia, and use calculator. Features will be added frequently such as tip calculator and resume builder are coming soon!"
+            description="Play games, trivia, and use calculator. More Features are coming soon!"
           >
             <CalculatorIcon height="100px" width="100px" />
           </Card>
