@@ -45,7 +45,7 @@ export default function Tech() {
           />
         </div>
 
-        <div className="m-8">
+        <div className="m-4 p-4">
           <Card
             title="Coming soon: Resume Generator!"
             url="/tech/create-resume"
@@ -55,7 +55,7 @@ export default function Tech() {
           />
         </div>
 
-        <div className="m-8">
+        <div className="m-4 p-4">
           <Card
             title="Coming soon: Launch your website!"
             url="#"
@@ -66,7 +66,7 @@ export default function Tech() {
           </Card>
         </div>
 
-        <div className="m-8">
+        <div className={cardWrapperStyle}>
           <Card
             title="Made of Chicago"
             url="/moc"
@@ -75,8 +75,6 @@ export default function Tech() {
             customClassName=""
           />
         </div>
-
-
       </div>
     </main>
   );

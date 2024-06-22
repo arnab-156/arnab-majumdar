@@ -36,7 +36,7 @@ export default function Home() {
         <div className={cardWrapperStyle}>
           <Card
             title="Technologies used:"
-            url="/tech"
+            url=""
           >
             <ul className="list-disc grid grid-cols-2">
               <li className="hover:underline">React</li>
