@@ -18,17 +18,19 @@ export const Navigation = () => {
                     <Link className="p-2 m-2 hover:text-lg hover:underline" href="/lotus">lotus mahal</Link>
                     {/* <Link className="p-2 m-2 hover:text-lg hover:underline" href="/dashboard">login</Link> */}
                     <Link className="p-2 m-2 hover:text-lg hover:underline" href="/">home</Link>
-                    {/* <Link className="p-2 m-2 hover:text-lg hover:underline" href="/about">about</Link> */}
                 </div>
-                <Image
-                    className="hidden group-hover:block relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] rounded-2xl mr-2"
-                    src="/headshot.gif"
-                    alt="headshot of arnab majumdar"
-                    width={200}
-                    height={100}
-                    priority
-                    unoptimized
-                />
+
+                <Link className="" href="/about">
+                    <Image
+                        className="hidden group-hover:block relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] rounded-2xl mr-2"
+                        src="/headshot.gif"
+                        alt="headshot of arnab majumdar"
+                        width={200}
+                        height={100}
+                        priority
+                        unoptimized
+                    />
+                </Link>
             </section>
             <section className="group fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black hover:bg-yellow-600 hover:h-22">
                 <span className="animate-pulse group-hover:hidden">Copy rights information. All Rights Reserved.</span>
@@ -66,7 +68,6 @@ export const Navigation = () => {
                         </a>
                     </div>
                 </div>
-
             </section>
         </div>
     </nav>
