@@ -36,6 +36,7 @@ export default function Lotus() {
           url={`bg-[url('https://live.staticflickr.com/65535/53807873807_014bfe7fc8_w.jpg')] `}
           customClassName={cardWrapperStyle}
           imageContain
+          shadowColor="shadow-blue-800"
         />
 
         <Tile
