@@ -1,5 +1,6 @@
 import { Card } from "../components/card"
 import { CalculatorIcon, ApparelIcon } from "../components/icons";
+import { cardWrapperStyle } from "../utility/stylevariables";
 
 export default function Tech() {
   return (
@@ -16,7 +17,7 @@ export default function Tech() {
           use of many of the paid services. For now, the service is free to use!
           More information to come!
         </p>
-        <div className="m-8">
+        <div className={cardWrapperStyle}>
           <Card
             title="Free Tic Tac Toe game for you to enjoy on the go!"
             url="/games/tic-tac-toe"
@@ -25,7 +26,7 @@ export default function Tech() {
           />
         </div>
 
-        <div className="m-8">
+        <div className={cardWrapperStyle}>
           <Card
             title="Basic Calculator"
             url="/tech/calculator"
@@ -35,12 +36,12 @@ export default function Tech() {
           </Card>
         </div>
 
-        <div className="m-8">
+        <div className={cardWrapperStyle}>
           <Card
             title="Free Trivia for you to enjoy on the go!"
             url="/games/quiz"
             imageUrl="/quiz.png"
-            description="Log in to unlock you this free content and service!"
+            description="Version 1 is live! Version 2 coming soon!"
           />
         </div>
 

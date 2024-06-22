@@ -32,7 +32,7 @@ export function TriviaProvider({ children }: any) {
             const response = await fetch(`https://opentdb.com/api.php?amount=${info.amount}&difficulty=${info.diff}&type=multiple`);
             const fetchedData = await response.json();
 
-            const results = fetchedData?.results ? fetchedData.results : [$default]
+            const results = fetchedData?.results ? fetchedData.results : $default;
             setData(results);
         };
 

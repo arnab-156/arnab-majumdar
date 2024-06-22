@@ -3,6 +3,8 @@ import type { NextPage } from 'next';
 import { useEffect, useState, useContext } from "react";
 import Link from 'next/link';
 import { TriviaContext } from '../provider/TriviaProvider';
+import { decodeEntities } from '../utility/utilities';
+import { buttonStyle, invertedButtonStyle } from '../utility/stylevariables';
 
 const $default = {
     "type": "multiple",
@@ -26,12 +28,6 @@ interface TriviaPropInterface {
     incorrect_answers: string[];
 }
 
-function decodeEntities(text: string) {
-    return text.replace(/&#(\d+);/g, (match, decimal) => {
-        return String.fromCharCode(decimal);
-    });
-}
-
 export const Trivia: NextPage = () => {
     const { data } = useContext(TriviaContext);
     const [questionNumber, setQuestionNumber] = useState<number>(0);
@@ -48,12 +44,11 @@ export const Trivia: NextPage = () => {
 
     // arrange the data
     const choices = (question: TriviaPropInterface | Record<string, any> = $default) => {
-        setQuestions(question.question);
+        setQuestions(decodeEntities(question.question));
         const newRandomizedchoices: Array<string> = [...(question.incorrect_answers), question.correct_answer].sort(() => Math.random() - 0.5);
         setCorrectAnswer(question.correct_answer);
         setOptions(newRandomizedchoices);
     };
-
 
     useEffect(() => {
         choices(data[questionNumber - 1]);
@@ -70,7 +65,7 @@ export const Trivia: NextPage = () => {
     };
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault(); // Prevent default form submission
+        event.preventDefault();
 
         if (selectedValue && questionNumber < maxQuestions) {
 
@@ -88,11 +83,9 @@ export const Trivia: NextPage = () => {
     };
 
     return (
-        <div className="m-4 p-2 rounded content-center">
+        <div className="m-4 p-2 rounded content-center pb-28">
             <div className="block pb-28">
-
-                <h1 className="text-lg m-2 p-4"> <strong>Question#{questionNumber + 1}:</strong> {question}  </h1>
-
+                <h1 className="text-lg m-2 p-4"><strong>Question#{questionNumber + 1}: </strong>{question}</h1>
                 <form className="flex flex-col m-4 p-4 bg-gray-500/80 rounded" onSubmit={handleSubmit}>
                     <fieldset>
                         <ol>
@@ -140,9 +133,10 @@ export const Trivia: NextPage = () => {
                 </div>
                 <Link
                     href={"/tech"}
-                    className='px-6 py-2 font-small text-center rounded-sm shadow-md bg-yellow-200 ml-2'>Go Back</Link>
+                    className={`${invertedButtonStyle} px-6 py-2`}>
+                    Go Back
+                </Link>
             </div>
-
         </div>
     );
 }
