@@ -10,6 +10,7 @@
   --brand-light-pink: #fcd9ed;
   --brand-blue: #c8e1fe;
   --brand-white: white;
+  --brand-gray: gray;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -21,6 +22,7 @@
     --brand-light-pink: black;
     --brand-blue: #1c2e4a;
     --brand-white: gray;
+    --brand-gray: #c8e1fe;
   }
 }
 
