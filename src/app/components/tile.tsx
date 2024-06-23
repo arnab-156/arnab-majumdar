@@ -20,7 +20,7 @@ export const Tile: NextPage<MyTileComponent> = ({ title, subTitle, href, url, sh
           hover:drop-shadow-lg hover:scale-105 hover:duration-300  ${customClassName}
           `}
         >
-            <div className="p-4 m-2 bg-white/40 rounded absolute bottom-0">
+            <div className="p-4 m-2 bg-white/40 rounded absolute bottom-0 dark:text-black">
                 <h2 className="font-bold text-overflow-ellipsis overflow-hidden line-clamp-1">{title}</h2>
                 <h3 className="text-overflow-ellipsis overflow-hidden line-clamp-3 text-xs">
                     {subTitle}
