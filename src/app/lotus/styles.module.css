@@ -17,7 +17,7 @@
 }
 
 .gradientAnimation {
-    background-image: linear-gradient(275deg, var(--brand-light-pink) 0%, white 50%, var(--brand-blue) 100%);
+    background-image: linear-gradient(275deg, var(--brand-light-pink) 0%, var(--brand-white) 50%, var(--brand-blue) 100%);
     background-size: 200% 100%;
     animation: gradientChange 5s ease-in-out infinite;
 }
