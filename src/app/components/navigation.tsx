@@ -4,14 +4,14 @@ import { MenuIcon } from "../components/icons";
 
 export const Navigation = () => {
     return (<nav className="flex flex-col items-center justify-between">
-        <div className="z-10 w-full items-center justify-between font-mono text-sm">
-            <section className="group fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30 hover:h-fit hover:min-h-60 hover:bg-yellow-600 hover:opacity-90">
-                <span className="animate-bounce group-hover:hidden">
+        <div className="z-10 w-full items-center justify-between flex justify-content font-mono text-sm">
+            <section className="group rounded fixed flex w-3/4 ml-[13%] hover:w-full hover:ml-0 sm:ml-0 sm:w-full lg:w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 py-3 backdrop-blur-md dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30 hover:h-fit hover:min-h-60 hover:bg-yellow-600 dark:hover:bg-black hover:opacity-90 left-0 bottom-3 lg:top-0">
+                <span className="group-hover:hidden">
                     <button type="button" className="focus:outline-none">
                         <MenuIcon height="1.5rem" width="1.5rem" />
                     </button>
                 </span>
-                <div className="hidden grid-cols-3 gap-4 group-hover:grid sm:grid-cols-4 sm:gap-2">
+                <div className="hidden grid-cols-3 gap-8 group-hover:grid sm:grid-cols-4 sm:gap-2">
                     <Link className="p-2 m-2 hover:text-lg hover:underline" href="/tech">
                         technology
                     </Link>
@@ -34,7 +34,7 @@ export const Navigation = () => {
 
 
             </section>
-            <section className="group fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black hover:bg-yellow-600 hover:h-fit">
+            <section className="group fixed left-0 top-0 lg:top-auto lg:bottom-0 flex w-full items-end justify-center bg-gradient-to-b from-zinc-200 via-white dark:from-black dark:via-black hover:bg-yellow-600 hover:h-fit">
                 <span className="animate-pulse mt-2 group-hover:hidden">Copy rights information. All Rights Reserved.</span>
                 <div className="hidden group-hover:block m-4 mt-0">
                     <p className="mb-2 mt-2">
