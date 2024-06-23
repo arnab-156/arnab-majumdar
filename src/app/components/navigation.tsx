@@ -4,8 +4,8 @@ import { MenuIcon } from "../components/icons";
 
 export const Navigation = () => {
     return (<nav className="flex flex-col items-center justify-between">
-        <div className="z-10 w-full items-center justify-between font-mono text-sm">
-            <section className="group fixed flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 py-3 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30 hover:h-fit hover:min-h-60 hover:bg-yellow-600 hover:opacity-90 left-0 bottom-0 lg:top-0">
+        <div className="z-10 w-full items-center justify-between flex justify-content font-mono text-sm">
+            <section className="group fixed flex w-3/4 ml-[13%] hover:w-full hover:ml-0 sm:ml-0 sm:w-full lg:w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 py-3 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30 hover:h-fit hover:min-h-60 hover:bg-yellow-600 hover:opacity-90 left-0 bottom-3 lg:top-0">
                 <span className="animate-bounce group-hover:hidden">
                     <button type="button" className="focus:outline-none">
                         <MenuIcon height="1.5rem" width="1.5rem" />
