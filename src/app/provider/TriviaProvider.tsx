@@ -2,8 +2,10 @@ import React, { useEffect, useState } from "react";
 import { createContext } from 'react';
 
 interface TriviaContextValue {
-    data: Array<Record<string, unknown>>;
-    setData: (newData: Record<string, unknown> | null) => void;
+    data?: Array<Record<string, unknown>>;
+    setInfo: (newData: TriviaInputProps) => void;
+    isLoading: boolean;
+    errorMsg: string;
 }
 const $default = [{
     "type": "multiple",
@@ -19,28 +21,58 @@ const $default = [{
 }];
 
 export const TriviaContext = createContext<TriviaContextValue>({
-    data: $default,
-    setData: () => { },
+    data: undefined,
+    setInfo: () => { },
+    isLoading: false,
+    errorMsg: "",
 });
 
+export type TriviaInputProps = {
+    amount: number,
+    difficulty?: string,
+    category?: number,
+};
+
 export function TriviaProvider({ children }: any) {
-    const [data, setData] = useState($default);
-    const [info, setInfo] = useState({ amount: 5, diff: "hard" });
+    const [data, setData] = useState<Array<Record<string, unknown>>>();
+    const [info, setInfo] = useState<TriviaInputProps>({ amount: 5 });
+    const [isLoading, setIsLoading] = useState(false);
+    const [errorMsg, setErrorMsg] = useState<string>("");
 
     useEffect(() => {
-        const fetchData = async () => {
-            const response = await fetch(`https://opentdb.com/api.php?amount=${info.amount}&difficulty=${info.diff}&type=multiple`);
-            const fetchedData = await response.json();
+        const difficultyString = info?.difficulty ? `&difficulty=${info.difficulty}` : "";
+        const categoryNumber = info?.category ? `&category=${info.category}` : "";
 
-            const results = fetchedData?.results ? fetchedData.results : $default;
-            setData(results);
+        const fetchData = async () => {
+            setIsLoading(true);
+
+            try {
+                const response = await fetch(`https://opentdb.com/api.php?amount=${info.amount}${difficultyString}&type=multiple${categoryNumber}`);
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
+
+                const results = data?.results ? data.results : $default;
+                setData(results);
+
+            } catch (error) {
+                setErrorMsg("Oops! There was an error fetching your data");
+            } finally {
+
+                setTimeout(() => {
+                    setIsLoading(false);
+                    setErrorMsg("")
+                }, 2000);
+            }
         };
 
         fetchData();
     }, [info]);
 
     return (
-        <TriviaContext.Provider value={{ data, setData: () => setInfo }}>
+        <TriviaContext.Provider value={{ data, setInfo, isLoading, errorMsg }}>
             {children}
         </TriviaContext.Provider>
     );
