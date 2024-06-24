@@ -7,11 +7,11 @@ export default function Tech() {
     <main className="flex min-h-screen flex-col items-center justify-between pt-20 ">
       <div className="mb-32 grid text-center lg:w-half lg:max-w-5xl lg:grid-cols-3 lg:text-left">
         <h1 className="text-3xl font-bold text-center m-8 uppercase dark:text-black">Technology</h1>
-        <p className="m-6 dark:text-black">
+        <h2 className="m-6 dark:text-black">
           Highlights simple lightweight code and projects for fun and pleasure.
           Made to demonstate simple front end web technologies as games and utilities to
           be used from your phone.
-        </p>
+        </h2>
         <p className="m-6 dark:text-black">
           Some projects might need you to log in. This is to remove anonymous
           use of many of the paid services. For now, the service is free to use!
