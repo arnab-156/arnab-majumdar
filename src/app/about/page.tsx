@@ -14,6 +14,7 @@ export default function About() {
             imageUrl={urlImageDefault}
             description="Arnab is a creative problem solver who loves working in a teams that are ideas driven!"
           />
+          <p className="">My Gallup CliftonStrengths are <strong>Input, Achiever, Ideation, Futuristic, Learner</strong>.</p>
         </div>
 
         <div className="m-8">

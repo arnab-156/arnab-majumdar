@@ -19,13 +19,20 @@ export default function Tech() {
         </p>
         <div className={cardWrapperStyle}>
           <Card
+            title="Free Trivia for you to enjoy on the go!"
+            url="/games/quiz"
+            imageUrl="/quiz.png"
+            description="Version 1 is live! Version 2 coming soon!"
+          />
+        </div>
+        <div className={cardWrapperStyle}>
+          <Card
             title="Free Tic Tac Toe game for you to enjoy on the go!"
             url="/games/tic-tac-toe"
             imageUrl="/tic-tac-toe.gif"
             description="Simple Tik Tac Toe Game for when you are bored."
           />
         </div>
-
         <div className={cardWrapperStyle}>
           <Card
             title="Basic Calculator"
@@ -35,16 +42,6 @@ export default function Tech() {
             <CalculatorIcon height="100px" width="100px" />
           </Card>
         </div>
-
-        <div className={cardWrapperStyle}>
-          <Card
-            title="Free Trivia for you to enjoy on the go!"
-            url="/games/quiz"
-            imageUrl="/quiz.png"
-            description="Version 1 is live! Version 2 coming soon!"
-          />
-        </div>
-
         <div className="m-4 p-4">
           <Card
             title="Coming soon: Resume Generator!"
@@ -54,7 +51,6 @@ export default function Tech() {
             customClassName="invert"
           />
         </div>
-
         <div className="m-4 p-4">
           <Card
             title="Coming soon: Launch your website!"
@@ -65,7 +61,6 @@ export default function Tech() {
             <ComputerIcon height="100px" width="100px" />
           </Card>
         </div>
-
         <div className={cardWrapperStyle}>
           <Card
             title="Made of Chicago"

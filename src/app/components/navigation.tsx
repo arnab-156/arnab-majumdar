@@ -47,12 +47,8 @@ export const Navigation = () => {
                 transition ease-in-out delay-150 group-hover:duration-300
                 `
             }>
-                <span className="animate-pulse mt-2 group-hover:hidden">contact information.</span>
+                <span className="animate-pulse mt-2 group-hover:hidden">contact information</span>
                 <div className="hidden group-hover:block mx-4 mt-0">
-                    <p className="mb-2 mt-2">
-                        My Gallup CliftonStrengths are <strong>Input, Achiever, Ideation, Futuristic, Learner</strong>.
-                        Connect with me to learn more:
-                    </p>
                     <div className="group-hover:flex justify-content-center">
                         <Link
                             href="https://www.linkedin.com/in/arnab156/"
@@ -80,8 +76,9 @@ export const Navigation = () => {
                                 unoptimized
                             />
                         </Link>
-                        <p>Copy rights and all Rights Reserved.</p>
+
                     </div>
+                    <p className="mb-2 mt-2">Copyrights and all Rights Reserved.</p>
                 </div>
             </section>
         </div>
