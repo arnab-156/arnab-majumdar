@@ -4,7 +4,7 @@ import { MenuIcon, LotusIcon } from "../components/icons";
 
 export const Navigation = () => {
     return (<nav className="flex flex-col items-center justify-between">
-        <div className="z-10 w-full items-center justify-between flex justify-content font-mono text-sm">
+        <div className="z-10 w-full items-center justify-between flex justify-content font-mono text-sm lg:text-transparent hover:lg:text-black lg:shadow-2xl lg:shadow-yellow-600/40 hover:lg:shadow-none">
             <section className={`group rounded-[36px] fixed flex w-3/4 ml-[13%] sm:ml-0 py-3 justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 backdrop-blur-md 
              dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit 
              sm:w-full lg:w-full lg:static lg:w-auto lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30 
@@ -12,12 +12,12 @@ export const Navigation = () => {
              left-0 bottom-3 lg:top-0 
              transition ease-in-out delay-150 group-hover:duration-300
              `}>
-                <span className="group-hover:hidden">
-                    <button type="button" className="focus:outline-none" aria-label="open menu to navigate">
+                <p className="group-hover:hidden lg:hidden">
+                    <button type="button" className="focus:outline-none " aria-label="open menu to navigate">
                         <MenuIcon height="1.5rem" width="1.5rem" />
                     </button>
-                </span>
-                <div className="hidden grid-cols-3 group-hover:grid sm:grid-cols-4 sm:gap-2">
+                </p>
+                <div className="hidden grid-cols-3 group-hover:grid sm:grid-cols-4 sm:gap-2 lg:grid">
                     <Link className="flex justify-center items-center hover:underline" href="/lotus">
                         <span className="p-2 m-2 block text-blue-500 sm:hidden"><LotusIcon height={"50px"} width={"50px"} className="hover:bg-pink-300 hover:rounded-full" /></span>
                         <span className="hidden sm:block hover:text-lg">lotus mahal</span>
