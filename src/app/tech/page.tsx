@@ -7,16 +7,24 @@ export default function Tech() {
     <main className="flex min-h-screen flex-col items-center justify-between pt-20 ">
       <div className="mb-32 grid text-center lg:w-half lg:max-w-5xl lg:grid-cols-3 lg:text-left">
         <h1 className="text-3xl font-bold text-center m-8 uppercase dark:text-black">Technology</h1>
-        <p className="m-6 dark:text-black">
+        <h2 className="m-6 dark:text-black">
           Highlights simple lightweight code and projects for fun and pleasure.
           Made to demonstate simple front end web technologies as games and utilities to
           be used from your phone.
-        </p>
+        </h2>
         <p className="m-6 dark:text-black">
           Some projects might need you to log in. This is to remove anonymous
           use of many of the paid services. For now, the service is free to use!
           More information to come!
         </p>
+        <div className={cardWrapperStyle}>
+          <Card
+            title="Free Trivia for you to enjoy on the go!"
+            url="/games/quiz"
+            imageUrl="/quiz.png"
+            description="Version 1 is live! Version 2 coming soon!"
+          />
+        </div>
         <div className={cardWrapperStyle}>
           <Card
             title="Free Tic Tac Toe game for you to enjoy on the go!"
@@ -25,7 +33,6 @@ export default function Tech() {
             description="Simple Tik Tac Toe Game for when you are bored."
           />
         </div>
-
         <div className={cardWrapperStyle}>
           <Card
             title="Basic Calculator"
@@ -35,16 +42,6 @@ export default function Tech() {
             <CalculatorIcon height="100px" width="100px" />
           </Card>
         </div>
-
-        <div className={cardWrapperStyle}>
-          <Card
-            title="Free Trivia for you to enjoy on the go!"
-            url="/games/quiz"
-            imageUrl="/quiz.png"
-            description="Version 1 is live! Version 2 coming soon!"
-          />
-        </div>
-
         <div className="m-4 p-4">
           <Card
             title="Coming soon: Resume Generator!"
@@ -54,7 +51,6 @@ export default function Tech() {
             customClassName="invert"
           />
         </div>
-
         <div className="m-4 p-4">
           <Card
             title="Coming soon: Launch your website!"
@@ -65,7 +61,6 @@ export default function Tech() {
             <ComputerIcon height="100px" width="100px" />
           </Card>
         </div>
-
         <div className={cardWrapperStyle}>
           <Card
             title="Made of Chicago"

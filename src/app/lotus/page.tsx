@@ -9,9 +9,9 @@ export default function Lotus() {
     <main className="flex min-h-screen flex-col items-center justify-between pt-20 ">
       <div className="mb-32 grid text-center lg:w-half lg:max-w-5xl lg:grid-cols-3 lg:text-left pb-60 px-6">
         <h1 className="text-3xl font-bold text-center m-8 uppercase text-pink-800">Welcome to Lotus Mahal</h1>
-        <p className="text-xl font-bold text-center m-8 dark:invert">
+        <h2 className="text-xl font-bold text-center m-8 dark:invert">
           Boutique collections of rare and beautiful treasures, inexpensive but invaluable.
-        </p>
+        </h2>
         <Card
           title="Go to Lotus Mahal!"
           url="https://lotusmahal.com/"
