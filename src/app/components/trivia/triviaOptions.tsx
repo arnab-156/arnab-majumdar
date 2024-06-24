@@ -57,12 +57,23 @@ export const TriviaOptions: NextPage = () => {
         setLoading(true);
         setTimeout(() => {
             setShowTrivia(!showTrivia);
+            setTimeout(() => setLoading(false), 1500);
         }, 5000);
     };
 
     return (
         <div className="rounded content-center pb-28">
-            <h1 className="text-3xl font-bold text-center capitalize flex"> Choose options and press <span className='ml-2'><PlayIcon height="40px" width="40px" /></span></h1>
+            <h1 className="text-center capitalize flex w-full justify-center px-4 py-3 my-4 font-bold font-mono text-3xl mr-4">
+                {
+                    !showTrivia && !loading && <>Choose options and press <span className='sm:ml-2 mt-2 sm:mt-0'><PlayIcon height="40px" width="40px" /></span></>
+                }
+                {
+                    showTrivia && loading && <span className='sm:ml-2 mt-2 sm:mt-0'>Enjoy the game!</span>
+                }
+                {
+                    loading && !showTrivia && <span className='sm:ml-2 mt-2 sm:mt-0'>Questions are loading... best of luck!</span>
+                }
+            </h1>
             {
                 showTrivia ? <Trivia maxQuestions={information.amount} /> : (
                     <div className='pb-28 flex flex-start flex-col'>
