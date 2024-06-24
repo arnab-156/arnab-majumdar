@@ -2,24 +2,11 @@
 import type { NextPage } from 'next';
 import { useEffect, useState, useContext } from "react";
 import Link from 'next/link';
-import { TriviaContext } from '../provider/TriviaProvider';
-import { decodeEntities } from '../utility/utilities';
-import { buttonStyle, invertedButtonStyle } from '../utility/stylevariables';
+import { TriviaContext } from '../../provider/TriviaProvider';
+import { decodeEntities } from '../../utility/utilities';
+import { buttonStyle, invertedButtonStyle } from '../../utility/stylevariables';
 
-const $default = {
-    "type": "multiple",
-    "difficulty": "hard",
-    "category": "Science &amp; Nature",
-    "question": "What physics principle relates the net electric flux out of a closed surface to the charge enclosed by that surface?",
-    "correct_answer": "Gauss&#039;s Law",
-    "incorrect_answers": [
-        "Faraday&#039;s Law",
-        "Ampere&#039;s Law",
-        "Biot-Savart Law"
-    ]
-};
-
-interface TriviaPropInterface {
+export interface TriviaPropInterface {
     type: string;
     difficulty: string;
     question: string;
@@ -28,37 +15,40 @@ interface TriviaPropInterface {
     incorrect_answers: string[];
 }
 
-export const Trivia: NextPage = () => {
+type TriviaType = {
+    maxQuestions: number,
+};
+
+export const Trivia: NextPage<TriviaType> = ({ maxQuestions }) => {
     const { data } = useContext(TriviaContext);
     const [questionNumber, setQuestionNumber] = useState<number>(0);
-    const [question, setQuestions] = useState<string>(String(data[questionNumber].question));
-    const [correctAnswer, setCorrectAnswer] = useState<string>(String(data[questionNumber].correct_answer));
+    const [question, setQuestions] = useState<string>((data && data[questionNumber] && data[questionNumber].question) ? String(data[questionNumber].question) : "");
+    const [correctAnswer, setCorrectAnswer] = useState<string>((data && data[questionNumber] && data[questionNumber].question) ? String(data[questionNumber].correct_answer) : "");
     const [score, setScore] = useState<number>(0);
     const [options, setOptions] = useState<string[]>();
     const [complete, setComplete] = useState<boolean>(false);
-    const [msg, setMsg] = useState<string | undefined>(undefined)
+    const [msg, setMsg] = useState<string | undefined>(undefined);
 
     const [selectedValue, setSelectedValue] = useState<string | null>(null);
 
-    const maxQuestions: number = data !== null ? Number(data.length) : 0;
 
     // arrange the data
-    const choices = (question: TriviaPropInterface | Record<string, any> = $default) => {
-        setQuestions(decodeEntities(question.question));
-        const newRandomizedchoices: Array<string> = [...(question.incorrect_answers), question.correct_answer].sort(() => Math.random() - 0.5);
-        setCorrectAnswer(question.correct_answer);
+    const choices = (questionObj: TriviaPropInterface | Record<string, any>) => {
+        setQuestions(decodeEntities(questionObj?.question));
+        const newRandomizedchoices: Array<string> = [...(questionObj.incorrect_answers), questionObj.correct_answer].sort(() => Math.random() - 0.5);
+        setCorrectAnswer(decodeEntities(questionObj.correct_answer));
         setOptions(newRandomizedchoices);
     };
 
     useEffect(() => {
-        choices(data[questionNumber - 1]);
+        const questionObj = data && data[questionNumber];
+        (questionObj) ? choices(questionObj) : null;
 
     }, [data, questionNumber]);
 
     useEffect(() => {
         setTimeout(() => setMsg(undefined), 2000);
     }, [msg]);
-
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setSelectedValue(event.target.value);
@@ -82,10 +72,23 @@ export const Trivia: NextPage = () => {
         }
     };
 
+
+    if (!data) {
+        return (<div className="m-4 p-2 rounded content-center pb-28">
+            <h1>There was a problem, please try again!</h1>
+            <button
+                onClick={() => window.location.reload}
+                className={`${buttonStyle} px-6 py-2`}>
+                Refresh
+            </button>
+        </div>);
+    }
+
+
     return (
         <div className="m-4 p-2 rounded content-center pb-28">
             <div className="block pb-28">
-                <h1 className="text-lg m-2 p-4"><strong>Question#{questionNumber + 1}: </strong>{question}</h1>
+                <h1 className="text-lg m-2 p-4"><strong>Question#{questionNumber + 1}: </strong>{decodeEntities(question)}</h1>
                 <form className="flex flex-col m-4 p-4 bg-gray-500/80 rounded" onSubmit={handleSubmit}>
                     <fieldset>
                         <ol>
