@@ -3,9 +3,7 @@ import type { NextPage } from 'next';
 import { useEffect, useState, useContext } from "react";
 import Link from 'next/link';
 import { TriviaContext, TriviaInputProps } from '../../provider/TriviaProvider';
-import { decodeEntities } from '../../utility/utilities';
 import { buttonStyle, invertedButtonStyle, roundedBtnStyle } from '../../utility/stylevariables';
-import type { TriviaPropInterface } from "./trivia";
 import { PlayIcon } from '../icons';
 import { Trivia } from './trivia';
 
@@ -36,13 +34,11 @@ interface TriviaOptionsComponent {
 }
 
 export const TriviaOptions: NextPage = () => {
-    const { setInfo } = useContext(TriviaContext);
-    const [information, setInformation] = useState<TriviaInputProps>({ amount: 5 });
+    const { setInfo, isLoading, errorMsg, data } = useContext(TriviaContext);
+    const [information, setInformation] = useState<TriviaInputProps>();
     const [showTrivia, setShowTrivia] = useState<boolean>(false);
-    const [loading, setLoading] = useState<boolean>(false);
 
     useEffect(() => {
-        // setTimeout(() => setMsg(undefined), 2000);
     }, []);
 
     const handleSelect = (currInfo: TriviaInputProps, cat: string, event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -53,29 +49,33 @@ export const TriviaOptions: NextPage = () => {
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        information ? setInfo(information) : { amount: 5 };
-        setLoading(true);
+        information ? setInfo(information) : null;
         setTimeout(() => {
             setShowTrivia(!showTrivia);
-            setTimeout(() => setLoading(false), 1500);
-        }, 5000);
+        }, 2000);
     };
+
+    const fetchError = errorMsg.length > 1;
 
     return (
         <div className="rounded content-center pb-28">
-            <h1 className="text-center capitalize flex w-full justify-center px-4 py-3 my-4 font-bold font-mono text-3xl mr-4">
+            <h1 className="text-center capitalize flex w-full justify-center px-4 py-3 my-4 font-bold font-mono text-2xl mr-4">
                 {
-                    !showTrivia && !loading && <>Choose options and press <span className='sm:ml-2 mt-2 sm:mt-0'><PlayIcon height="40px" width="40px" /></span></>
+                    !showTrivia && !isLoading && <>Choose options and press <span className='sm:ml-2 mt-2 sm:mt-0'><PlayIcon height="40px" width="40px" /></span></>
                 }
                 {
-                    showTrivia && loading && <span className='sm:ml-2 mt-2 sm:mt-0'>Enjoy the game!</span>
+                    showTrivia && isLoading && <span className='sm:ml-2 mt-2 sm:mt-0'>Enjoy the game!</span>
                 }
                 {
-                    loading && !showTrivia && <span className='sm:ml-2 mt-2 sm:mt-0'>Questions are loading... best of luck!</span>
+                    isLoading && <span className='sm:ml-2 mt-2 sm:mt-0'>Questions are loading... best of luck!</span>
                 }
             </h1>
+
             {
-                showTrivia ? <Trivia maxQuestions={information.amount} /> : (
+                fetchError && <div className='px-4 py-3 text-bold bg-gray-300 text-indigo-800 rounded-lg capitalize border-solid border-2 border-indigo-600'>{errorMsg}, please hold on or please try again later!</div>
+            }
+            {
+                (showTrivia && !fetchError) ? <Trivia maxQuestions={information?.amount ? information.amount : data?.length ? data.length : 0} /> : (
                     <div className='pb-28 flex flex-start flex-col'>
                         <form className="flex flex-col m-2 p-2 justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 to-yellow-500/50 backdrop-blur-md rounded-md mb-16" onSubmit={handleSubmit}>
                             <fieldset>
@@ -87,7 +87,7 @@ export const TriviaOptions: NextPage = () => {
                                                 <select
                                                     className={'m-2 p-2 rounded-md capitalize w-fit-content text-md bg-gradient-to-r from-yellow-200/20 to-yellow-800/50'}
                                                     name={el} id={`${el}-select-${index}`}
-                                                    onChange={(event) => handleSelect(information, el, event)}
+                                                    onChange={(event) => information ? handleSelect(information, el, event) : {}}
                                                 >
                                                     <option
                                                         value={""}
@@ -112,7 +112,7 @@ export const TriviaOptions: NextPage = () => {
                                 </ol>
                                 <button
                                     type="submit"
-                                    className={`px-2 py-2 font-medium text-center mb-8 ${roundedBtnStyle} ${loading ? "animate-spin" : ""}`}>
+                                    className={`px-2 py-2 font-medium text-center mb-8 ${roundedBtnStyle} ${isLoading ? "animate-pulse" : ""}`}>
                                     <PlayIcon height="50px" width="50px" color="gray" />
                                 </button>
                             </fieldset>

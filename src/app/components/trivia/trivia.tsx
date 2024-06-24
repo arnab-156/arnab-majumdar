@@ -22,7 +22,7 @@ type TriviaType = {
 export const Trivia: NextPage<TriviaType> = ({ maxQuestions }) => {
     const { data } = useContext(TriviaContext);
     const [questionNumber, setQuestionNumber] = useState<number>(0);
-    const [question, setQuestions] = useState<string>((data && data[questionNumber] && data[questionNumber].question) ? String(data[questionNumber].question) : "");
+    const [question, setQuestion] = useState<string>((data && data[questionNumber] && data[questionNumber].question) ? String(data[questionNumber].question) : "");
     const [correctAnswer, setCorrectAnswer] = useState<string>((data && data[questionNumber] && data[questionNumber].question) ? String(data[questionNumber].correct_answer) : "");
     const [score, setScore] = useState<number>(0);
     const [options, setOptions] = useState<string[]>();
@@ -34,7 +34,7 @@ export const Trivia: NextPage<TriviaType> = ({ maxQuestions }) => {
 
     // arrange the data
     const choices = (questionObj: TriviaPropInterface | Record<string, any>) => {
-        setQuestions(decodeEntities(questionObj?.question));
+        setQuestion(decodeEntities(questionObj?.question));
         const newRandomizedchoices: Array<string> = [...(questionObj.incorrect_answers), questionObj.correct_answer].sort(() => Math.random() - 0.5);
         setCorrectAnswer(decodeEntities(questionObj.correct_answer));
         setOptions(newRandomizedchoices);
@@ -84,6 +84,15 @@ export const Trivia: NextPage<TriviaType> = ({ maxQuestions }) => {
         </div>);
     }
 
+    const handleAllReset = () => {
+        setComplete(false);
+        setCorrectAnswer("");
+        setOptions([]);
+        setScore(0);
+        setQuestion("");
+        setQuestionNumber(0);
+        window.location.reload();
+    };
 
     return (
         <div className="m-4 p-2 rounded content-center pb-28">
@@ -109,29 +118,31 @@ export const Trivia: NextPage<TriviaType> = ({ maxQuestions }) => {
                                 )
                             }
                         </ol>
-                        {
-                            msg && (<div className='mt-4'>
-                                <div>
-                                    <p className='px-4 py-2 font-medium text-center rounded-lg'>{msg}</p>
-                                </div>
-                            </div>)
-                        }
 
                         {
-                            complete ? (<div className='mt-4'>
-                                <div>
-                                    <p className='px-4 py-2 font-medium text-center rounded-lg'>Completed!</p>
+                            complete ? (
+                                <div className='mt-4'>
+                                    <div>
+                                        <p className='px-4 py-2 text-bold bg-gray-300 text-green-800 rounded-lg capitalize border-solid border-2 border-green-600'>Completed!</p>
+                                    </div>
                                 </div>
-                            </div>) : <button
-                                type="submit"
-                                className={`font-medium shadow-md ${buttonStyle}`}>
-                                Submit
-                            </button>
+                            )
+                                : msg ? (
+                                    <div className='mt-4'>
+                                        <p className='px-4 py-2 text-bold bg-gray-300 text-indigo-800 rounded-lg capitalize border-solid border-2 border-indigo-600'>{msg}</p>
+                                    </div>
+                                ) : (
+                                    <button
+                                        type="submit"
+                                        className={`font-medium shadow-md ${buttonStyle}`}>
+                                        Submit
+                                    </button>
+                                )
                         }
                     </fieldset>
                 </form>
 
-                <div className="flex w-full justify-end px-4 py-3 my-4 font-bold font-mono text-3xl pb-28 mr-4">
+                <div className="flex w-full justify-end px-4 py-3 my-4 font-bold font-mono text-3xl pb-10 mr-4">
                     {complete && `your final score is: `}{score} out of {maxQuestions}
                 </div>
                 <Link
@@ -139,6 +150,11 @@ export const Trivia: NextPage<TriviaType> = ({ maxQuestions }) => {
                     className={`${invertedButtonStyle} px-6 py-2`}>
                     Go Back
                 </Link>
+                <button
+                    onClick={handleAllReset}
+                    className={`${buttonStyle} px-6 py-2`}>
+                    Refresh
+                </button>
             </div>
         </div>
     );
