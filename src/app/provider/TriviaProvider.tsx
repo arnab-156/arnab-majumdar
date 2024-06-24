@@ -37,14 +37,11 @@ export function TriviaProvider({ children }: any) {
         const difficultyString = info?.difficulty ? `&difficulty=${info.difficulty}` : "";
         const categoryNumber = info?.category ? `&category=${info.category}` : "";
 
-        console.log("infor in provider", info);
-
         const fetchData = async () => {
             const response = await fetch(`https://opentdb.com/api.php?amount=${info.amount}${difficultyString}&type=multiple${categoryNumber}`);
             const fetchedData = await response.json();
 
             const results = fetchedData?.results ? fetchedData.results : $default;
-            console.log("🚀 ~ fetchData ~ results:", results)
             setData(results);
         };
 

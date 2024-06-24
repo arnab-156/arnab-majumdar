@@ -88,8 +88,8 @@ export const Trivia: NextPage<TriviaType> = ({ maxQuestions }) => {
     return (
         <div className="m-4 p-2 rounded content-center pb-28">
             <div className="block pb-28">
-                <h1 className="text-lg m-2 p-4"><strong>Question#{questionNumber + 1}: </strong>{decodeEntities(question)}</h1>
-                <form className="flex flex-col m-4 p-4 bg-gray-500/80 rounded" onSubmit={handleSubmit}>
+                <h1 className="text-lg m-2 p-4 select-none"><strong>Question#{questionNumber + 1}: </strong>{decodeEntities(question)}</h1>
+                <form className="flex flex-col m-2 p-2 justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 to-yellow-500/50 backdrop-blur-md rounded-md mb-16" onSubmit={handleSubmit}>
                     <fieldset>
                         <ol>
                             {
@@ -102,9 +102,9 @@ export const Trivia: NextPage<TriviaType> = ({ maxQuestions }) => {
                                             value={(el)}
                                             onChange={handleChange}
                                             checked={selectedValue === (el)}
-                                            className='px-2 py-2'
+                                            className='px-2 py-2 w-4 h-4 accent-yellow-500'
                                         />
-                                        <label>{decodeEntities(el)}</label>
+                                        <label className='select-none ml-2'>{decodeEntities(el)}</label>
                                     </li>)
                                 )
                             }
@@ -124,7 +124,7 @@ export const Trivia: NextPage<TriviaType> = ({ maxQuestions }) => {
                                 </div>
                             </div>) : <button
                                 type="submit"
-                                className={`px-4 py-2 font-medium text-center rounded-lg shadow-md bg-blue-200 hover:bg-blue-400`}>
+                                className={`font-medium shadow-md ${buttonStyle}`}>
                                 Submit
                             </button>
                         }
