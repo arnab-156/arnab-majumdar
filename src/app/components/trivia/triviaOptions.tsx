@@ -62,19 +62,19 @@ export const TriviaOptions: NextPage = () => {
 
     return (
         <div className="rounded content-center pb-28">
-            <h1 className="text-3xl font-bold text-center capitalize flex"> Choose options and press <PlayIcon /></h1>
+            <h1 className="text-3xl font-bold text-center capitalize flex"> Choose options and press <span className='ml-2'><PlayIcon height="40px" width="40px" /></span></h1>
             {
                 showTrivia ? <Trivia maxQuestions={information.amount} /> : (
                     <div className='pb-28 flex flex-start flex-col'>
                         <form className="flex flex-col m-2 p-2 justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 to-yellow-500/50 backdrop-blur-md rounded-md mb-16" onSubmit={handleSubmit}>
                             <fieldset>
-                                <ol>
+                                <ol className='md:py-4 md:px-4'>
                                     {
                                         Object.keys(options).map((el, index) => (
                                             <li key={`${el}-${index}`} className='my-2'>
                                                 <label className={'capitalize '}>Choose {el}:</label>
                                                 <select
-                                                    className={'m-2 p-2 rounded-md capitalize w-fit-content text-md'}
+                                                    className={'m-2 p-2 rounded-md capitalize w-fit-content text-md bg-gradient-to-r from-yellow-200/20 to-yellow-800/50'}
                                                     name={el} id={`${el}-select-${index}`}
                                                     onChange={(event) => handleSelect(information, el, event)}
                                                 >
