@@ -3,7 +3,7 @@ import type { NextPage } from 'next';
 import { useEffect, useState, useContext } from "react";
 import Link from 'next/link';
 import { TriviaContext, TriviaInputProps } from '../../provider/TriviaProvider';
-import { buttonStyle, invertedButtonStyle, roundedBtnStyle } from '../../utility/stylevariables';
+import { invertedButtonStyle, roundedBtnStyle } from '../../utility/stylevariables';
 import { PlayIcon } from '../icons';
 import { Trivia } from './trivia';
 
@@ -35,7 +35,7 @@ interface TriviaOptionsComponent {
 
 export const TriviaOptions: NextPage = () => {
     const { setInfo, isLoading, errorMsg, data } = useContext(TriviaContext);
-    const [information, setInformation] = useState<TriviaInputProps>();
+    const [information, setInformation] = useState<TriviaInputProps>({ amount: 5 });
     const [showTrivia, setShowTrivia] = useState<boolean>(false);
 
     useEffect(() => {
@@ -52,14 +52,14 @@ export const TriviaOptions: NextPage = () => {
         information ? setInfo(information) : null;
         setTimeout(() => {
             setShowTrivia(!showTrivia);
-        }, 2000);
+        }, 3500);
     };
 
     const fetchError = errorMsg.length > 1;
 
     return (
         <div className="rounded content-center pb-28">
-            <h1 className="text-center capitalize flex w-full justify-center px-4 py-3 my-4 font-bold font-mono text-2xl mr-4">
+            <h1 className="text-center capitalize flex justify-center px-4 py-3 my-4 font-bold font-mono text-2xl mr-4 max-w-lg">
                 {
                     !showTrivia && !isLoading && <>Choose options and press <span className='sm:ml-2 mt-2 sm:mt-0'><PlayIcon height="40px" width="40px" /></span></>
                 }
@@ -72,10 +72,10 @@ export const TriviaOptions: NextPage = () => {
             </h1>
 
             {
-                fetchError && <div className='px-4 py-3 text-bold bg-gray-300 text-indigo-800 rounded-lg capitalize border-solid border-2 border-indigo-600'>{errorMsg}, please hold on or please try again later!</div>
+                fetchError && <div className='px-4 py-3 text-bold bg-gray-300 text-indigo-800 rounded-lg capitalize border-solid border-2 border-indigo-600 max-w-lg'>{errorMsg}, please hold on or please try again later!</div>
             }
             {
-                (showTrivia && !fetchError) ? <Trivia maxQuestions={information?.amount ? information.amount : data?.length ? data.length : 0} /> : (
+                (showTrivia && !fetchError) ? <Trivia maxQuestions={information.amount} /> : (
                     <div className='pb-28 flex flex-start flex-col'>
                         <form className="flex flex-col m-2 p-2 justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 to-yellow-500/50 backdrop-blur-md rounded-md mb-16" onSubmit={handleSubmit}>
                             <fieldset>
