@@ -47,7 +47,7 @@ export const Navigation = () => {
                 transition ease-in-out delay-150 group-hover:duration-300
                 `
             }>
-                <span className="animate-pulse mt-2 group-hover:hidden">contact information</span>
+                <span className="animate-pulse mt-2 group-hover:hidden text-black">contact information</span>
                 <div className="hidden group-hover:block mx-4 mt-0">
                     <div className="group-hover:flex justify-content-center">
                         <Link
