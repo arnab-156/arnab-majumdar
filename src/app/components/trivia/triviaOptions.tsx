@@ -83,8 +83,9 @@ export const TriviaOptions: NextPage = () => {
                                     {
                                         Object.keys(options).map((el, index) => (
                                             <li key={`${el}-${index}`} className='my-2'>
-                                                <label className={'capitalize '}>Choose {el}:</label>
+                                                <label className={'capitalize '} htmlFor={`${el}-select-${index}`}>Choose {el}:</label>
                                                 <select
+
                                                     className={'m-2 p-2 rounded-md capitalize w-fit-content text-md bg-gradient-to-r from-yellow-200/20 to-yellow-800/50'}
                                                     name={el} id={`${el}-select-${index}`}
                                                     onChange={(event) => information ? handleSelect(information, el, event) : {}}
@@ -96,13 +97,16 @@ export const TriviaOptions: NextPage = () => {
                                                     </option>
                                                     {
                                                         options[`${el}`].map((val, i) => (
-                                                            <option
-                                                                key={i}
-                                                                value={val}
-                                                                className={'capitalize py-3'}
-                                                                onChange={() => handleSelect}>
-                                                                {val}
-                                                            </option>)
+                                                            (<>
+                                                                <option
+                                                                    key={i}
+                                                                    value={val}
+                                                                    className={'capitalize py-3'}
+                                                                    onChange={() => handleSelect}>
+                                                                    {val}
+                                                                </option>
+
+                                                            </>))
                                                         )
                                                     }
                                                 </select>
@@ -112,6 +116,7 @@ export const TriviaOptions: NextPage = () => {
                                 </ol>
                                 <button
                                     type="submit"
+                                    aria-label="press to start trivia"
                                     className={`px-2 py-2 font-medium text-center mb-8 ${roundedBtnStyle} ${isLoading ? "animate-pulse" : ""}`}>
                                     <PlayIcon height="50px" width="50px" color="gray" />
                                 </button>
@@ -119,7 +124,7 @@ export const TriviaOptions: NextPage = () => {
                         </form>
                         <Link
                             href={"/tech"}
-                            className={`w-20 text-sm ${invertedButtonStyle}`}>
+                            className={`w-20 text-sm text-black ${invertedButtonStyle}`}>
                             Go Back
                         </Link>
                     </div>)

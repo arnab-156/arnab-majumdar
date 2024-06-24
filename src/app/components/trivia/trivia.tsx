@@ -13,7 +13,7 @@ export interface TriviaPropInterface {
     correct_answer: string;
     category?: string;
     incorrect_answers: string[];
-}
+};
 
 type TriviaType = {
     maxQuestions: number,
@@ -28,9 +28,7 @@ export const Trivia: NextPage<TriviaType> = ({ maxQuestions }) => {
     const [options, setOptions] = useState<string[]>();
     const [complete, setComplete] = useState<boolean>(false);
     const [msg, setMsg] = useState<string | undefined>(undefined);
-
     const [selectedValue, setSelectedValue] = useState<string | null>(null);
-
 
     // arrange the data
     const choices = (questionObj: TriviaPropInterface | Record<string, any>) => {
