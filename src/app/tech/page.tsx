@@ -1,6 +1,6 @@
 import { Card } from "../components/card"
-import { CalculatorIcon, ComputerIcon } from "../components/icons";
-import { cardWrapperStyle } from "../utility/stylevariables";
+import { CalculatorIcon, ComputerIcon, ReadIcon } from "../components/icons";
+import { cardWrapperStyle, yellowBackgroundTheme } from "../utility/stylevariables";
 
 export default function Tech() {
   return (
@@ -12,11 +12,13 @@ export default function Tech() {
           Made to demonstate simple front end web technologies as games and utilities to
           be used from your phone.
         </h2>
+
         <p className="m-6 dark:text-black">
           Some projects might need you to log in. This is to remove anonymous
           use of many of the paid services. For now, the service is free to use!
           More information to come!
         </p>
+
         <div className={cardWrapperStyle}>
           <Card
             title="Free Trivia for you to enjoy on the go!"
@@ -25,6 +27,7 @@ export default function Tech() {
             description="Version 1 is live! Version 2 coming soon!"
           />
         </div>
+
         <div className={cardWrapperStyle}>
           <Card
             title="Free Tic Tac Toe game for you to enjoy on the go!"
@@ -33,6 +36,7 @@ export default function Tech() {
             description="Simple Tik Tac Toe Game for when you are bored."
           />
         </div>
+
         <div className={cardWrapperStyle}>
           <Card
             title="Basic Calculator"
@@ -42,16 +46,38 @@ export default function Tech() {
             <CalculatorIcon height="100px" width="100px" />
           </Card>
         </div>
-        <div className="m-4 p-4">
+
+        <div className={cardWrapperStyle}>
+          <Card
+            title="Made of Chicago"
+            url="/moc"
+            imageUrl="https://live.staticflickr.com/65535/53809112039_8d183992a8_w.jpg"
+            description="Design + Technology: Click here to learn more about the design process!"
+          />
+        </div>
+
+        <div className={cardWrapperStyle}>
+          <Card
+            title="Comic of the day!"
+            url="/tech/comic"
+            description="Version 1 is live! More features and custom designs coming soon. Please enjoy!"
+            backgroundTheme={yellowBackgroundTheme}
+          >
+            <ReadIcon height="100px" width="100px" />
+          </Card>
+        </div>
+
+        <div className={cardWrapperStyle}>
           <Card
             title="Coming soon: Resume Generator!"
             url="/tech/create-resume"
             imageUrl="/cv.png"
-            description="Log in to unlock you this free service to create your own resume!"
+            description="Free service to create your own resume right on your phone. Coming: Fall 2024!"
             customClassName="invert"
           />
         </div>
-        <div className="m-4 p-4">
+
+        <div className={cardWrapperStyle}>
           <Card
             title="Coming soon: Launch your website!"
             url="#"
@@ -60,15 +86,6 @@ export default function Tech() {
           >
             <ComputerIcon height="100px" width="100px" />
           </Card>
-        </div>
-        <div className={cardWrapperStyle}>
-          <Card
-            title="Made of Chicago"
-            url="/moc"
-            imageUrl="https://live.staticflickr.com/65535/53809112039_8d183992a8_w.jpg"
-            description="Design + Technology: Click here to learn more about the design process!"
-            customClassName=""
-          />
         </div>
       </div>
     </main>
