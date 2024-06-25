@@ -3,7 +3,7 @@ import type { NextPage } from 'next';
 import { useState, useContext } from "react";
 import Link from 'next/link';
 import { TriviaContext, TriviaInputProps } from '../../provider/TriviaProvider';
-import { buttonStyle, invertedButtonStyle, roundedBtnStyle } from '../../utility/stylevariables';
+import { invertedButtonStyle, roundedBtnStyle } from '../../utility/stylevariables';
 import { PlayIcon } from '../icons';
 import { Trivia } from './trivia';
 
@@ -42,7 +42,6 @@ export const TriviaOptions: NextPage = () => {
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         information ? setInfo(information) : null;
-
         setShowTrivia(!showTrivia);
     };
 
@@ -57,7 +56,6 @@ export const TriviaOptions: NextPage = () => {
                         : ""
                 }
             </h1>
-
             {
                 fetchError && <div className='px-4 py-3 text-bold bg-gray-300 text-indigo-800 rounded-lg capitalize border-solid border-2 border-indigo-600 max-w-lg'>{errorMsg}, please hold on or please try again later!</div>
             }
@@ -92,7 +90,6 @@ export const TriviaOptions: NextPage = () => {
                                                                     onChange={() => handleSelect}>
                                                                     {val}
                                                                 </option>
-
                                                             </>))
                                                         )
                                                     }
