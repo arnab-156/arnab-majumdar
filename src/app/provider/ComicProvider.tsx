@@ -36,7 +36,7 @@ export function ComicProvider({ children }: any) {
                 setLatestComic(data);
 
             } catch (error) {
-                setErrorMsg("Oops! There was a problem.");
+                setErrorMsg("Oops! There was a problem. Sorry :-(");
             } finally {
                 setIsLoading(false);
             }
