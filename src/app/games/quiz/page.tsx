@@ -1,7 +1,6 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { TriviaProvider } from '@/app/provider/TriviaProvider';
-import { PauseIcon, PlayIcon } from '../../components/icons';
 import { TriviaOptions } from '@/app/components/trivia/triviaOptions';
 
 
