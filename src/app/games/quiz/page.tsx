@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from 'react';
 import { TriviaProvider } from '@/app/provider/TriviaProvider';
 import { PauseIcon, PlayIcon } from '../../components/icons';
-import { Trivia } from '../../components/trivia/trivia';
 import { TriviaOptions } from '@/app/components/trivia/triviaOptions';
 
 

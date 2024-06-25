@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import Image from "next/image";
 import Link from 'next/link';
 
-interface MyComponentProps {
+interface CardProps {
     title: string;
     url: string;
     description?: string;
@@ -11,9 +11,23 @@ interface MyComponentProps {
     customClassName?: string;
     children?: React.ReactNode;
     backgroundTheme?: string;
+    imageClassName?: string;
+    imageHeight?: number;
+    imageWidth?: number;
 }
 
-export const Card: NextPage<MyComponentProps> = ({ title, description, url, imageUrl, children, customClassName, backgroundTheme = "" }) => {
+export const Card: NextPage<CardProps> = ({
+    title,
+    description,
+    url,
+    imageUrl,
+    children,
+    customClassName,
+    backgroundTheme = "",
+    imageClassName = "mx-auto m-4",
+    imageHeight = 100,
+    imageWidth = 100,
+}) => {
     return (
         <Link
             className={classNames(`card-component mr-4 ml-4 mb-4 rounded shadow-md content-center`, customClassName)}
@@ -26,11 +40,11 @@ export const Card: NextPage<MyComponentProps> = ({ title, description, url, imag
                         {description}
                     </p>
                     {imageUrl && !children && <Image
-                        className="mx-auto m-4 rounded"
+                        className={`${imageClassName} rounded`}
                         src={imageUrl}
-                        alt={`product tile image for ${title}`}
-                        width={100}
-                        height={100}
+                        alt={title}
+                        width={imageWidth}
+                        height={imageHeight}
                         priority
                         unoptimized
                     />}
