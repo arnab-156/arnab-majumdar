@@ -76,6 +76,7 @@ export default function Tech() {
             customClassName="invert"
           />
         </div>
+
         <div className={cardWrapperStyle}>
           <Card
             title="Coming soon: Launch your website!"

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { Card } from "../app/components/card";
-import { CalculatorIcon, ComputerIcon } from "./components/icons";
+import { CalculatorIcon, ComputerIcon, ReadIcon } from "./components/icons";
 import { cardWrapperStyle, yellowBackgroundTheme, buttonStyle } from './utility/stylevariables';
 
 export default function Home() {
@@ -75,6 +75,17 @@ export default function Home() {
           />
         </div>
 
+        <div className={cardWrapperStyle}>
+          <h2 className="text-xl font-bold text-center capitalize" >New and Trending:</h2>
+          <Card
+            title="Comic of the day!"
+            url="/tech/comic"
+            description="Version 1 is live! More features are coming soon. Please enjoy!"
+            backgroundTheme={yellowBackgroundTheme}
+          >
+            <ReadIcon height="100px" width="100px" />
+          </Card>
+        </div>
 
         <div className={cardWrapperStyle}>
           <h2 className="text-xl font-bold text-center capitalize" >Coming soon:</h2>
