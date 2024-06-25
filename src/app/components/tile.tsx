@@ -16,7 +16,7 @@ export const Tile: NextPage<MyTileComponent> = ({ title, subTitle, href, url, sh
         <Link
             href={href}
             className={`m-4 shadow-md h-96 rounded relative bg-white ${imageContain ? "bg-contain bg-no-repeat" : "bg-cover"} 
-          ${url} ${shadowColor ? shadowColor : "shadow-pink-800"} dark:shadow-gray-800
+          ${url} ${shadowColor ? shadowColor : "shadow-pink-800"} dark:shadow-gray-800 max-w-sm
           hover:drop-shadow-lg hover:scale-105 hover:duration-300  ${customClassName}
           `}
         >
