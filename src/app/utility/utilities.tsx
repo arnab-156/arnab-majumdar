@@ -5,3 +5,5 @@ export function decodeEntities(text: string) {
         return String.fromCharCode(decimal);
     });
 };
+
+export const rmQuoteMarks = (str: string) => str.replace(/(&quot\;)/g,"\"");

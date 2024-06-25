@@ -1,10 +1,9 @@
 'use client'
 import type { NextPage } from 'next';
 import { useEffect, useState, useContext } from "react";
-import Link from 'next/link';
 import { TriviaContext } from '../../provider/TriviaProvider';
-import { decodeEntities } from '../../utility/utilities';
-import { buttonStyle, invertedButtonStyle } from '../../utility/stylevariables';
+import { decodeEntities, rmQuoteMarks } from '../../utility/utilities';
+import { buttonStyle } from '../../utility/stylevariables';
 
 export interface TriviaPropInterface {
     type: string;
@@ -82,7 +81,7 @@ export const Trivia: NextPage<TriviaType> = ({ maxQuestions }) => {
     return (
         <div className="m-4 p-2 rounded content-center pb-28">
             <div className="block pb-28">
-                <h1 className="text-lg m-2 p-4 select-none"><strong>Question#{questionNumber + 1}: </strong>{decodeEntities(question)}</h1>
+                <h1 className="text-lg m-2 p-4 select-none"><strong>Question#{questionNumber + 1}: </strong>{rmQuoteMarks(decodeEntities(question))}</h1>
                 <form className="flex flex-col m-2 p-2 justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 to-yellow-500/50 backdrop-blur-md rounded-md mb-16" onSubmit={handleSubmit}>
                     <fieldset>
                         <ol>

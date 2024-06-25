@@ -38,9 +38,6 @@ export const TriviaOptions: NextPage = () => {
     const [information, setInformation] = useState<TriviaInputProps>({ amount: 5 });
     const [showTrivia, setShowTrivia] = useState<boolean>(false);
 
-    useEffect(() => {
-    }, []);
-
     const handleSelect = (currInfo: TriviaInputProps, cat: string, event: React.ChangeEvent<HTMLSelectElement>) => {
         const selectedValue = (cat === "category") ? categories[event.target.value] : event.target.value;
         const newInfo: TriviaInputProps = { ...currInfo, ...{ [cat]: selectedValue } };
@@ -50,9 +47,9 @@ export const TriviaOptions: NextPage = () => {
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         information ? setInfo(information) : null;
-        setTimeout(() => {
-            setShowTrivia(!showTrivia);
-        }, 3500);
+
+        setShowTrivia(!showTrivia);
+
     };
 
     const fetchError = errorMsg.length > 1;
@@ -75,7 +72,7 @@ export const TriviaOptions: NextPage = () => {
                 fetchError && <div className='px-4 py-3 text-bold bg-gray-300 text-indigo-800 rounded-lg capitalize border-solid border-2 border-indigo-600 max-w-lg'>{errorMsg}, please hold on or please try again later!</div>
             }
             {
-                (showTrivia && !fetchError) ? <Trivia maxQuestions={information.amount} /> : (
+                (showTrivia && !fetchError && !isLoading) ? <Trivia maxQuestions={information.amount} /> : (
                     <div className='pb-28 flex flex-start flex-col'>
                         <form className="flex flex-col m-2 p-2 justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 to-yellow-500/50 backdrop-blur-md rounded-md mb-16" onSubmit={handleSubmit}>
                             <fieldset>
