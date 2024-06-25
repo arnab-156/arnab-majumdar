@@ -7,14 +7,18 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between pt-20 ">
       <div className="mb-32 grid text-center lg:w-half lg:max-w-5xl lg:grid-cols-3 lg:text-left">
-        <h1 className="text-3xl font-bold text-center m-8 uppercase">Welcome to my homepage!</h1>
-        <Card
-          title="About Arnab!"
-          url="/about"
-          imageUrl="/headshot.gif"
-          description="Welcome! Explore Arnab&#39;s world of design, with both real-world and conceptual projects."
-          customClassName={cardWrapperStyle}
-        />
+        <div className=' m-8'>
+          <h1 className="text-3xl font-bold text-center uppercase">Welcome to my homepage!</h1>
+          {/* <h2 className="text-md font-bold text-center capiutalize">Tech + Design</h2> */}
+        </div>
+        <div className='cardWrapperStyle'>
+          <Card
+            title="About Arnab!"
+            url="/about"
+            imageUrl="/headshot.gif"
+            description="Welcome! Explore Arnab&#39;s world of design, with both real-world and conceptual projects."
+          />
+        </div>
 
         <div className="shadow-md rounded-md text-center py-4 px-8 m-4">
           <p className="m-2"><strong>Navigate with ease.</strong> Use the top menu to jump to specific project categories.</p>
