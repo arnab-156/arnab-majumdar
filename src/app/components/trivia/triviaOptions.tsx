@@ -1,6 +1,6 @@
 'use client'
 import type { NextPage } from 'next';
-import { useEffect, useState, useContext } from "react";
+import { useState, useContext } from "react";
 import Link from 'next/link';
 import { TriviaContext, TriviaInputProps } from '../../provider/TriviaProvider';
 import { buttonStyle, invertedButtonStyle, roundedBtnStyle } from '../../utility/stylevariables';
@@ -28,11 +28,6 @@ const options: Record<string, Array<string | number>> = {
     category: Object.keys(categories),
 };
 
-interface TriviaOptionsComponent {
-    startTrivia: boolean,
-    setStartTrivia: () => void,
-}
-
 export const TriviaOptions: NextPage = () => {
     const { setInfo, isLoading, errorMsg, data } = useContext(TriviaContext);
     const [information, setInformation] = useState<TriviaInputProps>({ amount: 5 });
@@ -49,31 +44,26 @@ export const TriviaOptions: NextPage = () => {
         information ? setInfo(information) : null;
 
         setShowTrivia(!showTrivia);
-
     };
 
     const fetchError = errorMsg.length > 1;
 
     return (
         <div className="rounded content-center pb-28">
-            <h1 className="text-center capitalize flex justify-center px-4 py-3 my-4 font-bold font-mono text-2xl mr-4 max-w-lg">
-                {
-                    !showTrivia && !isLoading && <>Choose options and press <span className='sm:ml-2 mt-2 sm:mt-0'><PlayIcon height="40px" width="40px" /></span></>
-                }
-                {
-                    showTrivia && isLoading && <span className='sm:ml-2 mt-2 sm:mt-0'>Enjoy the game!</span>
-                }
-                {
-                    isLoading && <span className='sm:ml-2 mt-2 sm:mt-0'>Questions are loading... best of luck!</span>
-                }
-            </h1>
+            {!showTrivia && (<h1 className="text-center capitalize flex justify-center px-4 py-3 my-4 font-bold font-mono text-2xl mr-4 lg:max-w-lg">
+                <span className='sm:ml-2 mt-2 sm:mt-0'>
+                    {
+                        isLoading ? "Questions are loading... best of luck!" : !showTrivia ? <>Choose options and press </> : ""
+                    }
+                </span>
+            </h1>)}
 
             {
                 fetchError && <div className='px-4 py-3 text-bold bg-gray-300 text-indigo-800 rounded-lg capitalize border-solid border-2 border-indigo-600 max-w-lg'>{errorMsg}, please hold on or please try again later!</div>
             }
             {
                 (showTrivia && !fetchError && !isLoading) ? <Trivia maxQuestions={information.amount} /> : (
-                    <div className='pb-28 flex flex-start flex-col'>
+                    <div className='flex flex-start flex-col'>
                         <form className="flex flex-col m-2 p-2 justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 to-yellow-500/50 backdrop-blur-md rounded-md mb-16" onSubmit={handleSubmit}>
                             <fieldset>
                                 <ol className='md:py-4 md:px-4'>
@@ -118,18 +108,12 @@ export const TriviaOptions: NextPage = () => {
                                     <PlayIcon height="50px" width="50px" color="gray" />
                                 </button>
                             </fieldset>
-                            <button
-                                onClick={() => window.location.reload()}
-                                className={`${buttonStyle} p-2 mx-48 w-fit-content`}>
-                                Refresh
-                            </button>
                         </form>
-
                     </div>)
             }
             <Link
                 href={"/tech"}
-                className={`${invertedButtonStyle} px-6 py-2`}>
+                className={`${invertedButtonStyle} px-6 py-2 mb-28`}>
                 Go Back
             </Link>
         </div>

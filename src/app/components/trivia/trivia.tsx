@@ -79,8 +79,8 @@ export const Trivia: NextPage<TriviaType> = ({ maxQuestions }) => {
     };
 
     return (
-        <div className="m-4 p-2 rounded content-center pb-28">
-            <div className="block pb-28">
+        <div className="m-4 p-2 rounded content-center">
+            <div className="block">
                 <h1 className="text-lg m-2 p-4 select-none"><strong>Question#{questionNumber + 1}: </strong>{rmQuoteMarks(decodeEntities(question))}</h1>
                 <form className="flex flex-col m-2 p-2 justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 to-yellow-500/50 backdrop-blur-md rounded-md mb-16" onSubmit={handleSubmit}>
                     <fieldset>
