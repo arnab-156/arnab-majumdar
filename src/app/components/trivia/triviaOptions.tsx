@@ -3,7 +3,7 @@ import type { NextPage } from 'next';
 import { useEffect, useState, useContext } from "react";
 import Link from 'next/link';
 import { TriviaContext, TriviaInputProps } from '../../provider/TriviaProvider';
-import { invertedButtonStyle, roundedBtnStyle } from '../../utility/stylevariables';
+import { buttonStyle, invertedButtonStyle, roundedBtnStyle } from '../../utility/stylevariables';
 import { PlayIcon } from '../icons';
 import { Trivia } from './trivia';
 
@@ -121,14 +121,20 @@ export const TriviaOptions: NextPage = () => {
                                     <PlayIcon height="50px" width="50px" color="gray" />
                                 </button>
                             </fieldset>
+                            <button
+                                onClick={() => window.location.reload()}
+                                className={`${buttonStyle} p-2 mx-48 w-fit-content`}>
+                                Refresh
+                            </button>
                         </form>
-                        <Link
-                            href={"/tech"}
-                            className={`w-20 text-sm text-black ${invertedButtonStyle}`}>
-                            Go Back
-                        </Link>
+
                     </div>)
             }
+            <Link
+                href={"/tech"}
+                className={`${invertedButtonStyle} px-6 py-2`}>
+                Go Back
+            </Link>
         </div>
     );
 }

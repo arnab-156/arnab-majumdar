@@ -143,11 +143,6 @@ export const Trivia: NextPage<TriviaType> = ({ maxQuestions }) => {
                 <div className="flex w-full justify-end px-4 py-3 my-4 font-bold font-mono text-3xl pb-10 mr-4">
                     {complete && `your final score is: `}{score} out of {maxQuestions}
                 </div>
-                <Link
-                    href={"/tech"}
-                    className={`${invertedButtonStyle} px-6 py-2`}>
-                    Go Back
-                </Link>
                 <button
                     onClick={handleAllReset}
                     className={`${buttonStyle} px-6 py-2`}>
