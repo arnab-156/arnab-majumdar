@@ -64,7 +64,7 @@ export function TriviaProvider({ children }: any) {
                 setTimeout(() => {
                     setIsLoading(false);
                     setErrorMsg("")
-                }, 1000);
+                }, 2000);
             }
         };
 
