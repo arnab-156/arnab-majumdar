@@ -56,7 +56,6 @@ export const Trivia: NextPage<TriviaType> = ({ maxQuestions }) => {
         event.preventDefault();
 
         if (selectedValue && questionNumber < maxQuestions) {
-
             if (selectedValue === correctAnswer) {
                 setMsg("Woohooo!! Correct");
                 setScore(score + 1);
@@ -69,18 +68,6 @@ export const Trivia: NextPage<TriviaType> = ({ maxQuestions }) => {
             setMsg("Select an answer!");
         }
     };
-
-
-    if (!data) {
-        return (<div className="m-4 p-2 rounded content-center pb-28">
-            <h1>There was a problem, please try again!</h1>
-            <button
-                onClick={() => window.location.reload}
-                className={`${buttonStyle} px-6 py-2`}>
-                Refresh
-            </button>
-        </div>);
-    }
 
     const handleAllReset = () => {
         setComplete(false);

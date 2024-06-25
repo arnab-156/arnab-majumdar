@@ -117,7 +117,7 @@ export const TriviaOptions: NextPage = () => {
                                 <button
                                     type="submit"
                                     aria-label="press to start trivia"
-                                    className={`px-2 py-2 font-medium text-center mb-8 ${roundedBtnStyle} ${isLoading ? "animate-pulse" : ""}`}>
+                                    className={`px-2 py-2 font-medium text-center mb-8 ${roundedBtnStyle} ${isLoading ? "animate-spin" : ""}`}>
                                     <PlayIcon height="50px" width="50px" color="gray" />
                                 </button>
                             </fieldset>
