@@ -106,8 +106,9 @@ export const Trivia: NextPage<TriviaType> = ({ maxQuestions }) => {
                         {
                             complete ? (
                                 <div className='mt-4'>
-                                    <div>
-                                        <p className='px-4 py-2 text-bold bg-gray-300 text-green-800 rounded-lg capitalize border-solid border-2 border-green-600'>Completed!</p>
+                                    <div className='text-bold'>
+                                        {msg}
+                                        <p className='px-4 py-2 text-green-800 bg-gray-300 rounded-lg capitalize border-solid border-2 border-green-600'>Completed!</p>
                                     </div>
                                 </div>
                             )
