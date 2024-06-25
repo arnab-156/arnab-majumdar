@@ -50,13 +50,13 @@ export const TriviaOptions: NextPage = () => {
 
     return (
         <div className="rounded content-center pb-28">
-            {!showTrivia && (<h1 className="text-center capitalize flex justify-center px-4 py-3 my-4 font-bold font-mono text-2xl mr-4 lg:max-w-lg">
-                <span className='sm:ml-2 mt-2 sm:mt-0'>
-                    {
-                        isLoading ? "Questions are loading... best of luck!" : !showTrivia ? <>Choose options and press </> : ""
-                    }
-                </span>
-            </h1>)}
+            <h1 className="text-center capitalize text-bold my-2">
+                {
+                    isLoading ? <span className="rounded-lg px-4 py-3 border-solid border-2 border-indigo-600 bg-gray-300 text-indigo-800">Questions are loading... best of luck!</span> : !showTrivia
+                        ? <span className="rounded-lg px-4 py-3 border-solid border-2 border-yellow-600 bg-gray-300">Choose options and press </span>
+                        : ""
+                }
+            </h1>
 
             {
                 fetchError && <div className='px-4 py-3 text-bold bg-gray-300 text-indigo-800 rounded-lg capitalize border-solid border-2 border-indigo-600 max-w-lg'>{errorMsg}, please hold on or please try again later!</div>
