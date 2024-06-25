@@ -97,7 +97,7 @@ export const Trivia: NextPage<TriviaType> = ({ maxQuestions }) => {
                                             checked={selectedValue === (el)}
                                             className='px-2 py-2 w-4 h-4 accent-yellow-500'
                                         />
-                                        <label className='select-none ml-2'>{decodeEntities(el)}</label>
+                                        <label className='select-none ml-2'>{rmQuoteMarks(decodeEntities(el))}</label>
                                     </li>)
                                 )
                             }
