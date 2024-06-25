@@ -1,6 +1,6 @@
 'use client'
 import type { NextPage } from 'next';
-import { useEffect, useState, useContext } from "react";
+import { useState, useContext } from "react";
 import Link from 'next/link';
 import { TriviaContext, TriviaInputProps } from '../../provider/TriviaProvider';
 import { invertedButtonStyle, roundedBtnStyle } from '../../utility/stylevariables';
@@ -28,18 +28,10 @@ const options: Record<string, Array<string | number>> = {
     category: Object.keys(categories),
 };
 
-interface TriviaOptionsComponent {
-    startTrivia: boolean,
-    setStartTrivia: () => void,
-}
-
 export const TriviaOptions: NextPage = () => {
-    const { setInfo, isLoading, errorMsg, data } = useContext(TriviaContext);
+    const { setInfo, isLoading, errorMsg } = useContext(TriviaContext);
     const [information, setInformation] = useState<TriviaInputProps>({ amount: 5 });
     const [showTrivia, setShowTrivia] = useState<boolean>(false);
-
-    useEffect(() => {
-    }, []);
 
     const handleSelect = (currInfo: TriviaInputProps, cat: string, event: React.ChangeEvent<HTMLSelectElement>) => {
         const selectedValue = (cat === "category") ? categories[event.target.value] : event.target.value;
@@ -50,40 +42,33 @@ export const TriviaOptions: NextPage = () => {
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         information ? setInfo(information) : null;
-        setTimeout(() => {
-            setShowTrivia(!showTrivia);
-        }, 3500);
+        setShowTrivia(!showTrivia);
     };
 
     const fetchError = errorMsg.length > 1;
 
     return (
         <div className="rounded content-center pb-28">
-            <h1 className="text-center capitalize flex justify-center px-4 py-3 my-4 font-bold font-mono text-2xl mr-4 max-w-lg">
+            <h1 className="text-center capitalize text-bold">
                 {
-                    !showTrivia && !isLoading && <>Choose options and press <span className='sm:ml-2 mt-2 sm:mt-0'><PlayIcon height="40px" width="40px" /></span></>
-                }
-                {
-                    showTrivia && isLoading && <span className='sm:ml-2 mt-2 sm:mt-0'>Enjoy the game!</span>
-                }
-                {
-                    isLoading && <span className='sm:ml-2 mt-2 sm:mt-0'>Questions are loading... best of luck!</span>
+                    isLoading ? <p className="px-4 py-3 border-solid border-2 border-indigo-600 bg-gray-300 text-indigo-800 rounded-xl shadow-md shadow-indigo-800/50">Questions are loading... best of luck!</p> : !showTrivia
+                        ? <p className="px-4 py-3 border-solid border-2 border-yellow-600 bg-gray-300 rounded-xl shadow-md shadow-yellow-600/50">Choose options and press </p>
+                        : ""
                 }
             </h1>
-
             {
-                fetchError && <div className='px-4 py-3 text-bold bg-gray-300 text-indigo-800 rounded-lg capitalize border-solid border-2 border-indigo-600 max-w-lg'>{errorMsg}, please hold on or please try again later!</div>
+                fetchError && <div className='px-4 py-3 text-bold bg-gray-300 text-indigo-800 rounded-lg capitalize border-solid border-2 border-indigo-600 max-w-lg'>{errorMsg}, please refresh or please try again later!</div>
             }
             {
-                (showTrivia && !fetchError) ? <Trivia maxQuestions={information.amount} /> : (
-                    <div className='pb-28 flex flex-start flex-col'>
+                (showTrivia && !fetchError && !isLoading) ? <Trivia maxQuestions={information.amount} /> : (
+                    <div className='flex flex-start flex-col'>
                         <form className="flex flex-col m-2 p-2 justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 to-yellow-500/50 backdrop-blur-md rounded-md mb-16" onSubmit={handleSubmit}>
                             <fieldset>
                                 <ol className='md:py-4 md:px-4'>
                                     {
                                         Object.keys(options).map((el, index) => (
                                             <li key={`${el}-${index}`} className='my-2'>
-                                                <label className={'capitalize '} htmlFor={`${el}-select-${index}`}>Choose {el}:</label>
+                                                <label className={'capitalize'} htmlFor={`${el}-select-${index}`}>Choose {el}:</label>
                                                 <select
 
                                                     className={'m-2 p-2 rounded-md capitalize w-fit-content text-md bg-gradient-to-r from-yellow-200/20 to-yellow-800/50'}
@@ -105,7 +90,6 @@ export const TriviaOptions: NextPage = () => {
                                                                     onChange={() => handleSelect}>
                                                                     {val}
                                                                 </option>
-
                                                             </>))
                                                         )
                                                     }
@@ -117,18 +101,18 @@ export const TriviaOptions: NextPage = () => {
                                 <button
                                     type="submit"
                                     aria-label="press to start trivia"
-                                    className={`px-2 py-2 font-medium text-center mb-8 ${roundedBtnStyle} ${isLoading ? "animate-pulse" : ""}`}>
+                                    className={`px-2 py-2 font-medium text-center mb-8 ${roundedBtnStyle} ${isLoading ? "animate-spin" : ""}`}>
                                     <PlayIcon height="50px" width="50px" color="gray" />
                                 </button>
                             </fieldset>
                         </form>
-                        <Link
-                            href={"/tech"}
-                            className={`w-20 text-sm text-black ${invertedButtonStyle}`}>
-                            Go Back
-                        </Link>
                     </div>)
             }
+            <Link
+                href={"/tech"}
+                className={`${invertedButtonStyle} px-6 py-2 mb-28`}>
+                Go Back
+            </Link>
         </div>
     );
 }

@@ -1,10 +1,9 @@
 'use client'
 import type { NextPage } from 'next';
 import { useEffect, useState, useContext } from "react";
-import Link from 'next/link';
 import { TriviaContext } from '../../provider/TriviaProvider';
-import { decodeEntities } from '../../utility/utilities';
-import { buttonStyle, invertedButtonStyle } from '../../utility/stylevariables';
+import { decodeEntities, rmQuoteMarks } from '../../utility/utilities';
+import { buttonStyle } from '../../utility/stylevariables';
 
 export interface TriviaPropInterface {
     type: string;
@@ -56,7 +55,6 @@ export const Trivia: NextPage<TriviaType> = ({ maxQuestions }) => {
         event.preventDefault();
 
         if (selectedValue && questionNumber < maxQuestions) {
-
             if (selectedValue === correctAnswer) {
                 setMsg("Woohooo!! Correct");
                 setScore(score + 1);
@@ -70,18 +68,6 @@ export const Trivia: NextPage<TriviaType> = ({ maxQuestions }) => {
         }
     };
 
-
-    if (!data) {
-        return (<div className="m-4 p-2 rounded content-center pb-28">
-            <h1>There was a problem, please try again!</h1>
-            <button
-                onClick={() => window.location.reload}
-                className={`${buttonStyle} px-6 py-2`}>
-                Refresh
-            </button>
-        </div>);
-    }
-
     const handleAllReset = () => {
         setComplete(false);
         setCorrectAnswer("");
@@ -93,9 +79,9 @@ export const Trivia: NextPage<TriviaType> = ({ maxQuestions }) => {
     };
 
     return (
-        <div className="m-4 p-2 rounded content-center pb-28">
-            <div className="block pb-28">
-                <h1 className="text-lg m-2 p-4 select-none"><strong>Question#{questionNumber + 1}: </strong>{decodeEntities(question)}</h1>
+        <div className="m-4 p-2 rounded content-center">
+            <div className="block">
+                <h1 className="text-lg m-2 p-4 select-none"><strong>Question#{questionNumber + 1}: </strong>{rmQuoteMarks(decodeEntities(question))}</h1>
                 <form className="flex flex-col m-2 p-2 justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 to-yellow-500/50 backdrop-blur-md rounded-md mb-16" onSubmit={handleSubmit}>
                     <fieldset>
                         <ol>
@@ -111,7 +97,7 @@ export const Trivia: NextPage<TriviaType> = ({ maxQuestions }) => {
                                             checked={selectedValue === (el)}
                                             className='px-2 py-2 w-4 h-4 accent-yellow-500'
                                         />
-                                        <label className='select-none ml-2'>{decodeEntities(el)}</label>
+                                        <label className='select-none ml-2'>{rmQuoteMarks(decodeEntities(el))}</label>
                                     </li>)
                                 )
                             }
@@ -120,8 +106,9 @@ export const Trivia: NextPage<TriviaType> = ({ maxQuestions }) => {
                         {
                             complete ? (
                                 <div className='mt-4'>
-                                    <div>
-                                        <p className='px-4 py-2 text-bold bg-gray-300 text-green-800 rounded-lg capitalize border-solid border-2 border-green-600'>Completed!</p>
+                                    <div className='text-bold'>
+                                        {msg}
+                                        <p className='px-4 py-2 text-green-800 bg-gray-300 rounded-lg capitalize border-solid border-2 border-green-600'>Completed!</p>
                                     </div>
                                 </div>
                             )
@@ -143,11 +130,6 @@ export const Trivia: NextPage<TriviaType> = ({ maxQuestions }) => {
                 <div className="flex w-full justify-end px-4 py-3 my-4 font-bold font-mono text-3xl pb-10 mr-4">
                     {complete && `your final score is: `}{score} out of {maxQuestions}
                 </div>
-                <Link
-                    href={"/tech"}
-                    className={`${invertedButtonStyle} px-6 py-2`}>
-                    Go Back
-                </Link>
                 <button
                     onClick={handleAllReset}
                     className={`${buttonStyle} px-6 py-2`}>

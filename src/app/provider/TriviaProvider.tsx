@@ -35,7 +35,7 @@ export type TriviaInputProps = {
 
 export function TriviaProvider({ children }: any) {
     const [data, setData] = useState<Array<Record<string, unknown>>>();
-    const [info, setInfo] = useState<TriviaInputProps>({ amount: 5 });
+    const [info, setInfo] = useState<TriviaInputProps>();
     const [isLoading, setIsLoading] = useState(false);
     const [errorMsg, setErrorMsg] = useState<string>("");
 
@@ -44,27 +44,28 @@ export function TriviaProvider({ children }: any) {
         const categoryNumber = info?.category ? `&category=${info.category}` : "";
 
         const fetchData = async () => {
-            setIsLoading(true);
+            if (info) {
+                setIsLoading(true);
 
-            try {
-                const response = await fetch(`https://opentdb.com/api.php?amount=${info.amount}${difficultyString}&type=multiple${categoryNumber}`);
+                try {
+                    const response = await fetch(`https://opentdb.com/api.php?amount=${info.amount}${difficultyString}&type=multiple${categoryNumber}`);
 
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    const data = await response.json();
+
+                    const results = data?.results ? data.results : $default;
+                    setData(results);
+
+                } catch (error) {
+                    setErrorMsg("Oops! There was an error fetching your data");
+                } finally {
+
+                    setTimeout(() => {
+                        setIsLoading(false);
+                    }, 1000);
                 }
-                const data = await response.json();
-
-                const results = data?.results ? data.results : $default;
-                setData(results);
-
-            } catch (error) {
-                setErrorMsg("Oops! There was an error fetching your data");
-            } finally {
-
-                setTimeout(() => {
-                    setIsLoading(false);
-                    setErrorMsg("")
-                }, 2000);
             }
         };
 

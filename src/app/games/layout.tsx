@@ -4,8 +4,8 @@ export default function GamesLayout({
     children: React.ReactNode
 }) {
     return (
-        <section>
+        <>
             {children}
-        </section>
+        </>
     )
 }
