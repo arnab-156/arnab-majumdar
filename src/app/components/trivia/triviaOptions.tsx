@@ -49,10 +49,10 @@ export const TriviaOptions: NextPage = () => {
 
     return (
         <div className="rounded content-center pb-28">
-            <h1 className="text-center capitalize text-bold my-2">
+            <h1 className="text-center capitalize text-bold">
                 {
-                    isLoading ? <span className="rounded-lg px-4 py-3 border-solid border-2 border-indigo-600 bg-gray-300 text-indigo-800">Questions are loading... best of luck!</span> : !showTrivia
-                        ? <span className="rounded-lg px-4 py-3 border-solid border-2 border-yellow-600 bg-gray-300">Choose options and press </span>
+                    isLoading ? <p className="px-4 py-3 border-solid border-2 border-indigo-600 bg-gray-300 text-indigo-800 rounded-xl shadow-md shadow-indigo-800/50">Questions are loading... best of luck!</p> : !showTrivia
+                        ? <p className="px-4 py-3 border-solid border-2 border-yellow-600 bg-gray-300 rounded-xl shadow-md shadow-yellow-600/50">Choose options and press </p>
                         : ""
                 }
             </h1>
