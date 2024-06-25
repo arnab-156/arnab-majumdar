@@ -17,15 +17,8 @@ export const ComicContext = createContext<ComicContextValue>({
 
 ComicContext.displayName = 'Comic';
 
-// export type TriviaInputProps = {
-//     amount: number,
-//     difficulty?: string,
-//     category?: number,
-// };
-
 export function ComicProvider({ children }: any) {
     const [latestComic, setLatestComic] = useState<any>();
-    // const [info, setInfo] = useState<TriviaInputProps>({ amount: 5 });
     const [isLoading, setIsLoading] = useState(false);
     const [errorMsg, setErrorMsg] = useState<string>("");
 
@@ -40,17 +33,12 @@ export function ComicProvider({ children }: any) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
                 const data = await response.json();
-                console.log("🚀 ~ fetchData ~ data:", data)
                 setLatestComic(data);
 
             } catch (error) {
-                setErrorMsg("Oops! There was a problem.");
+                setErrorMsg("Oops! There was a problem. Sorry :-(");
             } finally {
-
-                setTimeout(() => {
-                    setIsLoading(false);
-                    setErrorMsg("")
-                }, 2000);
+                setIsLoading(false);
             }
         };
 
