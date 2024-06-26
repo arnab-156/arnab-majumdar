@@ -48,13 +48,11 @@ export default function MoC() {
           href=""
           url={`bg-[url('https://live.staticflickr.com/65535/53815369512_6fe978ab35_w.jpg')] `}
           customClassName={cardWrapperStyle}
-          imageContain
-          imagePosition="bg-center"
         />
 
         <Tile
           title="Chicago Pride Socks"
-          subTitle="The best socks that you will need!"
+          subTitle="The best socks that you will need! Long lasting and chicago branded."
           href=""
           url={`bg-[url('https://live.staticflickr.com/65535/53816626939_a6bd893e6a_w.jpg')] `}
           customClassName={cardWrapperStyle}
