@@ -1,12 +1,11 @@
-import Image from "next/image";
 import { Card } from "../components/card";
 import { cardWrapperStyle, yellowBackgroundTheme } from "../utility/stylevariables";
 
-export default function DashboardPage() {
+export default function ExperiencesPage() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between pt-20 ">
       <div className="mb-32 grid text-center lg:w-half lg:max-w-5xl lg:grid-cols-3 lg:text-left">
-        <h1 className="text-3xl font-bold text-center mt-8">Dashboard</h1>
+        <h1 className="text-3xl font-bold text-center mt-8">Experience</h1>
 
         <div className={cardWrapperStyle}>
           <Card
