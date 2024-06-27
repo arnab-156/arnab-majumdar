@@ -1,4 +1,6 @@
 import Image from "next/image";
+import { Card } from "../components/card";
+import { cardWrapperStyle, yellowBackgroundTheme } from "../utility/stylevariables";
 
 export default function DashboardPage() {
   return (
@@ -6,42 +8,154 @@ export default function DashboardPage() {
       <div className="mb-32 grid text-center lg:w-half lg:max-w-5xl lg:grid-cols-3 lg:text-left">
         <h1 className="text-3xl font-bold text-center mt-8">Dashboard</h1>
 
-        <div>
-          <iframe
-            id="inlineFrameCalculator"
-            title="Inline Frame Example"
-            width="400"
-            height="800"
-            allow="fullscreen"
-            src="https://arnab-majumdar.github.io/calculator/"
+        <div className={cardWrapperStyle}>
+          <Card
+            title="Senior Software Engineer"
+            url="https://www.bonobos.com/"
+            imageUrl="/bonobos-logo-dark.svg"
+            backgroundTheme={`${yellowBackgroundTheme}`}
+            description="Initially under Walmart Inc and then under Express LLC"
           />
-
         </div>
-        <div className="m-8">
-          Log in( or log out button when logged in):
-          <ul className="list-disc m-5">
-            <li>create user or existing customer</li>
-            <li>user name</li>
-            <li>password</li>
-            <li>can we add recpatcha or try google SSO or something</li>
+
+        <div className={cardWrapperStyle}>
+          <Card
+            title="Software Engineer 2"
+            url="https://www.shoprunner.com/"
+            imageUrl="/shoprunner_byfedex.svg"
+            backgroundTheme={`${yellowBackgroundTheme}`}
+            description="In a start up, and went through acquisition by FedEx"
+          />
+        </div>
+
+        <div className={cardWrapperStyle}>
+          <Card
+            title="Owner and CEO"
+            url="/moc"
+            imageUrl="https://live.staticflickr.com/65535/53808934296_8330a5b182_w.jpg"
+            backgroundTheme={``}
+            imageWidth={105}
+            description="Click here to know more about the innovation, technology, and design."
+          />
+        </div>
+
+        <div className={cardWrapperStyle}>
+          <Card
+            title="Instructional Assistant"
+            url=""
+            imageUrl="northwestern.svg"
+            description="Full Stack Coding Bootcamp - Mongo Express React Node.js stack"
+            imageHeight={80}
+            imageWidth={80}
+          />
+        </div>
+
+        <div className={cardWrapperStyle}>
+          <Card
+            title="Department Chair - Fashion Marketing and Merchandising"
+            url=""
+            imageUrl="https://live.staticflickr.com/65535/53818079467_6eaf1c63ea_w.jpg"
+            backgroundTheme={`${yellowBackgroundTheme}`}
+            description="Instructed cross-curriculum and mentored students of fashion merchandising."
+            imageHeight={200}
+            imageWidth={135}
+          />
+        </div>
+        <div className={cardWrapperStyle}>
+          <Card
+            title="Assistant Professor, Fashion Studies."
+            url=""
+            imageUrl="https://live.staticflickr.com/65535/53819339684_9c2b53cb83_w.jpg"
+            imageHeight={200}
+            imageWidth={200}
+            backgroundTheme={`bg-white`}
+            description="Instructed Fashion Studies courses on Apparel Quality, Supply Chain, Technology and Merchandising. Supported International Students and lead program review of Fashion Business Curriculum."
+          />
+        </div>
+        <div className={cardWrapperStyle}>
+          <Card
+            title="Instructor - Family and Consumer Sciences"
+            url=""
+            imageUrl="/pittstate.svg"
+            imageHeight={200}
+            imageWidth={190}
+            backgroundTheme={`${yellowBackgroundTheme}`}
+            description="Instructed 8+8 course load of Textiles and Fashion Merchandising courses of Family and Consumer Sciences."
+          />
+        </div>
+
+        <div className={cardWrapperStyle}>
+          <Card
+            title="Assistant Manager, Reliance Trends"
+            url=""
+            imageUrl="https://live.staticflickr.com/65535/53819337484_729e51ba15_w.jpg"
+            backgroundTheme={`bg-white`}
+            description="Worked not just in Marketing, new store opening (Two 145,000 sq.ft, Five 18,000 sq.ft stores, severals brands
+            and vendor management."
+          />
+        </div>
+
+        <h2 className="text-xl font-bold text-center mt-8">Education</h2>
+        <div className={cardWrapperStyle}>
+          <Card
+            title="Northwestern Unversity"
+            url=""
+            imageUrl="/northwestern.svg"
+            imageHeight={80}
+            description="Certificate - Web Development"
+          />
+        </div>
+
+        <div className={cardWrapperStyle}>
+          <Card
+            title="University of Rhode Island"
+            url=""
+            imageUrl="/uri.svg"
+            backgroundTheme={`${yellowBackgroundTheme}`}
+            description="Master's of Science - Textiles, Fashion Merchandising & Design"
+          />
+        </div>
+
+        <div className={cardWrapperStyle}>
+          <Card
+            title="National Institute of Fashion Technology"
+            url=""
+            imageUrl="/nift.svg"
+            backgroundTheme={`${yellowBackgroundTheme}`}
+            description="Bachelor's of Technology - Apparel Manufacturing and Information Technology."
+          />
+        </div>
+
+        <div className={cardWrapperStyle}>
+          <Card
+            title="Reach Technologies"
+            url=""
+            imageUrl=""
+            description="Research and Development of Footwear CAD for use of software engineers."
+          />
+        </div>
+
+        <div className={`${cardWrapperStyle}`}>
+          <h3 className="text-xl font-bold text-center"> Other Experiences:</h3>
+          <ul className={`rounded-md p-4 ml-2`}>
+            <li className="p-2 underline"> Apple Michigan Avenue Chicago</li>
+            <li className="p-2 underline"> Style Week Providence Providence RI</li>
+            <li className="p-2 underline"> Ocean State Job Lot North Kingstown RI</li>
+            <li className="p-2 underline"> Siyaram Silk Mills Mumbai India</li>
+            <li className="p-2 underline"> Wonder Blues Jeans Factory Bangalore India</li>
           </ul>
         </div>
-        <div className="m-8">
-          <h2 className="m-8">Benefits of logging in:</h2>
-          <p className="m-8">
-            <ul>
-              <li>Avoids spam, annonymous people and safety of all.</li>
-              <li>Free Newsletter about arts and tech from me.</li>
-              <li>Complimentary Birthday special!</li>
-              <li>Curated content so you dont have to!</li>
-              <li>Social Media call outs and responses.</li>
-              <li>Access to many resources.</li>
-            </ul>
-          </p>
-          <h3 className="m-8 text-xs">Terms and Conditions Apply. Decision of the website admin is final.
-            Any breach of contract, intellectual property voilantions, harrassment, or social media trolling will result
-            in a ban.</h3>
+
+        <div className={`${cardWrapperStyle}`}>
+          <h3 className="text-xl font-bold text-center">Volunteer:</h3>
+          <ul className={`rounded-md p-4 ml-2`}>
+            <li className="p-2 underline"> Docent - Lincoln Park Conservatory Chicago IL </li>
+            <li className="p-2 underline"> Rhode Island Pride RI</li>
+            <li className="p-2 underline"> Trikone Chicago</li>
+            <li className="p-2 underline"> CMSA Chicago</li>
+          </ul>
         </div>
+
       </div>
     </main>
   );
