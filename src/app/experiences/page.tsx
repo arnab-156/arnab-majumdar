@@ -1,5 +1,6 @@
+import Link from "next/link";
 import { Card } from "../components/card";
-import { cardWrapperStyle, yellowBackgroundTheme } from "../utility/stylevariables";
+import { buttonStyle, cardWrapperStyle, yellowBackgroundTheme } from "../utility/stylevariables";
 
 export default function ExperiencesPage() {
   return (
@@ -85,6 +86,16 @@ export default function ExperiencesPage() {
 
         <div className={cardWrapperStyle}>
           <Card
+            title="Graduate Teaching Assistant"
+            url=""
+            imageUrl="/uri.svg"
+            backgroundTheme={`${yellowBackgroundTheme}`}
+            description="Textile Sciences Laboratory"
+          />
+        </div>
+
+        <div className={cardWrapperStyle}>
+          <Card
             title="Assistant Manager, Reliance Trends"
             url=""
             imageUrl="https://live.staticflickr.com/65535/53819337484_729e51ba15_w.jpg"
@@ -94,7 +105,16 @@ export default function ExperiencesPage() {
           />
         </div>
 
-        <h2 className="text-xl font-bold text-center mt-8">Education</h2>
+        <div className={cardWrapperStyle}>
+          <Card
+            title="Reach Technologies"
+            url=""
+            imageUrl=""
+            description="Research and Development of Footwear CAD for use of software engineers."
+          />
+        </div>
+
+        <h2 className="text-3xl font-bold text-center mt-8">Education</h2>
         <div className={cardWrapperStyle}>
           <Card
             title="Northwestern Unversity"
@@ -125,15 +145,6 @@ export default function ExperiencesPage() {
           />
         </div>
 
-        <div className={cardWrapperStyle}>
-          <Card
-            title="Reach Technologies"
-            url=""
-            imageUrl=""
-            description="Research and Development of Footwear CAD for use of software engineers."
-          />
-        </div>
-
         <div className={`${cardWrapperStyle}`}>
           <h3 className="text-xl font-bold text-center"> Other Experiences:</h3>
           <ul className={`rounded-md p-4 ml-2`}>
@@ -146,7 +157,7 @@ export default function ExperiencesPage() {
         </div>
 
         <div className={`${cardWrapperStyle}`}>
-          <h3 className="text-xl font-bold text-center">Volunteer:</h3>
+          <h3 className="text-2xl font-bold text-center">Volunteer:</h3>
           <ul className={`rounded-md p-4 ml-2`}>
             <li className="p-2 underline"> Docent - Lincoln Park Conservatory Chicago IL </li>
             <li className="p-2 underline"> Rhode Island Pride RI</li>
@@ -155,6 +166,9 @@ export default function ExperiencesPage() {
           </ul>
         </div>
 
+        <p className="m-4 p-4"><strong >Thank you for visiting! There are more information to come, please visit again! </strong>
+          <Link className={`${buttonStyle}`} href="/about" aria-label="go back to about">click here </Link> to go back.
+        </p>
       </div>
     </main>
   );
