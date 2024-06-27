@@ -1,11 +1,13 @@
 import Image from "next/image";
 import { Card } from "../components/card"
+import Link from "next/link";
+import { buttonStyle } from "../utility/stylevariables";
 
 const urlImageDefault = "/headshot.gif"
 
 export default function About() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between pt-20">
+    <main className="flex min-h-screen flex-col items-center justify-between pt-20 pb-60">
       <div className="grid text-center lg:w-half lg:max-w-5xl lg:grid-cols-3 lg:text-left">
         <div className="m-8">
           <Card
@@ -55,6 +57,11 @@ export default function About() {
           </p>
         </div>
 
+        <Card title={"See More of Arnab's Experiences.."} url={"/experiences"} customClassName="m-8 mb-20">
+          <p className="my-4 pb-4"><strong >Thank you for your support! </strong>
+            Please <Link className={`${buttonStyle}`} href="/experiences" aria-label="go to arnab's experience">click here.</Link>
+          </p>
+        </Card>
       </div>
     </main>
   );

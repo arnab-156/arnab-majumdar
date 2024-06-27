@@ -1,8 +1,7 @@
 import { Card } from "../components/card";
-import Link from "next/link";
 import { Tile } from "../components/tile";
-import { PaintIcon, GreetingCardIcon, ApparelIcon, LotusIcon } from "../components/icons";
-import { lotus_pink as pink, cardWrapperStyle } from "../utility/stylevariables";
+import { ApparelIcon } from "../components/icons";
+import { cardWrapperStyle } from "../utility/stylevariables";
 
 export default function Lotus() {
   return (
@@ -17,8 +16,8 @@ export default function Lotus() {
           url="https://lotusmahal.com/"
           description="Boutique collections of rare and beautiful treasures, inexpensive but invaluable. Click here!"
           customClassName={cardWrapperStyle}
+          imageUrl="https://live.staticflickr.com/65535/53819325384_d2b8af917f_w.jpg"
         >
-          <LotusIcon height="100px" width="100px" color={pink} />
         </Card>
 
         <Tile
