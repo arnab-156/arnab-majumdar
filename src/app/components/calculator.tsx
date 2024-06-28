@@ -1,6 +1,6 @@
 'use client'
 import type { NextPage } from 'next';
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Link from 'next/link';
 
 const btnValues = [
@@ -86,19 +86,14 @@ export const Calculator: NextPage = () => {
         }
     };
 
-    useEffect(() => {
-
-    }, [currentValue, secondValue, operator]);
-
     return (
         <div className="m-4 p-2 rounded content-center">
-            <h1 className='flex w-full justify-end px-3 py-2 my-4 font-bold font-mono text-xl'>
+            <h2 className='flex w-full justify-end px-3 py-2 my-4 font-bold font-mono text-xl rounded-md border border-gray-300 shadow-md'>
                 {currentValue}
                 {operator && <span className='mx-2'>{operator}</span>}
                 {secondValue !== "0" && <span className='mx-2' >{secondValue}</span>}
                 {error && <span className='mx-2 text-red-500' >{error}</span>}
-            </h1>
-            <input className="block w-full px-3 py-2 my-4 rounded-md border border-gray-300 shadow-md focus:outline-none focus:ring-1 focus:ring-blue-500" />
+            </h2>
             <div className="grid grid-cols-4 grid-rows-5 gap-2">
                 {btnValues.map((el, i) => (
                     el.map(elem => <button
