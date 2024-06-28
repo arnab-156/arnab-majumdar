@@ -5,13 +5,13 @@ import { cardWrapperStyle, yellowBackgroundTheme, buttonStyle } from './utility/
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between pt-20 ">
+    <main className="flex min-h-screen flex-col items-center justify-between md:pt-20">
       <div className="mb-32 grid text-center lg:w-half lg:max-w-5xl lg:grid-cols-3 lg:text-left">
         <div className=' m-8'>
           <h1 className="text-3xl font-bold text-center uppercase">Welcome to my homepage!</h1>
           {/* <h2 className="text-md font-bold text-center capiutalize">Tech + Design</h2> */}
         </div>
-        <div className='cardWrapperStyle'>
+        <div className={cardWrapperStyle}>
           <Card
             title="About Arnab!"
             url="/about"
@@ -20,26 +20,9 @@ export default function Home() {
           />
         </div>
 
-        <div className="shadow-md rounded-md text-center py-4 px-8 m-4">
-          <p className="m-2"><strong>Navigate with ease.</strong> Use the top menu to jump to specific project categories.</p>
-
-          <p className="mt-4"><strong>Connect & Learn More.</strong> Find contact information and additional details in the footer. </p>
-        </div>
-
         <div className={cardWrapperStyle}>
           <Card
-            title="Made with Love, Free to Use"
-            url="/tech"
-            description="All images and icons are carefully chosen to be either personal creations or royalty-free!"
-            backgroundTheme={yellowBackgroundTheme}
-          >
-            <p className="my-4 pb-4"><strong >Thank you for your support!</strong> Please visit <Link className={`${buttonStyle}`} href="/lotus" aria-label="go to lotusmahal.com">Lotus Mahal.</Link></p>
-          </Card>
-        </div>
-
-        <div className={cardWrapperStyle}>
-          <Card
-            title="Technologies used:"
+            title="This website is made with:"
             url=""
           >
             <ul className="list-disc grid grid-cols-2">
@@ -52,16 +35,6 @@ export default function Home() {
               <li className="hover:underline">Jest</li>
               <li className="hover:underline">Deployed on Vercel & Onrender</li>
             </ul>
-          </Card>
-        </div>
-
-        <div className={cardWrapperStyle}>
-          <Card
-            title="Go to Games and Utilities"
-            url="/tech"
-            description="Play games, trivia, and use calculator. More Features are coming soon!"
-          >
-            <CalculatorIcon height="100px" width="100px" />
           </Card>
         </div>
 
@@ -84,6 +57,34 @@ export default function Home() {
             backgroundTheme={yellowBackgroundTheme}
           >
             <ReadIcon height="100px" width="100px" />
+          </Card>
+        </div>
+
+        <div className="shadow-md rounded-md text-center py-4 px-8 m-4">
+          <p className="m-2"><strong>Navigate with ease.</strong> Use the top menu to jump to specific project categories.</p>
+
+          <p className="mt-4"><strong>Connect & Learn More.</strong> Find contact information and additional details in the footer. </p>
+        </div>
+
+        <div className={cardWrapperStyle}>
+          <Card
+            title="Made with Love, Free to Use"
+            url="/tech"
+            description="All images and icons are carefully chosen to be either personal creations or royalty-free!"
+            backgroundTheme={yellowBackgroundTheme}
+          >
+            <p className="my-4 pb-4"><strong >Thank you for your support!</strong> Please visit <Link className={`${buttonStyle}`} href="/lotus" aria-label="go to lotusmahal.com">Lotus Mahal.</Link></p>
+          </Card>
+        </div>
+
+
+        <div className={cardWrapperStyle}>
+          <Card
+            title="Go to Games and Utilities"
+            url="/tech"
+            description="Play games, trivia, and use calculator. More Features are coming soon!"
+          >
+            <CalculatorIcon height="100px" width="100px" />
           </Card>
         </div>
 
