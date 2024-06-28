@@ -80,7 +80,7 @@ export default function Home() {
           <Card
             title="Comic of the day!"
             url="/tech/comic"
-            description="Version 1 is live! More features are coming soon. Please enjoy!"
+            description="Have fun reading some fun comics!! More Features to come!"
             backgroundTheme={yellowBackgroundTheme}
           >
             <ReadIcon height="100px" width="100px" />
