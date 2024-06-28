@@ -7,7 +7,7 @@ import { buttonStyle, cardWrapperStyle, invertedButtonStyle, yellowBackgroundThe
 import { Card } from './card';
 
 export const Comic: NextPage = ({ }) => {
-    const { latestComic, isLoading, errorMsg } = useContext(ComicContext);
+    const { latestComic, isLoading, errorMsg, getNextComic, getPreviousComic } = useContext(ComicContext);
 
     const handleAllReset = () => {
         window.location.reload();
@@ -15,8 +15,8 @@ export const Comic: NextPage = ({ }) => {
 
     return (
         <div className="rounded content-center block max-w-screen-lg m-auto">
-            <h1 className="text-lg m-auto justify-content p-4 select-none">
-                {isLoading ? "Loading..." : errorMsg.length > 0 ? <span>{errorMsg}</span> : "Work in Progress. Enjoy Version 1!"}
+            <h1 className="text-xl font-bold m-auto justify-content p-4 select-none text-center">
+                {isLoading ? "Loading..." : errorMsg.length > 0 ? <span>{errorMsg}</span> : `Enjoy Today's Comic!`}
             </h1>
 
             {latestComic && (
@@ -30,20 +30,29 @@ export const Comic: NextPage = ({ }) => {
                         imageHeight={625}
                         imageWidth={320}
                         backgroundTheme={yellowBackgroundTheme}
-                        customClassName='text-lg'
+                        customClassName='text-lg mb-32'
                     />
                 </div>)}
 
-            <Link
-                href={"/tech"}
-                className={`${invertedButtonStyle} px-6 py-2`}>
-                Go Back
-            </Link>
-            <button
-                onClick={handleAllReset}
-                className={`${buttonStyle} px-6 py-2`}>
-                Refresh
-            </button>
+            <div className='flex space-between m-auto pb-32 justify-center'>
+                <button
+                    onClick={getPreviousComic}
+                    className={`${buttonStyle} px-6 py-2`}>
+                    Previous Comic
+                </button>
+
+                <button
+                    onClick={handleAllReset}
+                    className={`${""} px-6 py-2 mb-30`}>
+                    Refresh
+                </button>
+
+                <button
+                    onClick={getNextComic}
+                    className={`${invertedButtonStyle} px-6 py-2`}>
+                    Next Comic
+                </button>
+            </div>
         </div>
     );
 }
