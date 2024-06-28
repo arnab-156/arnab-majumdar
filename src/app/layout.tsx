@@ -17,7 +17,7 @@ export default function RootLayout({
             <header><script async src="//embedr.flickr.com/assets/client-code.js"></script></header>
             <body>
                 <Navigation />
-                <section>{children}</section>
+                {children}
             </body>
         </html>
     )

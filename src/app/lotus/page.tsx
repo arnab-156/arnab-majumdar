@@ -15,17 +15,16 @@ export default function Lotus() {
           title="Go to Lotus Mahal!"
           url="https://lotusmahal.com/"
           description="Boutique collections of rare and beautiful treasures, inexpensive but invaluable. Click here!"
-          customClassName={cardWrapperStyle}
+          customClassName={`${cardWrapperStyle}`}
           imageUrl="https://live.staticflickr.com/65535/53819325384_d2b8af917f_w.jpg"
-        >
-        </Card>
+        />
 
         <Tile
           title="Greeting Cards by Lotus Mahal"
           subTitle="Watercolor greeting cards printed onto high quality paper in variety of price points and designs."
           href="https://lotusmahal.com/collections/watercolor-cards"
           url={`bg-[url('https://live.staticflickr.com/65535/53807737642_cbaee14e20_w.jpg')] `}
-          customClassName={cardWrapperStyle}
+          customClassName={`${cardWrapperStyle}`}
         />
 
         <Tile
