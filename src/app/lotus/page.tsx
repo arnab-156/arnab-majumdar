@@ -38,12 +38,23 @@ export default function Lotus() {
         />
 
         <Tile
+          title="Eye on India - The Saree Project"
+          subTitle="Fashion + Education + Sustainability"
+          href="/lotus/eye-on-india"
+          url={`bg-[url('https://live.staticflickr.com/65535/53839425086_c36fa84f70_w.jpg')] `}
+          customClassName={cardWrapperStyle}
+          imageContain
+          shadowColor="shadow-yellow-800"
+        />
+
+        <Tile
           href="/moc"
           title="Made of Chicago"
           subTitle="A interactive activewear company available on interactive vending machines at your hotel and building gyms!"
           url={`bg-[url('https://live.staticflickr.com/65535/53809112039_8d183992a8_w.jpg')] `}
           customClassName={cardWrapperStyle}
           imageContain
+          shadowColor="shadow-red-800"
         />
 
         <div className="m-8">
