@@ -100,6 +100,18 @@ export default function ExperiencesPage() {
 
         <div className={cardWrapperStyle}>
           <Card
+            title="StyleWeek - PR Executive"
+            url=""
+            imageUrl="https://www.styleweeknortheast.com/wp-content/uploads/sites/26/2019/07/STYLEWEEK-LOGO-1.png"
+            imageHeight={200}
+            imageWidth={190}
+            // backgroundTheme={`${pinkBackgroundTheme}`}
+            description="PR + Fashion show production assistant."
+          />
+        </div>
+
+        <div className={cardWrapperStyle}>
+          <Card
             title="Graduate Teaching Assistant"
             url=""
             imageUrl="/uri.svg"
@@ -163,7 +175,6 @@ export default function ExperiencesPage() {
           <h3 className="text-xl font-bold text-center"> Other Experiences:</h3>
           <ul className={`rounded-md p-4 ml-2`}>
             <li className="p-2 underline"> Apple Michigan Avenue Chicago</li>
-            <li className="p-2 underline"> Style Week Providence Providence RI</li>
             <li className="p-2 underline"> Ocean State Job Lot North Kingstown RI</li>
             <li className="p-2 underline"> Siyaram Silk Mills Mumbai India</li>
             <li className="p-2 underline"> Wonder Blues Jeans Factory Bangalore India</li>
