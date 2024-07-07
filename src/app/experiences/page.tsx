@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Card } from "../components/card";
-import { buttonStyle, cardWrapperStyle, yellowBackgroundTheme } from "../utility/stylevariables";
+import { buttonStyle, cardWrapperStyle, pinkBackgroundTheme, yellowBackgroundTheme } from "../utility/stylevariables";
 
 export default function ExperiencesPage() {
   return (
@@ -61,6 +61,19 @@ export default function ExperiencesPage() {
             imageWidth={135}
           />
         </div>
+
+        <div className={cardWrapperStyle}>
+          <Card
+            title="Eye on India - The Saree Project (Co-ordinator)"
+            url="/lotus/eye-on-india"
+            imageUrl="https://live.staticflickr.com/65535/53839425086_c36fa84f70_w.jpg"
+            imageHeight={200}
+            imageWidth={200}
+            backgroundTheme={`${pinkBackgroundTheme}`}
+            description="Fashion + Education + Sustainability."
+          />
+        </div>
+
         <div className={cardWrapperStyle}>
           <Card
             title="Assistant Professor, Fashion Studies."
@@ -72,6 +85,7 @@ export default function ExperiencesPage() {
             description="Instructed Fashion Studies courses on Apparel Quality, Supply Chain, Technology and Merchandising. Supported International Students and lead program review of Fashion Business Curriculum."
           />
         </div>
+
         <div className={cardWrapperStyle}>
           <Card
             title="Instructor - Family and Consumer Sciences"
