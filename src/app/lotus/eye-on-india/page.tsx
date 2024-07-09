@@ -1,17 +1,13 @@
-import { Tile } from "@/app/components/tile";
-import { cardWrapperStyle } from "@/app/utility/stylevariables";
-
 export default function EyeOnIndia() {
   return (
     <main className="flex min-h-screen flex-col pt-10 pb-56">
       <h1 className="p-4 m-2 bg-white/80 rounded text-center dark:text-black font-bold text-overflow-ellipsis overflow-hidden line-clamp-1">Eye on India - Saree Project</h1>
 
-      <div className={`h-96 rounded relative bg-contain bg-no-repeat bg-center
+      <div className={`h-80 md:h-96 rounded relative bg-contain bg-no-repeat bg-center
           bg-[url('https://live.staticflickr.com/65535/53841418931_301432a964_w.jpg')]
           flex flex-col-reverse rounded
           `}
-      >
-      </div>
+      />
 
       <p className="text-xl font-bold text-center my-6 max-w-md m-auto">
         The Saree(Sari) project was conceptualized to bring education about Indian fashion in the US and sustainability.
@@ -34,12 +30,11 @@ export default function EyeOnIndia() {
         As you can imagine, this was a sizable undertaking that took a level of coordination and fresh ideas that was heavily
         facilitated by Arnab Majumdar, who has been with the project since the beginning.
 
-        <img className="object-cover h-full w-auto m-auto rounded-md mb-4"
-          height={400} width={300}
-          src="https://live.staticflickr.com/65535/53841525101_2742109ce3_w.jpg"
-          alt="eye on india garment example of festival" />
+        <div className={`h-80 rounded-md relative bg-cover bg-center
+          bg-[url('https://live.staticflickr.com/65535/53841525101_2742109ce3_w.jpg')]
+          `} role="img"
+        />
       </p>
-
 
       <h2 className="p-4 m-2 bg-white/80 rounded text-center dark:text-black font-bold text-overflow-ellipsis overflow-hidden line-clamp-2">
         Sears/Willis Tower Exhibit - Chicago
@@ -60,9 +55,9 @@ export default function EyeOnIndia() {
         opportunity. Most importantly, thank you to all the students who participated, learned about India,
         and showcased their fantastic creativity.
 
-        <img className="object-cover h-full w-auto m-auto mb-4 rounded"
-          height={400} width={300}
-          src="https://live.staticflickr.com/65535/53841877519_f0d9d2d6c4_w.jpg" alt="eye on india garment example of festival"
+        <div className={`h-80 rounded-md relative bg-cover bg-center
+          bg-[url('https://live.staticflickr.com/65535/53841877519_f0d9d2d6c4_w.jpg')]
+          `} role="img"
         />
       </p>
 
@@ -77,10 +72,10 @@ export default function EyeOnIndia() {
         <img className="object-cover h-full w-auto" height={200} width={100} src="https://live.staticflickr.com/65535/53841773419_1a74e6a45c_w.jpg" alt="eye on india student garment" />
       </div>
 
-      <div className="flex flex-col m-auto">
-        <img className="object-cover h-full w-full my-6 rounded" height={400} width={600} src="https://live.staticflickr.com/65535/53841877549_d4a22556d4_w.jpg" alt="eye on india garment example of fabric" />
-      </div>
-
+      <div className={`h-80 rounded-md relative bg-cover bg-center m-auto w-full md:h-96
+          bg-[url('https://live.staticflickr.com/65535/53841877549_d4a22556d4_w.jpg')] my-6
+          `}
+      />
 
       <h3 className="p-4 m-2 bg-white/80 rounded text-center dark:text-black font-bold text-overflow-ellipsis overflow-hidden line-clamp-2">
         Thank you for visiting!

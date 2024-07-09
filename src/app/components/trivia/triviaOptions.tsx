@@ -61,7 +61,7 @@ export const TriviaOptions: NextPage = () => {
             }
             {
                 (showTrivia && !fetchError && !isLoading) ? <Trivia maxQuestions={information.amount} /> : (
-                    <div className='flex flex-start flex-col'>
+                    <div className='flex flex-start flex-col dark:text-black'>
                         <form className="flex flex-col m-2 p-2 justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 to-yellow-500/50 backdrop-blur-md rounded-md mb-16" onSubmit={handleSubmit}>
                             <fieldset>
                                 <ol className='md:py-4 md:px-4'>
