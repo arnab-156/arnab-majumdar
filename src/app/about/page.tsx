@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Card } from "../components/card"
 import Link from "next/link";
-import { buttonStyle } from "../utility/stylevariables";
+import { buttonStyle, pinkBackgroundTheme } from "../utility/stylevariables";
 
 const urlImageDefault = "/headshot.gif"
 
@@ -57,9 +57,10 @@ export default function About() {
           </p>
         </div>
 
-        <Card title={"See More of Arnab's Experiences.."} url={"/experiences"} customClassName="m-8 mb-20">
-          <p className="my-4 pb-4"><strong >Thank you for your support! </strong>
-            Please <Link className={`${buttonStyle}`} href="/experiences" aria-label="go to arnab's experience">click here.</Link>
+        <Card title="See More of Arnab's Experiences.." url={"/experiences"} customClassName="m-8 mb-20" backgroundTheme={pinkBackgroundTheme}>
+          <p className="my-4 pb-4">
+            Please <Link className={`${buttonStyle}`} href="/experiences" aria-label="go to arnab's experience">click here</Link> to see more.
+            <strong >Thank you for your support! </strong>
           </p>
         </Card>
       </div>

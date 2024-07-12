@@ -57,6 +57,15 @@ export default function Lotus() {
           shadowColor="shadow-red-800"
         />
 
+        <Tile
+          href="/lotus/samsung"
+          title="AT&T Samsung Design Project"
+          subTitle="Education: Incorporating technology in Design Process!"
+          url={`bg-[url('https://live.staticflickr.com/65535/53851021701_6619ae0f97_w.jpg')] `}
+          customClassName={cardWrapperStyle}
+          shadowColor="shadow-blue-400"
+        />
+
         <div className="m-8">
           <Card
             title="Coming soon: Fashion Business 101"

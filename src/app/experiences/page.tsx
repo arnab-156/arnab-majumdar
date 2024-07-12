@@ -88,6 +88,17 @@ export default function ExperiencesPage() {
 
         <div className={cardWrapperStyle}>
           <Card
+            title="AT&T Samsung Galaxy Project"
+            url="/lotus/samsung"
+            imageUrl="https://live.staticflickr.com/65535/53851021701_6619ae0f97_w.jpg"
+            imageHeight={200}
+            imageWidth={200}
+            description="Fashion + Education + Technology."
+          />
+        </div>
+
+        <div className={cardWrapperStyle}>
+          <Card
             title="Instructor - Family and Consumer Sciences"
             url=""
             imageUrl="/pittstate.svg"
@@ -105,7 +116,6 @@ export default function ExperiencesPage() {
             imageUrl="https://www.styleweeknortheast.com/wp-content/uploads/sites/26/2019/07/STYLEWEEK-LOGO-1.png"
             imageHeight={200}
             imageWidth={190}
-            // backgroundTheme={`${pinkBackgroundTheme}`}
             description="PR + Fashion show production assistant."
           />
         </div>
@@ -126,8 +136,7 @@ export default function ExperiencesPage() {
             url=""
             imageUrl="https://live.staticflickr.com/65535/53819337484_729e51ba15_w.jpg"
             backgroundTheme={`bg-white`}
-            description="Worked not just in Marketing, new store opening (Two 145,000 sq.ft, Five 18,000 sq.ft stores, severals brands
-            and vendor management."
+            description="Marketing, Promotions, Branding, new store opening (Two 145,000 sq.ft, Five 18,000 sq.ft stores, and vendor management."
           />
         </div>
 
