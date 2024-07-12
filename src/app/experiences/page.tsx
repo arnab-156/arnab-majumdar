@@ -88,6 +88,17 @@ export default function ExperiencesPage() {
 
         <div className={cardWrapperStyle}>
           <Card
+            title="AT&T Samsung Galaxy Project"
+            url="/lotus/samsung"
+            imageUrl="https://live.staticflickr.com/65535/53851021701_6619ae0f97_w.jpg"
+            imageHeight={200}
+            imageWidth={200}
+            description="Fashion + Education + Technology."
+          />
+        </div>
+
+        <div className={cardWrapperStyle}>
+          <Card
             title="Instructor - Family and Consumer Sciences"
             url=""
             imageUrl="/pittstate.svg"

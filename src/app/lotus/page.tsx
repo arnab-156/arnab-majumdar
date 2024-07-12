@@ -60,7 +60,7 @@ export default function Lotus() {
         <Tile
           href="/lotus/samsung"
           title="AT&T Samsung Design Project"
-          subTitle="Inciporating technology in Design Process!"
+          subTitle="Education: Incorporating technology in Design Process!"
           url={`bg-[url('https://live.staticflickr.com/65535/53851021701_6619ae0f97_w.jpg')] `}
           customClassName={cardWrapperStyle}
           shadowColor="shadow-blue-400"
