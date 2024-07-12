@@ -105,7 +105,6 @@ export default function ExperiencesPage() {
             imageUrl="https://www.styleweeknortheast.com/wp-content/uploads/sites/26/2019/07/STYLEWEEK-LOGO-1.png"
             imageHeight={200}
             imageWidth={190}
-            // backgroundTheme={`${pinkBackgroundTheme}`}
             description="PR + Fashion show production assistant."
           />
         </div>
@@ -126,8 +125,7 @@ export default function ExperiencesPage() {
             url=""
             imageUrl="https://live.staticflickr.com/65535/53819337484_729e51ba15_w.jpg"
             backgroundTheme={`bg-white`}
-            description="Worked not just in Marketing, new store opening (Two 145,000 sq.ft, Five 18,000 sq.ft stores, severals brands
-            and vendor management."
+            description="Marketing, Promotions, Branding, new store opening (Two 145,000 sq.ft, Five 18,000 sq.ft stores, and vendor management."
           />
         </div>
 
