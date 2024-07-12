@@ -15,10 +15,10 @@ export default function Samsung() {
       </div>
 
       <p className="text-xl font-bold text-center my-6 max-w-md m-auto">
-        AT&T Michigan Avenue sponsored the Samsung Design project. The idea was to incorporate the newly launched Samsung Galaxy Note 7 into the design process by Columbia College Chicago students,
+        AT&T Michigan Avenue sponsored the Samsung Design project. The idea was to incorporate the newly launched Samsung Galaxy Note 7 into the design process by Columbia College Chicago students.
         In this AT&T-guided design project facilitated by Arnab, students used Samsung Galaxy Note to collaborate, design, share concepts, and critique. In a limited time, students converted their
-        concepts developed on Samsung Galaxy Note into a actual garment and displayed them at the AT&T Flagship store on Michigan Avenue, Chicago.
-        Over 1.2 million people walked by the display of student work.
+        concepts developed on Samsung Galaxy Note into an actual garment and displayed them at the AT&T Flagship store on Michigan Avenue, Chicago.
+        <br /><br /> Over 1.2 million people walked by the display of student work.
       </p>
 
       <div className={`h-80 md:h-96 rounded-md relative bg-contain bg-no-repeat bg-center
