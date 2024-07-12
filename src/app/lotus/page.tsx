@@ -50,7 +50,7 @@ export default function Lotus() {
         <Tile
           href="/moc"
           title="Made of Chicago"
-          subTitle="A interactive activewear company available on interactive vending machines at your hotel and building gyms!"
+          subTitle="Chicago-inspired activewear brand available on interactive vending machines right at your hotel or building gyms!"
           url={`bg-[url('https://live.staticflickr.com/65535/53809112039_8d183992a8_w.jpg')] `}
           customClassName={cardWrapperStyle}
           imageContain
