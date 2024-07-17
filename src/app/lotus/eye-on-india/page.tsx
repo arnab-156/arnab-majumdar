@@ -96,11 +96,16 @@ export default function EyeOnIndia() {
         <img className="object-cover h-full w-auto p-2" height={200} width={100} src="https://live.staticflickr.com/65535/53841773419_1a74e6a45c_w.jpg" alt="eye on india student garment 14" />
         <img className="object-cover h-full w-auto p-2" height={200} width={100} src="https://live.staticflickr.com/65535/53863081276_c7f7ef35e9_w.jpg" alt="eye on india student garment 15" />
         <img className="object-cover h-full w-auto p-2" height={200} width={100} src="https://live.staticflickr.com/65535/53851282138_a4be666862_w.jpg" alt="eye on india student garment 16 with arnab" />
-        <img className="object-cover h-full w-auto p-2" height={300} width={100} src="https://live.staticflickr.com/65535/53863440564_afcab700d8_w.jpg" alt="eye on india student garment overcoat" />
       </div>
 
       <div className={`h-80 rounded-md relative bg-cover bg-contain m-auto w-full md:h-96
           bg-[url('https://live.staticflickr.com/65535/53841877549_d4a22556d4_w.jpg')] my-6
+          `}
+      />
+
+      <div className={`h-80 md:h-96 rounded-md relative bg-contain bg-no-repeat bg-center
+          bg-[url('https://live.staticflickr.com/65535/53863440564_afcab700d8_w.jpg')]
+          flex flex-col-reverse rounded
           `}
       />
 
