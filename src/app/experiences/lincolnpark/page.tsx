@@ -23,7 +23,7 @@ export default function LincolnPark() {
           <a
             data-flickr-embed="true"
             href="https://www.flickr.com/photos/200915664@N03/53861035527/in/dateposted-public/"
-            title="Arnab"
+            title="Arnab at Lincoln Park Conservatory"
           >
             <img
               src="https://live.staticflickr.com/31337/53861035527_5204b8d1f8_w.jpg"

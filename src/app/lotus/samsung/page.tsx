@@ -6,13 +6,11 @@ export default function Samsung() {
         AT&T Michigan Avenue and Samsung Galaxy Fashion Project
       </h1>
 
-      <div className="flex margin-auto justify-center">
-        <a data-flickr-embed="true"
-          href="https://www.flickr.com/photos/200915664@N03/53850896150/in/dateposted/"
-          title="QUIK_20160830_143316">
-          <img src="https://live.staticflickr.com/31337/53850896150_1d001d93f0_w.jpg"
-            width="400" height="400" alt="Samsung Galaxy Project Video" /></a>
-      </div>
+      <div className={`h-80 md:h-96 rounded-md relative bg-contain bg-no-repeat bg-center
+          bg-[url("https://live.staticflickr.com/65535/53863302093_77f6c4185d_w.jpg")]
+          flex flex-col-reverse
+          `}
+      />
 
       <p className="text-xl font-bold text-center my-6 max-w-md m-auto">
         AT&T Michigan Avenue sponsored the Samsung Design project. The idea was to incorporate the newly launched Samsung Galaxy Note 7 into the design process by Columbia College Chicago students.
@@ -46,6 +44,14 @@ export default function Samsung() {
       <h2 className="p-4 m-2 bg-white/80 rounded text-center dark:text-black font-bold text-overflow-ellipsis overflow-hidden line-clamp-2">
         Using Technology to Design, Collaborate, and Conceptualize ideas.
       </h2>
+
+      <div className="flex margin-auto justify-center">
+        <a data-flickr-embed="true"
+          href="https://www.flickr.com/photos/200915664@N03/53850896150/in/dateposted/"
+          title="QUIK_20160830_143316">
+          <img src="https://live.staticflickr.com/31337/53850896150_1d001d93f0_w.jpg"
+            width="400" height="400" alt="Samsung Galaxy Project Video" /></a>
+      </div>
 
       <div className="flex overflow-x-auto scroll-smooth m-auto mt-10">
         <img className="object-cover h-full w-auto p-2" height={200} width={100} src="https://live.staticflickr.com/65535/53851384729_8fca511cc9_w.jpg" alt="att samsung garmemt example 9" />
