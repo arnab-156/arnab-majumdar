@@ -70,7 +70,7 @@ export default function ExperiencesPage() {
             imageHeight={200}
             imageWidth={200}
             backgroundTheme={`${pinkBackgroundTheme}`}
-            description="Fashion + Education + Sustainability."
+            description="Click here to know more about Fashion + Education + Sustainability."
           />
         </div>
 
@@ -93,7 +93,18 @@ export default function ExperiencesPage() {
             imageUrl="https://live.staticflickr.com/65535/53851021701_6619ae0f97_w.jpg"
             imageHeight={200}
             imageWidth={200}
-            description="Fashion + Education + Technology."
+            description="Click here to know more about Fashion + Education + use of Technology."
+          />
+        </div>
+
+        <div className={cardWrapperStyle}>
+          <Card
+            title="Docent - Lincoln Park Conservatory"
+            url="/experiences/lincolnpark"
+            imageUrl="https://live.staticflickr.com/65535/53863196190_faa7d80208_w.jpg"
+            imageHeight={200}
+            imageWidth={200}
+            description="Click here to know more."
           />
         </div>
 
@@ -193,7 +204,6 @@ export default function ExperiencesPage() {
         <div className={`${cardWrapperStyle}`}>
           <h3 className="text-2xl font-bold text-center">Volunteer:</h3>
           <ul className={`rounded-md p-4 ml-2`}>
-            <li className="p-2 underline"> Docent - Lincoln Park Conservatory Chicago IL </li>
             <li className="p-2 underline"> Rhode Island Pride RI</li>
             <li className="p-2 underline"> Trikone Chicago</li>
             <li className="p-2 underline"> CMSA Chicago</li>
