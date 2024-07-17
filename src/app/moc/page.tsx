@@ -10,7 +10,10 @@ const defaultUrl = ""
 export default function MoC() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between pt-20 ">
-      <div className="mb-32 grid text-center lg:w-half lg:max-w-5xl lg:grid-cols-3 lg:text-left">
+      <div className={`mb-6 grid text-center 
+        md:grid-cols-2 
+        lg:w-half lg:max-w-5xl lg:grid-cols-3 lg:text-left
+        `}>
         <h1 className="text-3xl font-bold text-center mt-8 mb-16">Made of Chicago</h1>
         <p className="text-xl font-bold text-center mt-8">
           Made of ChicagoⓇ is a Chicago based fashion active wear brand primarily selling on custom designed compact vending machines!
@@ -24,6 +27,15 @@ export default function MoC() {
           customClassName={cardWrapperStyle}
         />
 
+        <div className={cardWrapperStyle}>
+          <div className={`h-80 md:h-96 rounded-md relative bg-contain bg-no-repeat bg-center
+          bg-[url("https://live.staticflickr.com/65535/53864021925_4c5120d354_w.jpg")]
+          flex flex-col-reverse
+          `}
+          />
+        </div>
+
+
         <Tile
           title="4-Way Quick Dry Activewear"
           subTitle="Elevated activwear inspired by Hancock Center. 4 way stretch and quick drying that is fitted for intense workouts."
@@ -33,21 +45,21 @@ export default function MoC() {
         />
 
         <Tile
-          title="Purpleline 4-way stretch Activewear"
-          subTitle="Inspired by the cloud gate of Chicago popularly known as Chicago Bean."
-          href=""
-          url={`bg-[url('https://live.staticflickr.com/65535/53816264031_61f89a98c0_w.jpg')] `}
-          customClassName={cardWrapperStyle}
-          imageContain
-          imagePosition="bg-bottom"
-        />
-
-        <Tile
           title="Activewear sports bra and tights"
           subTitle="Best premium fit with premium quick drying and 4-way stretch fabric."
           href=""
           url={`bg-[url('https://live.staticflickr.com/65535/53815369512_6fe978ab35_w.jpg')] `}
           customClassName={cardWrapperStyle}
+        />
+
+        <Tile
+          title="Harness Strap Active Tank Top"
+          subTitle="Best Chest day workout gear you need!. Quick drying and 4-way stretch fabric."
+          href=""
+          url={`bg-[url('https://live.staticflickr.com/65535/53816626934_09997b92c9_w.jpg')] `}
+          customClassName={cardWrapperStyle}
+          imageContain
+          imagePosition="bg-center"
         />
 
         <Tile
@@ -68,16 +80,24 @@ export default function MoC() {
         />
 
         <Tile
-          title="Harness Strap Active Tank Top"
-          subTitle="Best Chest day workout gear you need!. Quick drying and 4-way stretch fabric."
+          title="Purpleline 4-way stretch Activewear"
+          subTitle="Inspired by the cloud gate of Chicago popularly known as Chicago Bean."
           href=""
-          url={`bg-[url('https://live.staticflickr.com/65535/53816626934_09997b92c9_w.jpg')] `}
+          url={`bg-[url('https://live.staticflickr.com/65535/53816264031_61f89a98c0_w.jpg')] `}
           customClassName={cardWrapperStyle}
           imageContain
-          imagePosition="bg-center"
+          imagePosition="bg-bottom"
         />
 
         <div className={cardWrapperStyle}>
+          <div className={`h-80 md:h-96 rounded-md relative bg-contain bg-no-repeat bg-center
+          bg-[url("https://live.staticflickr.com/65535/53863824588_b419bfdd1e_w.jpg")]
+          flex flex-col-reverse
+          `}
+          />
+        </div>
+
+        {/* <div className={cardWrapperStyle}>
           <Card
             title="More information to come!"
             url="#"
@@ -85,7 +105,25 @@ export default function MoC() {
           >
             <ApparelIcon height="100px" width="100px" />
           </Card>
-        </div>
+        </div> */}
+
+      </div>
+
+      <div className={"m-4"}>
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/yiQIL2m9MC4?si=y65L-B1WRFMV76rg&amp;controls=0"
+          title="youtube made of chicago video" allowFullScreen
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          className="rounded-md w-screen md:w-[560px] mb-32"
+        ></iframe>
+      </div>
+
+      <div className={`mb-6 grid text-center 
+        md:grid-cols-2 
+        lg:w-half lg:max-w-5xl lg:grid-cols-3 lg:text-left
+        `}>
 
       </div>
     </main>
