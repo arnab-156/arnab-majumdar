@@ -1,7 +1,7 @@
 export default function LincolnPark() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between pt-20 pb-56">
-      <div className="mb-32 grid items-center text-center lg:w-half lg:max-w-5xl lg:grid-cols-3 lg:text-left">
+      <div className="mb-6 grid items-center text-center lg:w-half lg:max-w-5xl lg:grid-cols-3 lg:text-left">
         <h1
           className="p-4 m-2 rounded text-center dark:text-black font-bold text-overflow-ellipsis overflow-hidden line-clamp-2">
           Lincoln Park Conservatory
@@ -19,7 +19,7 @@ export default function LincolnPark() {
           `}
         />
 
-        <div className="flex justify-center my-2">
+        <div className="flex justify-center">
           <a
             data-flickr-embed="true"
             href="https://www.flickr.com/photos/200915664@N03/53861035527/in/dateposted-public/"
@@ -65,14 +65,16 @@ export default function LincolnPark() {
           and there are ideas for the future!
         </h2>
 
-
         <div className={`h-80 rounded-md relative bg-cover bg-center m-auto w-full md:h-96
           bg-[url('https://live.staticflickr.com/65535/53861882202_cc5a2c1db2_w.jpg')] my-6
           `}
         />
-
-        {/* <img className="object-cover h-full w-auto m-2" height={600} width={100} src="" alt="plants of lincoln park conservatory example 6" /> */}
-
+      </div>
+      <div className="m-auto">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/n4s3GDTL5_w?si=1KKURnet3MPyY7-w&amp;controls=0" title="YouTube video player"
+          allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowFullScreen
+          className="rounded-md w-screen lg:w-[560px]"
+        ></iframe>
       </div>
       <div className={`h-80 rounded-md relative bg-cover bg-center m-auto w-full md:h-96
           bg-[url('https://live.staticflickr.com/65535/53862785116_c3e273321c_w.jpg')] my-6
