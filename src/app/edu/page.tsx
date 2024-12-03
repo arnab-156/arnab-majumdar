@@ -98,14 +98,16 @@ export default function EducationPage() {
 
         <div className="text-center m-auto my-2">
           <h3 className="font-bold text-lg mb-2">General Education</h3>
-          <h4 className="font-bold"> Coming Soon....</h4>
-          <li>Teaching for any ages</li>
-          <li>Concepts and Ideas of Teaching</li>
-          <li>Experiential Learning</li>
-          <li>Celebrate success and failure</li>
-          <li>Economic Profitability of Education</li>
-          <li>Certification</li>
-          <li>Language</li>
+          <ul className="text-sm p-2">
+            <h4 className="font-bold"> Coming Soon....</h4>
+            <li>Teaching for any ages</li>
+            <li>Concepts and Ideas of Teaching</li>
+            <li>Experiential Learning</li>
+            <li>Celebrate success and failure</li>
+            <li>Economic Profitability of Education</li>
+            <li>Certification</li>
+            <li>Language</li>
+          </ul>
         </div>
 
 
