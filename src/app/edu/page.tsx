@@ -77,13 +77,13 @@ export default function EducationPage() {
           customClassName={cardWrapperStyle}
         /> */}
 
-        <h2 className="text-3xl font-bold text-center m-auto"></h2>
+        <h2 className="text-3xl font-bold text-center m-auto my-4"></h2>
 
 
-        <div className="text-center m-auto">
+        <div className="text-center m-auto my-4">
         </div>
 
-        <div className="text-center m-auto">
+        <div className="text-center m-auto my-4">
           <p className="text-sm p-2">
             AI can be revolutionary in helping people make informed decisions based on their understanding of
             life&#39;s paradigms. The concept of self relies on the essential human aspect of community; without
@@ -91,7 +91,7 @@ export default function EducationPage() {
           </p>
         </div>
 
-        <div className="text-center m-auto my-2 my-12">
+        <div className="text-center m-auto my-2">
           <h3 className="font-bold text-lg mb-2">For General Educators:</h3>
           <ul className="text-sm p-2">
             <h4 className="font-bold"> Coming Soon....</h4>
@@ -119,7 +119,7 @@ export default function EducationPage() {
 
         </div>
 
-        <div className="text-center m-auto my-12">
+        <div className="text-center m-auto my-2">
           <h3 className="font-bold text-lg mb-2">For College Students:</h3>
           <ul className="text-sm p-2">
             <h4 className="font-bold"> Coming Soon....</h4>
