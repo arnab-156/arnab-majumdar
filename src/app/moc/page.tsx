@@ -1,11 +1,6 @@
 import Image from "next/image";
-import { Card } from "../components/card"
-import { ApparelIcon } from "../components/icons";
 import { cardWrapperStyle } from "../utility/stylevariables";
 import { Tile } from "../components/tile";
-
-const urlImageDefault = "/headshot.gif"
-const defaultUrl = ""
 
 export default function MoC() {
   return (
@@ -96,17 +91,6 @@ export default function MoC() {
           `}
           />
         </div>
-
-        {/* <div className={cardWrapperStyle}>
-          <Card
-            title="More information to come!"
-            url="#"
-            description="Contact me for more information about Concept to Consumer!"
-          >
-            <ApparelIcon height="100px" width="100px" />
-          </Card>
-        </div> */}
-
       </div>
 
       <div className={"m-4"}>

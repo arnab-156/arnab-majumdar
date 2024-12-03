@@ -29,7 +29,7 @@ export default function About() {
           sophisticated “organized” retail and technology companies such as
           Reliance, Walmart, FedEx, and now EXPR has been extraordinary for me,
           and I have learned these things:
-          <ul className="pl-4 ml-6 text-center">
+          <ul className="text-center m-auto">
             <li>Listening and being an empathetic leader works slowly but surely
               just like the race between The Tortoise and the Hare.</li>
             <li>I love to compete and achieve individually as well as a team.
