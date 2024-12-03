@@ -18,8 +18,10 @@ export default function EducationPage() {
 
         <div className="text-center m-auto">
           <h2 className="text-xl mb-2 font-bold">My Philosophy</h2>
+          <h3 className="text-lg font-bold">Who is John Dewey?</h3>
+          <h3 className="text-lg font-bold">Who is Tagore?</h3>
           <p className="text-sm">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            Tagore and Dewey believed in the power of environment and community in educating ourselves.
           </p>
         </div>
 
@@ -60,7 +62,7 @@ export default function EducationPage() {
           </p>
         </div>
 
-        <div className="text-center m-auto  my-2">
+        <div className="text-center m-auto my-2">
           <p className="text-sm p-2">
             Education based on core mathematics and sciences can be free of the boring classrooms. An economically self-reliant and accessible model that benefits the community is essential. Creative models can be used to solve complex problems that require interdisciplinary thinking.
           </p>
