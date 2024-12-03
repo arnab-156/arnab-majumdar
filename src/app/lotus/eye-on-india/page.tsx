@@ -1,13 +1,13 @@
+import { EyeOnIndiaImageTile } from "@/app/components/imageTiles";
+
 export default function EyeOnIndia() {
   return (
     <main className="flex min-h-screen flex-col pt-10 pb-56">
       <h1 className="p-4 m-2 bg-white/80 rounded text-center dark:text-black font-bold text-overflow-ellipsis overflow-hidden line-clamp-1">Eye on India - Saree Project</h1>
 
-      <div className={`h-80 md:h-96 rounded relative bg-contain bg-no-repeat bg-center
-          bg-[url('https://live.staticflickr.com/65535/53841418931_301432a964_w.jpg')]
-          flex flex-col-reverse rounded
-          `}
-      />
+      {
+        EyeOnIndiaImageTile()
+      }
 
       <p className="text-xl font-bold text-center my-6 max-w-md m-auto">
         The Saree(Sari) project was conceptualized to bring education about Indian fashion in the US and sustainability.

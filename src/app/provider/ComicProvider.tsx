@@ -40,6 +40,7 @@ export function ComicProvider({ children }: any) {
 
             } catch (error) {
                 setErrorMsg("Oops! There was a problem. Sorry :-(");
+                // setAnalytics and send error object
             } finally {
                 setIsLoading(false);
                 setTimeout(() => setErrorMsg(""), 1000);
