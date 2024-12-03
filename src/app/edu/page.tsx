@@ -1,6 +1,5 @@
 import { Card } from "../components/card"
 import { cardWrapperStyle } from "../utility/stylevariables";
-import { Tile } from "../components/tile";
 import { EyeOnIndiaImageTile } from "../components/imageTiles";
 
 export default function EducationPage() {

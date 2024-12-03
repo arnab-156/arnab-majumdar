@@ -27,7 +27,14 @@ export const Navigation = () => {
                         technology
                     </Link>
                     <Link className="flex justify-center items-center p-2 m-2 hover:text-lg hover:underline" href="/">home</Link>
-                    <Link className="flex justify-center items-center" href="/about">
+                    <Link className="flex justify-center items-center p-2 m-2 hover:text-lg hover:underline" href="/edu">education</Link>
+
+
+                    <Link className="flex flex-col justify-center items-center" href="/about">
+                        <span className="relative flex h-3 w-3 hidden sm:group-hover:block top-5 left-20 z-10">
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-300 opacity-75"></span>
+                            <span className="relative inline-flex rounded-full h-3 w-3 bg-yellow-500"></span>
+                        </span>
                         <Image
                             className="hidden sm:group-hover:block relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] rounded-2xl mr-2"
                             src="/headshot.gif"
@@ -41,6 +48,7 @@ export const Navigation = () => {
                     </Link>
                 </div>
             </section>
+
             <section className={`group fixed left-0 top-0 lg:top-auto lg:bottom-0 flex w-full items-end justify-center 
                 bg-gradient-to-b from-zinc-200 via-white dark:from-black dark:via-black 
                 hover:bg-yellow-600 hover:h-fit rounded-[36px]
