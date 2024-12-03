@@ -14,7 +14,7 @@ export default function Lotus() {
         <Card
           title="Go to Lotus Mahal!"
           url="https://lotusmahal.com/"
-          description="Boutique collections of rare and beautiful treasures, inexpensive but invaluable. Click here!"
+          description="Lotus Mahal is dedicated to connecting people through the timeless art of letter writing in today's world."
           customClassName={`${cardWrapperStyle}`}
           imageUrl="https://live.staticflickr.com/65535/53819325384_d2b8af917f_w.jpg"
         />
