@@ -33,7 +33,7 @@ export default function Home() {
               <li className="hover:underline">JavaScript</li>
               <li className="hover:underline">React Testing Library</li>
               <li className="hover:underline">Jest</li>
-              <li className="hover:underline">Deployed on Vercel & Onrender</li>
+              <li className="hover:underline">Deployed on Vercel</li>
             </ul>
           </Card>
         </div>
