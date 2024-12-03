@@ -1,5 +1,6 @@
 import { Card } from "../components/card"
 import { cardWrapperStyle } from "../utility/stylevariables";
+import { Tile } from "../components/tile";
 import { EyeOnIndiaImageTile } from "../components/imageTiles";
 
 export default function EducationPage() {
@@ -78,9 +79,6 @@ export default function EducationPage() {
 
 
         <div className="text-center m-auto">
-          {/* <p className="text-sm p-2">
-            AI can be revolutionary in helping people make informed decisions based on their understanding of life&#39;s paradigms. The concept of self relies on the essential human aspect of community; without life, we cannot understand what it means to be life-less.
-          </p> */}
         </div>
 
         <div className="text-center m-auto">
@@ -90,10 +88,6 @@ export default function EducationPage() {
             life, we cannot understand what it means to be life-less.
           </p>
         </div>
-
-
-        <h2 className="text-3xl font-bold text-center m-auto my-12">Resources</h2>
-
 
         <div className="text-center m-auto my-2 my-12">
           <h3 className="font-bold text-lg mb-2">For General Educators:</h3>
@@ -168,7 +162,6 @@ export default function EducationPage() {
             <li>Impact of Tax Payer monies</li>
           </ul>
         </div>
-
       </div>
     </main>
   );
