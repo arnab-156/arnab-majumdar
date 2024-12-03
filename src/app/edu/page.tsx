@@ -5,7 +5,7 @@ import { EyeOnIndiaImageTile } from "../components/imageTiles";
 
 export default function EducationPage() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between pt-20 ">
+    <main className="flex min-h-screen flex-col items-center justify-between pt-20 pb-16">
       <div className={`mb-6 grid text-center 
         md:grid-cols-2 
         lg:w-half lg:max-w-5xl lg:grid-cols-3 lg:text-left
@@ -79,9 +79,6 @@ export default function EducationPage() {
 
 
         <div className="text-center m-auto">
-          <p className="text-sm p-2">
-            AI can be revolutionary in helping people make informed decisions based on their understanding of life&#39;s paradigms. The concept of self relies on the essential human aspect of community; without life, we cannot understand what it means to be life-less.
-          </p>
         </div>
 
         <div className="text-center m-auto">
@@ -92,12 +89,8 @@ export default function EducationPage() {
           </p>
         </div>
 
-
-        <h2 className="text-3xl font-bold text-center m-auto  my-2">Resources</h2>
-
-
-        <div className="text-center m-auto my-2">
-          <h3 className="font-bold text-lg mb-2">General Education</h3>
+        <div className="text-center m-auto my-2 my-12">
+          <h3 className="font-bold text-lg mb-2">For General Educators:</h3>
           <ul className="text-sm p-2">
             <h4 className="font-bold"> Coming Soon....</h4>
             <li>Teaching for any ages</li>
@@ -110,8 +103,7 @@ export default function EducationPage() {
           </ul>
         </div>
 
-
-        <div className="text-center m-auto  my-2">
+        <div className="text-center m-auto my-2">
           <h3 className="font-bold text-lg mb-2">Technology Education</h3>
           <ul className="text-sm p-2">
             <h4 className="font-bold"> Coming Soon....</h4>
@@ -125,7 +117,51 @@ export default function EducationPage() {
 
         </div>
 
+        <div className="text-center m-auto my-12">
+          <h3 className="font-bold text-lg mb-2">For College Students:</h3>
+          <ul className="text-sm p-2">
+            <h4 className="font-bold"> Coming Soon....</h4>
+            <li>What colleges?</li>
+            <li>What can I afford?</li>
+            <li>Financial Aid</li>
+            <li>Health and Accessibility</li>
+            <li>Activities</li>
+            <li>Grades</li>
+            <li>First Year Experience</li>
+          </ul>
+        </div>
 
+
+        <div className="text-center m-auto  my-12">
+          <h3 className="font-bold text-lg mb-2">For Parents:</h3>
+          <ul className="text-sm p-2">
+            <h4 className="font-bold"> Coming Soon....</h4>
+            <li>What colleges?</li>
+            <li>What can I afford?</li>
+            <li>Financial Aid</li>
+            <li>Health and Accessibility</li>
+            <li>Activities</li>
+            <li>Grades</li>
+            <li>First Year Experience</li>
+          </ul>
+        </div>
+
+        <div className="text-center m-auto my-12">
+          <h3 className="font-bold text-lg mb-2">For Policy Makers:</h3>
+          <ul className="text-sm p-2">
+            <h4 className="font-bold"> Coming Soon....</h4>
+            <li>Financial Aid</li>
+            <li>Health and Accessibility</li>
+          </ul>
+        </div>
+
+        <div className="text-center m-auto my-12">
+          <h3 className="font-bold text-lg mb-2">For Community:</h3>
+          <ul className="text-sm p-2">
+            <h4 className="font-bold"> Coming Soon....</h4>
+            <li>Impact of Tax Payer monies</li>
+          </ul>
+        </div>
       </div>
     </main>
   );
