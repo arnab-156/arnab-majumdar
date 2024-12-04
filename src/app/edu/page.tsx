@@ -36,12 +36,12 @@ export default function EducationPage() {
             <div className="flex flex-row flex-grow">
 
               <div className={`${styles.card} w-1/2 lg:w-1/2 rounded-2xl border-2 border-white`}>
-                <div className={`${styles.card__content} h-full text-center relative p-20 transition-transform duration-1000 text-white font-bold`}>
+                <div className={`${styles.card__content} h-full text-center relative p-20 transition-transform duration-1000 text-black font-bold`}>
 
-                  <div className={`${styles.card__front} rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8 bg-pink-600 flex items-center justify-center`}>
+                  <div className={`${styles.card__front} rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8 ${styles.gradientAnimation} flex items-center justify-center`}>
                     <h2>Who is John Dewey?</h2>
                   </div>
-                  <div className={`${styles.card__back} rounded-2xl  absolute top-0 bottom-0 right-0 left-0 p-8 bg-yellow-600 flex items-center justify-center`}>
+                  <div className={`${styles.card__back} rounded-2xl  text-white absolute top-0 bottom-0 right-0 left-0 p-8 bg-yellow-600 flex items-center justify-center`}>
                     <h2>Coming Soon...</h2>
                   </div>
 
@@ -50,12 +50,12 @@ export default function EducationPage() {
 
 
               <div className={`${styles.card} w-1/2 lg:w-1/2 rounded-2xl border-2 border-white`}>
-                <div className={`${styles.card__content} h-full text-center relative p-20 transition-transform duration-1000 text-white font-bold`}>
+                <div className={`${styles.card__content} h-full text-center relative p-20 transition-transform duration-1000 text-black font-bold`}>
 
-                  <div className={`${styles.card__front} rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8 bg-yellow-600 flex items-center justify-center`}>
+                  <div className={`${styles.card__front} text-white rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8 bg-yellow-600 flex items-center justify-center`}>
                     <h2>Who is Tagore?</h2>
                   </div>
-                  <div className={`${styles.card__back} rounded-2xl  absolute top-0 bottom-0 right-0 left-0 p-8 bg-pink-600 flex items-center justify-center`}>
+                  <div className={`${styles.card__back} rounded-2xl  absolute top-0 bottom-0 right-0 left-0 p-8 ${styles.gradientAnimation} flex items-center justify-center`}>
                     <h2>Coming Soon...</h2>
                   </div>
 
