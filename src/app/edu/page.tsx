@@ -1,36 +1,90 @@
-import { Card } from "../components/card"
+import Link from 'next/link';
+import { Card } from "../components/card";
 import { cardWrapperStyle } from "../utility/stylevariables";
 import { EyeOnIndiaImageTile } from "../components/imageTiles";
+import styles from "./styles.module.css";
 
 export default function EducationPage() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between pt-20 pb-16">
       <div className={`mb-6 grid text-center 
-        md:grid-cols-2 
-        lg:w-half lg:max-w-5xl lg:grid-cols-3 lg:text-left
+        md:grid-cols-2 gap-4
+        lg:grid-cols-3 lg:text-left
         `}>
 
+        <div className="text-center m-auto w-full lg:h-screen">
+          <div className="flex lg:h-1/2">
+            <p className={`lg:w-1/2 rounded-2xl border-2 border-white p-2 m-2 content-center ${styles.gradientAnimation}`}>
+              <h1 className="text-3xl font-bold text-center m-auto font-bold">Education</h1>
+            </p>
+            <p className="lg:w-1/2 rounded-2xl border-2 border-white p-2 m-2 content-center">Please excuse the look, this page is under construction.</p>
+          </div>
 
-        <div className="text-center m-auto">
-          <h1 className="text-3xl font-bold text-center mt-8 mb-2 font-bold">Education</h1>
+          <div className="flex lg:h-1/2">
+            <p className="lg:w-1/2 rounded-2xl border-2 border-white p-2 m-2 content-center">Here is a preview of what&apos;s coming</p>
+
+            <p className={`lg:w-1/2 rounded-2xl border-2 border-white p-2 m-2 content-center ${styles.gradientAnimation}`}>
+              Tagore and Dewey believed in the power of environment and community in educating ourselves.
+            </p>
+
+          </div>
         </div>
 
-        <div className="text-center m-auto">
-          <h2 className="text-xl mb-2 font-bold">My Philosophy</h2>
-          <h3 className="text-lg font-bold">Who is John Dewey?</h3>
-          <h3 className="text-lg font-bold">Who is Tagore?</h3>
-          <p className="text-sm">
-            Tagore and Dewey believed in the power of environment and community in educating ourselves.
-          </p>
+        <div className="text-center m-auto flex flex-col w-full lg:h-screen">
+          <div className="flex flex-col lg:h-1/2  mt-8 mb-2">
+            <h2 className="text-xl mb-2 font-bold">My Philosophy</h2>
+            <div className="flex flex-row flex-grow">
+
+              <div className={`${styles.card} w-1/2 lg:w-1/2 rounded-2xl border-2 border-white`}>
+                <div className={`${styles.card__content} h-full text-center relative p-20 transition-transform duration-1000 text-black font-bold`}>
+
+                  <div className={`${styles.card__front} rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8 ${styles.gradientAnimation} flex items-center justify-center`}>
+                    <h2>Who is John Dewey?</h2>
+                  </div>
+                  <div className={`${styles.card__back} rounded-2xl  text-white absolute top-0 bottom-0 right-0 left-0 p-8 bg-yellow-600 flex items-center justify-center`}>
+                    <h2>Coming Soon...</h2>
+                  </div>
+
+                </div>
+              </div>
+
+
+              <div className={`${styles.card} w-1/2 lg:w-1/2 rounded-2xl border-2 border-white`}>
+                <div className={`${styles.card__content} h-full text-center relative p-20 transition-transform duration-1000 text-black font-bold`}>
+
+                  <div className={`${styles.card__front} text-white rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8 bg-yellow-600 flex items-center justify-center`}>
+                    <h2>Who is Tagore?</h2>
+                  </div>
+                  <div className={`${styles.card__back} rounded-2xl  absolute top-0 bottom-0 right-0 left-0 p-8 ${styles.gradientAnimation} flex items-center justify-center`}>
+                    <h2>Coming Soon...</h2>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className={`
+            text-sm h-svh max-h-64 lg:max-h-96 rounded-t-full border-2 border-white 
+            bg-[url('https://live.staticflickr.com/65535/53841418931_301432a964_w.jpg')] bg-cover bg-no-repeat bg-center 
+            ${cardWrapperStyle}`}>
+          </div>
         </div>
 
-        <div className={cardWrapperStyle}>
-          <Card
-            title="Go to my Experience"
-            url="/experiences"
-            imageUrl="/headshot.gif"
-            description="Welcome! Explore Arnab&#39;s world of design, with both real-world and conceptual projects."
-          />
+
+        <div className="text-center m-auto w-full flex flex-col-reverse lg:flex-col lg:h-screen">
+          <div className={`${cardWrapperStyle} rounded-t-full h-svh max-h-64 lg:max-h-96 rounded-t-full border-2 border-white bg-[url('https://live.staticflickr.com/65535/53808934296_8330a5b182_w.jpg')] bg-cover bg-no-repeat bg-top`}>
+          </div>
+          <div className="flex flex-row lg:h-1/2">
+            <div className={`${cardWrapperStyle}`}>
+              {/* <div className="rounded-2xl border-2 border-white p-2 m-2 bg-gray-200 hover:bg-gray-300 active:bg-gray-400 dark:bg-gray-900"> */}
+              <Card
+                title="Go to my Experience"
+                url="/experiences"
+                imageUrl="/headshot.gif"
+                description="Welcome! Explore Arnab&#39;s world of design, with both real-world and conceptual projects."
+              />
+            </div>
+          </div>
         </div>
 
 
@@ -45,6 +99,7 @@ export default function EducationPage() {
           </p>
         </div>
 
+        {/* bg-[url('https://live.staticflickr.com/65535/53839425086_c36fa84f70_w.jpg')] */}
         {
           EyeOnIndiaImageTile()
         }
@@ -100,6 +155,8 @@ export default function EducationPage() {
             <li>Celebrate success and failure</li>
             <li>Economic Profitability of Education</li>
             <li>Certification</li>
+            <li>Design a Course!</li>
+            <li>Make a Rubric for anything</li>
             <li>Language</li>
           </ul>
         </div>
@@ -164,6 +221,7 @@ export default function EducationPage() {
           </ul>
         </div>
       </div>
+      <Link href="#navigation" className='hover:underline'>go to top</Link>
     </main>
   );
 }

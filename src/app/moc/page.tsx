@@ -1,10 +1,11 @@
 import Image from "next/image";
 import { cardWrapperStyle } from "../utility/stylevariables";
 import { Tile } from "../components/tile";
+import Link from "next/link";
 
 export default function MoC() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between pt-20 ">
+    <main className="flex min-h-screen flex-col items-center justify-between py-20 ">
       <div className={`mb-6 grid text-center 
         md:grid-cols-2 
         lg:w-half lg:max-w-5xl lg:grid-cols-3 lg:text-left
@@ -16,7 +17,7 @@ export default function MoC() {
 
         <Tile
           title="Interactive Vending Machines"
-          subTitle="Custom made actiivewear in a custom vending machine, fits in any gym in a hotel or apartments."
+          subTitle="Custom made activewear in a custom vending machine, fits in any gym in a hotel or apartments."
           href=""
           url={`bg-[url('https://live.staticflickr.com/65535/53808934296_8330a5b182_w.jpg')] `}
           customClassName={cardWrapperStyle}
@@ -110,6 +111,7 @@ export default function MoC() {
         `}>
 
       </div>
+      <Link href="#navigation" className='hover:underline'>go to top</Link>
     </main>
   );
 }

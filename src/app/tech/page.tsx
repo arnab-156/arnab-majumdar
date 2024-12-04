@@ -1,10 +1,11 @@
+import Link from "next/link";
 import { Card } from "../components/card"
 import { CalculatorIcon, ComputerIcon, ReadIcon } from "../components/icons";
 import { cardWrapperStyle, yellowBackgroundTheme } from "../utility/stylevariables";
 
 export default function Tech() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between pt-20 ">
+    <main className="flex min-h-screen flex-col items-center justify-between pt-20 p-20">
       <div className="mb-32 grid text-center lg:w-half lg:max-w-5xl lg:grid-cols-3 lg:text-left">
         <h1 className="text-3xl font-bold text-center m-8 uppercase dark:text-black">Technology</h1>
         <h2 className="m-6 dark:text-black">
@@ -80,14 +81,39 @@ export default function Tech() {
         <div className={cardWrapperStyle}>
           <Card
             title="Coming soon: Launch your website!"
-            url="#"
+            url="/edu"
             description="Technology education resources that are available to you!"
             customClassName="invert"
           >
             <ComputerIcon height="100px" width="100px" />
           </Card>
         </div>
+
+
+
+        <div className={cardWrapperStyle}>
+          <Card
+            title="Coming soon: React PLP Store without Redux!"
+            url="/edu"
+            description="Technology education resources that are available to you!"
+            customClassName="invert"
+          >
+            <ComputerIcon height="100px" width="100px" />
+          </Card>
+        </div>
+
+        <div className={cardWrapperStyle}>
+          <Card
+            title="Apparel Quality"
+            url="/edu"
+            description="Cut the BS: Product Perception and Quality"
+            customClassName="invert"
+          >
+            <ComputerIcon height="100px" width="100px" />
+          </Card>
+        </div>
       </div>
+      <Link href="#navigation" className='hover:underline'>go to top</Link>
     </main>
   );
 }
