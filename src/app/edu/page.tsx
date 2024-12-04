@@ -106,7 +106,7 @@ export default function EducationPage() {
           </div>
 
           <div className="flex lg:h-1/2">
-            <p className={`lg:w-1/2 rounded-2xl border-2 border-white p-2 m-2 content-center ${styles.slideInFromRightAnimationSlowDelayed}`}>Here is a preview of what&apos;s coming</p>
+            <Link href="/experiences" className={`lg:w-1/2 rounded-2xl border-2 border-white p-2 m-2 content-center ${styles.slideInFromRightAnimationSlowDelayed} hover:underline`}>see all of arnab&apos;s experience</Link>
 
             <p className={`lg:w-1/2 rounded-2xl border-2 border-white p-2 m-2 content-center ${styles.gradientAnimationReversed}`}>
               Arnab has been a creative problem solver since he was young. With decades of experience in the education, fashion, retail, art, and technology industries. Arnab enjoys playing with data and making “things” happen!
@@ -168,18 +168,16 @@ export default function EducationPage() {
 
 
         <div className="text-center m-auto w-full flex flex-col-reverse lg:flex-col lg:h-screen">
-          <div className={`${cardWrapperStyle} rounded-t-full h-svh max-h-64 lg:max-h-96 rounded-t-full border-2 border-white bg-[url('https://live.staticflickr.com/65535/53808934296_8330a5b182_w.jpg')] bg-cover bg-no-repeat bg-top`}>
-          </div>
-          <div className="flex flex-row lg:h-1/2">
-            <div className={`${styles.slideInFromRightAnimation} ${cardWrapperStyle}`}>
-              <Card
-                title="Go to my Experience"
-                url="/experiences"
-                imageUrl="/headshot.gif"
-                description="Welcome! Explore Arnab&#39;s world of design, with both real-world and conceptual projects."
-              />
-            </div>
-          </div>
+          <Link
+            href="/experiences/lincolnpark"
+            className={`${cardWrapperStyle} rounded-t-full h-svh max-h-64 lg:max-h-96 rounded-t-full border-2 border-white bg-[url('https://live.staticflickr.com/65535/53863144554_28d446360a_w.jpg')] bg-cover bg-no-repeat bg-top`}>
+          </Link>
+
+
+          <Link
+            href="/moc"
+            className={`${cardWrapperStyle} rounded-b-full h-svh max-h-64 lg:max-h-96 border-2 border-white bg-[url('https://live.staticflickr.com/65535/53808934296_8330a5b182_w.jpg')] bg-cover bg-no-repeat bg-top`}>
+          </Link>
         </div>
 
 
