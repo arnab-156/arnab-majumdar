@@ -1,13 +1,13 @@
 import Link from 'next/link';
 import Image from "next/image";
-import { cardWrapperStyle } from "../utility/stylevariables";
+import { cardWrapperStyle, $cardWrapperStyle } from "../utility/stylevariables";
 import styles from "./styles.module.css";
 
 export default function EducationPage() {
   return (
     <main className={`flex min-h-screen flex-col items-center justify-between pt-20 pb-16 ${styles.gradientAnimationAlternate}`}>
       <div className={`mb-6 grid text-center 
-        md:grid-cols-2 gap-4
+        md:grid-cols-2
         lg:grid-cols-3 lg:text-left
         `}>
         {/* START OF TOP SECTION */}
@@ -71,7 +71,7 @@ export default function EducationPage() {
           <div className={`
             text-sm h-svh max-h-64 lg:max-h-96 rounded-t-full md:rounded-t-sm lg:rounded-t-full border-2 border-white 
             bg-[url('https://live.staticflickr.com/65535/53841418931_301432a964_w.jpg')] bg-cover bg-no-repeat bg-center 
-            ${cardWrapperStyle}`}>
+            ${$cardWrapperStyle}`}>
           </div>
         </div>
 
@@ -92,19 +92,17 @@ export default function EducationPage() {
 
 
           <div className="flex lg:h-1/2">
-            <p className={`lg:w-1/2 rounded-2xl border-2 border-white p-2 m-2 content-center ${styles.slideInFromRightAnimationSlowDelayed}`}>Here is a preview of what&apos;s coming</p>
+            <div className={`lg:w-1/2 rounded-2xl border-2 border-white p-2 m-2 content-center ${styles.slideInFromRightAnimationSlowDelayed}`}>
+              <h1 className='text-bold'>Mission</h1>
+              <p className='text-sm'>Mission: Self-empowerment of self through community</p>
+            
+            </div>
 
             <p className={`lg:w-1/2 rounded-2xl border-2 border-white p-2 m-2 content-center ${styles.gradientAnimationReversed}`}>
               Tagore and Dewey believed in the power of environment and community in educating ourselves.
             </p>
 
           </div>
-
-
-          {/* <Link
-            href="/moc"
-            className={`${cardWrapperStyle} rounded-b-full h-svh max-h-64 lg:max-h-96 border-2 border-white bg-[url('https://live.staticflickr.com/65535/53808934296_8330a5b182_w.jpg')] bg-cover bg-no-repeat bg-top`}>
-          </Link> */}
         </div>
 
         {/* END OF TOP SECTION */}
@@ -122,8 +120,9 @@ export default function EducationPage() {
             <p className="lg:w-1/2 rounded-2xl border-2 border-white p-2 m-2 content-center"><h3 className="text-lg font-bold">Arts, Sciences & Technology</h3>.</p>
           </div>
 
+
           <div className="flex lg:h-1/2">
-            <Link href="/experiences" className={`lg:w-1/2 rounded-2xl border-2 border-white p-2 m-2 content-center ${styles.slideInFromRightAnimationSlowDelayed} hover:underline`}>see all of arnab&apos;s experience</Link>
+            <Link href="/experiences" className={`lg:w-1/2 rounded-2xl border-2 border-white p-2 content-center ${styles.slideInFromRightAnimationSlowDelayed} hover:underline`}>see all of arnab&apos;s experience</Link>
 
             <p className={`lg:w-1/2 rounded-2xl border-2 border-white p-2 m-2 content-center ${styles.gradientAnimationReversed}`}>
               Arnab has been a creative problem solver since he was young. With decades of experience in the education, fashion, retail, art, and technology industries. Arnab enjoys playing with data and making “things” happen!
@@ -131,6 +130,7 @@ export default function EducationPage() {
 
           </div>
         </div>
+
 
         <div className="text-center m-auto flex flex-col-reverse w-full lg:h-screen">
           <div className="flex flex-col lg:h-1/2  mt-8 mb-2 h-96">
@@ -171,13 +171,12 @@ export default function EducationPage() {
 
           </div>
 
-
           <Link
             href="/lotus/eye-on-india"
             className={`
             text-sm h-svh max-h-64 lg:max-h-96 rounded-b-full border-2 border-white 
-            bg-[url('https://live.staticflickr.com/65535/53839425086_c36fa84f70_w.jpg')] bg-cover bg-no-repeat bg-center 
-            ${cardWrapperStyle}`}>
+            bg-[url('https://live.staticflickr.com/65535/53839425086_c36fa84f70_w.jpg')] bg-cover bg-no-repeat bg-top 
+            ${$cardWrapperStyle}`}>
           </Link>
         </div>
 
