@@ -19,19 +19,19 @@
 .gradientAnimation {
     background-image: linear-gradient(275deg, var(--brand-light-pink) 0%, var(--brand-white) 50%, var(--brand-blue) 100%);
     background-size: 200% 100%;
-    animation: gradientChange 5s ease-in-out infinite;
+    animation: gradientChange 5s ease-in-out 1s;
 }
 
 .gradientAnimationReversed {
     background-image: linear-gradient(75deg, var(--brand-light-pink) 10%, var(--brand-white) 30%, var(--brand-blue) 100%);
     background-size: 200% 100%;
-    animation: gradientChange 5s ease-in-out infinite;
+    animation: gradientChange 5s ease-in-out 5s;
 }
 
 .gradientAnimationAlternate {
     background-image: linear-gradient(75deg, var(--brand-blue) 10%, var(--brand-white) 50%, var(--brand-light-pink) 100%);
     background-size: 200% 100%;
-    animation: gradientChange 5s ease-in-out infinite;
+    animation: gradientChange 5s ease-in-out 2s;
 }
 
 
