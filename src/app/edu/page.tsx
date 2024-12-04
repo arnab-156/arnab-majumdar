@@ -30,7 +30,7 @@ export default function EducationPage() {
               unoptimized
             />
           </div>
-          <div className='block underline  m-24 lg:m-2'>
+          <div className='block underline m-24'>
             <Link href="/experiences" className='block hover:font-bold'>see all experience</Link>
             <Link href="/experiences#my-education" className='block hover:font-bold'>go to my education</Link>
           </div>
