@@ -13,15 +13,15 @@ export default function EducationPage() {
         `}>
 
         <div className="text-center m-auto w-full lg:h-screen">
-          <div className="flex flex-row lg:h-1/2">
+          <div className="flex lg:h-1/2">
             <p className={`lg:w-1/2 rounded-2xl border-2 border-white p-2 m-2 content-center ${styles.gradientAnimation}`}>
               <h1 className="text-3xl font-bold text-center m-auto font-bold">Education</h1>
             </p>
-            <p className="lg:w-1/2 rounded-2xl border-2 border-white p-2 m-2 content-center">Hello</p>
+            <p className="lg:w-1/2 rounded-2xl border-2 border-white p-2 m-2 content-center">Please excuse the look, this page is under construction.</p>
           </div>
 
-          <div className="flex flex-row lg:h-1/2">
-            <p className="lg:w-1/2 rounded-2xl border-2 border-white p-2 m-2 content-center">Hello</p>
+          <div className="flex lg:h-1/2">
+            <p className="lg:w-1/2 rounded-2xl border-2 border-white p-2 m-2 content-center">Here is a preview of what&apos;s coming</p>
 
             <p className={`lg:w-1/2 rounded-2xl border-2 border-white p-2 m-2 content-center ${styles.gradientAnimation}`}>
               Tagore and Dewey believed in the power of environment and community in educating ourselves.
@@ -30,12 +30,12 @@ export default function EducationPage() {
           </div>
         </div>
 
-        <div className="text-center m-auto flex flex-col lg:h-screen">
+        <div className="text-center m-auto flex flex-col w-full lg:h-screen">
           <div className="flex flex-col lg:h-1/2  mt-8 mb-2">
             <h2 className="text-xl mb-2 font-bold">My Philosophy</h2>
             <div className="flex flex-row flex-grow">
 
-              <div className={`${styles.card} w-40 lg:w-1/2 rounded-2xl border-2 border-white`}>
+              <div className={`${styles.card} w-1/2 lg:w-1/2 rounded-2xl border-2 border-white`}>
                 <div className={`${styles.card__content} h-full text-center relative p-20 transition-transform duration-1000 text-white font-bold`}>
 
                   <div className={`${styles.card__front} rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8 bg-pink-600 flex items-center justify-center`}>
@@ -49,7 +49,7 @@ export default function EducationPage() {
               </div>
 
 
-              <div className={`${styles.card} w-40 lg:w-1/2 rounded-2xl border-2 border-white`}>
+              <div className={`${styles.card} w-1/2 lg:w-1/2 rounded-2xl border-2 border-white`}>
                 <div className={`${styles.card__content} h-full text-center relative p-20 transition-transform duration-1000 text-white font-bold`}>
 
                   <div className={`${styles.card__front} rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8 bg-yellow-600 flex items-center justify-center`}>
@@ -63,24 +63,26 @@ export default function EducationPage() {
               </div>
             </div>
           </div>
-          <p className={`text-sm lg:h-1/2 rounded-t-full border-2 border-white bg-[url('https://live.staticflickr.com/65535/53841418931_301432a964_w.jpg')] bg-cover bg-no-repeat bg-center ${cardWrapperStyle}`}>
-          </p>
+          <div className={`
+            text-sm h-svh max-h-64 lg:max-h-96 rounded-t-full border-2 border-white 
+            bg-[url('https://live.staticflickr.com/65535/53841418931_301432a964_w.jpg')] bg-cover bg-no-repeat bg-center 
+            ${cardWrapperStyle}`}>
+          </div>
         </div>
 
 
-        <div className="text-center m-auto w-full lg:h-screen">
-          <div className={`${cardWrapperStyle} rounded-t-full lg:h-1/2 rounded-t-full border-2 border-white bg-[url('https://live.staticflickr.com/65535/53808934296_8330a5b182_w.jpg')] bg-cover bg-no-repeat bg-top`}>
+        <div className="text-center m-auto w-full flex flex-col-reverse lg:flex-col lg:h-screen">
+          <div className={`${cardWrapperStyle} rounded-t-full h-svh max-h-64 lg:max-h-96 rounded-t-full border-2 border-white bg-[url('https://live.staticflickr.com/65535/53808934296_8330a5b182_w.jpg')] bg-cover bg-no-repeat bg-top`}>
           </div>
           <div className="flex flex-row lg:h-1/2">
-            <div className={cardWrapperStyle}>
-              <div className="rounded-2xl border-2 border-white p-2 m-2 bg-gray-200 hover:bg-gray-300 active:bg-gray-400 dark:bg-gray-900">
-                <Card
-                  title="Go to my Experience"
-                  url="/experiences"
-                  imageUrl="/headshot.gif"
-                  description="Welcome! Explore Arnab&#39;s world of design, with both real-world and conceptual projects."
-                />
-              </div>
+            <div className={`${cardWrapperStyle}`}>
+              {/* <div className="rounded-2xl border-2 border-white p-2 m-2 bg-gray-200 hover:bg-gray-300 active:bg-gray-400 dark:bg-gray-900"> */}
+              <Card
+                title="Go to my Experience"
+                url="/experiences"
+                imageUrl="/headshot.gif"
+                description="Welcome! Explore Arnab&#39;s world of design, with both real-world and conceptual projects."
+              />
             </div>
           </div>
         </div>

@@ -31,10 +31,10 @@ export const Navigation = () => {
 
 
                     <Link className="flex flex-col justify-center items-center" href="/about">
-                        <span className="relative flex h-3 w-3 hidden sm:group-hover:block top-5 left-20 z-10">
+                        <Link className="relative flex h-3 w-3 hidden sm:group-hover:block top-5 left-20 z-10" href="/about">
                             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white dark:bg-black opacity-75"></span>
                             <span className="relative inline-flex rounded-full h-3 w-3 bg-white dark:bg-black"></span>
-                        </span>
+                        </Link>
                         <Image
                             className="hidden sm:group-hover:block relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] rounded-2xl mr-2"
                             src="/headshot.gif"

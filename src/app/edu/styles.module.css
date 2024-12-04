@@ -24,7 +24,7 @@
 
 /* Vanilla CSS for flip card */
 .card {
-    perspective: 800px;
+    /* perspective: 800px; */
 }
 
 .card__content {
