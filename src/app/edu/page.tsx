@@ -19,8 +19,7 @@ export default function EducationPage() {
             <p className="lg:w-1/2 rounded-2xl border-2 border-white p-2 m-2 content-center">Please excuse the look, this page is under construction.</p>
           </div>
 
-          <Link
-            href={"#expr"}
+          <div
             className={`${cardWrapperStyle} rounded-full md:h-svh md:max-h-64 lg:max-h-96 lg:max-w-96 border-0 border-transparent md:m-auto lg:hidden`}
           >
             <Image
@@ -30,7 +29,7 @@ export default function EducationPage() {
               priority
               unoptimized
             />
-          </Link>
+          </div>
           <div className='block underline  m-24 lg:m-2'>
             <Link href="/experiences" className='block hover:font-bold'>see all experience</Link>
             <Link href="/experiences#my-education" className='block hover:font-bold'>go to my education</Link>
