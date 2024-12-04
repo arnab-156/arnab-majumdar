@@ -36,18 +36,17 @@ export default function EducationPage() {
         </div>
 
         <div className="text-center m-auto flex flex-col w-full lg:h-screen">
-          <div className="flex flex-col lg:h-1/2  mt-8 mb-2">
-            <h2 className="text-xl mb-2 font-bold">My Philosophy</h2>
+          <div className="flex flex-col lg:h-1/2 mb-2">
             <div className="flex flex-row flex-grow">
 
               <div className={`${styles.card} w-1/2 lg:w-1/2 rounded-2xl border-2 border-white`}>
                 <div className={`${styles.card__content} h-full text-center relative p-20 transition-transform duration-1000 text-black font-bold`}>
 
                   <div className={`${styles.card__front} rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8 ${styles.gradientAnimation} flex items-center justify-center`}>
-                    <h2>Who is John Dewey?</h2>
+                    <h2 className='dark:invert'>Who is John Dewey?</h2>
                   </div>
                   <div className={`${styles.card__back} rounded-2xl  text-white absolute top-0 bottom-0 right-0 left-0 p-8 bg-yellow-600 flex items-center justify-center`}>
-                    <h2>Coming Soon...</h2>
+                    <h2 className='dark:invert'>Coming Soon...</h2>
                   </div>
 
                 </div>
@@ -58,7 +57,7 @@ export default function EducationPage() {
                 <div className={`${styles.card__content} h-full text-center relative p-20 transition-transform duration-1000 text-black font-bold`}>
 
                   <div className={`${styles.card__front} text-white rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8 bg-yellow-600 flex items-center justify-center`}>
-                    <h2>Who is Tagore?</h2>
+                    <h2 className='dark:invert'>Who is Tagore?</h2>
                   </div>
                   <div className={`${styles.card__back} rounded-2xl  absolute top-0 bottom-0 right-0 left-0 p-8 ${styles.gradientAnimationReversed} flex items-center justify-center`}>
                     <h2>Coming Soon...</h2>
@@ -92,16 +91,32 @@ export default function EducationPage() {
 
 
           <div className="flex lg:h-1/2">
-            <div className={`lg:w-1/2 rounded-2xl border-2 border-white p-2 m-2 content-center ${styles.slideInFromRightAnimationSlowDelayed}`}>
-              <h1 className='text-bold'>Mission</h1>
-              <p className='text-sm'>Mission: Self-empowerment of self through community</p>
-            
+            <div className={`${styles.card} w-1/2 lg:w-1/2 rounded-2xl border-2 border-white`}>
+              <div className={`${styles.card__content} h-full text-center relative p-20 transition-transform duration-1000 text-black font-bold`}>
+
+                <div className={`${styles.card__front} rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8 ${styles.gradientAnimation} flex items-center justify-center`}>
+                  <h2 className='dark:invert'>Mission</h2>
+                </div>
+                <div className={`${styles.card__back} rounded-2xl  text-white absolute top-0 bottom-0 right-0 left-0 p-8 bg-yellow-600 flex items-center justify-center`}>
+                  <h2>Self-empowerment through community</h2>
+                </div>
+
+              </div>
             </div>
 
-            <p className={`lg:w-1/2 rounded-2xl border-2 border-white p-2 m-2 content-center ${styles.gradientAnimationReversed}`}>
-              Tagore and Dewey believed in the power of environment and community in educating ourselves.
-            </p>
 
+
+            <div className={`${styles.card} w-1/2 lg:w-1/2 rounded-2xl border-2 border-white`}>
+              <div className={`${styles.card__content} h-full text-center relative p-20 transition-transform duration-1000 text-black font-bold`}>
+                <div className={`${styles.card__front} rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8  flex items-center justify-center`}>
+                  <h2 className='dark:invert'>My Philosophy</h2>
+                </div>
+                <div className={`${styles.card__back} rounded-2xl text-white absolute top-0 bottom-0 right-0 left-0 p-8 bg-yellow-600 flex items-center justify-center`}>
+                  <p> Tagore and Dewey believed in the power of environment and community in educating ourselves.</p>
+                </div>
+
+              </div>
+            </div>
           </div>
         </div>
 
