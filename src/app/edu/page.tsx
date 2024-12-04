@@ -63,17 +63,17 @@ export default function EducationPage() {
             </div>
           </div>
           <div className={`
-            text-sm h-svh max-h-64 lg:max-h-96 rounded-t-full border-2 border-white 
+            text-sm h-svh max-h-64 lg:max-h-96 rounded-t-full md:rounded-t-sm lg:rounded-t-full border-2 border-white 
             bg-[url('https://live.staticflickr.com/65535/53841418931_301432a964_w.jpg')] bg-cover bg-no-repeat bg-center 
             ${cardWrapperStyle}`}>
           </div>
         </div>
 
 
-        <div className="text-center m-auto w-full flex flex-col lg:flex-col lg:h-screen px-2">
+        <div className="text-center m-auto w-full h-screen flex flex-col lg:flex-col lg:px-2 flex flex-col-reverse">
           <Link
             href="/experiences"
-            className={`${cardWrapperStyle} rounded-full h-svh max-h-64 lg:max-h-96 lg:max-w-96 border-0 border-transparent m-auto`}
+            className={`${cardWrapperStyle} rounded-full md:h-svh md:max-h-64 lg:max-h-96 lg:max-w-96 border-0 border-transparent md:m-auto`}
           >
             <Image
               className={`rounded-full w-full lg:max-h-96 lg:max-w-96 rounded-t-full border-2 border-white`}
@@ -117,10 +117,8 @@ export default function EducationPage() {
         </div>
 
         <div className="text-center m-auto flex flex-col-reverse w-full lg:h-screen">
-          <div className="flex flex-col lg:h-1/2  mt-8 mb-2">
-            {/* <h2 className="text-xl mb-2 font-bold">My Philosophy</h2> */}
+          <div className="flex flex-col lg:h-1/2  mt-8 mb-2  h-96">
             <div className="flex flex-row flex-grow">
-
               <div className={`${styles.card} w-1/2 lg:w-1/2 rounded-2xl border-2 border-white`}>
                 <div className={`${styles.card__content} h-full text-center relative p-20 transition-transform duration-1000 text-black`}>
 
@@ -155,6 +153,7 @@ export default function EducationPage() {
                 </div>
               </div>
             </div>
+
           </div>
 
 
@@ -168,7 +167,7 @@ export default function EducationPage() {
         </div>
 
 
-        <div className="text-center m-auto w-full flex flex-col-reverse lg:flex-col lg:h-screen">
+        <div className="text-center m-auto w-full flex flex-col lg:flex-col lg:h-screen">
           <Link
             href="/experiences/lincolnpark"
             className={`${cardWrapperStyle} rounded-t-full h-svh max-h-64 lg:max-h-96 rounded-t-full border-2 border-white bg-[url('https://live.staticflickr.com/65535/53863144554_28d446360a_w.jpg')] bg-cover bg-no-repeat bg-top`}>
@@ -181,8 +180,6 @@ export default function EducationPage() {
           </Link>
         </div>
 
-
-
         {/* END OF SECOND SECTION */}
 
 
@@ -194,85 +191,222 @@ export default function EducationPage() {
 
         {/* START OF THIRD SECTION */}
 
-        <div className="text-center m-auto my-2">
-          <h3 className="font-bold text-lg mb-2">For General Educators:</h3>
-          <ul className="text-sm p-2">
-            <h4 className="font-bold"> Coming Soon....</h4>
-            <li>Teaching for any ages</li>
-            <li>Concepts and Ideas of Teaching</li>
-            <li>Experiential Learning</li>
-            <li>Celebrate success and failure</li>
-            <li>Economic Profitability of Education</li>
-            <li>Certification</li>
-            <li>Design a Course!</li>
-            <li>Make a Rubric for anything</li>
-            <li>Language</li>
-          </ul>
+        <div className="flex flex-row ">
+          <div className={`${styles.card} w-1/2 lg:w-1/2 rounded-2xl border-2 border-white`}>
+            <div className={`${styles.card__content} h-96 text-center relative p-20 transition-transform duration-1000 text-black`}>
+
+              <div className={`${styles.card__front} rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8 ${styles.gradientAnimation} flex items-center justify-center`}>
+                <h2 className='font-bold'>For General Educators:</h2>
+              </div>
+              <div className={`${styles.card__back} rounded-2xl text-xs text-white absolute top-0 bottom-0 right-0 left-0 p-8 bg-yellow-600 flex items-center justify-center h-full`}>
+                <ul className="text-sm p-2">
+                  <li>Teaching for any ages</li>
+                  <li>Concepts and Ideas of Teaching</li>
+                  <li>Experiential Learning</li>
+                  <li>Celebrate success and failure</li>
+                  <li>Economic Profitability of Education</li>
+                  <li>Certification</li>
+                  <li>Design a Course!</li>
+                  <li>Make a Rubric for anything</li>
+                  <li>Language</li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+
+
+          <div className={`${styles.card} w-1/2 lg:w-1/2 rounded-2xl border-2 border-white`}>
+            <div className={`${styles.card__content} h-full text-center relative p-20 transition-transform duration-1000 text-black`}>
+              <div className={`${styles.card__front} text-white rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8 bg-yellow-600 flex items-center justify-center`}>
+                <p>Early Childhood to home schooling to higher education to adult education</p>
+              </div>
+              <div className={`${styles.card__back} rounded-2xl  absolute top-0 bottom-0 right-0 left-0 p-8 ${styles.gradientAnimationReversed} flex items-center justify-center`}>
+                <p className="text-sm p-2">
+                  Coming Soon...
+                </p>
+              </div>
+
+            </div>
+          </div>
         </div>
+        <div className="flex flex-row-reverse">
+          <div className={`${styles.card} w-1/2 lg:w-1/2 rounded-2xl border-2 border-white`}>
+            <div className={`${styles.card__content} h-96 text-center relative p-20 transition-transform duration-1000 text-black`}>
 
-        <div className="text-center m-auto my-2">
-          <h3 className="font-bold text-lg mb-2">Technology Education</h3>
-          <ul className="text-sm p-2">
-            <h4 className="font-bold"> Coming Soon....</h4>
-            <li>Textiles & Apparel</li>
-            <li>Arts</li>
-            <li>Engineering - Automotive</li>
-            <li>Engineering - Computer Sciences</li>
-            <li>Argiculture</li>
-            <li>Design</li>
-          </ul>
+              <div className={`${styles.card__front} rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8 ${styles.gradientAnimation} flex items-center justify-center`}>
+                <h2 className='font-bold'>Technology Education</h2>
+              </div>
+              <div className={`${styles.card__back} rounded-2xl text-xs text-white absolute top-0 bottom-0 right-0 left-0 p-8 bg-yellow-600 flex items-center justify-center h-full`}>
+                <ul className="text-sm p-2">
+                  <li>Textiles & Apparel</li>
+                  <li>Arts</li>
+                  <li>Engineering - Automotive</li>
+                  <li>Engineering - Computer Sciences</li>
+                  <li>Argiculture</li>
+                  <li>Design</li>
+                </ul>
+              </div>
 
+            </div>
+          </div>
+
+
+          <div className={`${styles.card} w-1/2 lg:w-1/2 rounded-2xl border-2 border-white`}>
+            <div className={`${styles.card__content} h-full text-center relative p-20 transition-transform duration-1000 text-black`}>
+              <div className={`${styles.card__front} text-white rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8 bg-yellow-600 flex items-center justify-center`}>
+                <p>What is STEM?</p>
+              </div>
+              <div className={`${styles.card__back} rounded-2xl  absolute top-0 bottom-0 right-0 left-0 p-8 ${styles.gradientAnimationReversed} flex items-center justify-center`}>
+                <p className="text-sm p-2">
+                  Coming Soon...
+                </p>
+              </div>
+
+            </div>
+          </div>
         </div>
+        <div className="flex flex-row">
+          <div className={`${styles.card} w-1/2 lg:w-1/2 rounded-2xl border-2 border-white`}>
+            <div className={`${styles.card__content} h-96 text-center relative p-20 transition-transform duration-1000 text-black`}>
 
-        <div className="text-center m-auto my-2">
-          <h3 className="font-bold text-lg mb-2">For College Students:</h3>
-          <ul className="text-sm p-2">
-            <h4 className="font-bold"> Coming Soon....</h4>
-            <li>What colleges?</li>
-            <li>What can I afford?</li>
-            <li>Financial Aid</li>
-            <li>Health and Accessibility</li>
-            <li>Activities</li>
-            <li>Grades</li>
-            <li>First Year Experience</li>
-          </ul>
+              <div className={`${styles.card__front} rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8 ${styles.gradientAnimation} flex items-center justify-center`}>
+                <h2 className='font-bold'>For College Students</h2>
+              </div>
+              <div className={`${styles.card__back} rounded-2xl text-xs text-white absolute top-0 bottom-0 right-0 left-0 p-8 bg-yellow-600 flex items-center justify-center h-full`}>
+                <ul className="text-sm p-2">
+                  <li>What colleges?</li>
+                  <li>What can I afford?</li>
+                  <li>Financial Aid</li>
+                  <li>Health and Accessibility</li>
+                  <li>Activities</li>
+                  <li>Grades</li>
+                  <li>First Year Experience</li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+
+
+          <div className={`${styles.card} w-1/2 lg:w-1/2 rounded-2xl border-2 border-white`}>
+            <div className={`${styles.card__content} h-full text-center relative p-20 transition-transform duration-1000 text-black`}>
+              <div className={`${styles.card__front} text-white rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8 bg-yellow-600 flex items-center justify-center`}>
+                <p>Preparing for college to recent graduates</p>
+              </div>
+              <div className={`${styles.card__back} rounded-2xl  absolute top-0 bottom-0 right-0 left-0 p-8 ${styles.gradientAnimationReversed} flex items-center justify-center`}>
+                <p className="text-sm p-2">
+                  Coming Soon...
+                </p>
+              </div>
+
+            </div>
+          </div>
         </div>
+        <div className="flex flex-row-reverse">
+          <div className={`${styles.card} w-1/2 lg:w-1/2 rounded-2xl border-2 border-white`}>
+            <div className={`${styles.card__content} h-96 text-center relative p-20 transition-transform duration-1000 text-black`}>
+
+              <div className={`${styles.card__front} rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8 ${styles.gradientAnimation} flex items-center justify-center`}>
+                <h2 className='font-bold'>For Parents</h2>
+              </div>
+              <div className={`${styles.card__back} rounded-2xl text-xs text-white absolute top-0 bottom-0 right-0 left-0 p-8 bg-yellow-600 flex items-center justify-center h-full`}>
+                <ul className="text-sm p-2">
+                  <li>What colleges?</li>
+                  <li>What can I afford?</li>
+                  <li>Financial Aid</li>
+                  <li>Health and Accessibility</li>
+                  <li>Activities</li>
+                  <li>Grades</li>
+                  <li>First Year Experience</li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
 
 
-        <div className="text-center m-auto  my-12">
-          <h3 className="font-bold text-lg mb-2">For Parents:</h3>
-          <ul className="text-sm p-2">
-            <h4 className="font-bold"> Coming Soon....</h4>
-            <li>What colleges?</li>
-            <li>What can I afford?</li>
-            <li>Financial Aid</li>
-            <li>Health and Accessibility</li>
-            <li>Activities</li>
-            <li>Grades</li>
-            <li>First Year Experience</li>
-          </ul>
+          <div className={`${styles.card} w-1/2 lg:w-1/2 rounded-2xl border-2 border-white`}>
+            <div className={`${styles.card__content} h-full text-center relative p-20 transition-transform duration-1000 text-black`}>
+              <div className={`${styles.card__front} text-white rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8 bg-yellow-600 flex items-center justify-center`}>
+                <p>How to prepare for paying for your children?</p>
+              </div>
+              <div className={`${styles.card__back} rounded-2xl  absolute top-0 bottom-0 right-0 left-0 p-8 ${styles.gradientAnimationReversed} flex items-center justify-center`}>
+                <p className="text-sm p-2">
+                  Coming Soon...
+                </p>
+              </div>
+
+            </div>
+          </div>
         </div>
+        <div className="flex flex-row">
+          <div className={`${styles.card} w-1/2 lg:w-1/2 rounded-2xl border-2 border-white`}>
+            <div className={`${styles.card__content} h-96 text-center relative p-20 transition-transform duration-1000 text-black`}>
 
-        <div className="text-center m-auto my-12">
-          <h3 className="font-bold text-lg mb-2">For Policy Makers:</h3>
-          <ul className="text-sm p-2">
-            <h4 className="font-bold"> Coming Soon....</h4>
-            <li>Financial Aid</li>
-            <li>Health and Accessibility</li>
-          </ul>
+              <div className={`${styles.card__front} rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8 ${styles.gradientAnimation} flex items-center justify-center`}>
+                <h2 className='font-bold'>For Policy Makers</h2>
+              </div>
+              <div className={`${styles.card__back} rounded-2xl text-xs text-white absolute top-0 bottom-0 right-0 left-0 p-8 bg-yellow-600 flex items-center justify-center h-full`}>
+                <ul className="text-sm p-2">
+                  <li>Financial Aid</li>
+                  <li>Health and Accessibility</li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+
+
+          <div className={`${styles.card} w-1/2 lg:w-1/2 rounded-2xl border-2 border-white`}>
+            <div className={`${styles.card__content} h-full text-center relative p-20 transition-transform duration-1000 text-black`}>
+              <div className={`${styles.card__front} text-white rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8 bg-yellow-600 flex items-center justify-center`}>
+                <p>How to prepare your citizens for the future</p>
+              </div>
+              <div className={`${styles.card__back} rounded-2xl  absolute top-0 bottom-0 right-0 left-0 p-8 ${styles.gradientAnimationReversed} flex items-center justify-center`}>
+                <p className="text-sm p-2">
+                  Coming Soon...
+                </p>
+              </div>
+
+            </div>
+          </div>
         </div>
+        <div className="flex flex-row-reverse">
+          <div className={`${styles.card} w-1/2 lg:w-1/2 rounded-2xl border-2 border-white`}>
+            <div className={`${styles.card__content} h-96 text-center relative p-20 transition-transform duration-1000 text-black`}>
 
-        <div className="text-center m-auto my-12">
-          <h3 className="font-bold text-lg mb-2">For Community:</h3>
-          <ul className="text-sm p-2">
-            <h4 className="font-bold"> Coming Soon....</h4>
-            <li>Impact of Tax Payer monies</li>
-          </ul>
+              <div className={`${styles.card__front} rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8 ${styles.gradientAnimation} flex items-center justify-center`}>
+                <h2 className='font-bold'>For Community</h2>
+              </div>
+              <div className={`${styles.card__back} rounded-2xl text-xs text-white absolute top-0 bottom-0 right-0 left-0 p-8 bg-yellow-600 flex items-center justify-center h-full`}>
+                <ul className="text-sm p-2">
+                  <li>Impact of Tax Payer monies</li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+
+
+          <div className={`${styles.card} w-1/2 lg:w-1/2 rounded-2xl border-2 border-white`}>
+            <div className={`${styles.card__content} h-full text-center relative p-20 transition-transform duration-1000 text-black`}>
+              <div className={`${styles.card__front} text-white rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8 bg-yellow-600 flex items-center justify-center`}>
+                <p>How does all of this matter to me?</p>
+              </div>
+              <div className={`${styles.card__back} rounded-2xl  absolute top-0 bottom-0 right-0 left-0 p-8 ${styles.gradientAnimationReversed} flex items-center justify-center`}>
+                <p className="text-sm p-2">
+                  Coming Soon...
+                </p>
+              </div>
+
+            </div>
+          </div>
         </div>
-
-
 
         {/* END OF THIRD SECTION */}
+
+
 
       </div>
       <Link href="#navigation" className='hover:underline'>go to top</Link>
