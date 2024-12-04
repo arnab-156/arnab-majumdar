@@ -170,7 +170,7 @@ export default function ExperiencesPage() {
           />
         </div>
 
-        <h2 className="text-3xl font-bold text-center mt-8">Education</h2>
+        <h2 id="my-education" className="text-3xl font-bold text-center mt-8">Education</h2>
         <div className={cardWrapperStyle}>
           <Card
             title="Northwestern Unversity"
@@ -200,6 +200,18 @@ export default function ExperiencesPage() {
             description="Bachelor's of Technology - Apparel Manufacturing and Information Technology."
           />
         </div>
+
+        <div className={cardWrapperStyle}>
+          <Card
+            title="Bangiya Sangeet Parishad"
+            url="https://www.bangiyasangeetparishad.org/bsp/index.html"
+            imageUrl="https://placehold.co/300x300?text=Painting"
+            backgroundTheme={`${pinkBackgroundTheme}`}
+            description="Diploma in Fine Arts, Painting (5th year) - Chitrankan Kala Mandir - Ranchi."
+            openInNewTab
+          />
+        </div>
+
 
         <div className={`${cardWrapperStyle}`}>
           <h3 className="text-xl font-bold text-center"> Other Experiences:</h3>

@@ -19,20 +19,21 @@ export default function EducationPage() {
             <p className="lg:w-1/2 rounded-2xl border-2 border-white p-2 m-2 content-center">Please excuse the look, this page is under construction.</p>
           </div>
 
-          <Link
-            href="/experiences"
+          <div
             className={`${cardWrapperStyle} rounded-full md:h-svh md:max-h-64 lg:max-h-96 lg:max-w-96 border-0 border-transparent md:m-auto lg:hidden`}
           >
             <Image
-              className={`rounded-full m-auto w-12/16 lg:max-h-96 lg:max-w-96 rounded-t-full border-2 border-white`}
+              className={`rounded-full m-auto w-12/16 rounded-t-full border-2 border-white`}
               src={"/headshot.gif"}
-              alt="click on the image of headhsot of arnab to see all experience"
+              alt="image of headhsot of arnab"
               priority
               unoptimized
             />
-          </Link>
-
-
+          </div>
+          <div className='block underline m-24'>
+            <Link href="/experiences" className='block hover:font-bold'>see all experience</Link>
+            <Link href="/experiences#my-education" className='block hover:font-bold'>go to my education</Link>
+          </div>
         </div>
 
         <div className="text-center m-auto flex flex-col w-full lg:h-screen">
@@ -130,7 +131,7 @@ export default function EducationPage() {
         <div className="text-center m-auto w-full lg:h-screen ">
           <div className="flex lg:h-1/2">
             <p className={`lg:w-1/2 rounded-2xl border-2 border-white p-2 m-2 content-center ${styles.gradientAnimation}`}>
-              <h1 className="text-3xl font-bold text-center m-auto font-bold">My Experience</h1>
+              <h1 id="expr" className="text-3xl font-bold text-center m-auto font-bold">My Experience</h1>
             </p>
             <p className="lg:w-1/2 rounded-2xl border-2 border-white p-2 m-2 content-center"><h3 className="text-lg font-bold">Arts, Sciences & Technology</h3>.</p>
           </div>
