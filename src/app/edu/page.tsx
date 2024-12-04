@@ -1,7 +1,6 @@
 import Link from 'next/link';
-import { Card } from "../components/card";
+import Image from "next/image";
 import { cardWrapperStyle } from "../utility/stylevariables";
-import { EyeOnIndiaImageTile } from "../components/imageTiles";
 import styles from "./styles.module.css";
 
 export default function EducationPage() {
@@ -71,19 +70,25 @@ export default function EducationPage() {
         </div>
 
 
-        <div className="text-center m-auto w-full flex flex-col-reverse lg:flex-col lg:h-screen">
-          <div className={`${cardWrapperStyle} rounded-t-full h-svh max-h-64 lg:max-h-96 rounded-t-full border-2 border-white bg-[url('https://live.staticflickr.com/65535/53808934296_8330a5b182_w.jpg')] bg-cover bg-no-repeat bg-top`}>
-          </div>
-          <div className="flex flex-row lg:h-1/2">
-            <div className={`${styles.slideInFromRightAnimation} ${cardWrapperStyle}`}>
-              <Card
-                title="Go to my Experience"
-                url="/experiences"
-                imageUrl="/headshot.gif"
-                description="Welcome! Explore Arnab&#39;s world of design, with both real-world and conceptual projects."
-              />
-            </div>
-          </div>
+        <div className="text-center m-auto w-full flex flex-col lg:flex-col lg:h-screen px-2">
+          <Link
+            href="/experiences"
+            className={`${cardWrapperStyle} rounded-full h-svh max-h-64 lg:max-h-96 lg:max-w-96 border-0 border-transparent m-auto`}
+          >
+            <Image
+              className={`rounded-full w-full lg:max-h-96 lg:max-w-96 rounded-t-full border-2 border-white`}
+              src={"/headshot.gif"}
+              alt="click on the image of headhsot of arnab to see all experience"
+              priority
+              unoptimized
+            />
+          </Link>
+
+
+          <Link
+            href="/moc"
+            className={`${cardWrapperStyle} rounded-b-full h-svh max-h-64 lg:max-h-96 border-2 border-white bg-[url('https://live.staticflickr.com/65535/53808934296_8330a5b182_w.jpg')] bg-cover bg-no-repeat bg-top`}>
+          </Link>
         </div>
 
         {/* END OF TOP SECTION */}
