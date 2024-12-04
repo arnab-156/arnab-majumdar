@@ -155,6 +155,8 @@ export default function EducationPage() {
             <li>Celebrate success and failure</li>
             <li>Economic Profitability of Education</li>
             <li>Certification</li>
+            <li>Design a Course!</li>
+            <li>Make a Rubric for anything</li>
             <li>Language</li>
           </ul>
         </div>
