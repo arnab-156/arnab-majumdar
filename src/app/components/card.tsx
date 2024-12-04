@@ -14,6 +14,7 @@ interface CardProps {
     imageClassName?: string;
     imageHeight?: number;
     imageWidth?: number;
+    openInNewTab?: boolean;
 }
 
 export const Card: NextPage<CardProps> = ({
@@ -27,11 +28,13 @@ export const Card: NextPage<CardProps> = ({
     imageClassName = "mx-auto m-4",
     imageHeight = 100,
     imageWidth = 100,
+    openInNewTab = false,
 }) => {
     return (
         <Link
             className={classNames(`card-component mr-4 ml-4 mb-4 rounded shadow-md content-center`, customClassName)}
             href={url}
+            {...openInNewTab ? { target: "_blank" } : {}}
         >
             <div className={`p-4 rounded shadow-md bg-gray-200 hover:bg-gray-300 active:bg-gray-400 dark:bg-gray-900 ${backgroundTheme}`}>
                 <h3 className="font-bold text-overflow-ellipsis overflow-hidden line-clamp-1">{title}</h3>
