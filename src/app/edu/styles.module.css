@@ -28,6 +28,12 @@
     animation: gradientChange 5s ease-in-out infinite;
 }
 
+.gradientAnimationAlternate {
+    background-image: linear-gradient(75deg, var(--brand-blue) 10%, var(--brand-white) 50%, var(--brand-light-pink) 100%);
+    background-size: 200% 100%;
+    animation: gradientChange 5s ease-in-out infinite;
+}
+
 
 @keyframes slideInRight {
     0% {

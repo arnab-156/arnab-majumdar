@@ -6,15 +6,11 @@ import styles from "./styles.module.css";
 
 export default function EducationPage() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between pt-20 pb-16">
+    <main className={`flex min-h-screen flex-col items-center justify-between pt-20 pb-16 ${styles.gradientAnimationAlternate}`}>
       <div className={`mb-6 grid text-center 
         md:grid-cols-2 gap-4
         lg:grid-cols-3 lg:text-left
         `}>
-
-
-
-
         {/* START OF TOP SECTION */}
         <div className="text-center m-auto w-full lg:h-screen ">
           <div className="flex lg:h-1/2">
