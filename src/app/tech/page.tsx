@@ -70,10 +70,20 @@ export default function Tech() {
 
         <div className={cardWrapperStyle}>
           <Card
+            title="Coming in 2025: Hydro Energizer!"
+            url="https://www.hydroenergizer.com/"
+            imageUrl="/hydrologo.gif"
+            description="Hydro Power Re:imagined. Coming: 2025!"
+            openInNewTab
+          />
+        </div>
+
+        <div className={cardWrapperStyle}>
+          <Card
             title="Coming soon: Resume Generator!"
             url="/tech/create-resume"
             imageUrl="/cv.png"
-            description="Free service to create your own resume right on your phone. Coming: Fall 2024!"
+            description="Free service to create your own resume right on your phone. Coming: Fall 2025!"
             customClassName="invert"
           />
         </div>
