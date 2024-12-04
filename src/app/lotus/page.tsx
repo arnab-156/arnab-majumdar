@@ -2,10 +2,11 @@ import { Card } from "../components/card";
 import { Tile } from "../components/tile";
 import { ApparelIcon } from "../components/icons";
 import { cardWrapperStyle } from "../utility/stylevariables";
+import Link from "next/link";
 
 export default function Lotus() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between pt-20 ">
+    <main className="flex min-h-screen flex-col items-center justify-between pt-20 pb-20">
       <div className="mb-32 grid text-center lg:w-half lg:max-w-5xl lg:grid-cols-3 lg:text-left pb-60 px-6">
         <h1 className="text-3xl font-bold text-center m-8 uppercase text-pink-800">Welcome to Lotus Mahal</h1>
         <h2 className="text-xl font-bold text-center m-8 dark:invert">
@@ -77,6 +78,7 @@ export default function Lotus() {
           </Card>
         </div>
       </div>
+      <Link href="#navigation" className='hover:underline'>go to top</Link>
     </main>
   );
 }

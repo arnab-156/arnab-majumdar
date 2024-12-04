@@ -4,7 +4,7 @@ import { Navigation } from "../app/components/navigation";
 
 export const metadata: Metadata = {
     title: 'Arnab Majumdar',
-    description: 'Portfolio page of technology, arts and design.'
+    description: 'Portfolio page of technology, arts and design.',
 };
 
 export default function RootLayout({
