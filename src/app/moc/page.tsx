@@ -16,7 +16,7 @@ export default function MoC() {
 
         <Tile
           title="Interactive Vending Machines"
-          subTitle="Custom made actiivewear in a custom vending machine, fits in any gym in a hotel or apartments."
+          subTitle="Custom made activewear in a custom vending machine, fits in any gym in a hotel or apartments."
           href=""
           url={`bg-[url('https://live.staticflickr.com/65535/53808934296_8330a5b182_w.jpg')] `}
           customClassName={cardWrapperStyle}

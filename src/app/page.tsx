@@ -5,8 +5,8 @@ import { cardWrapperStyle, yellowBackgroundTheme, buttonStyle } from './utility/
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between md:pt-20">
-      <div className="mb-32 grid text-center lg:w-half lg:max-w-5xl lg:grid-cols-3 lg:text-left">
+    <main className="flex min-h-screen flex-col items-center justify-between md:pt-20 mb-32">
+      <div className="grid text-center lg:w-half lg:max-w-5xl lg:grid-cols-3 lg:text-left">
         <div className=' m-8'>
           <h1 className="text-3xl font-bold text-center uppercase">Welcome to my homepage!</h1>
           {/* <h2 className="text-md font-bold text-center capiutalize">Tech + Design</h2> */}
@@ -92,7 +92,7 @@ export default function Home() {
           <h2 className="text-xl font-bold text-center capitalize" >Coming soon:</h2>
           <Card
             title="Launch your website!"
-            url=""
+            url="/edu"
             description="Technology education resources for everyone!"
             customClassName="invert"
           >
@@ -100,6 +100,7 @@ export default function Home() {
           </Card>
         </div>
       </div>
+      <Link href="#navigation" className='hover:underline'>go to top</Link>
     </main>
   );
 }

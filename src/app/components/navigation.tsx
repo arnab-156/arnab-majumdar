@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { MenuIcon, LotusIcon } from "../components/icons";
 
 export const Navigation = () => {
-    return (<nav className="flex flex-col items-center justify-between">
+    return (<nav className="flex flex-col items-center justify-between" id="navigation">
         <div className="z-10 w-full items-center justify-between flex justify-content font-mono text-sm lg:text-transparent hover:lg:text-black dark:hover:lg:text-white lg:shadow-2xl lg:shadow-yellow-600/40 hover:lg:shadow-none">
             <section className={`group rounded-[36px] fixed flex w-3/4 ml-[13%] sm:ml-0 py-3 justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 backdrop-blur-md 
              dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit 
@@ -32,8 +32,8 @@ export const Navigation = () => {
 
                     <Link className="flex flex-col justify-center items-center" href="/about">
                         <span className="relative flex h-3 w-3 hidden sm:group-hover:block top-5 left-20 z-10">
-                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-300 opacity-75"></span>
-                            <span className="relative inline-flex rounded-full h-3 w-3 bg-yellow-500"></span>
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white dark:bg-black opacity-75"></span>
+                            <span className="relative inline-flex rounded-full h-3 w-3 bg-white dark:bg-black"></span>
                         </span>
                         <Image
                             className="hidden sm:group-hover:block relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] rounded-2xl mr-2"

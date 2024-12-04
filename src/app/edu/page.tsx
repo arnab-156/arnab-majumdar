@@ -1,36 +1,88 @@
-import { Card } from "../components/card"
+import Link from 'next/link';
+import { Card } from "../components/card";
 import { cardWrapperStyle } from "../utility/stylevariables";
 import { EyeOnIndiaImageTile } from "../components/imageTiles";
+import styles from "./styles.module.css";
 
 export default function EducationPage() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between pt-20 pb-16">
       <div className={`mb-6 grid text-center 
-        md:grid-cols-2 
-        lg:w-half lg:max-w-5xl lg:grid-cols-3 lg:text-left
+        md:grid-cols-2 gap-4
+        lg:grid-cols-3 lg:text-left
         `}>
 
+        <div className="text-center m-auto w-full lg:h-screen">
+          <div className="flex flex-row lg:h-1/2">
+            <p className={`lg:w-1/2 rounded-2xl border-2 border-white p-2 m-2 content-center ${styles.gradientAnimation}`}>
+              <h1 className="text-3xl font-bold text-center m-auto font-bold">Education</h1>
+            </p>
+            <p className="lg:w-1/2 rounded-2xl border-2 border-white p-2 m-2 content-center">Hello</p>
+          </div>
 
-        <div className="text-center m-auto">
-          <h1 className="text-3xl font-bold text-center mt-8 mb-2 font-bold">Education</h1>
+          <div className="flex flex-row lg:h-1/2">
+            <p className="lg:w-1/2 rounded-2xl border-2 border-white p-2 m-2 content-center">Hello</p>
+
+            <p className={`lg:w-1/2 rounded-2xl border-2 border-white p-2 m-2 content-center ${styles.gradientAnimation}`}>
+              Tagore and Dewey believed in the power of environment and community in educating ourselves.
+            </p>
+
+          </div>
         </div>
 
-        <div className="text-center m-auto">
-          <h2 className="text-xl mb-2 font-bold">My Philosophy</h2>
-          <h3 className="text-lg font-bold">Who is John Dewey?</h3>
-          <h3 className="text-lg font-bold">Who is Tagore?</h3>
-          <p className="text-sm">
-            Tagore and Dewey believed in the power of environment and community in educating ourselves.
+        <div className="text-center m-auto flex flex-col lg:h-screen">
+          <div className="flex flex-col lg:h-1/2  mt-8 mb-2">
+            <h2 className="text-xl mb-2 font-bold">My Philosophy</h2>
+            <div className="flex flex-row flex-grow">
+
+              <div className={`${styles.card} w-40 lg:w-1/2 rounded-2xl border-2 border-white`}>
+                <div className={`${styles.card__content} h-full text-center relative p-20 transition-transform duration-1000 text-white font-bold`}>
+
+                  <div className={`${styles.card__front} rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8 bg-pink-600 flex items-center justify-center`}>
+                    <h2>Who is John Dewey?</h2>
+                  </div>
+                  <div className={`${styles.card__back} rounded-2xl  absolute top-0 bottom-0 right-0 left-0 p-8 bg-yellow-600 flex items-center justify-center`}>
+                    <h2>Coming Soon...</h2>
+                  </div>
+
+                </div>
+              </div>
+
+
+              <div className={`${styles.card} w-40 lg:w-1/2 rounded-2xl border-2 border-white`}>
+                <div className={`${styles.card__content} h-full text-center relative p-20 transition-transform duration-1000 text-white font-bold`}>
+
+                  <div className={`${styles.card__front} rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8 bg-yellow-600 flex items-center justify-center`}>
+                    <h2>Who is Tagore?</h2>
+                  </div>
+                  <div className={`${styles.card__back} rounded-2xl  absolute top-0 bottom-0 right-0 left-0 p-8 bg-pink-600 flex items-center justify-center`}>
+                    <h2>Coming Soon...</h2>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <p className={`text-sm lg:h-1/2 rounded-t-full border-2 border-white bg-[url('https://live.staticflickr.com/65535/53841418931_301432a964_w.jpg')] bg-cover bg-no-repeat bg-center ${cardWrapperStyle}`}>
           </p>
         </div>
 
-        <div className={cardWrapperStyle}>
-          <Card
-            title="Go to my Experience"
-            url="/experiences"
-            imageUrl="/headshot.gif"
-            description="Welcome! Explore Arnab&#39;s world of design, with both real-world and conceptual projects."
-          />
+
+        <div className="text-center m-auto w-full lg:h-screen">
+          <div className={`${cardWrapperStyle} rounded-t-full lg:h-1/2 rounded-t-full border-2 border-white bg-[url('https://live.staticflickr.com/65535/53808934296_8330a5b182_w.jpg')] bg-cover bg-no-repeat bg-top`}>
+          </div>
+          <div className="flex flex-row lg:h-1/2">
+            <div className={cardWrapperStyle}>
+              <div className="rounded-2xl border-2 border-white p-2 m-2 bg-gray-200 hover:bg-gray-300 active:bg-gray-400 dark:bg-gray-900">
+                <Card
+                  title="Go to my Experience"
+                  url="/experiences"
+                  imageUrl="/headshot.gif"
+                  description="Welcome! Explore Arnab&#39;s world of design, with both real-world and conceptual projects."
+                />
+              </div>
+            </div>
+          </div>
         </div>
 
 
@@ -45,6 +97,7 @@ export default function EducationPage() {
           </p>
         </div>
 
+        {/* bg-[url('https://live.staticflickr.com/65535/53839425086_c36fa84f70_w.jpg')] */}
         {
           EyeOnIndiaImageTile()
         }
@@ -164,6 +217,7 @@ export default function EducationPage() {
           </ul>
         </div>
       </div>
+      <Link href="#navigation" className='hover:underline'>go to top</Link>
     </main>
   );
 }
