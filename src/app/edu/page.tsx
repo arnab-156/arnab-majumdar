@@ -19,14 +19,20 @@ export default function EducationPage() {
             <p className="lg:w-1/2 rounded-2xl border-2 border-white p-2 m-2 content-center">Please excuse the look, this page is under construction.</p>
           </div>
 
-          <div className="flex lg:h-1/2">
-            <p className={`lg:w-1/2 rounded-2xl border-2 border-white p-2 m-2 content-center ${styles.slideInFromRightAnimationSlowDelayed}`}>Here is a preview of what&apos;s coming</p>
+          <Link
+            href="/experiences"
+            className={`${cardWrapperStyle} rounded-full md:h-svh md:max-h-64 lg:max-h-96 lg:max-w-96 border-0 border-transparent md:m-auto lg:hidden`}
+          >
+            <Image
+              className={`rounded-full m-auto w-12/16 lg:max-h-96 lg:max-w-96 rounded-t-full border-2 border-white`}
+              src={"/headshot.gif"}
+              alt="click on the image of headhsot of arnab to see all experience"
+              priority
+              unoptimized
+            />
+          </Link>
 
-            <p className={`lg:w-1/2 rounded-2xl border-2 border-white p-2 m-2 content-center ${styles.gradientAnimationReversed}`}>
-              Tagore and Dewey believed in the power of environment and community in educating ourselves.
-            </p>
 
-          </div>
         </div>
 
         <div className="text-center m-auto flex flex-col w-full lg:h-screen">
@@ -70,10 +76,10 @@ export default function EducationPage() {
         </div>
 
 
-        <div className="text-center m-auto w-full h-screen flex flex-col lg:flex-col lg:px-2 flex flex-col-reverse">
+        <div className="text-center m-auto w-full lg:h-screen flex flex-col lg:flex-col lg:px-2 flex flex-col-reverse">
           <Link
             href="/experiences"
-            className={`${cardWrapperStyle} rounded-full md:h-svh md:max-h-64 lg:max-h-96 lg:max-w-96 border-0 border-transparent md:m-auto`}
+            className={`${cardWrapperStyle} rounded-full md:h-svh md:max-h-64 lg:max-h-96 lg:max-w-96 border-0 border-transparent md:m-auto hidden lg:block`}
           >
             <Image
               className={`rounded-full w-full lg:max-h-96 lg:max-w-96 rounded-t-full border-2 border-white`}
@@ -85,10 +91,20 @@ export default function EducationPage() {
           </Link>
 
 
-          <Link
+          <div className="flex lg:h-1/2">
+            <p className={`lg:w-1/2 rounded-2xl border-2 border-white p-2 m-2 content-center ${styles.slideInFromRightAnimationSlowDelayed}`}>Here is a preview of what&apos;s coming</p>
+
+            <p className={`lg:w-1/2 rounded-2xl border-2 border-white p-2 m-2 content-center ${styles.gradientAnimationReversed}`}>
+              Tagore and Dewey believed in the power of environment and community in educating ourselves.
+            </p>
+
+          </div>
+
+
+          {/* <Link
             href="/moc"
             className={`${cardWrapperStyle} rounded-b-full h-svh max-h-64 lg:max-h-96 border-2 border-white bg-[url('https://live.staticflickr.com/65535/53808934296_8330a5b182_w.jpg')] bg-cover bg-no-repeat bg-top`}>
-          </Link>
+          </Link> */}
         </div>
 
         {/* END OF TOP SECTION */}
@@ -117,15 +133,15 @@ export default function EducationPage() {
         </div>
 
         <div className="text-center m-auto flex flex-col-reverse w-full lg:h-screen">
-          <div className="flex flex-col lg:h-1/2  mt-8 mb-2  h-96">
+          <div className="flex flex-col lg:h-1/2  mt-8 mb-2 h-96">
             <div className="flex flex-row flex-grow">
               <div className={`${styles.card} w-1/2 lg:w-1/2 rounded-2xl border-2 border-white`}>
-                <div className={`${styles.card__content} h-full text-center relative p-20 transition-transform duration-1000 text-black`}>
+                <div className={`${styles.card__content} h-96 text-center relative p-20 transition-transform duration-1000 text-black`}>
 
                   <div className={`${styles.card__front} rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8 ${styles.gradientAnimation} flex items-center justify-center`}>
                     <h2 className='font-bold'>My Vision</h2>
                   </div>
-                  <div className={`${styles.card__back} rounded-2xl text-sm text-white absolute top-0 bottom-0 right-0 left-0 p-8 bg-yellow-600 flex items-center justify-center`}>
+                  <div className={`${styles.card__back}  h-96 rounded-2xl text-sm text-white absolute top-0 bottom-0 right-0 left-0 p-8 bg-yellow-600 flex items-center justify-center`}>
                     <h2> Since 80s my mom modeled a work-from-home environment due to many social and economic issues unseen before,
                       which honed me into a perfect organizer of creative projects—modeled after Tagore&#39;s more grassroots-based education
                       that gives parents and the community the autonomy of the artistic and scientific direction not on standardization of education
@@ -140,12 +156,11 @@ export default function EducationPage() {
                 <div className={`${styles.card__content} h-full text-center relative p-20 transition-transform duration-1000 text-black`}>
 
                   <div className={`${styles.card__front} text-white rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8 bg-yellow-600 flex items-center justify-center`}>
-                    <p>Education based on core mathematics and sciences can be free of the boring classrooms. An economically self-reliant and accessible model that benefits the community is essential. Creative models can be used to solve complex problems that require interdisciplinary thinking.</p>
+                    <p>Education based on core mathematics and sciences may not be boring. An economically self-reliant and accessible model exists.</p>
                   </div>
                   <div className={`${styles.card__back} rounded-2xl  absolute top-0 bottom-0 right-0 left-0 p-8 ${styles.gradientAnimationReversed} flex items-center justify-center`}>
                     <p className="text-sm p-2">
-                      AI can be revolutionary in helping people make informed decisions based on their understanding of
-                      life&#39;s paradigms. The concept of self relies on the essential human aspect of community; without
+                      AI can be revolutionary in helping people make informed decisions. The concept of self relies on the essential human aspect of community; without
                       life, we cannot understand what it means to be life-less.
                     </p>
                   </div>
