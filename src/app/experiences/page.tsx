@@ -201,6 +201,18 @@ export default function ExperiencesPage() {
           />
         </div>
 
+        <div className={cardWrapperStyle}>
+          <Card
+            title="Bangiya Sangeet Parishad"
+            url="https://www.bangiyasangeetparishad.org/bsp/index.html"
+            imageUrl="https://placehold.co/300x300?text=Painting"
+            backgroundTheme={`${pinkBackgroundTheme}`}
+            description="Diploma in Fine Arts, Painting (5th year) - Chitrankan Kala Mandir - Ranchi."
+            openInNewTab
+          />
+        </div>
+
+
         <div className={`${cardWrapperStyle}`}>
           <h3 className="text-xl font-bold text-center"> Other Experiences:</h3>
           <ul className={`rounded-md p-4 ml-2`}>
