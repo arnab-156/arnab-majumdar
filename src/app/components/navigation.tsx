@@ -36,7 +36,7 @@ export const Navigation = () => {
                             <span className="relative inline-flex rounded-full h-3 w-3 bg-white dark:bg-black"></span>
                         </Link>
                         <Image
-                            className="hidden sm:group-hover:block relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] rounded-2xl mr-2"
+                            className="hidden sm:group-hover:block relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] rounded-2xl mx-2"
                             src="/headshot.gif"
                             alt="headshot of arnab majumdar"
                             width={200}
@@ -49,6 +49,7 @@ export const Navigation = () => {
                 </div>
             </section>
 
+            {/* Contact us Footer on Desktop, On top on Mobile */}
             <section className={`group fixed left-0 top-0 lg:top-auto lg:bottom-0 flex w-full items-end justify-center 
                 bg-gradient-to-b from-zinc-200 via-white dark:from-black dark:via-black 
                 hover:bg-yellow-600 hover:h-fit rounded-[36px]

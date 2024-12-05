@@ -1,8 +1,9 @@
 import { Card } from "../components/card";
 import { Tile } from "../components/tile";
 import { ApparelIcon } from "../components/icons";
-import { cardWrapperStyle } from "../utility/stylevariables";
+import { cardWrapperStyle, pinkBackgroundTheme, yellowBackgroundTheme } from "../utility/stylevariables";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Lotus() {
   return (
@@ -48,9 +49,29 @@ export default function Lotus() {
           shadowColor="shadow-yellow-800"
         />
 
+
         <Tile
-          href="/moc"
+          title="Aster for Lotus Mahal"
+          href="https://lotusmahal.com/products/aster-for-lotus"
+          subTitle="Handcrafted collaboration between Lotus's and Aster Candles from Rhode Island. Highlighting the power of creativity and made in USA products."
+          url={`bg-[url('https://live.staticflickr.com/65535/54185085183_b5cbf63871_w.jpg')] `}
+          customClassName={cardWrapperStyle}
+          shadowColor="shadow-yellow-800"
+          openInNewTab
+        />
+
+        <Tile
+          title="Moon Rivers del Rio Luna"
+          href="https://lotusmahal.com/products/blood-and-envy-candles"
+          subTitle="Handcrafted and subtle luxurious fragrance in Arkansas. Highlighting the power of creativity and made in USA products."
+          url={`bg-[url('https://live.staticflickr.com/65535/54185085168_ba4fa7b38f_w.jpg')] `}
+          shadowColor="shadow-pink-800"
+          openInNewTab
+        />
+
+        <Tile
           title="Made of Chicago"
+          href="/moc"
           subTitle="Chicago-inspired activewear brand available on interactive vending machines right at your hotel or building gyms!"
           url={`bg-[url('https://live.staticflickr.com/65535/53809112039_8d183992a8_w.jpg')] `}
           customClassName={cardWrapperStyle}
@@ -66,6 +87,7 @@ export default function Lotus() {
           customClassName={cardWrapperStyle}
           shadowColor="shadow-blue-400"
         />
+
 
         <div className="m-8">
           <Card

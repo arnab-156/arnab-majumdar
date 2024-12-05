@@ -10,6 +10,7 @@ interface MyTileComponent {
     customClassName?: string;
     imageContain?: boolean;
     imagePosition?: string;
+    openInNewTab?: boolean;
 }
 
 export const Tile: NextPage<MyTileComponent> = ({
@@ -20,15 +21,18 @@ export const Tile: NextPage<MyTileComponent> = ({
     shadowColor,
     customClassName = "",
     imageContain = false,
-    imagePosition = ""
+    imagePosition = "",
+    openInNewTab = false
 }) => {
     return (
         <Link
             href={href}
+            {...openInNewTab ? { target: "_blank" } : {}}
             className={`m-4 shadow-md h-96 rounded relative bg-white ${imageContain ? `bg-contain bg-no-repeat bg-center ${imagePosition}` : "bg-cover "}
           ${url} ${shadowColor ? shadowColor : "shadow-pink-800"} dark:shadow-gray-800
           hover:drop-shadow-lg hover:scale-105 hover:duration-300  ${customClassName} flex flex-col-reverse
           `}
+
         >
             <div className="p-4 m-2 bg-white/80 rounded dark:text-black">
                 <h2 className="font-bold text-overflow-ellipsis overflow-hidden line-clamp-1">{title}</h2>
