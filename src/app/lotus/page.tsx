@@ -1,8 +1,9 @@
 import { Card } from "../components/card";
 import { Tile } from "../components/tile";
 import { ApparelIcon } from "../components/icons";
-import { cardWrapperStyle } from "../utility/stylevariables";
+import { cardWrapperStyle, pinkBackgroundTheme, yellowBackgroundTheme } from "../utility/stylevariables";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Lotus() {
   return (
@@ -48,6 +49,29 @@ export default function Lotus() {
           shadowColor="shadow-yellow-800"
         />
 
+
+        <div className={cardWrapperStyle}>
+          <Card
+            title="Aster for Lotus Mahal"
+            url="https://lotusmahal.com/products/aster-for-lotus"
+            imageUrl="https://placehold.co/100?text=Aster for Lotus"
+            backgroundTheme={`${yellowBackgroundTheme}`}
+            description="Handcrafted collaboration between Lotus's art and Handpoured Aster Candles from Rhode Island. Highlighting the power of creativity and made in USA products."
+            openInNewTab
+          />
+        </div>
+
+        <div className={cardWrapperStyle}>
+          <Card
+            title="Moon Rivers del Rio Luna"
+            url="https://lotusmahal.com/products/blood-and-envy-candles"
+            imageUrl="https://placehold.co/100?text=MoonRivers"
+            backgroundTheme={`${pinkBackgroundTheme}`}
+            description="Handcrafted and subtle luxurious fragrance in Arkansas. Highlighting the power of creativity and made in USA products."
+            openInNewTab
+          />
+        </div>
+
         <Tile
           href="/moc"
           title="Made of Chicago"
@@ -66,6 +90,7 @@ export default function Lotus() {
           customClassName={cardWrapperStyle}
           shadowColor="shadow-blue-400"
         />
+
 
         <div className="m-8">
           <Card
