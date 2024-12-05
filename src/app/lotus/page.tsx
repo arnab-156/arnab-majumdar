@@ -50,31 +50,28 @@ export default function Lotus() {
         />
 
 
-        <div className={cardWrapperStyle}>
-          <Card
-            title="Aster for Lotus Mahal"
-            url="https://lotusmahal.com/products/aster-for-lotus"
-            imageUrl="https://placehold.co/100?text=Aster for Lotus"
-            backgroundTheme={`${yellowBackgroundTheme}`}
-            description="Handcrafted collaboration between Lotus's art and Handpoured Aster Candles from Rhode Island. Highlighting the power of creativity and made in USA products."
-            openInNewTab
-          />
-        </div>
-
-        <div className={cardWrapperStyle}>
-          <Card
-            title="Moon Rivers del Rio Luna"
-            url="https://lotusmahal.com/products/blood-and-envy-candles"
-            imageUrl="https://placehold.co/100?text=MoonRivers"
-            backgroundTheme={`${pinkBackgroundTheme}`}
-            description="Handcrafted and subtle luxurious fragrance in Arkansas. Highlighting the power of creativity and made in USA products."
-            openInNewTab
-          />
-        </div>
+        <Tile
+          title="Aster for Lotus Mahal"
+          href="https://lotusmahal.com/products/aster-for-lotus"
+          subTitle="Handcrafted collaboration between Lotus's and Aster Candles from Rhode Island. Highlighting the power of creativity and made in USA products."
+          url={`bg-[url('https://live.staticflickr.com/65535/54185085183_b5cbf63871_w.jpg')] `}
+          customClassName={cardWrapperStyle}
+          shadowColor="shadow-yellow-800"
+          openInNewTab
+        />
 
         <Tile
-          href="/moc"
+          title="Moon Rivers del Rio Luna"
+          href="https://lotusmahal.com/products/blood-and-envy-candles"
+          subTitle="Handcrafted and subtle luxurious fragrance in Arkansas. Highlighting the power of creativity and made in USA products."
+          url={`bg-[url('https://live.staticflickr.com/65535/54185085168_ba4fa7b38f_w.jpg')] `}
+          shadowColor="shadow-pink-800"
+          openInNewTab
+        />
+
+        <Tile
           title="Made of Chicago"
+          href="/moc"
           subTitle="Chicago-inspired activewear brand available on interactive vending machines right at your hotel or building gyms!"
           url={`bg-[url('https://live.staticflickr.com/65535/53809112039_8d183992a8_w.jpg')] `}
           customClassName={cardWrapperStyle}
