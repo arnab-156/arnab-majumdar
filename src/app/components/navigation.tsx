@@ -10,7 +10,7 @@ export const Navigation = () => {
              sm:w-full lg:w-full lg:static lg:w-auto lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30 
              hover:w-[96%] hover:sm:w-full hover:ml-2 hover:sm:ml-0 hover:h-fit hover:bg-yellow-600 dark:hover:bg-black hover:opacity-90 
              left-0 bottom-3 lg:top-0 
-             transition ease-in-out delay-150 group-hover:duration-300
+             transition ease-in-out delay-300 group-hover:duration-500
              `}>
                 <p className="group-hover:hidden lg:hidden">
                     <button type="button" className="focus:outline-none " aria-label="open menu to navigate">
@@ -20,7 +20,7 @@ export const Navigation = () => {
                 <div className="hidden grid-cols-3 group-hover:grid sm:grid-cols-4 sm:gap-2 lg:grid">
                     <Link className="flex justify-center items-center hover:underline" href="/lotus">
                         <span className="p-2 m-2 block sm:hidden"><LotusIcon height={"50px"} width={"50px"} className="hover:bg-pink-300 hover:rounded-full dark:bg-white rounded-full" /></span>
-                        <span className="hidden sm:block hover:text-lg">lotus mahal</span>
+                        <span className="hidden sm:block hover:text-lg">art & design</span>
                     </Link>
 
                     <Link className="flex justify-center items-center p-2 m-2 hover:text-lg hover:underline" href="/tech">
