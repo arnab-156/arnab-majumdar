@@ -19,7 +19,7 @@ export const Navigation = () => {
                 </p>
                 <div className="hidden grid-cols-3 group-hover:grid sm:grid-cols-4 sm:gap-2 lg:grid">
                     <Link className="flex justify-center items-center hover:underline" href="/lotus">
-                        <span className="p-2 m-2 block sm:hidden"><LotusIcon height={"50px"} width={"50px"} className="hover:bg-pink-300 hover:rounded-full dark:bg-white rounded-full" /></span>
+                        <span className="p-2 m-2 block sm:hidden"><LotusIcon height={"50px"} width={"50px"} className="hover:bg-purple-800 hover:rounded-full dark:bg-white rounded-full" /></span>
                         <span className="hidden sm:block hover:text-lg">art & design</span>
                     </Link>
 
