@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { Card } from "../app/components/card";
 import { CalculatorIcon, ComputerIcon, ReadIcon } from "./components/icons";
-import { cardWrapperStyle, yellowBackgroundTheme, buttonStyle } from './utility/stylevariables';
+import { cardWrapperStyle, nycBackgroundTheme, buttonStyle } from './utility/stylevariables';
 
 export default function Home() {
   return (
@@ -9,7 +9,6 @@ export default function Home() {
       <div className="grid text-center lg:w-half lg:max-w-5xl lg:grid-cols-3 lg:text-left">
         <div className=' m-8'>
           <h1 className="text-3xl font-bold text-center uppercase">Welcome to my homepage!</h1>
-          {/* <h2 className="text-md font-bold text-center capiutalize">Tech + Design</h2> */}
         </div>
         <div className={cardWrapperStyle}>
           <Card
@@ -54,7 +53,7 @@ export default function Home() {
             title="Comic of the day!"
             url="/tech/comic"
             description="Have fun reading some fun comics!! More Features to come!"
-            backgroundTheme={yellowBackgroundTheme}
+            backgroundTheme={nycBackgroundTheme}
           >
             <ReadIcon height="100px" width="100px" />
           </Card>
@@ -71,7 +70,7 @@ export default function Home() {
             title="Made with Love, Free to Use"
             url="/tech"
             description="All images and icons are carefully chosen to be either personal creations or royalty-free!"
-            backgroundTheme={yellowBackgroundTheme}
+            backgroundTheme={nycBackgroundTheme}
           >
             <p className="my-4 pb-4"><strong >Thank you for your support!</strong> Please visit <Link className={`${buttonStyle}`} href="/lotus" aria-label="go to lotusmahal.com">Lotus Mahal.</Link></p>
           </Card>
@@ -100,7 +99,7 @@ export default function Home() {
           </Card>
         </div>
       </div>
-      <Link href="#navigation" className='hover:underline'>go to top</Link>
+      <Link href="#navigation" className='hover:underline text-purple-800'>go to top</Link>
     </main>
   );
 }

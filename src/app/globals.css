@@ -6,7 +6,7 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
-  --brand-pink: #9d174d;
+  --brand-pink: #57058c;
   --brand-light-pink: #fcd9ed;
   --brand-blue: #c8e1fe;
   --brand-white: white;
@@ -18,7 +18,7 @@
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
-    --brand-pink: #9d174d;
+    --brand-pink: #57058c;
     --brand-light-pink: black;
     --brand-blue: #1c2e4a;
     --brand-white: gray;

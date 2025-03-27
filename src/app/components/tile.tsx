@@ -29,7 +29,7 @@ export const Tile: NextPage<MyTileComponent> = ({
             href={href}
             {...openInNewTab ? { target: "_blank" } : {}}
             className={`m-4 shadow-md h-96 rounded relative bg-white ${imageContain ? `bg-contain bg-no-repeat bg-center ${imagePosition}` : "bg-cover "}
-          ${url} ${shadowColor ? shadowColor : "shadow-pink-800"} dark:shadow-gray-800
+          ${url} ${shadowColor ? shadowColor : "shadow-purple-800"} dark:shadow-gray-800
           hover:drop-shadow-lg hover:scale-105 hover:duration-300  ${customClassName} flex flex-col-reverse
           `}
 
