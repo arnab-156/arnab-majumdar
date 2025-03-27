@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Card } from "../components/card";
-import { buttonStyle, cardWrapperStyle, pinkBackgroundTheme, yellowBackgroundTheme } from "../utility/stylevariables";
+import { buttonStyle, cardWrapperStyle, nycBackgroundTheme } from "../utility/stylevariables";
 
 export default function ExperiencesPage() {
   return (
@@ -23,7 +23,7 @@ export default function ExperiencesPage() {
             title="Senior Software Engineer"
             url="https://www.bonobos.com/"
             imageUrl="/bonobos-logo-dark.svg"
-            backgroundTheme={`${yellowBackgroundTheme}`}
+            backgroundTheme={`${nycBackgroundTheme}`}
             description="Initially under Walmart Inc and then under Express LLC"
           />
         </div>
@@ -33,7 +33,7 @@ export default function ExperiencesPage() {
             title="Software Engineer 2"
             url="https://www.shoprunner.com/"
             imageUrl="/shoprunner_byfedex.svg"
-            backgroundTheme={`${yellowBackgroundTheme}`}
+            backgroundTheme={`${nycBackgroundTheme}`}
             description="In a start up, and went through acquisition by FedEx"
           />
         </div>
@@ -65,7 +65,7 @@ export default function ExperiencesPage() {
             title="Department Chair - Fashion Marketing and Merchandising"
             url=""
             imageUrl="https://live.staticflickr.com/65535/53818079467_6eaf1c63ea_w.jpg"
-            backgroundTheme={`${yellowBackgroundTheme}`}
+            backgroundTheme={`${nycBackgroundTheme}`}
             description="Instructed cross-curriculum and mentored students of fashion merchandising."
             imageHeight={200}
             imageWidth={135}
@@ -79,7 +79,7 @@ export default function ExperiencesPage() {
             imageUrl="https://live.staticflickr.com/65535/53839425086_c36fa84f70_w.jpg"
             imageHeight={200}
             imageWidth={200}
-            backgroundTheme={`${pinkBackgroundTheme}`}
+            backgroundTheme={`${nycBackgroundTheme}`}
             description="Click here to know more about Fashion + Education + Sustainability."
           />
         </div>
@@ -125,7 +125,7 @@ export default function ExperiencesPage() {
             imageUrl="/pittstate.svg"
             imageHeight={200}
             imageWidth={190}
-            backgroundTheme={`${yellowBackgroundTheme}`}
+            backgroundTheme={`${nycBackgroundTheme}`}
             description="Instructed 8+8 course load of Textiles and Fashion Merchandising courses of Family and Consumer Sciences."
           />
         </div>
@@ -146,7 +146,7 @@ export default function ExperiencesPage() {
             title="Graduate Teaching Assistant"
             url=""
             imageUrl="/uri.svg"
-            backgroundTheme={`${yellowBackgroundTheme}`}
+            backgroundTheme={`${nycBackgroundTheme}`}
             description="Textile Sciences Laboratory"
           />
         </div>
@@ -186,7 +186,7 @@ export default function ExperiencesPage() {
             title="University of Rhode Island"
             url=""
             imageUrl="/uri.svg"
-            backgroundTheme={`${yellowBackgroundTheme}`}
+            backgroundTheme={`${nycBackgroundTheme}`}
             description="Master's of Science - Textiles, Fashion Merchandising & Design"
           />
         </div>
@@ -196,7 +196,7 @@ export default function ExperiencesPage() {
             title="National Institute of Fashion Technology"
             url=""
             imageUrl="/nift.svg"
-            backgroundTheme={`${yellowBackgroundTheme}`}
+            backgroundTheme={`${nycBackgroundTheme}`}
             description="Bachelor's of Technology - Apparel Manufacturing and Information Technology."
           />
         </div>
@@ -206,7 +206,7 @@ export default function ExperiencesPage() {
             title="Bangiya Sangeet Parishad"
             url="https://www.bangiyasangeetparishad.org/bsp/index.html"
             imageUrl="https://placehold.co/300x300?text=Painting"
-            backgroundTheme={`${pinkBackgroundTheme}`}
+            backgroundTheme={`${nycBackgroundTheme}`}
             description="Diploma in Fine Arts, Painting (5th year) - Chitrankan Kala Mandir - Ranchi."
             openInNewTab
           />

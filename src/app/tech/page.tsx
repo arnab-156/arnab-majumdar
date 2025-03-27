@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Card } from "../components/card"
 import { CalculatorIcon, ComputerIcon, ReadIcon } from "../components/icons";
-import { cardWrapperStyle, yellowBackgroundTheme } from "../utility/stylevariables";
+import { cardWrapperStyle, nycBackgroundTheme } from "../utility/stylevariables";
 
 export default function Tech() {
   return (
@@ -62,7 +62,7 @@ export default function Tech() {
             title="Comic of the day!"
             url="/tech/comic"
             description="Version 1 is live! More features and custom designs coming soon. Please enjoy!"
-            backgroundTheme={yellowBackgroundTheme}
+            backgroundTheme={nycBackgroundTheme}
           >
             <ReadIcon height="100px" width="100px" />
           </Card>

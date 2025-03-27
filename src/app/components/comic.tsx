@@ -3,7 +3,7 @@ import type { NextPage } from 'next';
 import { useContext } from "react";
 import Link from 'next/link';
 import { ComicContext } from '../provider/ComicProvider';
-import { buttonStyle, cardWrapperStyle, invertedButtonStyle, yellowBackgroundTheme } from '../utility/stylevariables';
+import { buttonStyle, cardWrapperStyle, invertedButtonStyle, nycBackgroundTheme } from '../utility/stylevariables';
 import { Card } from './card';
 
 export const Comic: NextPage = ({ }) => {
@@ -29,7 +29,7 @@ export const Comic: NextPage = ({ }) => {
                         imageClassName='m-auto mt-4 justify-content h-max w-max scale-105 hover:min-w-screen'
                         imageHeight={625}
                         imageWidth={320}
-                        backgroundTheme={yellowBackgroundTheme}
+                        backgroundTheme={nycBackgroundTheme}
                         customClassName='text-lg mb-32'
                     />
                 </div>)}
