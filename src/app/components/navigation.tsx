@@ -4,11 +4,11 @@ import { MenuIcon, LotusIcon } from "../components/icons";
 
 export const Navigation = () => {
     return (<nav className="flex flex-col items-center justify-between" id="navigation">
-        <div className="z-10 w-full items-center justify-between flex justify-content font-mono text-sm lg:text-transparent hover:lg:text-black dark:hover:lg:text-white lg:shadow-2xl lg:shadow-yellow-600/40 hover:lg:shadow-none">
+        <div className="z-10 w-full items-center justify-between flex justify-content font-mono text-sm lg:text-transparent hover:lg:text-black dark:hover:lg:text-white lg:shadow-2xl lg:shadow-purple-800/40 hover:lg:shadow-none">
             <section className={`group rounded-[36px] fixed flex w-3/4 ml-[13%] sm:ml-0 py-3 justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 backdrop-blur-md 
              dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit 
              sm:w-full lg:w-full lg:static lg:w-auto lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30 
-             hover:w-[96%] hover:sm:w-full hover:ml-2 hover:sm:ml-0 hover:h-fit hover:bg-yellow-600 dark:hover:bg-black hover:opacity-90 
+             hover:w-[96%] hover:sm:w-full hover:ml-2 hover:sm:ml-0 hover:h-fit hover:bg-purple-800 dark:hover:bg-black hover:opacity-90 
              left-0 bottom-3 lg:top-0 
              transition ease-in-out delay-300 group-hover:duration-500
              `}>
