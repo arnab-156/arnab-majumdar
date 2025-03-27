@@ -52,7 +52,7 @@ export const Navigation = () => {
             {/* Contact us Footer on Desktop, On top on Mobile */}
             <section className={`group fixed left-0 top-0 lg:top-auto lg:bottom-0 flex w-full items-end justify-center 
                 bg-gradient-to-b from-zinc-200 via-white dark:from-black dark:via-black 
-                hover:bg-yellow-600 hover:h-fit rounded-[36px]
+                hover:bg-purple-800 hover:h-fit rounded-[36px]
                 transition ease-in-out delay-150 group-hover:duration-300
                 `
             }>
