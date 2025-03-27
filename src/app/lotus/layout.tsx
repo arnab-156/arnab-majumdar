@@ -1,5 +1,4 @@
-import classNames from "classnames";
-import styles from "./styles.module.css";
+
 
 export default function LotusLayout({
     children,
@@ -7,7 +6,7 @@ export default function LotusLayout({
     children: React.ReactNode
 }) {
     return (
-        <section className={styles.gradientAnimation}>
+        <section>
             {children}
         </section>
     )

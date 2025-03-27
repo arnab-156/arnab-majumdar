@@ -5,7 +5,7 @@ import styles from "./styles.module.css";
 
 export default function EducationPage() {
   return (
-    <main className={`flex min-h-screen flex-col items-center justify-between pt-20 pb-16 ${styles.gradientAnimationAlternate}`}>
+    <main className={`flex min-h-screen flex-col items-center justify-between pt-20 pb-16`}>
       <div className={`mb-6 grid text-center 
         md:grid-cols-2
         lg:grid-cols-3 lg:text-left
@@ -13,7 +13,7 @@ export default function EducationPage() {
         {/* START OF TOP SECTION */}
         <div className="text-center m-auto w-full lg:h-screen ">
           <div className="flex lg:h-1/2">
-            <p className={`lg:w-1/2 rounded-2xl border-2 border-white p-2 m-2 content-center ${styles.gradientAnimation}`}>
+            <p className={`lg:w-1/2 rounded-2xl border-2 border-white p-2 m-2 content-center`}>
               <h1 className="text-3xl font-bold text-center m-auto font-bold">Education</h1>
             </p>
             <p className="lg:w-1/2 rounded-2xl border-2 border-white p-2 m-2 content-center">Please excuse the look, this page is under construction.</p>
@@ -46,7 +46,7 @@ export default function EducationPage() {
                   <div className={`${styles.card__front} rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8 ${styles.gradientAnimation} flex items-center justify-center`}>
                     <h2 className='dark:invert'>Who is John Dewey?</h2>
                   </div>
-                  <div className={`${styles.card__back} rounded-2xl  text-white absolute top-0 bottom-0 right-0 left-0 p-8 bg-yellow-600 flex items-center justify-center`}>
+                  <div className={`${styles.card__back} rounded-2xl  text-white absolute top-0 bottom-0 right-0 left-0 p-8 bg-purple-800 flex items-center justify-center`}>
                     <h2 className='dark:invert'>Coming Soon...</h2>
                   </div>
 
@@ -57,7 +57,7 @@ export default function EducationPage() {
               <div className={`${styles.card} w-1/2 lg:w-1/2 rounded-2xl border-2 border-white`}>
                 <div className={`${styles.card__content} h-full text-center relative p-20 transition-transform duration-1000 text-black font-bold`}>
 
-                  <div className={`${styles.card__front} text-white rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8 bg-yellow-600 flex items-center justify-center`}>
+                  <div className={`${styles.card__front} text-white rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8 bg-purple-800 flex items-center justify-center`}>
                     <h2 className='dark:invert'>Who is Tagore?</h2>
                   </div>
                   <div className={`${styles.card__back} rounded-2xl  absolute top-0 bottom-0 right-0 left-0 p-8 ${styles.gradientAnimationReversed} flex items-center justify-center`}>
@@ -98,7 +98,7 @@ export default function EducationPage() {
                 <div className={`${styles.card__front} rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8 ${styles.gradientAnimation} flex items-center justify-center`}>
                   <h2 className='dark:invert'>Mission</h2>
                 </div>
-                <div className={`${styles.card__back} rounded-2xl  text-white absolute top-0 bottom-0 right-0 left-0 p-8 bg-yellow-600 flex items-center justify-center`}>
+                <div className={`${styles.card__back} rounded-2xl  text-white absolute top-0 bottom-0 right-0 left-0 p-8 bg-purple-800 flex items-center justify-center`}>
                   <h2>Self-empowerment through community</h2>
                 </div>
 
@@ -112,7 +112,7 @@ export default function EducationPage() {
                 <div className={`${styles.card__front} rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8  flex items-center justify-center`}>
                   <h2 className='dark:invert'>My Philosophy</h2>
                 </div>
-                <div className={`${styles.card__back} rounded-2xl text-white absolute top-0 bottom-0 right-0 left-0 p-8 bg-yellow-600 flex items-center justify-center`}>
+                <div className={`${styles.card__back} rounded-2xl text-white absolute top-0 bottom-0 right-0 left-0 p-8 bg-purple-800 flex items-center justify-center`}>
                   <p> Tagore and Dewey believed in the power of environment and community in educating ourselves.</p>
                 </div>
 
@@ -157,7 +157,7 @@ export default function EducationPage() {
                   <div className={`${styles.card__front} rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8 ${styles.gradientAnimation} flex items-center justify-center`}>
                     <h2 className='font-bold'>My Vision</h2>
                   </div>
-                  <div className={`${styles.card__back}  h-96 rounded-2xl text-sm text-white absolute top-0 bottom-0 right-0 left-0 p-8 bg-yellow-600 flex items-center justify-center`}>
+                  <div className={`${styles.card__back}  h-96 rounded-2xl text-sm text-white absolute top-0 bottom-0 right-0 left-0 p-8 bg-purple-800 flex items-center justify-center`}>
                     <h2> Since 80s my mom modeled a work-from-home environment due to many social and economic issues unseen before,
                       which honed me into a perfect organizer of creative projects—modeled after Tagore&#39;s more grassroots-based education
                       that gives parents and the community the autonomy of the artistic and scientific direction not on standardization of education
@@ -171,7 +171,7 @@ export default function EducationPage() {
               <div className={`${styles.card} w-1/2 lg:w-1/2 rounded-2xl border-2 border-white`}>
                 <div className={`${styles.card__content} h-full text-center relative p-20 transition-transform duration-1000 text-black`}>
 
-                  <div className={`${styles.card__front} text-white rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8 bg-yellow-600 flex items-center justify-center`}>
+                  <div className={`${styles.card__front} text-white rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8 bg-purple-800 flex items-center justify-center`}>
                     <p>Education based on core mathematics and sciences may not be boring. An economically self-reliant and accessible model exists.</p>
                   </div>
                   <div className={`${styles.card__back} rounded-2xl  absolute top-0 bottom-0 right-0 left-0 p-8 ${styles.gradientAnimationReversed} flex items-center justify-center`}>
@@ -228,7 +228,7 @@ export default function EducationPage() {
               <div className={`${styles.card__front} rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8 ${styles.gradientAnimation} flex items-center justify-center`}>
                 <h2 className='font-bold'>For General Educators:</h2>
               </div>
-              <div className={`${styles.card__back} rounded-2xl text-xs text-white absolute top-0 bottom-0 right-0 left-0 p-8 bg-yellow-600 flex items-center justify-center h-full`}>
+              <div className={`${styles.card__back} rounded-2xl text-xs text-white absolute top-0 bottom-0 right-0 left-0 p-8 bg-purple-800 flex items-center justify-center h-full`}>
                 <ul className="text-sm p-2">
                   <li>Teaching for any ages</li>
                   <li>Concepts and Ideas of Teaching</li>
@@ -248,7 +248,7 @@ export default function EducationPage() {
 
           <div className={`${styles.card} w-1/2 lg:w-1/2 rounded-2xl border-2 border-white`}>
             <div className={`${styles.card__content} h-full text-center relative p-20 transition-transform duration-1000 text-black`}>
-              <div className={`${styles.card__front} text-white rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8 bg-yellow-600 flex items-center justify-center`}>
+              <div className={`${styles.card__front} text-white rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8 bg-purple-800 flex items-center justify-center`}>
                 <p>Early Childhood to home schooling to higher education to adult education</p>
               </div>
               <div className={`${styles.card__back} rounded-2xl  absolute top-0 bottom-0 right-0 left-0 p-8 ${styles.gradientAnimationReversed} flex items-center justify-center`}>
@@ -267,7 +267,7 @@ export default function EducationPage() {
               <div className={`${styles.card__front} rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8 ${styles.gradientAnimation} flex items-center justify-center`}>
                 <h2 className='font-bold'>Technology Education</h2>
               </div>
-              <div className={`${styles.card__back} rounded-2xl text-xs text-white absolute top-0 bottom-0 right-0 left-0 p-8 bg-yellow-600 flex items-center justify-center h-full`}>
+              <div className={`${styles.card__back} rounded-2xl text-xs text-white absolute top-0 bottom-0 right-0 left-0 p-8 bg-purple-800 flex items-center justify-center h-full`}>
                 <ul className="text-sm p-2">
                   <li>Textiles & Apparel</li>
                   <li>Arts</li>
@@ -284,7 +284,7 @@ export default function EducationPage() {
 
           <div className={`${styles.card} w-1/2 lg:w-1/2 rounded-2xl border-2 border-white`}>
             <div className={`${styles.card__content} h-full text-center relative p-20 transition-transform duration-1000 text-black`}>
-              <div className={`${styles.card__front} text-white rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8 bg-yellow-600 flex items-center justify-center`}>
+              <div className={`${styles.card__front} text-white rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8 bg-purple-800 flex items-center justify-center`}>
                 <p>What is STEM?</p>
               </div>
               <div className={`${styles.card__back} rounded-2xl  absolute top-0 bottom-0 right-0 left-0 p-8 ${styles.gradientAnimationReversed} flex items-center justify-center`}>
@@ -303,7 +303,7 @@ export default function EducationPage() {
               <div className={`${styles.card__front} rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8 ${styles.gradientAnimation} flex items-center justify-center`}>
                 <h2 className='font-bold'>For College Students</h2>
               </div>
-              <div className={`${styles.card__back} rounded-2xl text-xs text-white absolute top-0 bottom-0 right-0 left-0 p-8 bg-yellow-600 flex items-center justify-center h-full`}>
+              <div className={`${styles.card__back} rounded-2xl text-xs text-white absolute top-0 bottom-0 right-0 left-0 p-8 bg-purple-800 flex items-center justify-center h-full`}>
                 <ul className="text-sm p-2">
                   <li>What colleges?</li>
                   <li>What can I afford?</li>
@@ -321,7 +321,7 @@ export default function EducationPage() {
 
           <div className={`${styles.card} w-1/2 lg:w-1/2 rounded-2xl border-2 border-white`}>
             <div className={`${styles.card__content} h-full text-center relative p-20 transition-transform duration-1000 text-black`}>
-              <div className={`${styles.card__front} text-white rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8 bg-yellow-600 flex items-center justify-center`}>
+              <div className={`${styles.card__front} text-white rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8 bg-purple-800 flex items-center justify-center`}>
                 <p>Preparing for college to recent graduates</p>
               </div>
               <div className={`${styles.card__back} rounded-2xl  absolute top-0 bottom-0 right-0 left-0 p-8 ${styles.gradientAnimationReversed} flex items-center justify-center`}>
@@ -340,7 +340,7 @@ export default function EducationPage() {
               <div className={`${styles.card__front} rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8 ${styles.gradientAnimation} flex items-center justify-center`}>
                 <h2 className='font-bold'>For Parents</h2>
               </div>
-              <div className={`${styles.card__back} rounded-2xl text-xs text-white absolute top-0 bottom-0 right-0 left-0 p-8 bg-yellow-600 flex items-center justify-center h-full`}>
+              <div className={`${styles.card__back} rounded-2xl text-xs text-white absolute top-0 bottom-0 right-0 left-0 p-8 bg-purple-800 flex items-center justify-center h-full`}>
                 <ul className="text-sm p-2">
                   <li>What colleges?</li>
                   <li>What can I afford?</li>
@@ -358,7 +358,7 @@ export default function EducationPage() {
 
           <div className={`${styles.card} w-1/2 lg:w-1/2 rounded-2xl border-2 border-white`}>
             <div className={`${styles.card__content} h-full text-center relative p-20 transition-transform duration-1000 text-black`}>
-              <div className={`${styles.card__front} text-white rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8 bg-yellow-600 flex items-center justify-center`}>
+              <div className={`${styles.card__front} text-white rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8 bg-purple-800 flex items-center justify-center`}>
                 <p>How to prepare for paying for your children?</p>
               </div>
               <div className={`${styles.card__back} rounded-2xl  absolute top-0 bottom-0 right-0 left-0 p-8 ${styles.gradientAnimationReversed} flex items-center justify-center`}>
@@ -377,7 +377,7 @@ export default function EducationPage() {
               <div className={`${styles.card__front} rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8 ${styles.gradientAnimation} flex items-center justify-center`}>
                 <h2 className='font-bold'>For Policy Makers</h2>
               </div>
-              <div className={`${styles.card__back} rounded-2xl text-xs text-white absolute top-0 bottom-0 right-0 left-0 p-8 bg-yellow-600 flex items-center justify-center h-full`}>
+              <div className={`${styles.card__back} rounded-2xl text-xs text-white absolute top-0 bottom-0 right-0 left-0 p-8 bg-purple-800 flex items-center justify-center h-full`}>
                 <ul className="text-sm p-2">
                   <li>Financial Aid</li>
                   <li>Health and Accessibility</li>
@@ -390,7 +390,7 @@ export default function EducationPage() {
 
           <div className={`${styles.card} w-1/2 lg:w-1/2 rounded-2xl border-2 border-white`}>
             <div className={`${styles.card__content} h-full text-center relative p-20 transition-transform duration-1000 text-black`}>
-              <div className={`${styles.card__front} text-white rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8 bg-yellow-600 flex items-center justify-center`}>
+              <div className={`${styles.card__front} text-white rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8 bg-purple-800 flex items-center justify-center`}>
                 <p>How to prepare your citizens for the future</p>
               </div>
               <div className={`${styles.card__back} rounded-2xl  absolute top-0 bottom-0 right-0 left-0 p-8 ${styles.gradientAnimationReversed} flex items-center justify-center`}>
@@ -409,7 +409,7 @@ export default function EducationPage() {
               <div className={`${styles.card__front} rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8 ${styles.gradientAnimation} flex items-center justify-center`}>
                 <h2 className='font-bold'>For Community</h2>
               </div>
-              <div className={`${styles.card__back} rounded-2xl text-xs text-white absolute top-0 bottom-0 right-0 left-0 p-8 bg-yellow-600 flex items-center justify-center h-full`}>
+              <div className={`${styles.card__back} rounded-2xl text-xs text-white absolute top-0 bottom-0 right-0 left-0 p-8 bg-purple-800 flex items-center justify-center h-full`}>
                 <ul className="text-sm p-2">
                   <li>Impact of Tax Payer monies</li>
                 </ul>
@@ -421,7 +421,7 @@ export default function EducationPage() {
 
           <div className={`${styles.card} w-1/2 lg:w-1/2 rounded-2xl border-2 border-white`}>
             <div className={`${styles.card__content} h-full text-center relative p-20 transition-transform duration-1000 text-black`}>
-              <div className={`${styles.card__front} text-white rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8 bg-yellow-600 flex items-center justify-center`}>
+              <div className={`${styles.card__front} text-white rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8 bg-purple-800 flex items-center justify-center`}>
                 <p>How does all of this matter to me?</p>
               </div>
               <div className={`${styles.card__back} rounded-2xl  absolute top-0 bottom-0 right-0 left-0 p-8 ${styles.gradientAnimationReversed} flex items-center justify-center`}>
@@ -439,7 +439,7 @@ export default function EducationPage() {
 
 
       </div>
-      <Link href="#navigation" className='hover:underline'>go to top</Link>
+      <Link href="#navigation" className='hover:underline text-purple-800'>go to top</Link>
     </main>
   );
 }

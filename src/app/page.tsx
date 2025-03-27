@@ -99,7 +99,7 @@ export default function Home() {
           </Card>
         </div>
       </div>
-      <Link href="#navigation" className='hover:underline'>go to top</Link>
+      <Link href="#navigation" className='hover:underline text-purple-800'>go to top</Link>
     </main>
   );
 }
