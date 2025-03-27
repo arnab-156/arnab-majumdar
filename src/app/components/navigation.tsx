@@ -14,10 +14,12 @@ export const Navigation = () => {
              `}>
                 <p className="group-hover:hidden lg:hidden">
                     <button type="button" className="focus:outline-none " aria-label="open menu to navigate">
-                        <MenuIcon height="1.5rem" width="1.5rem" />
+                        <MenuIcon height="1.5rem" width="1.5rem" color="purple" />
                     </button>
                 </p>
                 <div className="hidden grid-cols-3 group-hover:grid sm:grid-cols-4 sm:gap-2 lg:grid">
+                    <Link className="flex justify-center items-center p-2 m-2 hover:text-lg hover:underline" href="/">home</Link>
+
                     <Link className="flex justify-center items-center hover:underline" href="/lotus">
                         <span className="p-2 m-2 block sm:hidden"><LotusIcon height={"50px"} width={"50px"} className="hover:bg-purple-800 hover:rounded-full dark:bg-white rounded-full" /></span>
                         <span className="hidden sm:block hover:text-lg">art & design</span>
@@ -26,7 +28,6 @@ export const Navigation = () => {
                     <Link className="flex justify-center items-center p-2 m-2 hover:text-lg hover:underline" href="/tech">
                         technology
                     </Link>
-                    <Link className="flex justify-center items-center p-2 m-2 hover:text-lg hover:underline" href="/">home</Link>
                     <Link className="flex justify-center items-center p-2 m-2 hover:text-lg hover:underline" href="/edu">education</Link>
 
 
@@ -56,7 +57,7 @@ export const Navigation = () => {
                 transition ease-in-out delay-150 group-hover:duration-300
                 `
             }>
-                <span className="animate-pulse mt-2 group-hover:hidden text-black dark:invert">contact information</span>
+                <span className="animate-pulse mt-2 group-hover:hidden text-purple-800 dark:invert">contact information</span>
                 <div className="hidden group-hover:block mx-4 mt-0">
                     <div className="group-hover:flex justify-content-center">
                         <Link

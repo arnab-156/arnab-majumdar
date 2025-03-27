@@ -9,7 +9,6 @@ export default function Home() {
       <div className="grid text-center lg:w-half lg:max-w-5xl lg:grid-cols-3 lg:text-left">
         <div className=' m-8'>
           <h1 className="text-3xl font-bold text-center uppercase">Welcome to my homepage!</h1>
-          {/* <h2 className="text-md font-bold text-center capiutalize">Tech + Design</h2> */}
         </div>
         <div className={cardWrapperStyle}>
           <Card
