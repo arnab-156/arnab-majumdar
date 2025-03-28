@@ -1,6 +1,6 @@
 import { Card } from "../components/card";
 import { Tile } from "../components/tile";
-import { ApparelIcon } from "../components/icons";
+import { ApparelIcon, CalculatorIcon } from "../components/icons";
 import { cardWrapperStyle } from "../utility/stylevariables";
 import Link from "next/link";
 import Image from "next/image";
@@ -83,6 +83,8 @@ export default function Lotus() {
         />
 
 
+
+
         <div className="m-8">
           <Card
             title="Coming soon: Fashion Business 101"
@@ -93,6 +95,36 @@ export default function Lotus() {
             <ApparelIcon height="100px" width="100px" />
           </Card>
         </div>
+
+        <div className={cardWrapperStyle}>
+          <Card
+            title="Free Trivia for you to enjoy on the go!"
+            url="/games/quiz"
+            imageUrl="/quiz.png"
+            description="Version 1 is live! Version 2 coming soon!"
+          />
+        </div>
+
+        <div className={cardWrapperStyle}>
+          <Card
+            title="Free Tic Tac Toe game for you to enjoy on the go!"
+            url="/games/tic-tac-toe"
+            imageUrl="/tic-tac-toe.gif"
+            description="Simple Tik Tac Toe Game for when you are bored."
+          />
+        </div>
+
+        <div className={cardWrapperStyle}>
+          <Card
+            title="Basic Calculator"
+            url="/tech/calculator"
+            description="Play around with a basic react Calculator"
+          >
+            <CalculatorIcon height="100px" width="100px" />
+          </Card>
+        </div>
+
+
       </div>
       <Link href="#navigation" className='hover:underline text-purple-800'>go to top</Link>
     </main>

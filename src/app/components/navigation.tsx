@@ -8,7 +8,7 @@ export const Navigation = () => {
             <section className={`group rounded-[36px] fixed flex w-3/4 ml-[13%] sm:ml-0 py-3 justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 backdrop-blur-md 
              dark:border-neutral-800 dark:bg-purple-800/30 dark:from-inherit 
              sm:w-full lg:w-full lg:static lg:w-auto lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30 
-             hover:w-[96%] hover:sm:w-full hover:ml-2 hover:sm:ml-0 hover:h-fit hover:bg-purple-800 dark:hover:bg-black hover:opacity-90 
+             hover:w-[96%] hover:sm:w-full hover:ml-2 hover:sm:ml-0 hover:h-fit hover:bg-purple-800 dark:hover:bg-purple-600 hover:opacity-80 
              left-0 bottom-3 lg:top-0 
              transition ease-in-out delay-300 group-hover:duration-500
              `}>
@@ -25,9 +25,9 @@ export const Navigation = () => {
                         <span className="hidden sm:block hover:text-lg">art & design</span>
                     </Link>
 
-                    <Link className="flex justify-center items-center p-2 m-2 hover:text-lg hover:underline" href="/tech">
+                    {/* <Link className="flex justify-center items-center p-2 m-2 hover:text-lg hover:underline" href="/tech">
                         technology
-                    </Link>
+                    </Link> */}
                     <Link className="flex justify-center items-center p-2 m-2 hover:text-lg hover:underline" href="/edu">education</Link>
 
 
