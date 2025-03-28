@@ -82,7 +82,7 @@ export const Trivia: NextPage<TriviaType> = ({ maxQuestions }) => {
         <div className="m-4 p-2 rounded content-center">
             <div className="block">
                 <h1 className="text-lg m-2 p-4 select-none"><strong>Question#{questionNumber + 1}: </strong>{rmQuoteMarks(decodeEntities(question))}</h1>
-                <form className="flex flex-col m-2 p-2 justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 to-yellow-500/50 backdrop-blur-md rounded-md mb-16" onSubmit={handleSubmit}>
+                <form className="flex flex-col m-2 p-2 justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 to-purple-800/50 backdrop-blur-md rounded-md mb-16" onSubmit={handleSubmit}>
                     <fieldset>
                         <ol>
                             {
@@ -95,7 +95,7 @@ export const Trivia: NextPage<TriviaType> = ({ maxQuestions }) => {
                                             value={(el)}
                                             onChange={handleChange}
                                             checked={selectedValue === (el)}
-                                            className='px-2 py-2 w-4 h-4 accent-yellow-500'
+                                            className='px-2 py-2 w-4 h-4 accent-purple-800'
                                         />
                                         <label className='select-none ml-2'>{rmQuoteMarks(decodeEntities(el))}</label>
                                     </li>)
