@@ -52,7 +52,7 @@ export const TriviaOptions: NextPage = () => {
             <h1 className="text-center capitalize text-bold">
                 {
                     isLoading ? <p className="px-4 py-3 border-solid border-2 border-indigo-600 bg-gray-300 text-indigo-800 rounded-xl shadow-md shadow-indigo-800/50">Questions are loading... best of luck!</p> : !showTrivia
-                        ? <p className="px-4 py-3 border-solid border-2 border-yellow-600 bg-gray-300 rounded-xl shadow-md shadow-yellow-600/50">Choose options and press </p>
+                        ? <p className="px-4 py-3 border-solid border-2 border-purple-800 bg-gray-300 rounded-xl shadow-md shadow-purple-800/50">Choose options and press </p>
                         : ""
                 }
             </h1>
@@ -62,7 +62,7 @@ export const TriviaOptions: NextPage = () => {
             {
                 (showTrivia && !fetchError && !isLoading) ? <Trivia maxQuestions={information.amount} /> : (
                     <div className='flex flex-start flex-col dark:text-black'>
-                        <form className="flex flex-col m-2 p-2 justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 to-yellow-500/50 backdrop-blur-md rounded-md mb-16" onSubmit={handleSubmit}>
+                        <form className="flex flex-col m-2 p-2 justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 to-purple-800/50 backdrop-blur-md rounded-md mb-16" onSubmit={handleSubmit}>
                             <fieldset>
                                 <ol className='md:py-4 md:px-4'>
                                     {
@@ -71,7 +71,7 @@ export const TriviaOptions: NextPage = () => {
                                                 <label className={'capitalize'} htmlFor={`${el}-select-${index}`}>Choose {el}:</label>
                                                 <select
 
-                                                    className={'m-2 p-2 rounded-md capitalize w-fit-content text-md bg-gradient-to-r from-yellow-200/20 to-yellow-800/50'}
+                                                    className={'m-2 p-2 rounded-md capitalize w-fit-content text-md bg-gradient-to-r from-purple-200/20 to-purple-800/50'}
                                                     name={el} id={`${el}-select-${index}`}
                                                     onChange={(event) => information ? handleSelect(information, el, event) : {}}
                                                 >
