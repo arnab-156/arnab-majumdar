@@ -8,7 +8,7 @@ export default function Home() {
     <main className="flex min-h-screen flex-col items-center justify-between md:pt-20 mb-32">
       <div className="grid text-center lg:w-half lg:max-w-5xl lg:grid-cols-3 lg:text-left">
         <div className=' m-8'>
-          <h1 className="text-3xl font-bold text-center uppercase">Welcome to my homepage!</h1>
+          <h1 className="text-3xl font-bold text-center uppercase">Welcome home!</h1>
         </div>
         <div className={cardWrapperStyle}>
           <Card
@@ -21,18 +21,21 @@ export default function Home() {
 
         <div className={cardWrapperStyle}>
           <Card
-            title="This website is made with:"
+            title="100% free website is made with:"
             url=""
           >
             <ul className="list-disc grid grid-cols-2">
-              <li className="hover:underline">React</li>
+              <li className="hover:underline text-wrap">React</li>
               <li className="hover:underline">TypeScript</li>
               <li className="hover:underline">Next.js</li>
               <li className="hover:underline">Tailwind css</li>
               <li className="hover:underline">JavaScript</li>
-              <li className="hover:underline">React Testing Library</li>
+              <li className="hover:underline text-wrap">React Testing Library</li>
               <li className="hover:underline">Jest</li>
-              <li className="hover:underline">Deployed on Vercel</li>
+              <li className="hover:underline text-wrap">Deployed on Vercel</li>
+              <li className="hover:underline text-wrap">Flickr</li>
+              <li className="hover:underline text-wrap">YouTube</li>
+              <li className="hover:underline text-wrap">Open APIs</li>
             </ul>
           </Card>
         </div>
