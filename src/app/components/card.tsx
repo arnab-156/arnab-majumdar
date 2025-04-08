@@ -37,7 +37,7 @@ export const Card: NextPage<CardProps> = ({
             {...openInNewTab ? { target: "_blank" } : {}}
         >
             <div className={`p-4 rounded shadow-md bg-gray-200 hover:bg-gray-300 active:bg-gray-400 dark:bg-gray-900 ${backgroundTheme}`}>
-                <h3 className="font-bold text-overflow-ellipsis overflow-hidden line-clamp-1">{title}</h3>
+                <h3 className="font-bold text-overflow-ellipsis overflow-hidden line-clamp-2">{title}</h3>
                 <section className="p-2 flex flex-col justify-center">
                     <p className="text-overflow-ellipsis overflow-hidden line-clamp-4">
                         {description}

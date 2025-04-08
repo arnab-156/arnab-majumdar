@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from "next/image";
-import { cardWrapperStyle, $cardWrapperStyle } from "../utility/stylevariables";
+import { cardWrapperStyle, $cardWrapperStyle, buttonStyle } from "../utility/stylevariables";
 import styles from "./styles.module.css";
 
 export default function EducationPage() {
@@ -13,9 +13,22 @@ export default function EducationPage() {
         {/* START OF TOP SECTION */}
         <div className="text-center m-auto w-full lg:h-screen ">
           <div className="flex lg:h-1/2">
-            <p className={`lg:w-1/2 rounded-2xl border-2 border-white p-2 m-2 content-center`}>
-              <h1 className="text-3xl font-bold text-center m-auto font-bold">Education</h1>
-            </p>
+
+
+            <div className={`${styles.card} w-1/2 lg:w-1/2 rounded-2xl border-2 border-white`}>
+              <div className={`${styles.card__content} h-full text-center relative p-20 transition-transform duration-1000 text-black font-bold`}>
+                <div className={`${styles.card__front} rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8 ${styles.gradientAnimation} flex items-center justify-center`}>
+                  <h2 className='dark:invert'>Truth&#39;s Torch</h2>
+                </div>
+                <div className={`${styles.card__back} rounded-2xl text-white absolute top-0 bottom-0 right-0 left-0 p-8 bg-purple-800 flex items-center justify-center`}>
+                  <h2 className='dark:invert'>
+                    No Course is lit, <br />
+                    By light that former burned,  <br />
+                    From darkness bit by bit,  <br />
+                    The present road is learned.</h2>
+                </div>
+              </div>
+            </div>
             <p className="lg:w-1/2 rounded-2xl border-2 border-white p-2 m-2 content-center">Please excuse the look, this page is under construction.</p>
           </div>
 
@@ -32,7 +45,7 @@ export default function EducationPage() {
           </div>
           <div className='block underline m-24'>
             <Link href="/experiences" className='block hover:font-bold'>see all experience</Link>
-            <Link href="/experiences#my-education" className='block hover:font-bold'>go to my education</Link>
+            <Link href="/experiences#my-education" className={`${buttonStyle} block hover:font-bold`}>go to my education</Link>
           </div>
         </div>
 
@@ -47,7 +60,7 @@ export default function EducationPage() {
                     <h2 className='dark:invert'>Who is John Dewey?</h2>
                   </div>
                   <div className={`${styles.card__back} rounded-2xl  text-white absolute top-0 bottom-0 right-0 left-0 p-8 bg-purple-800 flex items-center justify-center`}>
-                    <h2 className='dark:invert'>Coming Soon...</h2>
+                    <h2 className='dark:invert'>Dewey is an educator and shared the idea that education is not so much preparation for living, rather living in the fullest sense of the word.</h2>
                   </div>
 
                 </div>
@@ -61,7 +74,7 @@ export default function EducationPage() {
                     <h2 className='dark:invert'>Who is Tagore?</h2>
                   </div>
                   <div className={`${styles.card__back} rounded-2xl  absolute top-0 bottom-0 right-0 left-0 p-8 ${styles.gradientAnimationReversed} flex items-center justify-center`}>
-                    <h2>Coming Soon...</h2>
+                    <h2>Tagore is a noble laureate and an independent thinker. Like Dewey, he believed in mentor-disciple relationship as integral part of learning.</h2>
                   </div>
 
                 </div>
@@ -110,10 +123,11 @@ export default function EducationPage() {
             <div className={`${styles.card} w-1/2 lg:w-1/2 rounded-2xl border-2 border-white`}>
               <div className={`${styles.card__content} h-full text-center relative p-20 transition-transform duration-1000 text-black font-bold`}>
                 <div className={`${styles.card__front} rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8  flex items-center justify-center`}>
-                  <h2 className='dark:invert'>My Philosophy</h2>
+                  <h2 className='dark:invert'>Shared Philosophy</h2>
                 </div>
                 <div className={`${styles.card__back} rounded-2xl text-white absolute top-0 bottom-0 right-0 left-0 p-8 bg-purple-800 flex items-center justify-center`}>
-                  <p> Tagore and Dewey believed in the power of environment and community in educating ourselves.</p>
+                  <p>As diamond can be polished only by another diamond, a human can be refined only by other human beings.
+                    The most important ingredient of learning is patience.</p>
                 </div>
 
               </div>
@@ -395,12 +409,13 @@ export default function EducationPage() {
               </div>
               <div className={`${styles.card__back} rounded-2xl  absolute top-0 bottom-0 right-0 left-0 p-8 ${styles.gradientAnimationReversed} flex items-center justify-center`}>
                 <p className="text-sm p-2">
-                  Coming Soon...
+                  Like modern medicine, modern schooling, not education, operated largely on a pahological  model. It is meant to evaluate which is wrong with the learner not what is right!
                 </p>
               </div>
-
             </div>
           </div>
+
+
         </div>
         <div className="flex flex-row-reverse">
           <div className={`${styles.card} w-1/2 lg:w-1/2 rounded-2xl border-2 border-white`}>

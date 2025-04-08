@@ -173,18 +173,29 @@ export default function ExperiencesPage() {
         <h2 id="my-education" className="text-3xl font-bold text-center mt-8">Education</h2>
         <div className={cardWrapperStyle}>
           <Card
-            title="Northwestern Unversity"
+            title="NYU - Stern School of Business"
+            url="https://www.stern.nyu.edu/"
+            imageUrl="/SternBound.png"
+            backgroundTheme={`${nycBackgroundTheme}`}
+            description="Masters of Business Administration (Executive)- Class of 2027"
+          />
+        </div>
+
+
+        <div className={cardWrapperStyle}>
+          <Card
+            title="Northwestern University"
             url=""
             imageUrl="/northwestern.svg"
-            imageHeight={80}
-            description="Certificate - Web Development"
+            imageHeight={100}
+            description="Certificate - Full Stack Web Development (MERN)"
           />
         </div>
 
         <div className={cardWrapperStyle}>
           <Card
-            title="University of Rhode Island"
-            url=""
+            title="University of Rhode Island - College of Business"
+            url="https://web.uri.edu/business/about/tmd/"
             imageUrl="/uri.svg"
             backgroundTheme={`${nycBackgroundTheme}`}
             description="Master's of Science - Textiles, Fashion Merchandising & Design"
@@ -196,7 +207,6 @@ export default function ExperiencesPage() {
             title="National Institute of Fashion Technology"
             url=""
             imageUrl="/nift.svg"
-            backgroundTheme={`${nycBackgroundTheme}`}
             description="Bachelor's of Technology - Apparel Manufacturing and Information Technology."
           />
         </div>
@@ -227,8 +237,8 @@ export default function ExperiencesPage() {
           <h3 className="text-2xl font-bold text-center">Volunteer:</h3>
           <ul className={`rounded-md p-4 ml-2`}>
             <li className="p-2 underline"> Rhode Island Pride RI</li>
-            <li className="p-2 underline"> Trikone Chicago</li>
             <li className="p-2 underline"> CMSA Chicago</li>
+            <li className="p-2 underline"> Capital Pride Alliance</li>
           </ul>
         </div>
 
