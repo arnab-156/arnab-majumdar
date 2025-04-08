@@ -49,6 +49,21 @@ export default function Home() {
           <p className="mt-4"><strong>Connect with me</strong> Find contact information and additional details in the navigation. </p>
         </div>
 
+
+
+        <div className={cardWrapperStyle}>
+          <h2 className="text-xl font-bold text-center capitalize">New: I am going to Stern!</h2>
+          <Card
+            title="NYU - Stern School of Business"
+            url="https://www.stern.nyu.edu/"
+            imageUrl="/SternBound.png"
+            backgroundTheme={`${nycBackgroundTheme}`}
+            description="Masters of Business Administration (Executive)- Class of 2027"
+          />
+        </div>
+
+
+
         <div className={cardWrapperStyle}>
           <h2 className="text-xl font-bold text-center capitalize" >New and Trending:</h2>
           <Card
@@ -93,23 +108,22 @@ export default function Home() {
 
         <div className={cardWrapperStyle}>
           <Card
+            title="Go to Games and Utilities"
+            url="/tech"
+            description="Play games, trivia, and use calculator. More Features are coming soon!"
+          >
+            <CalculatorIcon height="100px" width="100px" />
+          </Card>
+        </div>
+
+        <div className={cardWrapperStyle}>
+          <Card
             title="Made with Love, Free to Use"
             url="/tech"
             description="All images and icons are carefully chosen to be either personal creations or royalty-free!"
             backgroundTheme={nycBackgroundTheme}
           >
             <p className="my-4 pb-4"><strong >Thank you for your support!</strong> Please visit <Link className={`${buttonStyle}`} href="/lotus" aria-label="go to lotusmahal.com">Lotus Mahal.</Link></p>
-          </Card>
-        </div>
-
-
-        <div className={cardWrapperStyle}>
-          <Card
-            title="Go to Games and Utilities"
-            url="/tech"
-            description="Play games, trivia, and use calculator. More Features are coming soon!"
-          >
-            <CalculatorIcon height="100px" width="100px" />
           </Card>
         </div>
 
