@@ -40,6 +40,15 @@ export default function Home() {
           </Card>
         </div>
 
+        <div className="shadow-md rounded-md text-center py-4 px-8 m-4">
+          <p className="m-2">
+            If you are a small business, a retailer, or an educator who wants to use the latest technology and practices
+            in your organization, connect with me:
+          </p>
+
+          <p className="mt-4"><strong>Connect with me</strong> Find contact information and additional details in the navigation. </p>
+        </div>
+
         <div className={cardWrapperStyle}>
           <h2 className="text-xl font-bold text-center capitalize" >New and Trending:</h2>
           <Card
@@ -48,6 +57,20 @@ export default function Home() {
             imageUrl="/quiz.png"
             description="Version 1 is live! Version 2 coming soon!"
           />
+        </div>
+
+        <div className={cardWrapperStyle}>
+          <div className="shadow-md rounded-md text-center py-4 px-8 m-4">
+            <h2 className="text-xl font-bold text-center capitalize">Contact me for:</h2>
+            <ul className="list-disc grid">
+              <li className="hover:underline text-wrap">Small Business Strategic Planning</li>
+              <li className="hover:underline">E-commerce products and solutions</li>
+              <li className="hover:underline">Manufacturing and Sourcing</li>
+              <li className="hover:underline">Education- Program Review, Strategic Planning and Training</li>
+              <li className="hover:underline">Students</li>
+              <li className="hover:underline">Community Organizers</li>
+            </ul>
+          </div>
         </div>
 
         <div className={cardWrapperStyle}>

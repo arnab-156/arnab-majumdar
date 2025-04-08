@@ -126,7 +126,8 @@ export default function EducationPage() {
                   <h2 className='dark:invert'>Shared Philosophy</h2>
                 </div>
                 <div className={`${styles.card__back} rounded-2xl text-white absolute top-0 bottom-0 right-0 left-0 p-8 bg-purple-800 flex items-center justify-center`}>
-                  <p>As diamond can be polished only by another diamond, a human can be refined only by other human beings</p>
+                  <p>As diamond can be polished only by another diamond, a human can be refined only by other human beings.
+                    The most important ingredient of learning is patience.</p>
                 </div>
 
               </div>
@@ -408,12 +409,13 @@ export default function EducationPage() {
               </div>
               <div className={`${styles.card__back} rounded-2xl  absolute top-0 bottom-0 right-0 left-0 p-8 ${styles.gradientAnimationReversed} flex items-center justify-center`}>
                 <p className="text-sm p-2">
-                  Coming Soon...
+                  Like modern medicine, modern schooling, not education, operated largely on a pahological  model. It is meant to evaluate which is wrong with the learner not what is right!
                 </p>
               </div>
-
             </div>
           </div>
+
+
         </div>
         <div className="flex flex-row-reverse">
           <div className={`${styles.card} w-1/2 lg:w-1/2 rounded-2xl border-2 border-white`}>
