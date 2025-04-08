@@ -237,8 +237,8 @@ export default function ExperiencesPage() {
           <h3 className="text-2xl font-bold text-center">Volunteer:</h3>
           <ul className={`rounded-md p-4 ml-2`}>
             <li className="p-2 underline"> Rhode Island Pride RI</li>
-            <li className="p-2 underline"> Trikone Chicago</li>
             <li className="p-2 underline"> CMSA Chicago</li>
+            <li className="p-2 underline"> Capital Pride Alliance</li>
           </ul>
         </div>
 
