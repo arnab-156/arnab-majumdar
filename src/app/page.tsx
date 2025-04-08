@@ -55,10 +55,10 @@ export default function Home() {
           <h2 className="text-xl font-bold text-center capitalize">New: I am going to Stern!</h2>
           <Card
             title="NYU - Stern School of Business"
-            url="https://www.stern.nyu.edu/"
+            url="/experiences#my-education"
             imageUrl="/SternBound.png"
             backgroundTheme={`${nycBackgroundTheme}`}
-            description="Masters of Business Administration (Executive)- Class of 2027"
+            description="Master of Business Administration - Class of 2027"
           />
         </div>
 
