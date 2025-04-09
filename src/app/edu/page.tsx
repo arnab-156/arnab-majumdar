@@ -50,7 +50,7 @@ export default function EducationPage() {
 
         <div className="text-center m-auto flex flex-col w-full lg:h-screen">
           <div className="flex flex-col lg:h-1/2 mb-2">
-            <div className="flex-col lg:flex lg:flex-row flex-grow">
+            <div className="flex-col lg:flex lg:flex-row flex-grow mx-2 lg:mx-0">
 
               <div className={`${styles.card} w-full lg:w-1/2 rounded-2xl border-2 border-white`}>
                 <div className={`${styles.card__content} h-full text-center relative p-20 transition-transform duration-1000 text-black font-bold`}>
@@ -103,8 +103,8 @@ export default function EducationPage() {
           </Link>
 
 
-          <div className="flex lg:h-1/2">
-            <div className={`${styles.card} w-1/2 lg:w-1/2 rounded-2xl border-2 border-white`}>
+          <div className="flex flex-col lg:flex-row h-full lg:h-1/2 mx-2 lg:mx-0">
+            <div className={`${styles.card} w-full lg:w-1/2 rounded-2xl border-2 border-white`}>
               <div className={`${styles.card__content} h-full text-center relative p-20 transition-transform duration-1000 text-black font-bold`}>
 
                 <div className={`${styles.card__front} rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8 ${styles.gradientAnimation} flex items-center justify-center`}>
@@ -119,7 +119,7 @@ export default function EducationPage() {
 
 
 
-            <div className={`${styles.card} w-1/2 lg:w-1/2 rounded-2xl border-2 border-white`}>
+            <div className={`${styles.card} w-full lg:w-1/2 rounded-2xl border-2 border-white`}>
               <div className={`${styles.card__content} h-full text-center relative p-20 transition-transform duration-1000 text-black font-bold`}>
                 <div className={`${styles.card__front} rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8  flex items-center justify-center`}>
                   <h2 className='dark:invert'>Shared Philosophy</h2>
