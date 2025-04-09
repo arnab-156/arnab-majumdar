@@ -139,7 +139,38 @@ export default function Lotus() {
           </Card>
         </div>
 
+        <div className={` ${cardWrapperStyle} m-auto`}>
+          <iframe
+            width="560"
+            height="315"
 
+            src="https://www.youtube.com/embed/vAwMybu7fSs?si=ymkkJ0aRRTFUopsF&amp;start=155"
+            title="youtube commander's palace desktop version video" allowFullScreen
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            className="rounded-md w-screen md:w-[560px] mb-32"
+          ></iframe>
+        </div>
+
+        <div>
+        </div>
+
+        <div>
+          <Card
+            title="Commander&#x27;s palace mobile website"
+            url="#"
+            description="The video overviews the website I created as a technology consultant to Also Known as Studios, which designed Commander's Palace. I learned a new technology, Webflow. There were approximately 10 pages. The desktop and mobile designs are distinct. The current video shows the layout of the desktop version, which is managed by the restaurant itself. I also created learning items and materials to manage this beautiful but complex design."
+            customClassName=""
+          >
+            <a data-flickr-embed="true" data-context="true"
+              href="https://www.flickr.com/photos/200915664@N03/54440184847/in/dateposted-public/"
+              title="commander&#x27;s palace mobile website">
+              <img src="https://live.staticflickr.com/31337/54440184847_bac89e2f58_w.jpg"
+                width="225" height="400"
+                alt="commander&#x27;s palace mobile website" />
+            </a>
+            <script async src="//embedr.flickr.com/assets/client-code.js"></script>
+          </Card>
+        </div>
 
       </div>
       <Link href="#navigation" className='hover:underline text-purple-800'>go to top</Link>
