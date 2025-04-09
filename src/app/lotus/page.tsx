@@ -1,9 +1,8 @@
 import { Card } from "../components/card";
 import { Tile } from "../components/tile";
 import { ApparelIcon, CalculatorIcon } from "../components/icons";
-import { cardWrapperStyle } from "../utility/stylevariables";
+import { cardWrapperStyle, buttonStyle } from "../utility/stylevariables";
 import Link from "next/link";
-import Image from "next/image";
 
 export default function Lotus() {
   return (
@@ -82,9 +81,6 @@ export default function Lotus() {
           customClassName={cardWrapperStyle}
         />
 
-
-
-
         <div className="m-8">
           <Card
             title="Coming soon: Fashion Business 101"
@@ -123,6 +119,26 @@ export default function Lotus() {
             <CalculatorIcon height="100px" width="100px" />
           </Card>
         </div>
+
+
+
+        <div className={cardWrapperStyle}>
+          <div className="flex justify-center items-center">
+            <Link href="/experiences" className={buttonStyle}>see all experience</Link>
+          </div>
+        </div>
+
+        <div className="m-8">
+          <Card
+            title="Coming soon: Education Design"
+            url="#"
+            description="Be 22nd century ready!"
+            customClassName="invert"
+          >
+            <Link href="/edu#edu-design" className='hover:underline text-purple-800'>Education Design</Link>
+          </Card>
+        </div>
+
 
 
       </div>
