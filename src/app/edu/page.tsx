@@ -74,7 +74,7 @@ export default function EducationPage() {
                   <div className={`${styles.card__front} text-white rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8 bg-purple-800 flex items-center justify-center`}>
                     <h2 className='dark:invert'>Who is Tagore?</h2>
                   </div>
-                  <div className={`${styles.card__back} rounded-2xl  absolute top-0 bottom-0 right-0 left-0 p-8 ${styles.gradientAnimationReversed} flex items-center justify-center`}>
+                  <div className={`${styles.card__back } rounded-2xl  absolute top-0 bottom-0 right-0 left-0 p-8 ${styles.gradientAnimationReversed} flex items-center justify-center dark:invert`}>
                     <h2>Tagore is a noble laureate and an independent thinker. Like Dewey, he believed in mentor-disciple relationship as integral part of learning.</h2>
                   </div>
 
