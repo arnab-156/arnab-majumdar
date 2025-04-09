@@ -177,7 +177,7 @@ export default function ExperiencesPage() {
             url="https://www.stern.nyu.edu/"
             imageUrl="/SternBound.png"
             backgroundTheme={`${nycBackgroundTheme}`}
-            description="Masters of Business Administration (Executive)- Class of 2027"
+            description="Master of Business Administration - Class of 2027"
           />
         </div>
 
@@ -198,7 +198,7 @@ export default function ExperiencesPage() {
             url="https://web.uri.edu/business/about/tmd/"
             imageUrl="/uri.svg"
             backgroundTheme={`${nycBackgroundTheme}`}
-            description="Master's of Science - Textiles, Fashion Merchandising & Design"
+            description="Master of Science - Textiles, Fashion Merchandising & Design"
           />
         </div>
 
@@ -207,7 +207,7 @@ export default function ExperiencesPage() {
             title="National Institute of Fashion Technology"
             url=""
             imageUrl="/nift.svg"
-            description="Bachelor's of Technology - Apparel Manufacturing and Information Technology."
+            description="Bachelor of Technology - Apparel Manufacturing and Information Technology."
           />
         </div>
 
