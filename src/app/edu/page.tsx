@@ -259,7 +259,7 @@ export default function EducationPage() {
           </div>
 
 
-          <div className={`${styles.card} w-1/2 lg:w-1/2 rounded-2xl border-2 border-white`}>
+          <div id="edu-design" className={`${styles.card} w-1/2 lg:w-1/2 rounded-2xl border-2 border-white`}>
             <div className={`${styles.card__content} h-full text-center relative p-20 transition-transform duration-1000 text-black`}>
               <div className={`${styles.card__front} text-white rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8 bg-purple-800 flex items-center justify-center`}>
                 <p>Early Childhood to home schooling to higher education to adult education</p>
