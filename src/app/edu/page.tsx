@@ -11,9 +11,9 @@ export default function EducationPage() {
         lg:grid-cols-3 lg:text-left
         `}>
         {/* START OF TOP SECTION */}
-        <div className="text-center m-auto w-full lg:h-screen ">
-          <div className="flex lg:h-1/2">
-            <div className={`${styles.card} w-1/2 lg:w-1/2 rounded-2xl border-2 border-white`}>
+        <div className="text-center m-auto w-full lg:h-screen">
+          <div className="flex:col lg:h-1/2">
+            <div className={`${styles.card} lg:w-1/2 rounded-2xl border-2 border-white`}>
               <div className={`${styles.card__content} h-full text-center relative p-20 transition-transform duration-1000 text-black font-bold`}>
                 <div className={`${styles.card__front} rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8 ${styles.gradientAnimation} flex items-center justify-center`}>
                   <h2 className='dark:invert'>Truth&#39;s Torch</h2>
@@ -50,9 +50,9 @@ export default function EducationPage() {
 
         <div className="text-center m-auto flex flex-col w-full lg:h-screen">
           <div className="flex flex-col lg:h-1/2 mb-2">
-            <div className="flex flex-row flex-grow">
+            <div className="flex-col lg:flex lg:flex-row flex-grow">
 
-              <div className={`${styles.card} w-1/2 lg:w-1/2 rounded-2xl border-2 border-white`}>
+              <div className={`${styles.card} w-full lg:w-1/2 rounded-2xl border-2 border-white`}>
                 <div className={`${styles.card__content} h-full text-center relative p-20 transition-transform duration-1000 text-black font-bold`}>
 
                   <div className={`${styles.card__front} rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8 ${styles.gradientAnimation} flex items-center justify-center`}>
@@ -66,7 +66,7 @@ export default function EducationPage() {
               </div>
 
 
-              <div className={`${styles.card} w-1/2 lg:w-1/2 rounded-2xl border-2 border-white`}>
+              <div className={`${styles.card} w-full lg:w-1/2 rounded-2xl border-2 border-white`}>
                 <div className={`${styles.card__content} h-full text-center relative p-20 transition-transform duration-1000 text-black font-bold`}>
 
                   <div className={`${styles.card__front} text-white rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8 bg-purple-800 flex items-center justify-center`}>
