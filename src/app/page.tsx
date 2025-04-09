@@ -43,16 +43,16 @@ export default function Home() {
         <div className="shadow-md rounded-md text-center py-4 px-8 m-4">
           <p className="m-2">
             If you are a small business, a retailer, or an educator who wants to use the latest technology and practices
-            in your organization, connect with me:
+            in your organization, <strong>Connect with me</strong>:
           </p>
 
-          <p className="mt-4"><strong>Connect with me</strong> Find contact information and additional details in the navigation. </p>
+          <p className="mt-4"> Find contact information in the top navigation on mobile or on the footer on desktop.</p>
         </div>
 
 
 
         <div className={cardWrapperStyle}>
-          <h2 className="text-xl font-bold text-center capitalize">New: I am going to Stern!</h2>
+          <h2 className="text-xl font-bold text-center capitalize">I am going to Stern!</h2>
           <Card
             title="NYU - Stern School of Business"
             url="/experiences#my-education"

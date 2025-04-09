@@ -13,8 +13,6 @@ export default function EducationPage() {
         {/* START OF TOP SECTION */}
         <div className="text-center m-auto w-full lg:h-screen ">
           <div className="flex lg:h-1/2">
-
-
             <div className={`${styles.card} w-1/2 lg:w-1/2 rounded-2xl border-2 border-white`}>
               <div className={`${styles.card__content} h-full text-center relative p-20 transition-transform duration-1000 text-black font-bold`}>
                 <div className={`${styles.card__front} rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8 ${styles.gradientAnimation} flex items-center justify-center`}>
@@ -29,7 +27,8 @@ export default function EducationPage() {
                 </div>
               </div>
             </div>
-            <p className="lg:w-1/2 rounded-2xl border-2 border-white p-2 m-2 content-center">Please excuse the look, this page is under construction.</p>
+            <p className="lg:w-1/2 rounded-2xl border-2 border-white p-2 m-2 content-center">Please excuse the look, this page is under construction.
+            </p>
           </div>
 
           <div
