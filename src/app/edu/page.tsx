@@ -34,15 +34,16 @@ export default function EducationPage() {
           </div>
 
           <div
-            className={`${cardWrapperStyle} rounded-full md:h-svh md:max-h-64 lg:max-h-96 lg:max-w-96 border-0 border-transparent md:m-auto lg:hidden`}
+            className={`m-4 rounded-full md:h-svh md:max-h-64 lg:max-h-96 lg:max-w-96 border-0 border-transparent md:m-auto lg:hidden`}
           >
-            <Image
+            <Link href="/about" className='block hover:font-bold'><Image
               className={`rounded-full m-auto w-12/16 rounded-t-full border-2 border-white`}
               src={"/headshot.gif"}
               alt="image of headhsot of arnab"
               priority
               unoptimized
-            />
+            /></Link>
+
           </div>
           <div className='block underline m-24'>
             <Link href="/experiences" className='block hover:font-bold'>see all experience</Link>
