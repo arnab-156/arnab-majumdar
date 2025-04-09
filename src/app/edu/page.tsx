@@ -28,8 +28,8 @@ export default function EducationPage() {
               </div>
             </div>
             <div className="lg:w-1/2 rounded-2xl p-2 content-center">
-              <h1 className="text-3xl font-bold text-center m-8 uppercase dark:text-black">Education</h1>
-              <p>Please excuse the look, this page is under construction.</p>
+              <h1 className="text-3xl font-bold text-center uppercase dark:text-black">Education</h1>
+              <p className='mt-2 dark:invert'>Please excuse the look, this page is under construction.</p>
             </div>
           </div>
 
@@ -83,9 +83,9 @@ export default function EducationPage() {
             </div>
           </div>
           <div className={`
-            text-sm h-svh max-h-64 lg:max-h-96 rounded-t-full md:rounded-t-sm lg:rounded-t-full border-2 border-white 
+            md:mx-2 lg:mx-0 text-sm h-svh max-h-64 lg:max-h-96 rounded-t-full md:rounded-t-sm lg:rounded-t-full border-2 border-white 
             bg-[url('https://live.staticflickr.com/65535/53841418931_301432a964_w.jpg')] bg-cover bg-no-repeat bg-center 
-            ${$cardWrapperStyle}`}>
+            `}>
           </div>
         </div>
 
@@ -172,10 +172,10 @@ export default function EducationPage() {
                   <div className={`${styles.card__front} rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8 ${styles.gradientAnimation} flex items-center justify-center`}>
                     <h2 className='font-bold'>My Vision</h2>
                   </div>
-                  <div className={`${styles.card__back}  lg:h-96 rounded-2xl text-sm text-white absolute top-0 bottom-0 right-0 left-0 p-8 bg-purple-800 flex items-center justify-center`}>
-                    <h2>
+                  <div className={`${styles.card__back} lg:h-96 rounded-2xl text-sm text-white absolute top-0 bottom-0 right-0 left-0  bg-purple-800 flex items-center justify-center`}>
+                    <p className='p-2'>
                       Since the 80s, my mom created a work-from-home environment due to unique social and economic challenges, shaping me into a skilled organizer of creative projects. This approach reflects Tagore&#39;s grassroots education, emphasizing community and parental autonomy over standardized education, as one size does not fit all.
-                    </h2>
+                    </p>
                   </div>
 
                 </div>
