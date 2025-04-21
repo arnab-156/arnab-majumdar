@@ -139,7 +139,7 @@ export default function Lotus() {
           </Card>
         </div>
 
-        <div className={` ${cardWrapperStyle} m-auto`} id="commanders-palace">
+        <div className={` ${cardWrapperStyle} m-auto`} id="commanders">
           <iframe
             width="560"
             height="315"
