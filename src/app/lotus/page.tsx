@@ -139,7 +139,7 @@ export default function Lotus() {
           </Card>
         </div>
 
-        <div className={` ${cardWrapperStyle} m-auto`}>
+        <div className={` ${cardWrapperStyle} m-auto`} id="commanders-palace">
           <iframe
             width="560"
             height="315"
@@ -171,6 +171,26 @@ export default function Lotus() {
             <script async src="//embedr.flickr.com/assets/client-code.js"></script>
           </Card>
         </div>
+
+        <div className={cardWrapperStyle}>
+          <Card
+            title="Commander's Palace Project"
+            url="https://www.commanderspalace.com/"
+            openInNewTab
+          >
+            <div>
+              <p className="text-wrap">
+                Commander&#039;s Palace is a historic restaurant in New Orleans. New technologies were learned, Webflow used for CMS, Couple of API&#039;s used for event scheduling. A new website was created based on a design from Figma by a design agency.
+              </p>
+              <ul className="list-disc grid grid-cols-1 mb-2">
+                <li>Distinct Mobile and Desktop Experience</li>
+                <li> Coming soon: Dining Experience</li>
+              </ul>
+              <p className="text-wrap">Click on tile to go to the restaurant </p>
+            </div>
+          </Card>
+        </div>
+
 
       </div>
       <Link href="#navigation" className='hover:underline text-purple-800'>go to top</Link>
