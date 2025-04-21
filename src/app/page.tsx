@@ -77,13 +77,13 @@ export default function Home() {
         <div className={cardWrapperStyle}>
           <div className="shadow-md rounded-md text-center py-4 px-8 m-4">
             <h2 className="text-xl font-bold text-center capitalize">Contact me for:</h2>
-            <ul className="list-disc grid">
-              <li className="hover:underline text-wrap">Small Business Strategic Planning</li>
-              <li className="hover:underline">E-commerce products and solutions</li>
-              <li className="hover:underline">Manufacturing and Sourcing</li>
-              <li className="hover:underline">Education- Program Review, Strategic Planning and Training</li>
-              <li className="hover:underline">Students</li>
-              <li className="hover:underline">Community Organizers</li>
+            <ul className="list-disc grid grid-cols-1">
+              <li className="hover:underline text-wrap justify-start">Small Business Strategic Planning</li>
+              <li className="hover:underline justify-start">E-commerce products and solutions</li>
+              <li className="hover:underline justify-start">Manufacturing and Sourcing</li>
+              <li className="hover:underline justify-start">Education- Program Review, Strategic Planning and Training</li>
+              <li className="hover:underline justify-start">Students</li>
+              <li className="hover:underline justify-start">Community Organizers</li>
             </ul>
           </div>
         </div>
