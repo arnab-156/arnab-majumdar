@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { Card } from "../app/components/card";
 import { CalculatorIcon, ComputerIcon, ReadIcon } from "./components/icons";
-import { cardWrapperStyle, nycBackgroundTheme, buttonStyle } from './utility/stylevariables';
+import { cardWrapperStyle, nycBackgroundTheme, buttonStyle, tiffanyBackgroundTheme } from './utility/stylevariables';
 
 export default function Home() {
   return (
@@ -74,6 +74,25 @@ export default function Home() {
           />
         </div>
 
+        <div className={cardWrapperStyle} id="cp">
+          <Card
+            title="Commander's Palace Project"
+            url="/lotus#commanders"
+            backgroundTheme={tiffanyBackgroundTheme}
+          >
+            <div>
+              <p className="text-wrap">
+                Commander&#039;s Palace is a historic restaurant in New Orleans. New technologies were learned, Webflow used for CMS, Couple of API&#039;s used for event scheduling. A new website was created based on a design from Figma by a design agency.
+              </p>
+              <ul className="list-disc grid grid-cols-1 mb-2">
+                <li>Distinct Mobile and Desktop Experience</li>
+                <li> Coming soon: Dining Experience</li>
+              </ul>
+              <p className="text-wrap">Click on tile to go see more... </p>
+            </div>
+          </Card>
+        </div>
+
         <div className={cardWrapperStyle}>
           <div className="shadow-md rounded-md text-center py-4 px-8 m-4">
             <h2 className="text-xl font-bold text-center capitalize">Contact me for:</h2>
@@ -94,7 +113,6 @@ export default function Home() {
             title="Comic of the day!"
             url="/tech/comic"
             description="Have fun reading some fun comics!! More Features to come!"
-            backgroundTheme={nycBackgroundTheme}
           >
             <ReadIcon height="100px" width="100px" />
           </Card>
