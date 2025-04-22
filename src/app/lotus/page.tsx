@@ -1,8 +1,9 @@
 import { Card } from "../components/card";
 import { Tile } from "../components/tile";
 import { ApparelIcon, CalculatorIcon } from "../components/icons";
-import { cardWrapperStyle, buttonStyle } from "../utility/stylevariables";
+import { cardWrapperStyle, buttonStyle, tiffanyBackgroundTheme } from "../utility/stylevariables";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Lotus() {
   return (
@@ -157,16 +158,22 @@ export default function Lotus() {
         <div>
           <Card
             title="Commander&#x27;s palace mobile website"
-            url="#"
+            url="https://www.commanderspalace.com/"
             description="The video overviews the website I created as a technology consultant to Also Known as Studios, which designed Commander's Palace. I learned a new technology, Webflow. There were approximately 10 pages. The desktop and mobile designs are distinct. The current video shows the layout of the desktop version, which is managed by the restaurant itself. I also created learning items and materials to manage this beautiful but complex design."
             customClassName=""
           >
             <a data-flickr-embed="true" data-context="true"
               href="https://www.flickr.com/photos/200915664@N03/54440184847/in/dateposted-public/"
               title="commander&#x27;s palace mobile website">
-              <img src="https://live.staticflickr.com/31337/54440184847_bac89e2f58_w.jpg"
-                width="225" height="400"
-                alt="commander&#x27;s palace mobile website" />
+              <Image
+                className={`rounded`}
+                src="https://live.staticflickr.com/31337/54440184847_bac89e2f58_w.jpg"
+                alt="commander&#x27;s palace mobile website"
+                width={225}
+                height={400}
+                priority
+                unoptimized
+              />
             </a>
             <script async src="//embedr.flickr.com/assets/client-code.js"></script>
           </Card>
@@ -177,6 +184,7 @@ export default function Lotus() {
             title="Commander's Palace Project"
             url="https://www.commanderspalace.com/"
             openInNewTab
+            backgroundTheme={tiffanyBackgroundTheme}
           >
             <div>
               <p className="text-wrap">
