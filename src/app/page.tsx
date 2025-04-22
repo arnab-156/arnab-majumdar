@@ -62,19 +62,8 @@ export default function Home() {
           />
         </div>
 
-
-
-        <div className={cardWrapperStyle}>
-          <h2 className="text-xl font-bold text-center capitalize" >New and Trending:</h2>
-          <Card
-            title="Free Trivia for you to enjoy on the go!"
-            url="/games/quiz"
-            imageUrl="/quiz.png"
-            description="Version 1 is live! Version 2 coming soon!"
-          />
-        </div>
-
         <div className={cardWrapperStyle} id="cp">
+          <h2 className="text-xl font-bold text-center capitalize" >New and Trending:</h2>
           <Card
             title="Commander's Palace Project"
             url="/lotus#commanders"
@@ -91,6 +80,15 @@ export default function Home() {
               <p className="text-wrap">Click on tile to go see more... </p>
             </div>
           </Card>
+        </div>
+
+        <div className={cardWrapperStyle}>
+          <Card
+            title="Free Trivia for you to enjoy on the go!"
+            url="/games/quiz"
+            imageUrl="/quiz.png"
+            description="Version 1 is live! Version 2 coming soon!"
+          />
         </div>
 
         <div className={cardWrapperStyle}>
