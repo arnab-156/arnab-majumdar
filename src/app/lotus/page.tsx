@@ -49,6 +49,7 @@ export default function Lotus() {
 
 
         <Tile
+          id="aster"
           title="Aster for Lotus Mahal"
           href="https://lotusmahal.com/products/aster-for-lotus"
           subTitle="Handcrafted collaboration between Lotus's and Aster Candles from Rhode Island. Highlighting the power of creativity and made in USA products."

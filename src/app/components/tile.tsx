@@ -2,6 +2,7 @@ import type { NextPage } from 'next';
 import Link from 'next/link';
 
 interface MyTileComponent {
+    id?: string;
     title: string;
     href: string;
     url: string;
@@ -22,10 +23,12 @@ export const Tile: NextPage<MyTileComponent> = ({
     customClassName = "",
     imageContain = false,
     imagePosition = "",
-    openInNewTab = false
+    openInNewTab = false,
+    id = ""
 }) => {
     return (
         <Link
+            id={id}
             href={href}
             {...openInNewTab ? { target: "_blank" } : {}}
             className={`m-4 shadow-md h-96 rounded relative bg-white ${imageContain ? `bg-contain bg-no-repeat bg-center ${imagePosition}` : "bg-cover "}

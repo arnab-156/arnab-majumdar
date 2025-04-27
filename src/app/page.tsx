@@ -46,7 +46,7 @@ export default function Home() {
             in your organization, <strong>Connect with me</strong>:
           </p>
 
-          <p className="mt-4"> Find contact information in the top navigation on mobile or on the footer on desktop.</p>
+          <p className="mt-4"> Find contact information in the top navigation on mobile or the footer on desktop.</p>
         </div>
 
 
@@ -61,6 +61,36 @@ export default function Home() {
             description="Master of Business Administration - Class of 2027"
           />
         </div>
+
+
+        <div className={cardWrapperStyle} id="aster">
+          <h2 className="text-xl font-bold text-center capitalize" >New and Trending:</h2>
+
+          <Card
+            title="Aster for Lotus"
+            url="https://lotusmahal.com/products/aster-for-lotus"
+            customClassName={`${cardWrapperStyle}`}
+            imageUrl="https://live.staticflickr.com/65535/53819325384_d2b8af917f_w.jpg"
+          >
+            <div>
+              <p className="text-wrap">
+                Lotus collaborated with an established small business in Rhode Island to create a line of hand-poured art candles.
+                <br />
+                These luxurious candle jars are whiskey-colored, heavyweight glass tumblers with a cork lid.
+
+              </p>
+              <ul className="list-disc grid grid-cols-1 mb-2">
+                <li>Hand poured in Rhode Island</li>
+                <li>Original Artworks</li>
+                <li>100% Soy candles</li>
+                <li>Sophisticated Scents</li>
+              </ul>
+              <p className="text-wrap">Click on tile to go see more... </p>
+            </div>
+          </Card>
+        </div>
+
+
 
         <div className={cardWrapperStyle} id="cp">
           <h2 className="text-xl font-bold text-center capitalize" >New and Trending:</h2>
@@ -82,6 +112,8 @@ export default function Home() {
           </Card>
         </div>
 
+
+
         <div className={cardWrapperStyle}>
           <Card
             title="Free Trivia for you to enjoy on the go!"
@@ -91,18 +123,30 @@ export default function Home() {
           />
         </div>
 
+
+
         <div className={cardWrapperStyle}>
-          <div className="shadow-md rounded-md text-center py-4 px-8 m-4">
-            <h2 className="text-xl font-bold text-center capitalize">Contact me for:</h2>
-            <ul className="list-disc grid grid-cols-1">
-              <li className="hover:underline text-wrap justify-start">Small Business Strategic Planning</li>
-              <li className="hover:underline justify-start">E-commerce products and solutions</li>
-              <li className="hover:underline justify-start">Manufacturing and Sourcing</li>
-              <li className="hover:underline justify-start">Education- Program Review, Strategic Planning and Training</li>
-              <li className="hover:underline justify-start">Students</li>
-              <li className="hover:underline justify-start">Community Organizers</li>
-            </ul>
-          </div>
+          <h2 className="text-xl font-bold text-center capitalize" >Contact me for:</h2>
+          <Card
+            title="Find contact information in the top navigation on mobile or the footer on desktop."
+            url="#footer"
+          >
+            <div>
+              <p className="text-wrap">
+                Building Bridges, Creating Connections.
+                <br />
+                Any Sector, Any Size, One Passion!
+              </p>
+              <ul className="list-disc grid grid-cols-1">
+                <li className="hover:underline text-wrap justify-start">Small Business Strategic Planning</li>
+                <li className="hover:underline justify-start">E-commerce products and solutions</li>
+                <li className="hover:underline justify-start">Manufacturing and Sourcing</li>
+                <li className="hover:underline justify-start">Education- Program Review, Strategic Planning and Training</li>
+                <li className="hover:underline justify-start">Students</li>
+                <li className="hover:underline justify-start">Community Organizers</li>
+              </ul>
+            </div>
+          </Card>
         </div>
 
         <div className={cardWrapperStyle}>
