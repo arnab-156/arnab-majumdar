@@ -57,14 +57,14 @@ export const Navigation = () => {
                 <div className="hidden group-hover:block mx-4 mt-0 lg:mt-2">
                     <div className="group-hover:flex justify-content-center mt-2">
                         <Link
-                            href="https://www.linkedin.com/in/arnab156/"
-                            title="linked in profile of arnab"
+                            href="https://bsky.app/profile/thisisarnab.bsky.social"
+                            title="bluesky profile of arnab"
                             target="_blank"
                         >
                             <Image
                                 className="hover:scale-110 mr-2"
                                 src="/bluesky.svg"
-                                alt="linkedin image"
+                                alt="bluesky logo"
                                 width={30}
                                 height={30}
                                 unoptimized
