@@ -82,8 +82,8 @@ export const Navigation = () => {
                                 unoptimized
                             />
                         </Link>
-                        <Link
-                            href="https://www.instagram.com/theknightatthemuseum"
+                        {/* <Link
+                            href="https://calendar.app.google/zTY1Jn84tsNek77E8"
                             title="instagram logo icons"
                             id="#insta"
                         >
@@ -95,7 +95,7 @@ export const Navigation = () => {
                                 height={30}
                                 unoptimized
                             />
-                        </Link>
+                        </Link> */}
                     </div>
                     <p className="mb-2 mt-2">Copyrights and all Rights Reserved.</p>
                 </div>
