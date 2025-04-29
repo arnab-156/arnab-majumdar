@@ -35,6 +35,7 @@ export default function Home() {
               <li className="hover:underline text-wrap">Deployed on Vercel</li>
               <li className="hover:underline text-wrap">Flickr</li>
               <li className="hover:underline text-wrap">YouTube</li>
+              <li className="hover:underline text-wrap">IconPacks</li>
               <li className="hover:underline text-wrap">Open APIs</li>
             </ul>
           </Card>

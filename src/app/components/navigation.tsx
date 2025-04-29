@@ -59,11 +59,26 @@ export const Navigation = () => {
                         <Link
                             href="https://www.linkedin.com/in/arnab156/"
                             title="linked in profile of arnab"
+                            target="_blank"
                         >
                             <Image
-                                className="hover:scale-110 mr-2"
-                                src="/linkedin.gif"
+                                className="hover:scale-110 m-2"
+                                src="linkedin.svg"
                                 alt="linkedin image"
+                                width={30}
+                                height={30}
+                                unoptimized
+                            />
+                        </Link>
+                        <Link
+                            href="https://bsky.app/profile/thisisarnab.bsky.social"
+                            title="Go to BlueSky"
+                            target="_blank"
+                        >
+                            <Image
+                                className="hover:scale-110 m-2"
+                                src="bluesky.svg"
+                                alt="BlueSky logo image"
                                 width={30}
                                 height={30}
                                 unoptimized
@@ -73,17 +88,17 @@ export const Navigation = () => {
                             href="https://www.instagram.com/theknightatthemuseum"
                             title="instagram logo icons"
                             id="#insta"
+                            target="_blank"
                         >
                             <Image
-                                className="hover:scale-110"
-                                src="/insta.gif"
+                                className="hover:scale-110 m-2"
+                                src="insta.svg"
                                 alt="instagram image"
                                 width={30}
                                 height={30}
                                 unoptimized
                             />
                         </Link>
-
                     </div>
                     <p className="mb-2 mt-2">Copyrights and all Rights Reserved.</p>
                 </div>
