@@ -63,7 +63,7 @@ export const Navigation = () => {
                         >
                             <Image
                                 className="hover:scale-110 m-2"
-                                src="linkedin.svg"
+                                src="/linkedin.svg"
                                 alt="linkedin image"
                                 width={30}
                                 height={30}
@@ -77,7 +77,7 @@ export const Navigation = () => {
                         >
                             <Image
                                 className="hover:scale-110 m-2"
-                                src="bluesky.svg"
+                                src="/bluesky.svg"
                                 alt="BlueSky logo image"
                                 width={30}
                                 height={30}
@@ -92,7 +92,7 @@ export const Navigation = () => {
                         >
                             <Image
                                 className="hover:scale-110 m-2"
-                                src="insta.svg"
+                                src="/insta.svg"
                                 alt="instagram image"
                                 width={30}
                                 height={30}
