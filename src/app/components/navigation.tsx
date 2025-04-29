@@ -8,7 +8,7 @@ export const Navigation = () => {
             <section className={`group rounded-[36px] fixed flex w-3/4 ml-[13%] sm:ml-0 py-3 justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-300 backdrop-blur-md 
              dark:border-neutral-800 dark:bg-purple-800/30 dark:from-inherit 
              sm:w-full lg:w-full lg:static lg:w-auto lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30 
-             hover:w-[96%] hover:sm:w-full hover:ml-2 hover:sm:ml-0 hover:h-fit hover:bg-purple-800 dark:hover:bg-purple-900 hover:opacity-80 
+             hover:w-[96%] hover:sm:w-full hover:ml-2 hover:sm:ml-0 hover:h-fit hover:bg-purple-800 dark:hover:bg-purple-900 hover:opacity-99 
              left-0 bottom-3 lg:top-0 
              transition ease-in-out delay-300 group-hover:duration-500
              `}>
