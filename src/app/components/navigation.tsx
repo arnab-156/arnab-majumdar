@@ -47,18 +47,19 @@ export const Navigation = () => {
             </section>
 
             {/* Contact us Footer on Desktop, On top on Mobile */}
-            <section className={`group fixed left-0 top-0 lg:top-auto lg:bottom-0 flex w-full items-end justify-center 
-                bg-gradient-to-b from-zinc-200 via-white dark:from-black dark:via-black 
+            <section className={`group fixed left-0 top-0 lg:top-auto lg:bottom-0 flex w-full items-end justify-center lg:h-12
+                bg-gradient-to-t from-zinc-200 via-white dark:from-purple-800 dark:via-purple-900 
                 hover:bg-purple-800 hover:h-fit rounded-[36px]
                 transition ease-in-out delay-150 group-hover:duration-300
                 `
             }>
                 <span className="animate-pulse mt-2 group-hover:hidden text-purple-800 dark:invert">contact information</span>
-                <div className="hidden group-hover:block mx-4 mt-0">
-                    <div className="group-hover:flex justify-content-center">
+                <div className="hidden group-hover:block mx-4 mt-0 lg:mt-2">
+                    <div className="group-hover:flex justify-content-center mt-2">
                         <Link
                             href="https://www.linkedin.com/in/arnab156/"
                             title="linked in profile of arnab"
+                            target="_blank"
                         >
                             <Image
                                 className="hover:scale-110 mr-2"
@@ -72,6 +73,7 @@ export const Navigation = () => {
                         <Link
                             href="https://www.linkedin.com/in/arnab156/"
                             title="linked in profile of arnab"
+                            target="_blank"
                         >
                             <Image
                                 className="hover:scale-110 mr-2"
@@ -82,20 +84,20 @@ export const Navigation = () => {
                                 unoptimized
                             />
                         </Link>
-                        {/* <Link
+                        <Link
                             href="https://calendar.app.google/zTY1Jn84tsNek77E8"
-                            title="instagram logo icons"
-                            id="#insta"
+                            title="google calendar icons"
+                            target="_blank"
                         >
                             <Image
                                 className="hover:scale-110"
-                                src="/insta.svg"
-                                alt="instagram image"
+                                src="/calendar.svg"
+                                alt="google calendar"
                                 width={30}
                                 height={30}
                                 unoptimized
                             />
-                        </Link> */}
+                        </Link>
                     </div>
                     <p className="mb-2 mt-2">Copyrights and all Rights Reserved.</p>
                 </div>
