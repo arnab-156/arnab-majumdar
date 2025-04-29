@@ -124,6 +124,7 @@ export default function Tech() {
         </div> */}
 
         <div className={`m-auto`} id="book-now">
+          <h2>Book Your Spot!</h2>
           <iframe
             width="100vw"
             height="1200px"
