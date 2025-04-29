@@ -112,7 +112,7 @@ export default function Tech() {
           </Card>
         </div>
 
-        <div className={cardWrapperStyle}>
+        {/* <div className={cardWrapperStyle}>
           <Card
             title="Apparel Quality"
             url="/edu"
@@ -121,7 +121,20 @@ export default function Tech() {
           >
             <ComputerIcon height="100px" width="100px" />
           </Card>
+        </div> */}
+
+        <div className={`m-auto`} id="book-now">
+          <h2>Book Your Spot!</h2>
+          <iframe
+            width="100vw"
+            height="1200px"
+            src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ25585GXBIfMQn9F7wdhXvYhNQefhyvUd3Sg9q0DdHwiD0QAYQZiCDtI0AGM3jAVZ8zhHfz06G3?gv=true"
+            title="Schedule time on my calendar!" allowFullScreen
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            className="rounded-md w-screen md:w-[560px] mb-32"
+          ></iframe>
         </div>
+
       </div>
       <Link href="#navigation" className='hover:underline text-purple-800'>go to top</Link>
     </main>
