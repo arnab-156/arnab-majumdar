@@ -62,7 +62,20 @@ export const Navigation = () => {
                         >
                             <Image
                                 className="hover:scale-110 mr-2"
-                                src="/linkedin.gif"
+                                src="/bluesky.svg"
+                                alt="linkedin image"
+                                width={30}
+                                height={30}
+                                unoptimized
+                            />
+                        </Link>
+                        <Link
+                            href="https://www.linkedin.com/in/arnab156/"
+                            title="linked in profile of arnab"
+                        >
+                            <Image
+                                className="hover:scale-110 mr-2"
+                                src="/linkedin.svg"
                                 alt="linkedin image"
                                 width={30}
                                 height={30}
@@ -76,14 +89,13 @@ export const Navigation = () => {
                         >
                             <Image
                                 className="hover:scale-110"
-                                src="/insta.gif"
+                                src="/insta.svg"
                                 alt="instagram image"
                                 width={30}
                                 height={30}
                                 unoptimized
                             />
                         </Link>
-
                     </div>
                     <p className="mb-2 mt-2">Copyrights and all Rights Reserved.</p>
                 </div>
