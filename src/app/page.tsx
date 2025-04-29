@@ -42,11 +42,10 @@ export default function Home() {
 
         <div className="shadow-md rounded-md text-center py-4 px-8 m-4">
           <p className="m-2">
-            If you are a small business, a retailer, or an educator who wants to use the latest technology and practices
-            in your organization, <strong>Connect with me</strong>:
+            If you are a small business, a retailer, or an educator who wants to use the latest technologies & practices, <strong> <Link className={`${buttonStyle}`} href="/help" aria-label="go to calendar to schedule a google meet">Contact me.</Link></strong>
           </p>
 
-          <p className="mt-4"> Find contact information in the top navigation on mobile or the footer on desktop.</p>
+          <p className="mt-4"> Find social information in the top navigation on mobile or the footer on desktop.</p>
         </div>
 
 
@@ -129,7 +128,7 @@ export default function Home() {
           <h2 className="text-xl font-bold text-center capitalize" >Contact me for:</h2>
           <Card
             title="Find contact information in the top navigation on mobile or the footer on desktop."
-            url="#footer"
+            url="/help"
           >
             <div>
               <p className="text-wrap">
