@@ -8,7 +8,7 @@ export const Navigation = () => {
             <section className={`group rounded-[36px] fixed flex w-3/4 ml-[13%] sm:ml-0 py-3 justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-300 backdrop-blur-md 
              dark:border-neutral-800 dark:bg-purple-800/30 dark:from-inherit 
              sm:w-full lg:w-full lg:static lg:w-auto lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30 
-             hover:w-[96%] hover:sm:w-full hover:ml-2 hover:sm:ml-0 hover:h-fit hover:bg-purple-800 dark:hover:bg-purple-900 hover:opacity-80 
+             hover:w-[96%] hover:sm:w-full hover:ml-2 hover:sm:ml-0 hover:h-fit hover:bg-purple-800 dark:hover:bg-purple-900 hover:opacity-99 
              left-0 bottom-3 lg:top-0 
              transition ease-in-out delay-300 group-hover:duration-500
              `}>
@@ -53,7 +53,7 @@ export const Navigation = () => {
                 transition ease-in-out delay-150 group-hover:duration-300
                 `
             }>
-                <span className="animate-pulse mt-2 group-hover:hidden text-purple-800 dark:invert">contact information</span>
+                <span className="animate-pulse mt-2 group-hover:hidden text-purple-800 dark:invert lg:mb-4">contact information</span>
                 <div className="hidden group-hover:block mx-4 mt-0">
                     <div className="group-hover:flex justify-content-center">
                         <Link
@@ -63,7 +63,7 @@ export const Navigation = () => {
                         >
                             <Image
                                 className="hover:scale-110 m-2"
-                                src="/linkedin.svg"
+                                src="linkedin.svg"
                                 alt="linkedin image"
                                 width={30}
                                 height={30}
@@ -77,7 +77,7 @@ export const Navigation = () => {
                         >
                             <Image
                                 className="hover:scale-110 m-2"
-                                src="/bluesky.svg"
+                                src="bluesky.svg"
                                 alt="BlueSky logo image"
                                 width={30}
                                 height={30}
@@ -92,7 +92,7 @@ export const Navigation = () => {
                         >
                             <Image
                                 className="hover:scale-110 m-2"
-                                src="/insta.svg"
+                                src="insta.svg"
                                 alt="instagram image"
                                 width={30}
                                 height={30}
