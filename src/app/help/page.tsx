@@ -17,7 +17,7 @@ export default function Help() {
             src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ25585GXBIfMQn9F7wdhXvYhNQefhyvUd3Sg9q0DdHwiD0QAYQZiCDtI0AGM3jAVZ8zhHfz06G3?gv=true"
             title="Schedule time on my calendar!" allowFullScreen
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            className="rounded-md w-screen md:w-[560px] mb-32"
+            className="rounded-md w-screen md:w-[560px] mb-32 dark:invert"
           ></iframe>
         </div>
       </div>
