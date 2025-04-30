@@ -27,7 +27,6 @@ export default function Help() {
         md:grid-cols-2 
         lg:w-half lg:max-w-5xl lg:grid-cols-3 lg:text-left
         `}>
-
       </div>
 
 
