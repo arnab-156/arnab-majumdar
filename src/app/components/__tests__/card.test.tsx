@@ -16,7 +16,7 @@ test('loads and displays a card', async () => {
     expect(screen.getByText('test description!')).toBeInTheDocument();
 
     expect(screen.getByRole('img')).toBeInTheDocument();
-    expect(screen.getByRole('img')).toHaveAttribute('alt', 'product tile image for test title!');
+    expect(screen.getByRole('img')).toHaveAttribute('alt', 'test title!');
     expect(screen.getByRole('img')).toHaveAttribute('src', testSrc);
 
     expect(screen.getByRole('link')).toBeInTheDocument();
