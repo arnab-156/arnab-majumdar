@@ -3,7 +3,7 @@ import { Card } from "../components/card"
 import Link from "next/link";
 import { buttonStyle, nycBackgroundTheme } from "../utility/stylevariables";
 
-const urlImageDefault = "/headshot.gif"
+const urlImageDefault = "/headshot.png"
 
 export default function About() {
   return (

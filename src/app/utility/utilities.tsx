@@ -1,4 +1,4 @@
-export const headshotUrl = "/headshot.gif";
+export const headshotUrl = "/headshot.png";
 
 export function decodeEntities(text: string) {
     return text.replace(/&#(\d+);/g, (match, decimal) => {
