@@ -51,7 +51,7 @@ export default function Home() {
 
 
         <div className={cardWrapperStyle}>
-          <h2 className="text-xl font-bold text-center capitalize">I am going to Stern!</h2>
+          <h2 className="text-xl font-bold text-center capitalize">Welcome to my Stern journey!</h2>
           <Card
             title="NYU - Stern School of Business"
             url="/experiences#my-education"
