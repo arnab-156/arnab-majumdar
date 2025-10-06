@@ -14,7 +14,7 @@ export default function Home() {
           <Card
             title="About Arnab!"
             url="/about"
-            imageUrl="/headshot.gif"
+            imageUrl="/headshot.png"
             description="Welcome! Explore Arnab&#39;s world of design, with both real-world and conceptual projects."
           />
         </div>

@@ -35,7 +35,7 @@ export const Navigation = () => {
                         </Link>
                         <Image
                             className="invisible sm:group-hover:visible relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] rounded-2xl mx-2"
-                            src="/headshot.gif"
+                            src="/headshot.png"
                             alt="headshot of arnab majumdar"
                             width={100}
                             height={50}
