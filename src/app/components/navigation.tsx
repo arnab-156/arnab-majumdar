@@ -44,6 +44,10 @@ export const Navigation = () => {
                         /> */}
                         <span className="p-2 m-2 block hover:lg:text-lg hover:underline">about</span>
                     </Link>
+
+                    <Link className="flex justify-center items-center p-2 m-2 hover:lg:text-lg hover:underline" href="/login">
+                        login
+                    </Link>
                 </div>
             </section>
 

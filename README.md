@@ -21,3 +21,12 @@ npm test
 ## Deploy on Vercel
 https://arnab-majumdar.vercel.app/
 
+## Environment Variables
+
+To use the new authentication flow, configure the following variable in your Next.js environment (e.g. `.env.local`):
+
+```
+NEXT_PUBLIC_AUTH_BASE_URL=http://localhost:4000
+```
+
+This should match the origin where the backend auth service is running.
