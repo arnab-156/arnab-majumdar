@@ -21,12 +21,12 @@ export const Navigation = () => {
                 <div className="hidden grid-cols-3 group-hover:grid sm:grid-cols-4 sm:gap-2 lg:grid">
                     <Link className="flex justify-center items-center p-2 m-2 hover:lg:text-lg hover:underline" href="/">home</Link>
 
-                    <Link className="flex justify-center items-center hover:underline" href="/lotus">
+                    <Link className="flex justify-center items-center hover:underline" href="/experiences">
                         <span className="p-2 m-2 block sm:hidden"><LotusIcon height={"50px"} width={"50px"} className="hover:bg-purple-800 hover:rounded-full dark:bg-white rounded-full" /></span>
-                        <span className="hidden sm:block hover:lg:text-lg">art & design</span>
+                        <span className="hidden sm:block hover:lg:text-lg">experiences</span>
                     </Link>
 
-                    <Link className="flex justify-center items-center p-2 m-2 hover:lg:text-lg hover:underline" href="/edu">education</Link>
+                    {/* <Link className="flex justify-center items-center p-2 m-2 hover:lg:text-lg hover:underline" href="/edu">education</Link> */}
 
                     <Link className="flex flex-col justify-center items-center" href="/about">
                         {/* <Link className="relative flex h-3 w-3 hidden sm:group-hover:block top-5 left-10 z-10" href="/about">
