@@ -42,6 +42,8 @@ export default function EducationPage() {
               alt="image of headhsot of arnab"
               priority
               unoptimized
+              width={300}
+              height={300}
             /></Link>
 
           </div>
@@ -99,6 +101,8 @@ export default function EducationPage() {
             <Image
               className={`rounded-full w-full lg:max-h-96 lg:max-w-96 rounded-t-full border-2 border-white`}
               src={"/headshot.png"}
+              width={300}
+              height={300}
               alt="click on the image of headhsot of arnab to see all experience"
               priority
               unoptimized

@@ -11,7 +11,7 @@ export default function ExperiencesPage() {
         <div className={cardWrapperStyle}>
           <Card
             title="Owner"
-            url="https://lotusmahal.com/"
+            url="/lotus"
             description="Lotus Mahal is dedicated to connecting people through the timeless art of letter writing in today's world."
             customClassName={`${cardWrapperStyle}`}
             imageUrl="https://live.staticflickr.com/65535/53819325384_d2b8af917f_w.jpg"
