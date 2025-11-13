@@ -10,7 +10,7 @@ export default function MoC() {
         md:grid-cols-2 
         lg:w-half lg:max-w-5xl lg:grid-cols-3 lg:text-left
         `}>
-        <h1 className="text-3xl font-bold text-center mt-8 mb-16">Made of Chicago</h1>
+        <h1 className="text-3xl font-bold text-center mt-8 mb-16 font-nyu-ultra">Made of Chicago</h1>
         <p className="text-xl font-bold text-center mt-8">
           Made of ChicagoⓇ is a Chicago based fashion active wear brand primarily selling on custom designed compact vending machines!
         </p>

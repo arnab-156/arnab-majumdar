@@ -9,7 +9,7 @@ export default function Lotus() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between pt-20 pb-20">
       <div className="mb-32 grid text-center lg:w-half lg:max-w-5xl lg:grid-cols-3 lg:text-left pb-60 px-6">
-        <h1 className="text-3xl font-bold text-center m-8 uppercase text-purple-800">Art & Design</h1>
+        <h1 className="text-3xl font-bold text-center m-8 uppercase text-purple-800 font-nyu-ultra">Art & Design</h1>
         <h2 className="text-xl font-bold text-center m-8 dark:invert">
           Welcome to the world of creativity and design.
         </h2>

@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { MenuIcon, LotusIcon } from "../components/icons";
 
 export const Navigation = () => {
-    return (<nav className="flex flex-col items-center justify-between" id="navigation">
+    return (<nav className="flex flex-col items-center justify-between font-nyu" id="navigation">
         <div className="z-10 w-full items-center justify-between flex justify-content font-mono text-sm lg:text-transparent hover:lg:text-black dark:hover:lg:text-white lg:shadow-2xl lg:shadow-purple-800/40 hover:lg:shadow-none">
             {/* Header on desktop and footer on mobile */}
             <section className={`group rounded-[36px] fixed flex w-3/4 ml-[13%] sm:ml-0 py-3 justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-300 backdrop-blur-md 
@@ -19,11 +19,11 @@ export const Navigation = () => {
                     </button>
                 </p>
                 <div className="hidden grid-cols-3 group-hover:grid sm:grid-cols-4 sm:gap-2 lg:grid">
-                    <Link className="flex justify-center items-center p-2 m-2 hover:lg:text-lg hover:underline" href="/">home</Link>
+                    <Link className="flex justify-center items-center p-2 m-2 hover:lg:text-lg hover:underline hover:font-nyu-thin" href="/">home</Link>
 
                     <Link className="flex justify-center items-center hover:underline" href="/experiences">
                         <span className="p-2 m-2 block sm:hidden"><LotusIcon height={"50px"} width={"50px"} className="hover:bg-purple-800 hover:rounded-full dark:bg-white rounded-full" /></span>
-                        <span className="hidden sm:block hover:lg:text-lg">experiences</span>
+                        <span className="hidden sm:block hover:lg:text-lg hover:font-nyu-thin">experiences</span>
                     </Link>
 
                     {/* <Link className="flex justify-center items-center p-2 m-2 hover:lg:text-lg hover:underline" href="/edu">education</Link> */}
@@ -42,7 +42,7 @@ export const Navigation = () => {
                             priority
                             unoptimized
                         /> */}
-                        <span className="p-2 m-2 block hover:lg:text-lg hover:underline">about</span>
+                        <span className="p-2 m-2 block hover:lg:text-lg hover:underline hover:font-nyu-thin">about</span>
                     </Link>
                 </div>
             </section>

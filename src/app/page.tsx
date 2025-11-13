@@ -8,7 +8,7 @@ export default function Home() {
     <main className="flex min-h-screen flex-col items-center justify-between md:pt-20 mb-32 font-nyu">
       <div className="grid text-center lg:w-half lg:max-w-5xl lg:grid-cols-3 lg:text-left">
         <div className=' m-8'>
-          <h1 className="text-3xl font-bold text-center uppercase font-nyu-ultra">Welcome home!</h1>
+          <h1 className="text-3xl font-bold text-center uppercase font-nyu-ultra">Hello!</h1>
         </div>
         <div className={cardWrapperStyle}>
           <Card
