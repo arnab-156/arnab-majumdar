@@ -48,8 +48,6 @@ export default function Home() {
           <p className="mt-4"> Find social information in the top navigation on mobile or the footer on desktop.</p>
         </div>
 
-
-
         <div className={cardWrapperStyle}>
           <h2 className="text-xl font-bold text-center capitalize">Welcome to my Stern journey!</h2>
           <Card

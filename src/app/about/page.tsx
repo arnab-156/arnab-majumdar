@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { Card } from "../components/card"
 import Link from "next/link";
 import { buttonStyle, nycBackgroundTheme } from "../utility/stylevariables";
@@ -63,6 +62,14 @@ export default function About() {
             <strong >Thank you for your support! </strong>
           </p>
         </Card>
+
+        <div className="shadow-md rounded-md text-center py-4 px-8 m-4">
+          <p className="m-2">
+            For business enquiries, <strong> <Link className={`${buttonStyle}`} href="/help" aria-label="go to calendar to schedule a google meet">Contact me.</Link></strong>
+          </p>
+
+          <p className="mt-4"> Find social information in the top navigation on mobile or the footer on desktop.</p>
+        </div>
       </div>
     </main>
   );
