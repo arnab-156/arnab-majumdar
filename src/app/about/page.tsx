@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { Card } from "../components/card"
 import Link from "next/link";
 import { buttonStyle, nycBackgroundTheme } from "../utility/stylevariables";
@@ -14,7 +13,7 @@ export default function About() {
             title="About Arnab!"
             url="https://www.linkedin.com/in/arnab156/"
             imageUrl={urlImageDefault}
-            description="Arnab is a creative problem solver who loves working in a teams that are ideas driven!"
+            description="Arnab enjoys using technology and design to create meaningful, scalable change."
           />
           <p className="">My Gallup CliftonStrengths are <strong>Input, Achiever, Ideation, Futuristic, Learner</strong>.</p>
         </div>

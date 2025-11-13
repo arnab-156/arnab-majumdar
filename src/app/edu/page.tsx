@@ -39,6 +39,8 @@ export default function EducationPage() {
             <Link href="/about" className='block hover:font-bold'><Image
               className={`rounded-full m-auto w-12/16 rounded-t-full border-2 border-white`}
               src={"/headshot.png"}
+              width={100}
+              height={50}
               alt="image of headhsot of arnab"
               priority
               unoptimized
@@ -99,6 +101,8 @@ export default function EducationPage() {
             <Image
               className={`rounded-full w-full lg:max-h-96 lg:max-w-96 rounded-t-full border-2 border-white`}
               src={"/headshot.png"}
+              width={100}
+              height={50}
               alt="click on the image of headhsot of arnab to see all experience"
               priority
               unoptimized
