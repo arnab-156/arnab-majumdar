@@ -8,6 +8,14 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        nyu: ["'NYU Perstare'", "sans-serif"],
+        "nyu-bold": ["'NYU Perstare Bold'", "sans-serif"],
+        "nyu-thin": ["'NYU Perstare Thin'", "sans-serif"],
+        "nyu-italic": ["'NYU Perstare Italic'", "sans-serif"],
+        "nyu-ultra": ["'NYU Perstare Ultra'", "sans-serif"],
+        "nyu-condensed": ["'NYU Perstare Condensed'", "sans-serif"],
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
