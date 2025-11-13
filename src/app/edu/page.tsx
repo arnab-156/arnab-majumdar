@@ -44,6 +44,8 @@ export default function EducationPage() {
               alt="image of headhsot of arnab"
               priority
               unoptimized
+              width={300}
+              height={300}
             /></Link>
 
           </div>

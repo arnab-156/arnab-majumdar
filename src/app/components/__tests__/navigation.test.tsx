@@ -7,7 +7,7 @@ test('renders primary navigation links and contact options', () => {
 
     expect(screen.getByRole('button', { name: /open menu to navigate/i })).toBeInTheDocument();
     expect(screen.getByText('home')).toBeInTheDocument();
-    expect(screen.getByText('education')).toBeInTheDocument();
+    expect(screen.getByText('experiences')).toBeInTheDocument();
     expect(screen.getByText('about')).toBeInTheDocument();
     expect(screen.getByText('contact information')).toBeInTheDocument();
     expect(screen.getByAltText('bluesky logo')).toBeInTheDocument();
