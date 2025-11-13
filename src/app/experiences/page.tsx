@@ -6,7 +6,7 @@ export default function ExperiencesPage() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between pt-20 ">
       <div className="mb-32 grid text-center lg:w-half lg:max-w-5xl lg:grid-cols-3 lg:text-left">
-        <h1 className="text-3xl font-bold text-center mt-8">Experience</h1>
+        <h1 className="text-3xl font-bold text-center mt-8 font-nyu-ultra">Experiences</h1>
 
         <div className={cardWrapperStyle}>
           <Card
@@ -170,7 +170,7 @@ export default function ExperiencesPage() {
           />
         </div>
 
-        <h2 id="my-education" className="text-3xl font-bold text-center mt-8">Education</h2>
+        <h2 id="my-education" className="text-3xl font-bold text-center mt-8 font-nyu-ultra">Education</h2>
         <div className={cardWrapperStyle}>
           <Card
             title="NYU - Stern School of Business"

@@ -15,7 +15,7 @@ export default function RootLayout({
     children: React.ReactNode
 }) {
     return (
-        <html lang="en">
+        <html lang="en" className='font-nyu'>
             <header>
                 <script async src="//embedr.flickr.com/assets/client-code.js"></script>
             </header>
