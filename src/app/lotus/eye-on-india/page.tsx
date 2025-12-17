@@ -10,10 +10,11 @@ export default function EyeOnIndia() {
       }
 
       <p className="text-xl font-bold text-center my-6 max-w-md m-auto">
-        The Saree(Sari) project was conceptualized to bring education about Indian fashion in the US and sustainability.
-        This concept combines experiential learning and sustainability by reusing old donated sarees of various materials
-        collected and distributed among a select group of students in a faculty-guided classroom project.
-        Students incorporated Zero-waste theory and repurposed the old sarees to create beautiful ideas that are American and Indian.
+        The Saree (Sari) Project was created to teach Indian fashion in the U.S. through a sustainability-first,
+        hands-on studio experience. Using donated sarees in a range of fibers and weights, a faculty-guided cohort
+        explored zero-waste design and upcycling methods. Students transformed pre-loved textiles into contemporary
+        garments that blend Indian heritage with American styling—showing how cultural storytelling and circular design
+        can strengthen each other.
       </p>
 
 
@@ -28,10 +29,10 @@ export default function EyeOnIndia() {
       </div>
 
       <p className="text-xl font-bold text-center my-6 max-w-md m-auto">
-        The Saree Fashion Project was an immediate Eye on India Festival favorite. The project took off with Columbia College{"'"}s fashion faculty
-        and students driving it towards taking a traditional piece of fabric, the saree, and turning it into a modern garment.
-        As you can imagine, this was a sizable undertaking that took a level of coordination and fresh ideas that was heavily
-        facilitated by Arnab Majumdar, who has been with the project since the beginning.
+        The Saree Fashion Project quickly became a standout of the Eye on India Festival. I worked with Columbia College Chicago
+        fashion faculty and students to reimagine the saree—a traditional textile—into contemporary garments. The project required
+        significant coordination across sourcing, studio planning, and critique, and I’ve helped lead and facilitate it since its
+        inception.
 
         <div className={`h-80 rounded-md relative bg-cover bg-center
           bg-[url('https://live.staticflickr.com/65535/53841525101_2742109ce3_w.jpg')]
@@ -55,12 +56,9 @@ export default function EyeOnIndia() {
       </div>
 
       <p className="text-xl font-bold text-center my-6 max-w-md m-auto">
-        The Saree Project cemented itself as the Eye on India Festival{"'"}s must-see.
-        The undeniable combination of design, fashion, and education has endless potential especially in bringing awareness about Indian Americans, India and America.
+        The Saree Project quickly became a must-see at the Eye on India Festival—where design, fashion, and education come together to build deeper understanding between India and the U.S., and to spotlight Indian American stories and creativity.
         <br />
-        Thanks to all the faculty participants and Eye on India Foundation for the
-        opportunity. Most importantly, thank you to all the students who participated, learned about India,
-        and showcased their fantastic creativity.
+        I’m grateful to the faculty participants and the Eye on India Foundation for the opportunity, and especially to the students who brought curiosity, care, and bold imagination to the work—and shared it so beautifully with the community.
 
         <div className={`h-80 rounded-md relative bg-cover bg-center
           bg-[url('https://live.staticflickr.com/65535/53841877519_f0d9d2d6c4_w.jpg')]
@@ -69,7 +67,7 @@ export default function EyeOnIndia() {
       </p>
 
       <h2 className="p-4 m-2 bg-white/80 rounded text-center dark:text-black font-bold text-overflow-ellipsis overflow-hidden line-clamp-2">
-        Classroom Experiencial Learning: Bridging cultural barriers
+        Experiential Learning in the Classroom: Bridging Cultures Through Design
       </h2>
 
       <div className={`h-80 rounded-md relative bg-contain bg-center
@@ -78,7 +76,7 @@ export default function EyeOnIndia() {
       />
 
       <p className="text-xl font-bold text-center my-6 max-w-md m-auto">
-        Students were inspired by Indian customs, clothing, and religions and delved into their own faith, spirituality, and belonging.
+        Students drew inspiration from Indian customs, dress, and spiritual traditions—and reflected on their own identities, faith, and sense of belonging.
 
         <div className={`h-80 rounded-md relative bg-cover bg-center mt-2
           bg-[url('https://live.staticflickr.com/65535/53863115951_d0ac56ba14_w.jpg')]
