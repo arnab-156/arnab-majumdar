@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Card } from "../app/components/card";
+import { Card } from "./components/card";
 import { CalculatorIcon, ComputerIcon, ReadIcon } from "./components/icons";
 import { cardWrapperStyle, nycBackgroundTheme, buttonStyle, tiffanyBackgroundTheme } from './utility/stylevariables';
 
@@ -14,6 +14,14 @@ export default function Home() {
             imageUrl="/headshot.png"
             description="Welcome! Explore Arnab&#39;s world of design, with both real-world and conceptual projects."
           />
+        </div>
+
+        <div className="shadow-md rounded-md text-center py-4 px-8 m-4">
+          <p className="m-2">
+            If you are a small business, a retailer, or an educator who wants to use the latest technologies & practices, <strong> <Link className={`${buttonStyle}`} href="/help" aria-label="go to calendar to schedule a google meet">Contact me.</Link></strong>
+          </p>
+
+          <p className="mt-4"> Find social information in the top navigation on mobile or the footer on desktop.</p>
         </div>
 
         <div className={cardWrapperStyle}>
@@ -33,16 +41,9 @@ export default function Home() {
               <li className="hover:underline text-wrap">Flickr</li>
               <li className="hover:underline text-wrap">YouTube</li>
               <li className="hover:underline text-wrap">Open APIs</li>
+              <li className="hover:underline text-wrap">Codex by OpenAI</li>
             </ul>
           </Card>
-        </div>
-
-        <div className="shadow-md rounded-md text-center py-4 px-8 m-4">
-          <p className="m-2">
-            If you are a small business, a retailer, or an educator who wants to use the latest technologies & practices, <strong> <Link className={`${buttonStyle}`} href="/help" aria-label="go to calendar to schedule a google meet">Contact me.</Link></strong>
-          </p>
-
-          <p className="mt-4"> Find social information in the top navigation on mobile or the footer on desktop.</p>
         </div>
 
         <div className={cardWrapperStyle}>
@@ -55,7 +56,6 @@ export default function Home() {
             description="Class Representative, Master of Business Administration - Class of 2027"
           />
         </div>
-
 
         <div className={cardWrapperStyle} id="aster">
           <h2 className="text-xl font-bold text-center capitalize" >New and Trending:</h2>
