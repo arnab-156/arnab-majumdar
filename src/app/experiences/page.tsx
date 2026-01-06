@@ -175,7 +175,7 @@ export default function ExperiencesPage() {
           <Card
             title="NYU - Stern School of Business"
             url="https://www.stern.nyu.edu/"
-            imageUrl="/class-rep.png"
+            imageUrl="/stern.png"
             backgroundTheme={`${nycBackgroundTheme}`}
             description="Class Representative, Master of Business Administration - Class of 2027"
           />

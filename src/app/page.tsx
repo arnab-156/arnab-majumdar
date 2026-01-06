@@ -50,7 +50,7 @@ export default function Home() {
           <Card
             title="NYU - Stern School of Business"
             url="/experiences#my-education"
-            imageUrl="/class-rep.png"
+            imageUrl="/stern.png"
             backgroundTheme={`${nycBackgroundTheme}`}
             description="Class Representative, Master of Business Administration - Class of 2027"
           />
