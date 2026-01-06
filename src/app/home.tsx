@@ -12,7 +12,7 @@ export default function Home() {
             title="About Arnab!"
             url="/about"
             imageUrl="/headshot.png"
-            description="Welcome! Explore Arnab&#39;s world of creativity with both real-world and conceptual projects."
+            description="Welcome! Explore Arnab&#39;s world of creativity with real-world projects."
           />
         </div>
 
