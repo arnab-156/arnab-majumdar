@@ -7,7 +7,7 @@ export default function Help() {
         `}>
         <h1 className="text-3xl font-bold text-center mt-8 mb-16">Book your spot!</h1>
         <p className="text-md text-center mx-8">
-          Love Planning ahead? My calendar currently shows availability for Summer 2025. I anticipate having the Fall schedule available and updated here starting in July.
+          Planning ahead? This booking calendar shows my current availability and is kept up to date—check back anytime for new openings.
         </p>
 
         <div className={`m-auto`} id="book-now">
