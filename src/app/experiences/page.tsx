@@ -12,7 +12,7 @@ export default function ExperiencesPage() {
           <Card
             title="Owner"
             url="/lotus"
-            description="Lotus Mahal is dedicated to connecting people through the timeless art of letter writing in today's world."
+            description="We are a boutique consulting studio helping organizations ship strategy & digital experiences"
             customClassName={`${cardWrapperStyle}`}
             imageUrl="https://live.staticflickr.com/65535/53819325384_d2b8af917f_w.jpg"
           />

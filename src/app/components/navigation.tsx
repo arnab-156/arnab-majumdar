@@ -86,9 +86,7 @@ export const Navigation = () => {
                             />
                         </Link>
                         <Link
-                            href="https://calendar.app.google/zTY1Jn84tsNek77E8"
-                            title="google calendar icons"
-                            target="_blank"
+                            href="/help" aria-label="go to calendar to schedule a google meet"
                         >
                             <Image
                                 className="hover:scale-110"
