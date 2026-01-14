@@ -200,7 +200,16 @@ export default function Lotus() {
           </Card>
         </div>
 
-
+        <div className="m-8">
+          <Card
+            title="World Pride Garden of Swann Queer Fashion Show"
+            url="/lotus/garden-of-swann"
+            description=""
+            customClassName="invert"
+          >
+            <Link href="/lotus/garden-of-swann" className='hover:underline text-purple-800'>Garden of Swann</Link>
+          </Card>
+        </div>
       </div>
       <Link href="#navigation" className='hover:underline text-purple-800'>go to top</Link>
     </main>

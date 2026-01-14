@@ -157,6 +157,50 @@ export default function GardenOfSwannPage() {
           </p>
         </section>
 
+        {/* IMPACT */}
+        <section className="bg-white w-full px-8 py-12 flex flex-col gap-6 md:flex-row md:items-center">
+          <div className="flex-1 grid grid-cols-2 gap-3">
+            <img
+              src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=500&q=80"
+              alt="Garden concept placeholder"
+              className="rounded-xl object-cover w-full h-48"
+              loading="lazy"
+            />
+            <img
+              src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=500&q=80"
+              alt="Runway concept placeholder"
+              className="rounded-xl object-cover w-full h-48"
+              loading="lazy"
+            />
+            <img
+              src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&w=500&q=80"
+              alt="Fabric detail placeholder"
+              className="rounded-xl object-cover w-full h-48"
+              loading="lazy"
+            />
+            <img
+              src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=500&q=80"
+              alt="Installation sketch placeholder"
+              className="rounded-xl object-cover w-full h-48"
+              loading="lazy"
+            />
+          </div><div className="flex-1 space-y-4">
+            <h2 className="text-3xl font-semibold font-nyu-ultra">Follow the Journey</h2>
+            <p className="font-nyu-thin">
+              We are sharing mood boards, in-progress textiles, and installation sketches as we prepare
+              for WorldPride DC. Catch the latest reel and stay tuned for behind-the-scenes updates.
+            </p>
+            <Link
+              href="https://issuu.com/capitalpride/docs/worldpride_washington_dc_2025_impact_report"
+              target="_blank"
+              rel="noreferrer"
+              className={`${buttonStyle} inline-block`}
+            >
+              Impact
+            </Link>
+          </div>
+        </section>
+
         {/* PARTNERS */}
         <section className="bg-white py-12 px-8">
           <h2 className="text-3xl font-nyu-ultra text-center mb-8">Partners & Collaborators</h2>
