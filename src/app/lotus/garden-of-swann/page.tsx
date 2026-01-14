@@ -43,21 +43,21 @@ export default function GardenOfSwannPage() {
         />
       </Head>
 
-      <main className="bg-white text-gray-800 font-nyu">
+      <main className="bg-white text-gray-800 dark:bg-black dark:text-gray-100 font-nyu transition-colors duration-300">
         {/* HERO */}
-        <section className="bg-gradient-to-br from-pink-100 via-rose-200 to-indigo-100 py-16 px-6 text-center">
+        <section className="bg-gradient-to-br from-pink-100 via-rose-200 to-indigo-100 dark:from-[#140329] dark:via-[#25073d] dark:to-[#160624] py-16 px-6 text-center transition-colors duration-300">
           <h1 className="text-5xl font-nyu-ultra mb-4">Garden of Swann</h1>
-          <p className="text-lg max-w-2xl mx-auto font-nyu-thin">
+          <p className="text-lg max-w-2xl mx-auto font-nyu-thin text-gray-800 dark:text-gray-100">
             A queer fashion showcase for <strong>WorldPride DC 2025</strong>, celebrating cultural heritage,
             self-expression, and collective liberation through design.
           </p>
         </section>
 
         {/* HIGHLIGHT */}
-        <section className="bg-white w-full px-8 py-12 flex flex-col gap-6 md:flex-row md:items-center">
+        <section className="bg-white dark:bg-zinc-900 w-full px-8 py-12 flex flex-col gap-6 md:flex-row md:items-center transition-colors duration-300">
           <div className="flex-1 space-y-4">
             <h2 className="text-3xl font-semibold font-nyu-ultra">Follow the Journey</h2>
-            <p className="font-nyu-thin">
+            <p className="font-nyu-thin text-gray-700 dark:text-gray-200">
               We are sharing mood boards, in-progress textiles, and installation sketches as we prepare
               for WorldPride DC. Catch the latest reel and stay tuned for behind-the-scenes updates.
             </p>
@@ -100,14 +100,14 @@ export default function GardenOfSwannPage() {
         </section>
 
         {/* WILLIAM DORSEY SWANN */}
-        <section className="max-w-5xl mx-auto px-8 py-12 space-y-6 bg-purple-50 rounded-3xl my-10">
+        <section className="max-w-5xl mx-auto px-8 py-12 space-y-6 bg-purple-50 dark:bg-purple-900/30 rounded-3xl my-10 transition-colors duration-300">
           <h2 className="text-3xl font-nyu-ultra">Honoring William Dorsey Swann</h2>
-          <p className="font-nyu-thin">
+          <p className="font-nyu-thin text-gray-700 dark:text-gray-200">
             Known as the first self-identified drag queen in the United States, William Dorsey Swann organized
             underground drag balls in Washington, D.C. during the late 1800s. His legacy of resistance, joy, and
             community organizing informs the values behind Garden of Swann.
           </p>
-          <div className="space-y-4 font-nyu-thin">
+          <div className="space-y-4 font-nyu-thin text-gray-800 dark:text-gray-100">
             <div>
               <p className="font-semibold">Q: William Dorsey Swann 101?</p>
               <ul className="list-disc list-inside space-y-1 mt-2">
@@ -141,7 +141,7 @@ export default function GardenOfSwannPage() {
         </section>
 
         {/* INFO SECTION */}
-        <section className="max-w-4xl mx-auto p-8 space-y-6 font-nyu-thin">
+        <section className="max-w-4xl mx-auto p-8 space-y-6 font-nyu-thin text-gray-700 dark:text-gray-200 transition-colors duration-300">
           <h2 className="text-3xl font-semibold font-nyu-ultra">About the Show</h2>
           <p>
             Garden of Swann was part of the <strong>WorldPride Welcome + Visual Arts Center</strong>,
@@ -158,7 +158,7 @@ export default function GardenOfSwannPage() {
         </section>
 
         {/* IMPACT */}
-        <section className="bg-white w-full px-8 py-12 flex flex-col gap-6 md:flex-row md:items-center">
+        <section className="bg-white dark:bg-zinc-900 w-full px-8 py-12 flex flex-col gap-6 md:flex-row md:items-center transition-colors duration-300">
           <div className="flex-1 grid grid-cols-2 gap-3">
             <img
               src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=500&q=80"
@@ -202,7 +202,7 @@ export default function GardenOfSwannPage() {
         </section>
 
         {/* PARTNERS */}
-        <section className="bg-white py-12 px-8">
+        <section className="bg-white dark:bg-zinc-900 py-12 px-8 transition-colors duration-300">
           <h2 className="text-3xl font-nyu-ultra text-center mb-8">Partners & Collaborators</h2>
           <div className="grid md:grid-cols-4 gap-6">
             <div>
@@ -244,9 +244,9 @@ export default function GardenOfSwannPage() {
         </section>
 
         {/* FOOTER CTA */}
-        <section className="bg-gray-100 text-center p-10 font-nyu">
+        <section className="bg-gray-100 dark:bg-zinc-800 text-center p-10 font-nyu transition-colors duration-300">
           <h3 className="text-xl font-medium font-nyu-ultra">Want to learn more?</h3>
-          <p className="font-nyu-thin">
+          <p className="font-nyu-thin text-gray-700 dark:text-gray-200">
             Connect with us at <a href="https://lotusmahal.com" className="underline text-blue-600">lotusmahal.com</a>
             or follow the story on our social platforms.
           </p>
