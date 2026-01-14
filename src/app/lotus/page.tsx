@@ -30,12 +30,11 @@ export default function Lotus() {
         />
 
         <Tile
-          title="Handmade Watercolor Candles."
-          subTitle="Watercolors printed handpoured, all in the Made in USA."
-          href="https://lotusmahal.com/collections/moon-river"
-          url={`bg-[url('https://live.staticflickr.com/65535/53807873807_014bfe7fc8_w.jpg')] `}
+          href="/lotus/garden-of-swann"
+          title="World Pride Garden of Swann Queer Fashion Show"
+          subTitle="Fashion + Activism Washington DC 2025"
+          url={`bg-[url('https://live.staticflickr.com/65535/55041103674_dd84ce4ce4_w.jpg')] `}
           customClassName={cardWrapperStyle}
-          imageContain
         />
 
         <Tile
@@ -47,23 +46,13 @@ export default function Lotus() {
           imageContain
         />
 
-
         <Tile
-          id="aster"
-          title="Aster for Lotus Mahal"
-          href="https://lotusmahal.com/products/aster-for-lotus"
-          subTitle="Handcrafted collaboration between Lotus's and Aster Candles from Rhode Island. Highlighting the power of creativity and made in USA products."
-          url={`bg-[url('https://live.staticflickr.com/65535/54185085183_b5cbf63871_w.jpg')] `}
+          title="Handmade Watercolor Candles."
+          subTitle="Watercolors printed handpoured, all in the Made in USA."
+          href="https://lotusmahal.com/collections/moon-river"
+          url={`bg-[url('https://live.staticflickr.com/65535/53807873807_014bfe7fc8_w.jpg')] `}
           customClassName={cardWrapperStyle}
-          openInNewTab
-        />
-
-        <Tile
-          title="Moon Rivers del Rio Luna"
-          href="https://lotusmahal.com/products/blood-and-envy-candles"
-          subTitle="Handcrafted and subtle luxurious fragrance in Arkansas. Highlighting the power of creativity and made in USA products."
-          url={`bg-[url('https://live.staticflickr.com/65535/54185085168_ba4fa7b38f_w.jpg')] `}
-          openInNewTab
+          imageContain
         />
 
         <Tile
@@ -121,8 +110,6 @@ export default function Lotus() {
             <CalculatorIcon height="100px" width="100px" />
           </Card>
         </div>
-
-
 
         <div className={cardWrapperStyle}>
           <div className="flex justify-center items-center">
@@ -199,7 +186,6 @@ export default function Lotus() {
             </div>
           </Card>
         </div>
-
 
       </div>
       <Link href="#navigation" className='hover:underline text-purple-800'>go to top</Link>
