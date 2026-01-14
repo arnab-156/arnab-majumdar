@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Head from "next/head";
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import "./globals.css";
@@ -16,9 +17,12 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en" className='font-nyu'>
-            <header>
+            {/* <header>
                 <script async src="//embedr.flickr.com/assets/client-code.js"></script>
-            </header>
+            </header> */}
+            <Head>
+                <script async src="//embedr.flickr.com/assets/client-code.js"></script>
+            </Head>
             <body>
                 <Navigation />
                 {children}
