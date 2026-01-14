@@ -32,6 +32,21 @@ const partners = {
   sponsors: ["Capital Pride Alliance", "WorldPride DC 2025"],
 };
 
+const sponsorLogos = [
+  {
+    src: "https://live.staticflickr.com/65535/55041103674_dd84ce4ce4_w.jpg",
+    alt: "Capital Pride Alliance logo",
+  },
+  {
+    src: "https://live.staticflickr.com/65535/55039941117_212dece506_n.jpg",
+    alt: "WorldPride DC 2025 logo",
+  },
+  {
+    src: "https://live.staticflickr.com/65535/55041117448_cf91fa96bb_n.jpg",
+    alt: "Lotus Mahal logo",
+  },
+];
+
 export default function GardenOfSwannPage() {
   return (
     <>
@@ -262,33 +277,24 @@ export default function GardenOfSwannPage() {
           </div>
         </section>
 
-        {/* Capital Pride Alliance*/}
-        <section className="bg-gradient-to-br from-pink-100 via-rose-200 to-indigo-100 dark:from-[#140329] dark:via-[#25073d] dark:to-[#160624] py-16 px-6 text-center transition-colors duration-300">
-          <h3 className="text-xl font-medium font-nyu-ultra">Presented by</h3>
-          <p className="font-nyu-thin text-gray-700 dark:text-gray-200">
-            This event would not have been possible without the support and community build by <a href="https://www.capitalpride.org/" className={`${buttonStyle} inline-block`}>Capital Pride Alliance</a>.
-          </p>
-        </section>
-
         {/* SPONSOR LOGOS */}
         <section className="bg-white dark:bg-zinc-900 py-12 px-8 transition-colors duration-300">
-          <h3 className="text-2xl font-nyu-ultra text-center mb-6">Main Sponsors</h3>
+          <h3 className="text-2xl font-nyu-ultra text-center mb-6">Community Sponsors</h3>
+          <p className="font-nyu-thin text-center text-gray-700 dark:text-gray-200 max-w-2xl mx-auto mb-6">
+            Garden of Swann is proudly supported by partners who invest in queer creativity, inclusive storytelling,
+            and sustainable fashion experiences.
+          </p>
           <div className="grid gap-6 md:grid-cols-3">
-            {["https://live.staticflickr.com/65535/55041103674_dd84ce4ce4_w.jpg",
-              "https://live.staticflickr.com/65535/55039941117_212dece506_n.jpg",
-              "https://live.staticflickr.com/65535/55040846756_4a43278aa2_n.jpg",
-              "https://live.staticflickr.com/65535/55041117448_cf91fa96bb_n.jpg",
-              "https://live.staticflickr.com/65535/55041276915_5823a56053_n.jpg",
-              "https://live.staticflickr.com/65535/53819325384_d2b8af917f_n.jpg"
-            ].map((src, idx) => (
-              <div key={src} className="flex items-center justify-center bg-transparent dark:bg-zinc-800 rounded-2xl px-6 py-4">
-                <img
+            {sponsorLogos.map(({ src, alt }) => (
+              <div key={src} className="flex items-center justify-center bg-white dark:bg-zinc-800 rounded-2xl shadow-md px-6 py-4">
+                <Image
                   src={src}
-                  alt={`Sponsor logo ${idx + 1}`}
+                  alt={alt}
                   width={200}
-                  height={80}
+                  height={90}
                   className="object-contain"
                   loading="lazy"
+                  unoptimized
                 />
               </div>
             ))}
