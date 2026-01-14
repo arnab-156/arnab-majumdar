@@ -215,7 +215,7 @@ export default function GardenOfSwannPage() {
               rel="noreferrer"
               className={`${buttonStyle} inline-block`}
             >
-              Impact
+              Read Impact Report
             </Link>
           </div>
         </section>
@@ -262,11 +262,33 @@ export default function GardenOfSwannPage() {
           </div>
         </section>
 
+
+        {/* SPONSOR LOGOS */}
+        <section className="bg-white dark:bg-zinc-900 py-12 px-8 transition-colors duration-300">
+          <h3 className="text-2xl font-nyu-ultra text-center mb-6">Main Sponsors</h3>
+          <div className="grid gap-6 md:grid-cols-3">
+            {["https://live.staticflickr.com/65535/55041103674_dd84ce4ce4_w.jpg",
+              "https://live.staticflickr.com/65535/55039941117_212dece506_n.jpg",
+              "https://live.staticflickr.com/65535/55040846756_4a43278aa2_n.jpg"].map((src, idx) => (
+                <div key={src} className="flex items-center justify-center bg-transparent dark:bg-zinc-800 rounded-2xl px-6 py-4">
+                  <img
+                    src={src}
+                    alt={`Sponsor logo ${idx + 1}`}
+                    width={200}
+                    height={80}
+                    className="object-contain"
+                    loading="lazy"
+                  />
+                </div>
+              ))}
+          </div>
+        </section>
+
         {/* FOOTER CTA */}
         <section className="bg-gray-100 dark:bg-zinc-800 text-center p-10 font-nyu transition-colors duration-300">
           <h3 className="text-xl font-medium font-nyu-ultra">Want to learn more?</h3>
           <p className="font-nyu-thin text-gray-700 dark:text-gray-200">
-            Connect with us at <a href="https://lotusmahal.com" className="underline text-blue-600">lotusmahal.com</a>
+            Connect with me on my <Link href="/help" className="underline text-blue-600">Calendar</Link>
             or follow the story on our social platforms.
           </p>
         </section>
