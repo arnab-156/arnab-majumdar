@@ -262,6 +262,13 @@ export default function GardenOfSwannPage() {
           </div>
         </section>
 
+        {/* Capital Pride Alliance*/}
+        <section className="bg-gradient-to-br from-pink-100 via-rose-200 to-indigo-100 dark:from-[#140329] dark:via-[#25073d] dark:to-[#160624] py-16 px-6 text-center transition-colors duration-300">
+          <h3 className="text-xl font-medium font-nyu-ultra">Presented by</h3>
+          <p className="font-nyu-thin text-gray-700 dark:text-gray-200">
+            This event would not have been possible without the support and community build by <a href="https://www.capitalpride.org/" className={`${buttonStyle} inline-block`}>Capital Pride Alliance</a>.
+          </p>
+        </section>
 
         {/* SPONSOR LOGOS */}
         <section className="bg-white dark:bg-zinc-900 py-12 px-8 transition-colors duration-300">
@@ -269,18 +276,22 @@ export default function GardenOfSwannPage() {
           <div className="grid gap-6 md:grid-cols-3">
             {["https://live.staticflickr.com/65535/55041103674_dd84ce4ce4_w.jpg",
               "https://live.staticflickr.com/65535/55039941117_212dece506_n.jpg",
-              "https://live.staticflickr.com/65535/55040846756_4a43278aa2_n.jpg"].map((src, idx) => (
-                <div key={src} className="flex items-center justify-center bg-transparent dark:bg-zinc-800 rounded-2xl px-6 py-4">
-                  <img
-                    src={src}
-                    alt={`Sponsor logo ${idx + 1}`}
-                    width={200}
-                    height={80}
-                    className="object-contain"
-                    loading="lazy"
-                  />
-                </div>
-              ))}
+              "https://live.staticflickr.com/65535/55040846756_4a43278aa2_n.jpg",
+              "https://live.staticflickr.com/65535/55041117448_cf91fa96bb_n.jpg",
+              "https://live.staticflickr.com/65535/55041276915_5823a56053_n.jpg",
+              "https://live.staticflickr.com/65535/53819325384_d2b8af917f_n.jpg"
+            ].map((src, idx) => (
+              <div key={src} className="flex items-center justify-center bg-transparent dark:bg-zinc-800 rounded-2xl px-6 py-4">
+                <img
+                  src={src}
+                  alt={`Sponsor logo ${idx + 1}`}
+                  width={200}
+                  height={80}
+                  className="object-contain"
+                  loading="lazy"
+                />
+              </div>
+            ))}
           </div>
         </section>
 
@@ -288,8 +299,8 @@ export default function GardenOfSwannPage() {
         <section className="bg-gray-100 dark:bg-zinc-800 text-center p-10 font-nyu transition-colors duration-300">
           <h3 className="text-xl font-medium font-nyu-ultra">Want to learn more?</h3>
           <p className="font-nyu-thin text-gray-700 dark:text-gray-200">
-            Connect with me on my <Link href="/help" className="underline text-blue-600">Calendar</Link>
-            or follow the story on our social platforms.
+            Connect with me on my <Link href="/help" className={`${buttonStyle} inline-block`}>Calendar</Link>
+            or follow the story on the social platforms.
           </p>
         </section>
       </main>

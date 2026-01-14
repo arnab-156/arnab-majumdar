@@ -30,6 +30,14 @@ export default function Lotus() {
         />
 
         <Tile
+          href="/lotus/garden-of-swann"
+          title="World Pride Garden of Swann Queer Fashion Show"
+          subTitle="Fashion + Activism Washington DC 2025"
+          url={`bg-[url('https://live.staticflickr.com/65535/55041103674_dd84ce4ce4_w.jpg')] `}
+          customClassName={cardWrapperStyle}
+        />
+
+        <Tile
           title="Eye on India - The Saree Project"
           subTitle="Fashion + Education + Sustainability"
           href="/lotus/eye-on-india"
@@ -46,25 +54,6 @@ export default function Lotus() {
           customClassName={cardWrapperStyle}
           imageContain
         />
-
-        {/* <Tile
-          id="aster"
-          title="Aster for Lotus Mahal"
-          href="https://lotusmahal.com/products/aster-for-lotus"
-          subTitle="Handcrafted collaboration between Lotus's and Aster Candles from Rhode Island. Highlighting the power of creativity and made in USA products."
-          url={`bg-[url('https://live.staticflickr.com/65535/54185085183_b5cbf63871_w.jpg')] `}
-          customClassName={cardWrapperStyle}
-          openInNewTab
-        /> */}
-
-        <Tile
-          href="/lotus/garden-of-swann"
-          title="World Pride Garden of Swann Queer Fashion Show"
-          subTitle="Fashion + Activism Washington DC 2025"
-          url={`bg-[url('https://live.staticflickr.com/65535/55041103674_dd84ce4ce4_w.jpg')] `}
-          customClassName={cardWrapperStyle}
-        />
-
 
         <Tile
           title="Made of Chicago"
