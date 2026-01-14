@@ -56,44 +56,60 @@ export default function GardenOfSwannPage() {
         {/* HIGHLIGHT */}
         <section className="bg-white dark:bg-zinc-900 w-full px-8 py-12 flex flex-col gap-6 md:flex-row md:items-center transition-colors duration-300">
           <div className="flex-1 space-y-4">
-            <h2 className="text-3xl font-semibold font-nyu-ultra">Follow the Journey</h2>
-            <p className="font-nyu-thin text-gray-700 dark:text-gray-200">
-              We are sharing mood boards, in-progress textiles, and installation sketches as we prepare
-              for WorldPride DC. Catch the latest reel and stay tuned for behind-the-scenes updates.
+            <h2 className="text-3xl font-semibold font-nyu-ultra">About the Show</h2>
+            <p>
+              Garden of Swann was part of the <strong>WorldPride Welcome + Visual Arts Center</strong>,
+              which hosted 10,250+ visitors across 14 exhibits and 13 programs. As one of the featured
+              artistic expressions, our fashion show explored the intersection of queer identity,
+              textile traditions, and design innovation.
             </p>
-            <Link
-              href="https://www.instagram.com/gardenofswann/"
-              target="_blank"
-              rel="noreferrer"
-              className={`${buttonStyle} inline-block`}
-            >
-              Watch on Instagram
-            </Link>
+            <p>
+              Through collaborative storytelling, each garment in the show honored the theme of
+              <em>“Fabric of Freedom”</em> — a visual and emotional narrative of resilience, joy, and
+              liberation. The event spotlighted LGBTQIA+ voices, including those from diasporic,
+              trans, and disabled communities.
+            </p>
           </div>
 
-          <div className="flex-1 grid grid-cols-2 gap-3">
+          <div className="flex-1 grid grid-cols-2 sm:grid-cols-3 gap-3">
             <img
-              src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=500&q=80"
-              alt="Garden concept placeholder"
-              className="rounded-xl object-cover w-full h-48"
+              src="https://live.staticflickr.com/65535/55041103684_4a557a521b_w.jpg?auto=format"
+              alt="Garden concept poster"
+              className="rounded-xl object-cover w-full h-full"
               loading="lazy"
             />
             <img
-              src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=500&q=80"
+              src="https://live.staticflickr.com/65535/55041091144_e7e1cd732f_w.jpg?auto=format"
               alt="Runway concept placeholder"
-              className="rounded-xl object-cover w-full h-48"
+              className="rounded-xl object-cover w-full h-full"
               loading="lazy"
             />
+
             <img
-              src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&w=500&q=80"
-              alt="Fabric detail placeholder"
-              className="rounded-xl object-cover w-full h-48"
-              loading="lazy"
-            />
-            <img
-              src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=500&q=80"
+              src="https://live.staticflickr.com/65535/55040834116_c01fa30278_w.jpg?auto=format"
               alt="Installation sketch placeholder"
-              className="rounded-xl object-cover w-full h-48"
+              className="rounded-xl object-cover w-full h-full"
+              loading="lazy"
+            />
+
+            <img
+              src="https://live.staticflickr.com/65535/55041010753_92b66a666c_w.jpg?auto=format"
+              alt="Fabric detail placeholder"
+              className="rounded-xl object-cover w-full h-full"
+              loading="lazy"
+            />
+
+            <img
+              src="https://live.staticflickr.com/65535/55040834251_2196cfcf49_w.jpg?auto=format"
+              alt="Installation sketch placeholder"
+              className="rounded-xl object-cover w-full h-full"
+              loading="lazy"
+            />
+
+            <img
+              src="https://live.staticflickr.com/65535/55041010818_18f3e0baf4_w.jpg?auto=format"
+              alt="Fabric detail placeholder"
+              className="rounded-xl object-cover w-full h-full"
               loading="lazy"
             />
           </div>
@@ -140,55 +156,58 @@ export default function GardenOfSwannPage() {
           </div>
         </section>
 
-        {/* INFO SECTION */}
+        {/* INSTAGRAM SECTION */}
         <section className="max-w-4xl mx-auto p-8 space-y-6 font-nyu-thin text-gray-700 dark:text-gray-200 transition-colors duration-300">
-          <h2 className="text-3xl font-semibold font-nyu-ultra">About the Show</h2>
-          <p>
-            Garden of Swann was part of the <strong>WorldPride Welcome + Visual Arts Center</strong>,
-            which hosted 10,250+ visitors across 14 exhibits and 13 programs. As one of the featured
-            artistic expressions, our fashion show explored the intersection of queer identity,
-            textile traditions, and design innovation.
+          <h2 className="text-3xl font-semibold font-nyu-ultra">Follow the Journey</h2>
+          <p className="font-nyu-thin text-gray-700 dark:text-gray-200">
+            We shared mood boards, in-progress textiles, and installation sketches as we prepare
+            for WorldPride DC. Catch the stories, reel and see the behind-the-scenes updates.
           </p>
-          <p>
-            Through collaborative storytelling, each garment in the show honored the theme of
-            <em>“Fabric of Freedom”</em> — a visual and emotional narrative of resilience, joy, and
-            liberation. The event spotlighted LGBTQIA+ voices, including those from diasporic,
-            trans, and disabled communities.
-          </p>
+          <Link
+            href="https://www.instagram.com/gardenofswann/"
+            target="_blank"
+            rel="noreferrer"
+            className={`${buttonStyle} inline-block`}
+          >
+            Watch on Instagram
+          </Link>
         </section>
 
         {/* IMPACT */}
         <section className="bg-white dark:bg-zinc-900 w-full px-8 py-12 flex flex-col gap-6 md:flex-row md:items-center transition-colors duration-300">
-          <div className="flex-1 grid grid-cols-2 gap-3">
+          <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-3">
             <img
-              src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=500&q=80"
-              alt="Garden concept placeholder"
-              className="rounded-xl object-cover w-full h-48"
+              src="https://live.staticflickr.com/65535/55041091139_b397a58381_w.jpg?auto=format"
+              alt="Garden concept poster"
+              className="rounded-xl object-cover w-full h-auto"
               loading="lazy"
             />
             <img
-              src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=500&q=80"
+              src="https://live.staticflickr.com/65535/55041170140_d38e22f4f7_w.jpg?auto=format"
               alt="Runway concept placeholder"
-              className="rounded-xl object-cover w-full h-48"
+              className="rounded-xl object-cover w-full h-auto"
               loading="lazy"
             />
+
             <img
-              src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&w=500&q=80"
+              src="https://live.staticflickr.com/65535/55041091164_59cf8c0be3_w.jpg?auto=format"
               alt="Fabric detail placeholder"
-              className="rounded-xl object-cover w-full h-48"
+              className="rounded-xl object-cover w-full h-auto"
               loading="lazy"
             />
+
             <img
-              src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=500&q=80"
+              src="https://live.staticflickr.com/65535/55041170105_fc0c45e79d_w.jpg?auto=format"
               alt="Installation sketch placeholder"
-              className="rounded-xl object-cover w-full h-48"
+              className="rounded-xl object-cover w-full h-auto"
               loading="lazy"
             />
-          </div><div className="flex-1 space-y-4">
-            <h2 className="text-3xl font-semibold font-nyu-ultra">Follow the Journey</h2>
+          </div>
+
+          <div className="flex-1 space-y-4">
+            <h2 className="text-3xl font-semibold font-nyu-ultra">See the impact!</h2>
             <p className="font-nyu-thin">
-              We are sharing mood boards, in-progress textiles, and installation sketches as we prepare
-              for WorldPride DC. Catch the latest reel and stay tuned for behind-the-scenes updates.
+              Discover how World Pride and related programming shaped our community and creative work — full insights available in the Impact Report.
             </p>
             <Link
               href="https://issuu.com/capitalpride/docs/worldpride_washington_dc_2025_impact_report"
