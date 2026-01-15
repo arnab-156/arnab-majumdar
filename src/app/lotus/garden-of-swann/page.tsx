@@ -189,32 +189,33 @@ export default function GardenOfSwannPage() {
         {/* IMPACT */}
         <section className="bg-white dark:bg-zinc-900 w-full px-8 py-12 flex flex-col gap-6 md:flex-row md:items-center transition-colors duration-300">
           <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <img
-              src="https://live.staticflickr.com/65535/55041091139_b397a58381_w.jpg?auto=format"
-              alt="Garden concept poster"
-              className="rounded-xl object-cover w-full h-auto"
-              loading="lazy"
-            />
-            <img
-              src="https://live.staticflickr.com/65535/55041170140_d38e22f4f7_w.jpg?auto=format"
-              alt="Runway concept placeholder"
-              className="rounded-xl object-cover w-full h-auto"
-              loading="lazy"
-            />
-
-            <img
-              src="https://live.staticflickr.com/65535/55041091164_59cf8c0be3_w.jpg?auto=format"
-              alt="Fabric detail placeholder"
-              className="rounded-xl object-cover w-full h-auto"
-              loading="lazy"
-            />
-
-            <img
-              src="https://live.staticflickr.com/65535/55041170105_fc0c45e79d_w.jpg?auto=format"
-              alt="Installation sketch placeholder"
-              className="rounded-xl object-cover w-full h-auto"
-              loading="lazy"
-            />
+            {[
+              {
+                src: "https://live.staticflickr.com/65535/55041091139_b397a58381_w.jpg?auto=format",
+                alt: "Garden concept poster",
+              },
+              {
+                src: "https://live.staticflickr.com/65535/55041170140_d38e22f4f7_w.jpg?auto=format",
+                alt: "Runway concept placeholder",
+              },
+              {
+                src: "https://live.staticflickr.com/65535/55041091164_59cf8c0be3_w.jpg?auto=format",
+                alt: "Fabric detail placeholder",
+              },
+              {
+                src: "https://live.staticflickr.com/65535/55041170105_fc0c45e79d_w.jpg?auto=format",
+                alt: "Installation sketch placeholder",
+              },
+            ].map(({ src, alt }) => (
+              <ImageMagnify key={src}>
+                <img
+                  src={src}
+                  alt={alt}
+                  className="rounded-xl object-cover w-full h-auto"
+                  loading="lazy"
+                />
+              </ImageMagnify>
+            ))}
           </div>
 
           <div className="flex-1 space-y-4">
