@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Head from "next/head";
 import Image from "next/image";
+import { ImageMagnify } from "@/app/components/ImageMagnify";
 import { buttonStyle } from "@/app/utility/stylevariables";
 
 const partners = {
@@ -72,46 +73,58 @@ export default function GardenOfSwannPage() {
           </div>
 
           <div className="flex-1 grid grid-cols-2 sm:grid-cols-3 gap-3">
-            <img
-              src="https://live.staticflickr.com/65535/55041103684_4a557a521b_w.jpg?auto=format"
-              alt="Garden concept poster"
-              className="rounded-xl object-cover w-full h-full"
-              loading="lazy"
-            />
-            <img
-              src="https://live.staticflickr.com/65535/55041091144_e7e1cd732f_w.jpg?auto=format"
-              alt="Runway concept placeholder"
-              className="rounded-xl object-cover w-full h-full"
-              loading="lazy"
-            />
+            <ImageMagnify>
+              <img
+                src="https://live.staticflickr.com/65535/55041103684_4a557a521b_w.jpg?auto=format"
+                alt="Garden concept poster"
+                className="rounded-xl object-cover w-full h-full"
+                loading="lazy"
+              />
+            </ImageMagnify>
+            <ImageMagnify>
+              <img
+                src="https://live.staticflickr.com/65535/55041091144_e7e1cd732f_w.jpg?auto=format"
+                alt="Runway concept placeholder"
+                className="rounded-xl object-cover w-full h-full"
+                loading="lazy"
+              />
+            </ImageMagnify>
 
-            <img
-              src="https://live.staticflickr.com/65535/55040834116_c01fa30278_w.jpg?auto=format"
-              alt="Installation sketch placeholder"
-              className="rounded-xl object-cover w-full h-full"
-              loading="lazy"
-            />
+            <ImageMagnify>
+              <img
+                src="https://live.staticflickr.com/65535/55040834116_c01fa30278_w.jpg?auto=format"
+                alt="Installation sketch placeholder"
+                className="rounded-xl object-cover w-full h-full"
+                loading="lazy"
+              />
+            </ImageMagnify>
 
-            <img
-              src="https://live.staticflickr.com/65535/55041010753_92b66a666c_w.jpg?auto=format"
-              alt="Fabric detail placeholder"
-              className="rounded-xl object-cover w-full h-full"
-              loading="lazy"
-            />
+            <ImageMagnify>
+              <img
+                src="https://live.staticflickr.com/65535/55041010753_92b66a666c_w.jpg?auto=format"
+                alt="Fabric detail placeholder"
+                className="rounded-xl object-cover w-full h-full"
+                loading="lazy"
+              />
+            </ImageMagnify>
 
-            <img
-              src="https://live.staticflickr.com/65535/55040834251_2196cfcf49_w.jpg?auto=format"
-              alt="Installation sketch placeholder"
-              className="rounded-xl object-cover w-full h-full"
-              loading="lazy"
-            />
+            <ImageMagnify>
+              <img
+                src="https://live.staticflickr.com/65535/55040834251_2196cfcf49_w.jpg?auto=format"
+                alt="Installation sketch placeholder"
+                className="rounded-xl object-cover w-full h-full"
+                loading="lazy"
+              />
+            </ImageMagnify>
 
-            <img
-              src="https://live.staticflickr.com/65535/55041010818_18f3e0baf4_w.jpg?auto=format"
-              alt="Fabric detail placeholder"
-              className="rounded-xl object-cover w-full h-full"
-              loading="lazy"
-            />
+            <ImageMagnify>
+              <img
+                src="https://live.staticflickr.com/65535/55041010818_18f3e0baf4_w.jpg?auto=format"
+                alt="Fabric detail placeholder"
+                className="rounded-xl object-cover w-full h-full"
+                loading="lazy"
+              />
+            </ImageMagnify>
           </div>
         </section>
 
