@@ -25,6 +25,52 @@ export default function Home() {
         </div>
 
         <div className={cardWrapperStyle}>
+          <h2 className="text-xl font-bold text-center capitalize">Welcome to my Stern journey!</h2>
+          <Card
+            title="NYU - Stern School of Business"
+            url="/experiences#my-education"
+            imageUrl="/stern.png"
+            backgroundTheme={`${nycBackgroundTheme}`}
+            description="Class Representative, Master of Business Administration - Class of 2027"
+          />
+        </div>
+
+        <div className={cardWrapperStyle} id="garden-of-swann">
+          <h2 className="text-xl font-bold text-center capitalize">New and Trending:</h2>
+          <Card
+            title="World Pride Garden of Swann Washington D.C."
+            description="Click to learn more about Fashion + Activism of William Dorsey Swann"
+            url="/lotus/garden-of-swann"
+            customClassName={`${cardWrapperStyle}`}
+            imageUrl={`https://live.staticflickr.com/65535/55041103674_dd84ce4ce4_w.jpg`}
+          />
+        </div>
+
+        <div className={cardWrapperStyle} id="aster">
+          <h2 className="text-xl font-bold text-center capitalize" >Made in US Collaboration:</h2>
+          <Card
+            title="Aster for Lotus"
+            url="https://lotusmahal.com/products/aster-for-lotus"
+            customClassName={`${cardWrapperStyle}`}
+          >
+            <div>
+              <p className="text-wrap">
+                Lotus collaborated with a small business in Rhode Island to create a line of hand-poured art candles.
+                <br />
+                These luxurious candle jars are whiskey-colored, heavyweight glass tumblers with a cork lid.
+              </p>
+              <ul className="list-disc grid grid-cols-1 mb-2">
+                <li>Hand poured in Rhode Island</li>
+                <li>Original Artworks</li>
+                <li>100% Soy candles</li>
+                <li>Sophisticated Scents</li>
+              </ul>
+              <p className="text-wrap">Click on tile to go see more... </p>
+            </div>
+          </Card>
+        </div>
+
+        <div className={cardWrapperStyle}>
           <Card
             title="100% free website is made with:"
             url=""
@@ -46,48 +92,8 @@ export default function Home() {
           </Card>
         </div>
 
-        <div className={cardWrapperStyle}>
-          <h2 className="text-xl font-bold text-center capitalize">Welcome to my Stern journey!</h2>
-          <Card
-            title="NYU - Stern School of Business"
-            url="/experiences#my-education"
-            imageUrl="/stern.png"
-            backgroundTheme={`${nycBackgroundTheme}`}
-            description="Class Representative, Master of Business Administration - Class of 2027"
-          />
-        </div>
-
-        <div className={cardWrapperStyle} id="aster">
-          <h2 className="text-xl font-bold text-center capitalize" >New and Trending:</h2>
-
-          <Card
-            title="Aster for Lotus"
-            url="https://lotusmahal.com/products/aster-for-lotus"
-            customClassName={`${cardWrapperStyle}`}
-            imageUrl="https://live.staticflickr.com/65535/53819325384_d2b8af917f_w.jpg"
-          >
-            <div>
-              <p className="text-wrap">
-                Lotus collaborated with an established small business in Rhode Island to create a line of hand-poured art candles.
-                <br />
-                These luxurious candle jars are whiskey-colored, heavyweight glass tumblers with a cork lid.
-
-              </p>
-              <ul className="list-disc grid grid-cols-1 mb-2">
-                <li>Hand poured in Rhode Island</li>
-                <li>Original Artworks</li>
-                <li>100% Soy candles</li>
-                <li>Sophisticated Scents</li>
-              </ul>
-              <p className="text-wrap">Click on tile to go see more... </p>
-            </div>
-          </Card>
-        </div>
-
-
-
         <div className={cardWrapperStyle} id="cp">
-          <h2 className="text-xl font-bold text-center capitalize" >New and Trending:</h2>
+          <h2 className="text-xl font-bold text-center capitalize">Project from New Orleans:</h2>
           <Card
             title="Commander's Palace Project"
             url="/lotus#commanders"
@@ -106,8 +112,6 @@ export default function Home() {
           </Card>
         </div>
 
-
-
         <div className={cardWrapperStyle}>
           <Card
             title="Free Trivia for you to enjoy on the go!"
@@ -116,8 +120,6 @@ export default function Home() {
             description="Version 1 is live! Version 2 coming soon!"
           />
         </div>
-
-
 
         <div className={cardWrapperStyle}>
           <h2 className="text-xl font-bold text-center capitalize" >Contact me for:</h2>
