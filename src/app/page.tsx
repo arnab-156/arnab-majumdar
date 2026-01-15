@@ -146,7 +146,7 @@ export default function Home() {
         </div>
 
         <div className={cardWrapperStyle}>
-          <h2 className="text-xl font-bold text-center capitalize" >New and Trending:</h2>
+          <h2 className="text-xl font-bold text-center capitalize">Updated Daily!</h2>
           <Card
             title="Comic of the day!"
             url="/tech/comic"
@@ -180,18 +180,6 @@ export default function Home() {
             backgroundTheme={nycBackgroundTheme}
           >
             <p className="my-4 pb-4"><strong >Thank you for your support!</strong> Please visit <Link className={`${buttonStyle}`} href="/lotus" aria-label="go to lotusmahal.com">Lotus Mahal.</Link></p>
-          </Card>
-        </div>
-
-        <div className={cardWrapperStyle}>
-          <h2 className="text-xl font-bold text-center capitalize" >Coming soon:</h2>
-          <Card
-            title="Launch your website!"
-            url="/edu"
-            description="Technology education resources for everyone!"
-            customClassName="invert"
-          >
-            <ComputerIcon height="100px" width="100px" />
           </Card>
         </div>
       </div>
