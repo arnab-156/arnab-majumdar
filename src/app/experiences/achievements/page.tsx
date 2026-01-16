@@ -48,11 +48,11 @@ type LinkItem = { label: string; href?: string };
 const achievements = {
   academic: [
     {
-      title: "Doctoral Research Showcase",
+      title: "Capstone Project: NIFT 2008",
       description:
         "Presented findings on zero-waste manufacturing at the International Sustainability Summit, highlighting scalable frameworks for apparel factories.",
       links: [
-        { label: "Keynote @ ISS 2025" },
+        { label: "NIFT" , href: "/experiences#my-education-nift"},
         { label: "Whitepaper: Sustainable Textiles" },
       ],
     },
@@ -60,7 +60,10 @@ const achievements = {
       title: "Strategic Innovation Lab",
       description:
         "Advised Fortune 500 retail teams on business transformation, earning the 'Innovation Catalyst' award from the Stern Center for Sustainable Business.",
-      links: [{ label: "Panel: Tech × Sustainability" }],
+      links: [
+        { label: "Panel: Tech × Sustainability" },
+        { label: "Sustainability: Fabric Futures", href: "/lotus/eye-on-india" },
+      ],
     },
   ],
   sports: [
