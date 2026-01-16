@@ -43,19 +43,24 @@ const neutralGallery = [
   },
 ];
 
+type LinkItem = { label: string; href?: string };
+
 const achievements = {
   academic: [
     {
       title: "Doctoral Research Showcase",
       description:
         "Presented findings on zero-waste manufacturing at the International Sustainability Summit, highlighting scalable frameworks for apparel factories.",
-      links: ["Keynote @ ISS 2025", "Whitepaper: Sustainable Textiles"],
+      links: [
+        { label: "Keynote @ ISS 2025" },
+        { label: "Whitepaper: Sustainable Textiles" },
+      ],
     },
     {
       title: "Strategic Innovation Lab",
       description:
         "Advised Fortune 500 retail teams on business transformation, earning the 'Innovation Catalyst' award from the Stern Center for Sustainable Business.",
-      links: ["Panel: Tech × Sustainability"],
+      links: [{ label: "Panel: Tech × Sustainability" }],
     },
   ],
   sports: [
@@ -76,7 +81,10 @@ const achievements = {
       title: "Creative Direction",
       description:
         "Curated 'Fabric Futures'—an immersive installation bridging narrative textiles, projection mapping, and tactile archives for WorldPride DC.",
-      links: ["Garden of Swann", "Fabric Futures"],
+      links: [
+        { label: "Garden of Swann", href: "/lotus/garden-of-swann" },
+        { label: "Fabric Futures" },
+      ],
     },
     {
       title: "Cultural Programming",
@@ -94,17 +102,17 @@ const SectionTile = ({
 }: {
   title: string;
   description: string;
-  links?: string[];
+  links?: LinkItem[];
 }) => (
   <article className="rounded-3xl bg-white/90 dark:bg-black/40 shadow-xl border border-gray-100/60 dark:border-white/10 p-6 space-y-3">
     <h3 className="text-xl font-semibold font-nyu-ultra text-gray-900 dark:text-white">{title}</h3>
     <p className="text-gray-700 dark:text-gray-200 font-nyu-thin leading-relaxed">{description}</p>
     {links && (
       <ul className="list-disc list-inside text-sm text-purple-700 dark:text-purple-200 font-semibold space-y-1">
-        {links.map((link) => (
-          <li key={link}>
-            <Link href="#" className="hover:underline">
-              {link}
+        {links.map(({ label, href = "#" }) => (
+          <li key={label}>
+            <Link href={href} className="hover:underline">
+              {label}
             </Link>
           </li>
         ))}
