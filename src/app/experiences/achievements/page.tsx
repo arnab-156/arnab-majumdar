@@ -75,12 +75,23 @@ const achievements = {
       title: "Ultra Endurance Collective",
       description:
         "Co-led a 50-person fundraising team across triathlons, open-water swims, and multi-day rides; coached first-time athletes on training systems.",
-      links: ["TriState Triathlon League", "Open-Water Swim Clinics"],
+      links: [
+        { label: "TriState Triathlon League" },
+        { label: "Open-Water Swim Clinics" },
+      ],
+      bullets: [
+        "Raised over $50K for community health orgs.",
+        "Built inclusive race-prep curriculum for beginners.",
+      ],
     },
     {
       title: "Mindful Movement Residencies",
       description:
         "Designed curriculum for inclusive movement practices, blending yoga, pilates, and breath work for university and Pride community programs.",
+      bullets: [
+        "Led residencies at two universities and Pride wellness hubs.",
+        "Partnered with adaptive athletes on mobility workshops.",
+      ],
     },
   ],
   arts: [
@@ -92,12 +103,23 @@ const achievements = {
         { label: "Garden of Swann", href: "/lotus/garden-of-swann" },
         { label: "Fabric Futures" },
       ],
+      bullets: [
+        "Scouted 30+ artists and archivists across diasporas.",
+        "Integrated AR layers with tangible textiles.",
+      ],
     },
     {
       title: "Cultural Programming",
       description:
         "Produced artist residencies and storytelling salons spotlighting South Asian queer voices; built partnerships with museums and Pride organizations.",
-      links: ["Arts Residency Framework", "Conference Talk"],
+      links: [
+        { label: "Arts Residency Framework" },
+        { label: "Conference Talk" },
+      ],
+      bullets: [
+        "Secured grants with museum partners to expand programming.",
+        "Hosted salons that combined film, textiles, and spoken-word.",
+      ],
     },
   ],
 };
