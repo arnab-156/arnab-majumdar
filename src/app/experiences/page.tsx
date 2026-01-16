@@ -49,7 +49,7 @@ export default function ExperiencesPage() {
           />
         </div>
 
-        <div className={cardWrapperStyle}>
+        {/* <div className={cardWrapperStyle}>
           <Card
             title="Instructional Assistant"
             url=""
@@ -58,7 +58,7 @@ export default function ExperiencesPage() {
             imageHeight={80}
             imageWidth={80}
           />
-        </div>
+        </div> */}
 
         <div className={cardWrapperStyle}>
           <Card
@@ -202,10 +202,10 @@ export default function ExperiencesPage() {
           />
         </div>
 
-        <div className={cardWrapperStyle}>
+        <div className={cardWrapperStyle} id="my-education-nift">
           <Card
             title="National Institute of Fashion Technology"
-            url=""
+            url="https://nift.ac.in/theinstitute"
             imageUrl="/nift.svg"
             description="Bachelor of Technology - Apparel Manufacturing and Information Technology."
           />
