@@ -44,16 +44,16 @@ const neutralGallery = [
 ];
 
 type LinkItem = { label: string; href?: string };
+type BulletItem = string;
 
 const achievements = {
   academic: [
     {
-      title: "Capstone Project: NIFT 2008",
+      title: "Capstone Project: NIFT 2008 - Winner of Commercially Most Viable",
       description:
         "Presented findings on zero-waste manufacturing at the International Sustainability Summit, highlighting scalable frameworks for apparel factories.",
       links: [
-        { label: "NIFT" , href: "/experiences#my-education-nift"},
-        { label: "Whitepaper: Sustainable Textiles" },
+        { label: "About NIFT", href: "/experiences#my-education-nift" },
       ],
     },
     {
@@ -63,6 +63,10 @@ const achievements = {
       links: [
         { label: "Panel: Tech × Sustainability" },
         { label: "Sustainability: Fabric Futures", href: "/lotus/eye-on-india" },
+      ],
+      bullets: [
+        "Designed executive playbooks for omnichannel retailers.",
+        "Mentored Stern MBAs on circular business experimentation.",
       ],
     },
   ],
@@ -102,10 +106,12 @@ const SectionTile = ({
   title,
   description,
   links,
+  bullets,
 }: {
   title: string;
   description: string;
   links?: LinkItem[];
+  bullets?: BulletItem[];
 }) => (
   <article className="rounded-3xl bg-white/90 dark:bg-black/40 shadow-xl border border-gray-100/60 dark:border-white/10 p-6 space-y-3">
     <h3 className="text-xl font-semibold font-nyu-ultra text-gray-900 dark:text-white">{title}</h3>
@@ -118,6 +124,13 @@ const SectionTile = ({
               {label}
             </Link>
           </li>
+        ))}
+      </ul>
+    )}
+    {bullets && (
+      <ul className="list-disc list-inside text-sm text-gray-600 dark:text-gray-300 font-nyu-thin space-y-1">
+        {bullets.map((bullet) => (
+          <li key={bullet}>{bullet}</li>
         ))}
       </ul>
     )}
