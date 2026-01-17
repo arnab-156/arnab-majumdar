@@ -1,6 +1,6 @@
 import { Card } from "../components/card"
 import Link from "next/link";
-import { buttonStyle, nycBackgroundTheme } from "../utility/stylevariables";
+import { buttonStyle, cardWrapperStyle, nycBackgroundTheme } from "../utility/stylevariables";
 
 const urlImageDefault = "/headshot.png"
 
@@ -45,18 +45,36 @@ export default function About() {
           <p className="">My Gallup CliftonStrengths are <strong>Input, Achiever, Ideation, Futuristic, Learner</strong>.</p>
         </div>
 
-        <Card title="See More of Arnab's Experiences.." url={"/experiences"} customClassName="m-8 mb-20" backgroundTheme={nycBackgroundTheme}>
-          <p className="my-4 pb-4">
-            Please <Link className={`${buttonStyle}`} href="/experiences" aria-label="go to arnab's experience">click here</Link> to see more.
-            <strong >Thank you for your support! </strong>
-          </p>
-        </Card>
+        <div className={cardWrapperStyle}>
+          <Card title="See More of Arnab's Experiences.." url={"/experiences"} customClassName="m-8 mb-20" backgroundTheme={nycBackgroundTheme}>
+            <p className="my-4 pb-4">
+              Please <Link className={`${buttonStyle}`} href="/experiences" aria-label="go to arnab's experience">click here</Link> to see more.
+              <strong >Thank you for your support! </strong>
+            </p>
+          </Card>
+        </div>
 
-        <div className="shadow-md rounded-md text-center py-4 px-8 m-4">
-          <p className="m-2">
-            For business enquiries, <strong> <Link className={`${buttonStyle}`} href="/help" aria-label="go to calendar to schedule a google meet">Contact me.</Link></strong>
-          </p>
-          <p className="mt-4"> Find social information in the top navigation on mobile or the footer on desktop.</p>
+        <div className={cardWrapperStyle}>
+          <div className="shadow-md rounded-md text-center py-4 px-8 m-4">
+            <p className="m-2">
+              For business enquiries, <strong> <Link className={`${buttonStyle}`} href="/help" aria-label="go to calendar to schedule a google meet">Contact me.</Link></strong>
+            </p>
+            <p className="mt-4"> Find social information in the top navigation on mobile or the footer on desktop.</p>
+          </div>
+
+        </div>
+
+
+
+        <div className={cardWrapperStyle}>
+          <Card
+            title="Download Resume Here"
+            openInNewTab
+            url="/resume"
+            description="A PDF file will download."
+            backgroundTheme={nycBackgroundTheme}
+            imageUrl='/cv.png'
+          />
         </div>
       </div>
       <div className={`text-center mt-24 my-4 px-8 m-4`}>

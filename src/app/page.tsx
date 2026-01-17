@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { Card } from "./components/card";
 import { CalculatorIcon, ComputerIcon, ReadIcon } from "./components/icons";
-import { cardWrapperStyle, nycBackgroundTheme, buttonStyle, tiffanyBackgroundTheme } from './utility/stylevariables';
+import { cardWrapperStyle, nycBackgroundTheme, buttonStyle, tiffanyBackgroundTheme, invertedButtonStyle } from './utility/stylevariables';
 
 export default function Home() {
   return (
@@ -53,6 +53,7 @@ export default function Home() {
             description="Luxurious hand-crafted candle featuring exquisite watercolor artwork on a heavy whiskey-colored glass jar."
             url="https://lotusmahal.com/products/aster-for-lotus"
             customClassName={`${cardWrapperStyle}`}
+            backgroundTheme={nycBackgroundTheme}
             imageUrl='https://lotusmahal.com/cdn/shop/files/DSCF2076_42f9aa66-c21a-4b76-a0db-88a679d0039e.jpg?v=1741617890&width=1646'
           />
         </div>
@@ -128,6 +129,7 @@ export default function Home() {
             title="Comic of the day!"
             url="/tech/comic"
             description="Have fun reading some fun comics!! More Features to come!"
+            backgroundTheme={nycBackgroundTheme}
           >
             <ReadIcon height="100px" width="100px" />
           </Card>
@@ -169,11 +171,22 @@ export default function Home() {
             openInNewTab
             url="https://lotusmahal.com/"
             description="All images and icons are carefully chosen to be either personal creations or royalty-free!"
-            backgroundTheme={nycBackgroundTheme}
           >
             <p className="my-4 pb-4"><strong >Thank you for your support!</strong> Please visit store<Link className={`${buttonStyle}`} href="https://lotusmahal.com/" aria-label="go to lotusmahal.com">Lotus Mahal.</Link></p>
           </Card>
         </div>
+
+        <div className={cardWrapperStyle}>
+          <Card
+            title="Download Resume Here"
+            openInNewTab
+            url="/resume"
+            description="A PDF file will download."
+            backgroundTheme={nycBackgroundTheme}
+            imageUrl='/cv.png'
+          />
+        </div>
+
       </div>
       <Link href="#navigation" className='hover:underline text-purple-800'>go to top</Link>
     </main>
