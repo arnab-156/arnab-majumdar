@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { Card } from "./components/card";
 import { CalculatorIcon, ComputerIcon, ReadIcon } from "./components/icons";
-import { cardWrapperStyle, nycBackgroundTheme, buttonStyle, tiffanyBackgroundTheme } from './utility/stylevariables';
+import { cardWrapperStyle, nycBackgroundTheme, buttonStyle, tiffanyBackgroundTheme, invertedButtonStyle } from './utility/stylevariables';
 
 export default function Home() {
   return (
@@ -49,47 +49,25 @@ export default function Home() {
         <div className={cardWrapperStyle} id="aster">
           <h2 className="text-xl font-bold text-center capitalize" >Made in US Collaboration:</h2>
           <Card
-            title="Aster for Lotus"
+            title="Aster for Lotus - Made in Rhode Island"
+            description="Luxurious hand-crafted candle featuring exquisite watercolor artwork on a heavy whiskey-colored glass jar."
             url="https://lotusmahal.com/products/aster-for-lotus"
             customClassName={`${cardWrapperStyle}`}
-          >
-            <div>
-              <p className="text-wrap">
-                Lotus collaborated with a small business in Rhode Island to create a line of hand-poured art candles.
-                <br />
-                These luxurious candle jars are whiskey-colored, heavyweight glass tumblers with a cork lid.
-              </p>
-              <ul className="list-disc grid grid-cols-1 mb-2">
-                <li>Hand poured in Rhode Island</li>
-                <li>Original Artworks</li>
-                <li>100% Soy candles</li>
-                <li>Sophisticated Scents</li>
-              </ul>
-              <p className="text-wrap">Click on tile to go see more... </p>
-            </div>
-          </Card>
+            backgroundTheme={nycBackgroundTheme}
+            imageUrl='https://lotusmahal.com/cdn/shop/files/DSCF2076_42f9aa66-c21a-4b76-a0db-88a679d0039e.jpg?v=1741617890&width=1646'
+          />
         </div>
 
         <div className={cardWrapperStyle}>
+          <h2 className="text-xl font-bold text-center capitalize">Expanding Retail Experiences:</h2>
           <Card
-            title="100% free website is made with:"
-            url=""
-          >
-            <ul className="list-disc grid grid-cols-2">
-              <li className="hover:underline text-wrap">React</li>
-              <li className="hover:underline">TypeScript</li>
-              <li className="hover:underline">Next.js</li>
-              <li className="hover:underline">Tailwind css</li>
-              <li className="hover:underline">JavaScript</li>
-              <li className="hover:underline text-wrap">React Testing Library</li>
-              <li className="hover:underline">Jest</li>
-              <li className="hover:underline text-wrap">Deployed on Vercel</li>
-              <li className="hover:underline text-wrap">Flickr</li>
-              <li className="hover:underline text-wrap">YouTube</li>
-              <li className="hover:underline text-wrap">Open APIs</li>
-              <li className="hover:underline text-wrap">Codex by OpenAI</li>
-            </ul>
-          </Card>
+            title="Owner and CEO - Made of Chicago"
+            url="/moc"
+            imageUrl="https://live.staticflickr.com/65535/53808934296_8330a5b182_w.jpg"
+            backgroundTheme={``}
+            imageWidth={105}
+            description="Click here to know more about the innovation, technology, and design."
+          />
         </div>
 
         <div className={cardWrapperStyle} id="cp">
@@ -151,6 +129,7 @@ export default function Home() {
             title="Comic of the day!"
             url="/tech/comic"
             description="Have fun reading some fun comics!! More Features to come!"
+            backgroundTheme={nycBackgroundTheme}
           >
             <ReadIcon height="100px" width="100px" />
           </Card>
@@ -163,25 +142,51 @@ export default function Home() {
         </div>
 
         <div className={cardWrapperStyle}>
+          <h2 className="text-xl font-bold text-center capitalize">100% Free Website!</h2>
           <Card
-            title="Go to Games and Utilities"
-            url="/tech"
-            description="Play games, trivia, and use calculator. More Features are coming soon!"
+            title="Click the tile to view my experiences."
+            url="/experiences"
+            description='Made with:'
           >
-            <CalculatorIcon height="100px" width="100px" />
+            <ul className="list-disc grid grid-cols-2">
+              <li className="hover:underline text-wrap">React</li>
+              <li className="hover:underline">TypeScript</li>
+              <li className="hover:underline">Next.js</li>
+              <li className="hover:underline">Tailwind css</li>
+              <li className="hover:underline">JavaScript</li>
+              <li className="hover:underline text-wrap">React Testing Library</li>
+              <li className="hover:underline">Jest</li>
+              <li className="hover:underline text-wrap">Deployed on Vercel</li>
+              <li className="hover:underline text-wrap">Flickr</li>
+              <li className="hover:underline text-wrap">YouTube</li>
+              <li className="hover:underline text-wrap">Open APIs</li>
+              <li className="hover:underline text-wrap">Codex by OpenAI</li>
+            </ul>
           </Card>
         </div>
 
         <div className={cardWrapperStyle}>
           <Card
             title="Made with Love, Free to Use"
-            url="/tech"
+            openInNewTab
+            url="https://lotusmahal.com/"
             description="All images and icons are carefully chosen to be either personal creations or royalty-free!"
-            backgroundTheme={nycBackgroundTheme}
           >
-            <p className="my-4 pb-4"><strong >Thank you for your support!</strong> Please visit <Link className={`${buttonStyle}`} href="/lotus" aria-label="go to lotusmahal.com">Lotus Mahal.</Link></p>
+            <p className="my-4 pb-4"><strong >Thank you for your support!</strong> Please visit store<Link className={`${buttonStyle}`} href="https://lotusmahal.com/" aria-label="go to lotusmahal.com">Lotus Mahal.</Link></p>
           </Card>
         </div>
+
+        <div className={cardWrapperStyle}>
+          <Card
+            title="Download Resume Here"
+            openInNewTab
+            url="/resume"
+            description="A PDF file will download."
+            backgroundTheme={nycBackgroundTheme}
+            imageUrl='/cv.png'
+          />
+        </div>
+
       </div>
       <Link href="#navigation" className='hover:underline text-purple-800'>go to top</Link>
     </main>

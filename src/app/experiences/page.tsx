@@ -202,10 +202,10 @@ export default function ExperiencesPage() {
           />
         </div>
 
-        <div className={cardWrapperStyle}>
+        <div className={cardWrapperStyle} id="my-education-nift">
           <Card
             title="National Institute of Fashion Technology"
-            url=""
+            url="https://nift.ac.in/theinstitute"
             imageUrl="/nift.svg"
             description="Bachelor of Technology - Apparel Manufacturing and Information Technology."
           />
@@ -242,8 +242,19 @@ export default function ExperiencesPage() {
           </ul>
         </div>
 
+        <div className={cardWrapperStyle}>
+          <Card
+            title="Download Resume Here"
+            openInNewTab
+            url="/resume"
+            description="A PDF file will download."
+            backgroundTheme={nycBackgroundTheme}
+            imageUrl='/cv.png'
+          />
+        </div>
+
         <p className="m-4 p-4"><strong >Thank you for visiting! There are more information to come, please visit again! </strong>
-          <Link className={`${buttonStyle}`} href="/about" aria-label="go back to about">click here </Link> to go back.
+          <Link className={`${buttonStyle}`} href="/about" aria-label="go back to about">click here </Link> to go the About page.
         </p>
       </div>
     </main>
