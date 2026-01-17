@@ -59,6 +59,9 @@ export default function About() {
           <p className="mt-4"> Find social information in the top navigation on mobile or the footer on desktop.</p>
         </div>
       </div>
+      <div className={`text-center mt-24 my-4 px-8 m-4`}>
+        <Link className={`m-auto hover:underline text-purple-800`} href="/" aria-label="go to arnab's experience">go to home</Link>.
+      </div>
     </main>
   );
 }

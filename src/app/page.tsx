@@ -58,25 +58,15 @@ export default function Home() {
         </div>
 
         <div className={cardWrapperStyle}>
+          <h2 className="text-xl font-bold text-center capitalize">Expanding Retail Experiences:</h2>
           <Card
-            title="100% free website is made with:"
-            url=""
-          >
-            <ul className="list-disc grid grid-cols-2">
-              <li className="hover:underline text-wrap">React</li>
-              <li className="hover:underline">TypeScript</li>
-              <li className="hover:underline">Next.js</li>
-              <li className="hover:underline">Tailwind css</li>
-              <li className="hover:underline">JavaScript</li>
-              <li className="hover:underline text-wrap">React Testing Library</li>
-              <li className="hover:underline">Jest</li>
-              <li className="hover:underline text-wrap">Deployed on Vercel</li>
-              <li className="hover:underline text-wrap">Flickr</li>
-              <li className="hover:underline text-wrap">YouTube</li>
-              <li className="hover:underline text-wrap">Open APIs</li>
-              <li className="hover:underline text-wrap">Codex by OpenAI</li>
-            </ul>
-          </Card>
+            title="Owner and CEO - Made of Chicago"
+            url="/moc"
+            imageUrl="https://live.staticflickr.com/65535/53808934296_8330a5b182_w.jpg"
+            backgroundTheme={``}
+            imageWidth={105}
+            description="Click here to know more about the innovation, technology, and design."
+          />
         </div>
 
         <div className={cardWrapperStyle} id="cp">
@@ -150,19 +140,34 @@ export default function Home() {
         </div>
 
         <div className={cardWrapperStyle}>
+          <h2 className="text-xl font-bold text-center capitalize">100% Free Website!</h2>
           <Card
-            title="Go to Games and Utilities"
-            url="/tech"
-            description="Play games, trivia, and use calculator. More Features are coming soon!"
+            title="Click the tile to view my experiences."
+            url="/experiences"
+            description='Made with:'
           >
-            <CalculatorIcon height="100px" width="100px" />
+            <ul className="list-disc grid grid-cols-2">
+              <li className="hover:underline text-wrap">React</li>
+              <li className="hover:underline">TypeScript</li>
+              <li className="hover:underline">Next.js</li>
+              <li className="hover:underline">Tailwind css</li>
+              <li className="hover:underline">JavaScript</li>
+              <li className="hover:underline text-wrap">React Testing Library</li>
+              <li className="hover:underline">Jest</li>
+              <li className="hover:underline text-wrap">Deployed on Vercel</li>
+              <li className="hover:underline text-wrap">Flickr</li>
+              <li className="hover:underline text-wrap">YouTube</li>
+              <li className="hover:underline text-wrap">Open APIs</li>
+              <li className="hover:underline text-wrap">Codex by OpenAI</li>
+            </ul>
           </Card>
         </div>
 
         <div className={cardWrapperStyle}>
           <Card
             title="Made with Love, Free to Use"
-            url="/tech"
+            openInNewTab
+            url="https://lotusmahal.com/"
             description="All images and icons are carefully chosen to be either personal creations or royalty-free!"
             backgroundTheme={nycBackgroundTheme}
           >

@@ -243,7 +243,7 @@ export default function ExperiencesPage() {
         </div>
 
         <p className="m-4 p-4"><strong >Thank you for visiting! There are more information to come, please visit again! </strong>
-          <Link className={`${buttonStyle}`} href="/about" aria-label="go back to about">click here </Link> to go back.
+          <Link className={`${buttonStyle}`} href="/about" aria-label="go back to about">click here </Link> to go the About page.
         </p>
       </div>
     </main>
