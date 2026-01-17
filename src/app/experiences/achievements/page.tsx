@@ -6,7 +6,7 @@ import { buttonStyle } from "@/app/utility/stylevariables";
 
 const neutralGallery = [
   {
-    src: "",
+    src: "/class-rep.png",
     alt: "Framed certificate placeholder",
     caption: "Academic Distinction, 2024",
     category: "academic",
@@ -185,20 +185,22 @@ export default function AchievementsPage() {
 
         {/* Gallery */}
         <section className="px-6 md:px-12 pb-16">
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {neutralGallery.map(({ src, alt, caption, category }) => (
               <ImageMagnify key={src}>
                 <figure
-                  className={`rounded-2xl overflow-hidden border border-gray-200 dark:border-white/10 shadow-lg hover:shadow-purple-200/60 dark:hover:shadow-purple-900/60 transition ${category}`}
+                  className={`rounded-3xl border border-gray-200
+                     dark:border-white/15 bg-white/90 dark:bg-black/40 shadow-lg hover:shadow-purple-200/60 
+                     dark:hover:shadow-purple-900/60 transition flex flex-col items-center ${category}`}
                 >
                   <Image
                     src={src}
                     alt={alt}
-                    width={600}
-                    height={400}
-                    className="object-cover w-full h-56 md:h-64"
+                    width={480}
+                    height={720}
+                    className="object-cover w-auto h-[22rem] m-auto rounded-2xl"
                   />
-                  <figcaption className="p-4 text-sm text-gray-700 dark:text-gray-200 font-nyu-thin bg-white/95 dark:bg-black/50">
+                  <figcaption className="p-4 text-sm text-gray-700 dark:text-gray-200 font-nyu-thin text-center">
                     {caption}
                   </figcaption>
                 </figure>
