@@ -49,7 +49,7 @@ export default function ExperiencesPage() {
           />
         </div>
 
-        {/* <div className={cardWrapperStyle}>
+        <div className={cardWrapperStyle}>
           <Card
             title="Instructional Assistant"
             url=""
@@ -58,7 +58,7 @@ export default function ExperiencesPage() {
             imageHeight={80}
             imageWidth={80}
           />
-        </div> */}
+        </div>
 
         <div className={cardWrapperStyle}>
           <Card
