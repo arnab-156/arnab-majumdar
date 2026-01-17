@@ -49,25 +49,12 @@ export default function Home() {
         <div className={cardWrapperStyle} id="aster">
           <h2 className="text-xl font-bold text-center capitalize" >Made in US Collaboration:</h2>
           <Card
-            title="Aster for Lotus"
+            title="Aster for Lotus - Made in Rhode Island"
+            description="Luxurious hand-crafted candle featuring exquisite watercolor artwork on a heavy whiskey-colored glass jar."
             url="https://lotusmahal.com/products/aster-for-lotus"
             customClassName={`${cardWrapperStyle}`}
-          >
-            <div>
-              <p className="text-wrap">
-                Lotus collaborated with a small business in Rhode Island to create a line of hand-poured art candles.
-                <br />
-                These luxurious candle jars are whiskey-colored, heavyweight glass tumblers with a cork lid.
-              </p>
-              <ul className="list-disc grid grid-cols-1 mb-2">
-                <li>Hand poured in Rhode Island</li>
-                <li>Original Artworks</li>
-                <li>100% Soy candles</li>
-                <li>Sophisticated Scents</li>
-              </ul>
-              <p className="text-wrap">Click on tile to go see more... </p>
-            </div>
-          </Card>
+            imageUrl='https://lotusmahal.com/cdn/shop/files/DSCF2076_42f9aa66-c21a-4b76-a0db-88a679d0039e.jpg?v=1741617890&width=1646'
+          />
         </div>
 
         <div className={cardWrapperStyle}>
