@@ -75,7 +75,9 @@ const achievements = {
       ],
       bullets: [
         "Designed executive playbooks for omnichannel retailers.",
-        "",
+        "Launched innovative and technical brand for Reliance Trends",
+        "Vendor Development: Building large scale manufacturers for Reliance Trends",
+        "Size Standardization for Fits in India for Reliance Trends"
       ],
     },
   ],
@@ -96,9 +98,9 @@ const achievements = {
     {
       title: "Mindful Movement Residencies",
       description:
-        "Designed curriculum for inclusive movement practices, blending yoga, pilates, and breath work for university and Pride community programs.",
+        "Designed curriculum for inclusive movement practices, blending yoga, strength training, and breath work for longetivity.",
       bullets: [
-        "Led residencies at two universities and Pride wellness hubs.",
+        "Led communities and Pride wellness hubs.",
         "Partnered with adaptive athletes on mobility workshops.",
       ],
     },
@@ -120,13 +122,13 @@ const achievements = {
     {
       title: "Cultural Programming",
       description:
-        "Produced artist residencies and storytelling salons spotlighting South Asian queer voices; built partnerships with museums and Pride organizations.",
+        "Produced artist residencies and storytelling salons spotlighting South Asian stories, queer voices; built partnerships with museums, communities and Pride organizations.",
       links: [
         { label: "Arts Residency Framework" },
         { label: "Conference Talk" },
       ],
       bullets: [
-        "Secured grants with museum partners to expand programming.",
+        "Secured grants to expand collborative programming.",
         "Hosted salons that combined film, textiles, and spoken-word.",
       ],
     },
