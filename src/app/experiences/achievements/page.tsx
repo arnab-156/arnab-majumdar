@@ -7,18 +7,19 @@ import { buttonStyle } from "@/app/utility/stylevariables";
 const neutralGallery = [
   {
     src: "/class-rep.png",
-    alt: "Framed certificate placeholder",
-    caption: "Academic Distinction, 2024",
+    alt: "class representative poster for Arnab",
+    caption: "Class Representative, EMBA A27",
     category: "academic",
   },
   {
-    src: "",
+    src: "https://lotusmahal.com/cdn/shop/files/Graduation_Award_2008.jpg?v=1768662805&width=800",
+    isLandscape: true,
     alt: "Conference presentation placeholder",
-    caption: "Keynote: Circular Supply Chains",
+    caption: "Circular Supply Chains: Size Standardization Study at Reliance Trends",
     category: "academic",
   },
   {
-    src: "",
+    src: "https://lotusmahal.com/cdn/shop/files/certificate_of_merit_2007_02.jpg?v=1768662805&width=800",
     alt: "Runner crossing finish line placeholder",
     caption: "Triathlon Finisher",
     category: "sports",
@@ -31,12 +32,18 @@ const neutralGallery = [
   },
   {
     src: "",
+    alt: "Athlete medal placeholder",
+    caption: "Half Marathon Podium",
+    category: "sports",
+  },
+  {
+    src: "https://lotusmahal.com/cdn/shop/files/CamelColorContest96.jpg?v=1768662805&width=800",
     alt: "Gallery wall placeholder",
     caption: "Mixed-Media Exhibition",
     category: "arts",
   },
   {
-    src: "",
+    src: "https://lotusmahal.com/cdn/shop/files/CamelColorContest95.jpg?v=1768662805&width=800",
     alt: "Stage performance placeholder",
     caption: "Live Performance Concept",
     category: "arts",
@@ -186,20 +193,29 @@ export default function AchievementsPage() {
         {/* Gallery */}
         <section className="px-6 md:px-12 pb-16">
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {neutralGallery.map(({ src, alt, caption, category }) => (
-              <ImageMagnify key={src}>
+            {neutralGallery.map(({ src, alt, caption, category, isLandscape = false }) => (
+              <ImageMagnify key={alt}>
                 <figure
-                  className={`rounded-3xl border border-gray-200
-                     dark:border-white/15 bg-white/90 dark:bg-black/40 shadow-lg hover:shadow-purple-200/60 
-                     dark:hover:shadow-purple-900/60 transition flex flex-col items-center ${category}`}
+                  className={`rounded-3xl transition flex flex-col items-center ${category}`}
                 >
-                  <Image
+
+                  {src && <Image
+                    className={`object-cover mx-auto rounded-2xl ${isLandscape ? "w-auto" : "md:w-60 h-[24rem]"}`}
                     src={src}
                     alt={alt}
-                    width={480}
-                    height={720}
-                    className="object-cover w-auto h-[22rem] m-auto rounded-2xl"
-                  />
+                    width={600}
+                    height={800}
+                    priority
+                    unoptimized
+                  />}
+
+                  {/* <Image
+                    src={src}
+                    alt={alt}
+                    width={600}
+                    height={800}
+                    className="object-cover w-48 md:w-60 h-[24rem] mx-auto rounded-2xl"
+                  /> */}
                   <figcaption className="p-4 text-sm text-gray-700 dark:text-gray-200 font-nyu-thin text-center">
                     {caption}
                   </figcaption>
