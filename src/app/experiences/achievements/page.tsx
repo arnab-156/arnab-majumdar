@@ -25,13 +25,15 @@ const neutralGallery = [
     category: "sports",
   },
   {
-    src: "",
+    src: "https://lotusmahal.com/cdn/shop/files/British_Library_International_Library_Culture_Center_1996.png?v=1768662806&width=800",
+    isLandscape: true,
     alt: "Athlete medal placeholder",
     caption: "Half Marathon Podium",
     category: "sports",
   },
   {
-    src: "",
+    src: "https://lotusmahal.com/cdn/shop/files/Majlish_Painting_2003.png?v=1768663049&width=800",
+    isLandscape: true,
     alt: "Athlete medal placeholder",
     caption: "Half Marathon Podium",
     category: "sports",
@@ -64,31 +66,31 @@ const achievements = {
       ],
     },
     {
-      title: "Strategic Innovation Lab",
+      title: "Innovation",
       description:
-        "Advised Fortune 500 retail teams on business transformation, earning the 'Innovation Catalyst' award from the Stern Center for Sustainable Business.",
+        "Coming soon",
       links: [
         { label: "Panel: Tech × Sustainability" },
         { label: "Sustainability: Fabric Futures", href: "/lotus/eye-on-india" },
       ],
       bullets: [
         "Designed executive playbooks for omnichannel retailers.",
-        "Mentored Stern MBAs on circular business experimentation.",
+        "",
       ],
     },
   ],
   sports: [
     {
-      title: "Ultra Endurance Collective",
+      title: "Sports",
       description:
-        "Co-led a 50-person fundraising team across triathlons, open-water swims, and multi-day rides; coached first-time athletes on training systems.",
+        "Coming soon.",
       links: [
-        { label: "TriState Triathlon League" },
-        { label: "Open-Water Swim Clinics" },
+        { label: "World Pride" },
+        { label: "AAC" },
       ],
       bullets: [
-        "Raised over $50K for community health orgs.",
-        "Built inclusive race-prep curriculum for beginners.",
+        "Raised over ....",
+        "Built inclusive ....",
       ],
     },
     {
@@ -191,36 +193,27 @@ export default function AchievementsPage() {
         </section>
 
         {/* Gallery */}
-        <section className="px-6 md:px-12 pb-16">
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {neutralGallery.map(({ src, alt, caption, category, isLandscape = false }) => (
-              <ImageMagnify key={alt}>
-                <figure
-                  className={`rounded-3xl transition flex flex-col items-center ${category}`}
-                >
-
-                  {src && <Image
-                    className={`object-cover mx-auto rounded-2xl ${isLandscape ? "w-auto" : "md:w-60 h-[24rem]"}`}
-                    src={src}
-                    alt={alt}
-                    width={600}
-                    height={800}
-                    priority
-                    unoptimized
-                  />}
-
-                  {/* <Image
-                    src={src}
-                    alt={alt}
-                    width={600}
-                    height={800}
-                    className="object-cover w-48 md:w-60 h-[24rem] mx-auto rounded-2xl"
-                  /> */}
-                  <figcaption className="p-4 text-sm text-gray-700 dark:text-gray-200 font-nyu-thin text-center">
-                    {caption}
-                  </figcaption>
-                </figure>
-              </ImageMagnify>
+        <section className="px-4 md:px-12 pb-16">
+          <div className="flex gap-4 md:gap-6 overflow-x-auto snap-x snap-mandatory scroll-pl-4 md:scroll-pl-12 pb-6">
+            {neutralGallery.map(({ src, alt, caption, category, isLandscape }) => (
+              <div key={alt} className="snap-center shrink-0 w-[85%] sm:w-[70%] md:w-72 lg:w-80">
+                <ImageMagnify>
+                  <figure className={`flex flex-col items-center transition ${category}`}>
+                    {src && <Image
+                      src={src}
+                      alt={alt}
+                      width={600}
+                      height={800}
+                      unoptimized
+                      priority
+                      className={`object-cover mx-auto rounded-3xl ${isLandscape ? "w-auto" : "sm:w-64 md:w-72 "}`}
+                    />}
+                    <figcaption className="p-3 text-sm text-gray-700 dark:text-gray-200 font-nyu-thin text-center">
+                      {caption}
+                    </figcaption>
+                  </figure>
+                </ImageMagnify>
+              </div>
             ))}
           </div>
         </section>
