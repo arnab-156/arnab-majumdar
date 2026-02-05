@@ -7,36 +7,45 @@ import { buttonStyle } from "@/app/utility/stylevariables";
 const neutralGallery = [
   {
     src: "/class-rep.png",
-    alt: "Framed certificate placeholder",
-    caption: "Academic Distinction, 2024",
+    alt: "class representative poster for Arnab",
+    caption: "Class Representative, EMBA A27",
     category: "academic",
   },
   {
-    src: "",
+    src: "https://lotusmahal.com/cdn/shop/files/Graduation_Award_2008.jpg?v=1768662805&width=800",
+    isLandscape: true,
     alt: "Conference presentation placeholder",
-    caption: "Keynote: Circular Supply Chains",
+    caption: "Circular Supply Chains: Size Standardization Study at Reliance Trends",
     category: "academic",
   },
   {
-    src: "",
+    src: "https://lotusmahal.com/cdn/shop/files/certificate_of_merit_2007_02.jpg?v=1768662805&width=800",
     alt: "Runner crossing finish line placeholder",
     caption: "Triathlon Finisher",
     category: "sports",
   },
   {
-    src: "",
+    src: "https://lotusmahal.com/cdn/shop/files/British_Library_International_Library_Culture_Center_1996.png?v=1768662806&width=800",
+    isLandscape: true,
     alt: "Athlete medal placeholder",
     caption: "Half Marathon Podium",
     category: "sports",
   },
   {
-    src: "",
+    src: "https://lotusmahal.com/cdn/shop/files/Majlish_Painting_2003.png?v=1768663049&width=800",
+    isLandscape: true,
+    alt: "Athlete medal placeholder",
+    caption: "Half Marathon Podium",
+    category: "sports",
+  },
+  {
+    src: "https://lotusmahal.com/cdn/shop/files/CamelColorContest96.jpg?v=1768662805&width=800",
     alt: "Gallery wall placeholder",
     caption: "Mixed-Media Exhibition",
     category: "arts",
   },
   {
-    src: "",
+    src: "https://lotusmahal.com/cdn/shop/files/CamelColorContest95.jpg?v=1768662805&width=800",
     alt: "Stage performance placeholder",
     caption: "Live Performance Concept",
     category: "arts",
@@ -57,39 +66,41 @@ const achievements = {
       ],
     },
     {
-      title: "Strategic Innovation Lab",
+      title: "Innovation",
       description:
-        "Advised Fortune 500 retail teams on business transformation, earning the 'Innovation Catalyst' award from the Stern Center for Sustainable Business.",
+        "Coming soon",
       links: [
         { label: "Panel: Tech × Sustainability" },
         { label: "Sustainability: Fabric Futures", href: "/lotus/eye-on-india" },
       ],
       bullets: [
         "Designed executive playbooks for omnichannel retailers.",
-        "Mentored Stern MBAs on circular business experimentation.",
+        "Launched innovative and technical brand for Reliance Trends",
+        "Vendor Development: Building large scale manufacturers for Reliance Trends",
+        "Size Standardization for Fits in India for Reliance Trends"
       ],
     },
   ],
   sports: [
     {
-      title: "Ultra Endurance Collective",
+      title: "Sports",
       description:
-        "Co-led a 50-person fundraising team across triathlons, open-water swims, and multi-day rides; coached first-time athletes on training systems.",
+        "Coming soon.",
       links: [
-        { label: "TriState Triathlon League" },
-        { label: "Open-Water Swim Clinics" },
+        { label: "World Pride" },
+        { label: "AAC" },
       ],
       bullets: [
-        "Raised over $50K for community health orgs.",
-        "Built inclusive race-prep curriculum for beginners.",
+        "Raised over ....",
+        "Built inclusive ....",
       ],
     },
     {
       title: "Mindful Movement Residencies",
       description:
-        "Designed curriculum for inclusive movement practices, blending yoga, pilates, and breath work for university and Pride community programs.",
+        "Designed curriculum for inclusive movement practices, blending yoga, strength training, and breath work for longetivity.",
       bullets: [
-        "Led residencies at two universities and Pride wellness hubs.",
+        "Led communities and Pride wellness hubs.",
         "Partnered with adaptive athletes on mobility workshops.",
       ],
     },
@@ -111,13 +122,13 @@ const achievements = {
     {
       title: "Cultural Programming",
       description:
-        "Produced artist residencies and storytelling salons spotlighting South Asian queer voices; built partnerships with museums and Pride organizations.",
+        "Produced artist residencies and storytelling salons spotlighting South Asian stories, queer voices; built partnerships with museums, communities and Pride organizations.",
       links: [
         { label: "Arts Residency Framework" },
         { label: "Conference Talk" },
       ],
       bullets: [
-        "Secured grants with museum partners to expand programming.",
+        "Secured grants to expand collborative programming.",
         "Hosted salons that combined film, textiles, and spoken-word.",
       ],
     },
@@ -184,27 +195,27 @@ export default function AchievementsPage() {
         </section>
 
         {/* Gallery */}
-        <section className="px-6 md:px-12 pb-16">
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {neutralGallery.map(({ src, alt, caption, category }) => (
-              <ImageMagnify key={src}>
-                <figure
-                  className={`rounded-3xl border border-gray-200
-                     dark:border-white/15 bg-white/90 dark:bg-black/40 shadow-lg hover:shadow-purple-200/60 
-                     dark:hover:shadow-purple-900/60 transition flex flex-col items-center ${category}`}
-                >
-                  <Image
-                    src={src}
-                    alt={alt}
-                    width={480}
-                    height={720}
-                    className="object-cover w-auto h-[22rem] m-auto rounded-2xl"
-                  />
-                  <figcaption className="p-4 text-sm text-gray-700 dark:text-gray-200 font-nyu-thin text-center">
-                    {caption}
-                  </figcaption>
-                </figure>
-              </ImageMagnify>
+        <section className="px-4 md:px-12 pb-16">
+          <div className="flex gap-4 md:gap-6 overflow-x-auto snap-x snap-mandatory scroll-pl-4 md:scroll-pl-12 pb-6">
+            {neutralGallery.map(({ src, alt, caption, category, isLandscape }) => (
+              <div key={alt} className="snap-center shrink-0 w-[85%] sm:w-[70%] md:w-72 lg:w-80">
+                <ImageMagnify>
+                  <figure className={`flex flex-col items-center transition ${category}`}>
+                    {src && <Image
+                      src={src}
+                      alt={alt}
+                      width={600}
+                      height={800}
+                      unoptimized
+                      priority
+                      className={`object-cover mx-auto rounded-3xl ${isLandscape ? "w-auto" : "sm:w-64 md:w-72 "}`}
+                    />}
+                    <figcaption className="p-3 text-sm text-gray-700 dark:text-gray-200 font-nyu-thin text-center">
+                      {caption}
+                    </figcaption>
+                  </figure>
+                </ImageMagnify>
+              </div>
             ))}
           </div>
         </section>
