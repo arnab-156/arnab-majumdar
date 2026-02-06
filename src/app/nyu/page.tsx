@@ -17,6 +17,9 @@ type Course = {
 type Project = {
   courseName: string;
   projectName: string;
+  description?: string;
+  outcomes?: string[];
+  url?: string;
 };
 
 const courses: Course[] = [
@@ -76,6 +79,34 @@ const courses: Course[] = [
   },
 ];
 
+const projectInfo: Record<string, { description: string; outcomes: string[]; url?: string }> = {
+  "Macroscopic Analysis of Germany": {
+    description: "Macro deep dive into Germany’s growth drivers, export engine, and energy transition risks.",
+    outcomes: [
+      "Modeled GDP sensitivity to ECB rate moves and industrial output shifts.",
+      "Evaluated energy mix transition impacts on trade balance and manufacturing margins.",
+    ],
+    url: "https://example.com/projects/macroscopic-analysis-of-germany",
+  },
+  "Analysis of China": {
+    description: "Scenario analysis of China’s post‑COVID demand, property deleveraging, and supply-chain reshoring.",
+    outcomes: [
+      "Built upside/base/downside scenarios for property, exports, and domestic consumption.",
+      "Assessed how export controls and friend-shoring reshape sector winners/losers.",
+    ],
+    url: "https://example.com/projects/analysis-of-china",
+  },
+  "Geopolitical Analysis of Turkey": {
+    description: "Geopolitical risk brief ahead of the Türkiye immersion, focusing on energy corridors and currency stability.",
+    outcomes: [
+      "Mapped Black Sea/Middle East corridor dynamics and their effect on FDI flows.",
+      "Analyzed inflation and FX pass-through for consumer-facing businesses.",
+      "Outlined cultural and regulatory considerations for market entry sequencing.",
+    ],
+    url: "https://example.com/projects/geopolitical-analysis-of-turkey",
+  },
+};
+
 const specializations = ["Strategy", "Sustainability", "Innovation"];
 
 const groups = [
@@ -110,6 +141,9 @@ export default function NYUPage() {
         course.projects.map((projectName) => ({
           courseName: course.name,
           projectName,
+          description: projectInfo[projectName]?.description,
+          outcomes: projectInfo[projectName]?.outcomes,
+          url: projectInfo[projectName]?.url,
         }))
       ),
     []
@@ -461,19 +495,47 @@ export default function NYUPage() {
               </button>
             </div>
 
-            <div className="mt-6 rounded-2xl border border-dashed border-purple-200 bg-purple-50 p-4 text-sm text-purple-800 dark:border-purple-800 dark:bg-purple-900/40 dark:text-purple-100">
-              This space is ready for deeper project write-ups. For now, use the link below to open a dedicated page when it is available.
+            <div className="mt-6 space-y-4">
+              {activeProject.description && (
+                <p className="text-base text-gray-800 dark:text-gray-100 leading-relaxed">
+                  {activeProject.description}
+                </p>
+              )}
+
+              {activeProject.outcomes?.length ? (
+                <div>
+                  <h4 className="text-sm font-semibold uppercase tracking-[0.2em] text-purple-600 dark:text-purple-300">
+                    Learning outcomes
+                  </h4>
+                  <ul className="mt-2 space-y-2 rounded-2xl border border-dashed border-purple-200 bg-purple-50 p-4 text-sm text-purple-900 dark:border-purple-800 dark:bg-purple-900/30 dark:text-purple-50">
+                    {activeProject.outcomes.map((item) => (
+                      <li key={item} className="flex gap-3">
+                        <span className="mt-1 h-2 w-2 rounded-full bg-purple-500" aria-hidden />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ) : (
+                <div className="rounded-2xl border border-dashed border-purple-200 bg-purple-50 p-4 text-sm text-purple-800 dark:border-purple-800 dark:bg-purple-900/40 dark:text-purple-100">
+                  Additional details coming soon. In the meantime, use the link below to open the project space.
+                </div>
+              )}
             </div>
 
-            <div className="mt-6 flex flex-wrap gap-3">
-              <Link
-                href="#"
-                target="_blank"
-                rel="noreferrer"
-                className="rounded-lg border border-purple-200 bg-purple-600 px-4 py-2 text-sm font-semibold text-white shadow hover:-translate-y-[1px] hover:bg-purple-700 dark:border-purple-800"
-              >
-                Open in new page
-              </Link>
+            <div className="mt-6 flex flex-wrap items-center gap-3">
+              {activeProject.url ? (
+                <Link
+                  href={activeProject.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="rounded-lg border border-purple-200 bg-purple-600 px-4 py-2 text-sm font-semibold text-white shadow hover:-translate-y-[1px] hover:bg-purple-700 dark:border-purple-800"
+                >
+                  Open in new tab
+                </Link>
+              ) : (
+                <span className="text-sm text-gray-500 dark:text-gray-400">Project link coming soon</span>
+              )}
               <button
                 type="button"
                 onClick={() => setActiveProject(null)}
