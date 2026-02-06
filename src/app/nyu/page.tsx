@@ -132,7 +132,7 @@ export default function NYUPage() {
     if (activeSlide === 0) {
       return (
         <div className="grid md:grid-cols-2 gap-8 items-center">
-          <div className="relative w-full h-72 md:h-96 overflow-hidden rounded-2xl shadow-xl">
+          <div className="relative w-full max-w-[240px] md:max-w-[280px] aspect-[3/4] overflow-hidden rounded-2xl shadow-xl mx-auto md:mx-0">
             <Image
               src="/class-rep.png"
               alt="Class representative speaking to peers"
@@ -262,7 +262,7 @@ export default function NYUPage() {
         </section>
 
         {/* SLIDING SECTIONS */}
-        <section className="bg-white dark:bg-zinc-950 py-14 px-6 md:px-12">
+        <section className="bg-white dark:bg-zinc-950 py-14 px-6 md:px-12 min-h-[780px] md:min-h-[540px]">
           <div className="max-w-6xl mx-auto">
             <div className="flex items-center justify-between gap-4">
               <h2 className="text-3xl md:text-4xl font-nyu-ultra">Stern Snapshots</h2>
@@ -287,7 +287,7 @@ export default function NYUPage() {
             </div>
 
             <div className="relative mt-8 rounded-3xl border border-purple-100 dark:border-purple-900 bg-gradient-to-br from-purple-50 via-white to-purple-50 dark:from-[#0c041a] dark:via-[#0f0922] dark:to-[#160f2f] p-6 shadow-xl">
-              <div className="relative min-h-[360px] md:min-h-[320px]">
+              <div className="relative min-h-[640px] md:min-h-[360px]">
                 {[0, 1, 2].map((index) => (
                   <div
                     key={index}
