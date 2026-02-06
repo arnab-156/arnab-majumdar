@@ -132,7 +132,7 @@ export default function NYUPage() {
     if (activeSlide === 0) {
       return (
         <div className="grid md:grid-cols-2 gap-8 items-center">
-          <div className="relative w-full max-w-[198px] md:max-w-[231px] aspect-[3/4] overflow-hidden rounded-2xl shadow-xl mx-auto md:mx-0">
+          <div className="relative w-full max-w-[198px] md:max-w-[231px] aspect-[3/4] overflow-hidden rounded-2xl shadow-xl mx-auto md:mx-auto justify-self-center">
             <Image
               src="/class-rep.png"
               alt="Class representative speaking to peers"
