@@ -107,7 +107,7 @@ const projectInfo: Record<string, { description: string; outcomes: string[]; url
   },
 };
 
-const specializations = ["Strategy", "Sustainability", "Innovation"];
+const specializations = ["Strategy", "Sustainability & Innovation", "Global Business"];
 
 const groups = [
   {
