@@ -174,7 +174,7 @@ export default function ExperiencesPage() {
         <div className={cardWrapperStyle}>
           <Card
             title="NYU - Stern School of Business"
-            url="https://www.stern.nyu.edu/"
+            url="/nyu"
             imageUrl="/stern.png"
             backgroundTheme={`${nycBackgroundTheme}`}
             description="Class Representative, Master of Business Administration - Class of 2027"

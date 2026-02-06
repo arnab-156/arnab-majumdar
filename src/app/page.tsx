@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { Card } from "./components/card";
-import { CalculatorIcon, ComputerIcon, ReadIcon } from "./components/icons";
+import { ReadIcon } from "./components/icons";
 import { cardWrapperStyle, nycBackgroundTheme, buttonStyle, tiffanyBackgroundTheme, invertedButtonStyle } from './utility/stylevariables';
 
 export default function Home() {
@@ -28,7 +28,7 @@ export default function Home() {
           <h2 className="text-xl font-bold text-center capitalize">Welcome to my Stern journey!</h2>
           <Card
             title="NYU - Stern School of Business"
-            url="/experiences#my-education"
+            url="/nyu"
             imageUrl="/stern.png"
             backgroundTheme={`${nycBackgroundTheme}`}
             description="Class Representative, Master of Business Administration - Class of 2027"
