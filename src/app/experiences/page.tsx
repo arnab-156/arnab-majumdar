@@ -6,7 +6,12 @@ export default function ExperiencesPage() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between pt-20 ">
       <div className="mb-32 grid text-center lg:w-half lg:max-w-5xl lg:grid-cols-3 lg:text-left">
-        <h1 className="text-3xl font-bold text-center mt-8 font-nyu-ultra">Experiences</h1>
+        <div className="lg:col-span-3 flex flex-col items-center gap-4">
+          <h1 className="text-3xl font-bold text-center mt-8 font-nyu-ultra">Experiences</h1>
+          <Link href="/experiences/achievements" className={buttonStyle}>
+            See all achievements
+          </Link>
+        </div>
 
         <div className={cardWrapperStyle}>
           <Card
