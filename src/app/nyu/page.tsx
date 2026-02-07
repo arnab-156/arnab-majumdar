@@ -14,12 +14,14 @@ type Course = {
   projects: string[];
 };
 
+type ProjectLink = { title?: string; url: string };
+
 type Project = {
   courseName: string;
   projectName: string;
   description?: string;
   outcomes?: string[];
-  url?: string;
+  urls?: ProjectLink[];
 };
 
 const courses: Course[] = [
@@ -52,7 +54,7 @@ const courses: Course[] = [
       name: "Brian Hanssen",
       url: "https://www.stern.nyu.edu/faculty/bio/brian-hanssen",
     },
-    projects: [],
+    projects: ["SOAR Student Success"],
   },
   {
     name: "Professional Responsibility",
@@ -79,14 +81,14 @@ const courses: Course[] = [
   },
 ];
 
-const projectInfo: Record<string, { description: string; outcomes: string[]; url?: string }> = {
+const projectInfo: Record<string, { description: string; outcomes: string[]; urls?: ProjectLink[] }> = {
   "Macroscopic Analysis of Germany": {
     description: "Macro deep dive into Germany’s growth drivers, export engine, and energy transition risks.",
     outcomes: [
       "Modeled GDP sensitivity to ECB rate moves and industrial output shifts.",
       "Evaluated energy mix transition impacts on trade balance and manufacturing margins.",
     ],
-    url: "https://example.com/projects/macroscopic-analysis-of-germany",
+    urls: [{ url: "https://example.com/projects/macroscopic-analysis-of-germany" }],
   },
   "Analysis of China": {
     description: "Scenario analysis of China’s post‑COVID demand, property deleveraging, and supply-chain reshoring.",
@@ -94,7 +96,7 @@ const projectInfo: Record<string, { description: string; outcomes: string[]; url
       "Built upside/base/downside scenarios for property, exports, and domestic consumption.",
       "Assessed how export controls and friend-shoring reshape sector winners/losers.",
     ],
-    url: "https://example.com/projects/analysis-of-china",
+    urls: [{ url: "https://example.com/projects/analysis-of-china" }],
   },
   "Geopolitical Analysis of Turkey": {
     description: "Geopolitical risk brief ahead of the Türkiye immersion, focusing on energy corridors and currency stability.",
@@ -103,7 +105,21 @@ const projectInfo: Record<string, { description: string; outcomes: string[]; url
       "Analyzed inflation and FX pass-through for consumer-facing businesses.",
       "Outlined cultural and regulatory considerations for market entry sequencing.",
     ],
-    url: "https://example.com/projects/geopolitical-analysis-of-turkey",
+    urls: [{ url: "https://example.com/projects/geopolitical-analysis-of-turkey" }],
+  },
+  "SOAR Student Success": {
+    description:
+      "Proposal to replace traditional DEI office functions with SOAR across NYC school districts, using the STEP model (Social Context, Tenets, Engagement, Perception) to craft a communications plan.",
+    outcomes: [
+      "Framing: formal yet relatable, invigorating, and student-success focused; repeated SOAR branding.",
+      "Audience & cadence: whole student body, single auditorium assembly with supporting slides and assistant.",
+      "Channel & owner: principal as Speaker Four delivering message; live vocal acknowledgments and engagement prompts.",
+      "Perception checks: student participation during assembly plus follow-up engagement to validate resonance.",
+    ],
+    urls: [
+      { title: "SOAR proposal site", url: "https://soar-highschool-4bl2cj6.gamma.site/" },
+      { title: "Principal SOAR presentation", url: "https://gamma.app/docs/Ready-to-SOAR-This-Year--18usn6851cipr7g" },
+    ],
   },
 };
 
@@ -143,7 +159,7 @@ export default function NYUPage() {
           projectName,
           description: projectInfo[projectName]?.description,
           outcomes: projectInfo[projectName]?.outcomes,
-          url: projectInfo[projectName]?.url,
+          urls: projectInfo[projectName]?.urls,
         }))
       ),
     []
@@ -524,15 +540,28 @@ export default function NYUPage() {
             </div>
 
             <div className="mt-6 flex flex-wrap items-center gap-3">
-              {activeProject.url ? (
-                <Link
-                  href={activeProject.url}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="rounded-lg border border-purple-200 bg-purple-600 px-4 py-2 text-sm font-semibold text-white shadow hover:-translate-y-[1px] hover:bg-purple-700 dark:border-purple-800"
-                >
-                  Open in new tab
-                </Link>
+              {activeProject.urls?.length ? (
+                activeProject.urls.map((link) => {
+                  const isPlaceholder = link.url.startsWith("https://example.com/");
+                  return isPlaceholder ? (
+                    <span
+                      key={link.url}
+                      className="rounded-lg border border-gray-300 px-4 py-2 text-sm font-semibold text-gray-500 bg-gray-100/80 dark:border-gray-700 dark:bg-gray-800/60 dark:text-gray-400 cursor-not-allowed"
+                    >
+                      {link.title || "Click link"} (coming soon)
+                    </span>
+                  ) : (
+                    <Link
+                      key={link.url}
+                      href={link.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="rounded-lg border border-purple-200 bg-purple-600 px-4 py-2 text-sm font-semibold text-white shadow hover:-translate-y-[1px] hover:bg-purple-700 dark:border-purple-800"
+                    >
+                      {link.title || "Click link"}
+                    </Link>
+                  );
+                })
               ) : (
                 <span className="text-sm text-gray-500 dark:text-gray-400">Project link coming soon</span>
               )}
