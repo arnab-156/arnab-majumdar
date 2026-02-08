@@ -1,90 +1,35 @@
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
+import { list } from "@vercel/blob";
 import { ImageMagnify } from "@/app/components/ImageMagnify";
 import { buttonStyle } from "@/app/utility/stylevariables";
 
-const neutralGallery = [
-  {
-    src: "/class-rep.png",
-    alt: "class representative poster for Arnab",
-    caption: "Class Representative, EMBA A27",
-    category: "academic",
-  },
-  {
-    src: "https://lotusmahal.com/cdn/shop/files/Graduation_Award_2008.jpg?v=1768662805&width=800",
-    isLandscape: true,
-    alt: "Conference presentation placeholder",
-    caption: "Circular Supply Chains: Size Standardization Study at Reliance Trends",
-    category: "academic",
-  },
-  {
-    src: "https://lotusmahal.com/cdn/shop/files/certificate_of_merit_2007_02.jpg?v=1768662805&width=800",
-    alt: "Arnab's 3rd prize Certificate at NIFT Spectrum",
-    caption: "Certificate of Merit - Dance",
-    category: "arts",
-  },
-  {
-    src: "https://lotusmahal.com/cdn/shop/files/British_Library_International_Library_Culture_Center_1996.png?v=1768662806&width=800",
-    isLandscape: true,
-    alt: "Arnab's Certificate from International_Library_Culture_Center",
-    caption: "Certificate of Merit - Art",
-    category: "arts",
-  },
-  {
-    src: "https://lotusmahal.com/cdn/shop/files/Majlish_Painting_2003.png?v=1768663049&width=800",
-    isLandscape: true,
-    alt: "Arnab's 2nd prize Certificate from Majlish",
-    caption: "Certificate of Merit - Painting",
-    category: "arts",
-  },
-  {
-    src: "https://lotusmahal.com/cdn/shop/files/CamelColorContest96.jpg?v=1768662805&width=800",
-    alt: "Arnab's 2nd prize Certificate from Camel",
-    caption: "Certificate of Merit - Art",
-    category: "arts",
-  },
-  {
-    src: "https://lotusmahal.com/cdn/shop/files/CamelColorContest95.jpg?v=1768662805&width=800",
-    alt: "Arnab's 2nd prize Certificate from Camel",
-    caption: "Certificate of Merit - Art",
-    category: "arts",
-  },
-  {
-    src: "https://lotusmahal.com/cdn/shop/files/Music_Academy_2004.png?v=1768663048&width=800",
-    isLandscape: true,
-    alt: "2nd prize in Rabindra Sangeet Category by Music Academy, 2004",
-    caption: "2nd prize in Rabindra Sangeet Category by Music Academy, 2004",
-    category: "music",
-  },
-  {
-    src: "https://lotusmahal.com/cdn/shop/files/Business_Startup_Certificate_City_of_Chicago_2017.png",
-    isLandscape: true,
-    alt: "Business Start-up Certification from City of Chicago",
-    caption: "Business Start-up Certification from City of Chicago",
-    category: "professional development",
-  },
-  {
-    src: "https://lotusmahal.com/cdn/shop/files/College_of_Music_and_Fine_Arts_Ranchi_1994.png",
-    alt: "Consolation Prize (Group A) in Painting from College of Music & Fine Arts, Ranchi (1994)",
-    caption: "Consolation Prize (Group A) in Painting from College of Music & Fine Arts, Ranchi (1994)",
-    category: "arts",
-  },
-  {
-    src: "https://lotusmahal.com/cdn/shop/files/BSP_Certificate_2nd_1996.png",
-    isLandscape: true,
-    alt: "Diploma of Arts from Bangiya Sangeet Parishad (2nd Year)",
-    caption: "Diploma of Arts from Bangiya Sangeet Parishad (2nd Year)",
-    category: "arts",
-  },
-  {
-    src: "https://lotusmahal.com/cdn/shop/files/BSP_Certificate_Purna_1993-94.png",
-    isLandscape: true,
-    alt: "Diploma of Arts from Bangiya Sangeet Parishad (Purna)",
-    caption: "Diploma of Arts from Bangiya Sangeet Parishad (Purna)",
-    category: "arts",
-  },
+const galleryCaptions = [
+  "Senior Diploma - Painting",
+  "Certificate of Merit - Art",
+  "Certificate of Merit - Painting",
+  "Certificate of Merit - Art",
+  "BBusiness Start-up Certification from City of Chicago",
+  "Winner, 2nd Prize - All India Camel Color Contest", "Winner, 2nd Prize - All India Camel Color Contest", "Participation", "Participation",
+  "Circular Supply Chains: Size Standardization Study at Reliance Trends",
+  "Certificate - College of Fine Arts",
+  "House Captain",
+  "2nd Prize - Group Song Competition",
+  "Certificate - Science Olympiad",
+  "2nd prize in Rabindra Sangeet Category by Music Academy, 2004",
+  "Timex - Paint a watch competition",
+  "Winner, 2nd Prize - Dance,  NIFT, 2007",
+  "Winner, 3rd Prize - Dance,  NIFT, 2007", "Help Age India", "Letter of Appreciation - Majlish"
+
 ];
+
+const galleryCategories = ["art", "art", "Academic", "art", "leadership", "art", "art", "art", "art", "academic", "art", "leadership", "art", "academic", "music", "painting", "dance", "dance", "leadership", "leadership"];
+
+const galleryInfo = {
+  captions: galleryCaptions,
+  categories: galleryCategories,
+};
 
 type LinkItem = { label: string; href?: string };
 type BulletItem = string;
@@ -479,7 +424,26 @@ const SkillsStack = () => (
   </section>
 );
 
-export default function AchievementsPage() {
+export default async function AchievementsPage() {
+  const { blobs } = await list();
+
+  const classRepTile = {
+    src: "/class-rep.png",
+    alt: "class representative poster for Arnab",
+    caption: "Class Representative, EMBA A27",
+    category: "Leadership",
+  };
+
+  const blobTiles = [
+    classRepTile,
+    ...(blobs?.map(({ url, pathname }, index) => ({
+      src: url,
+      alt: pathname,
+      caption: galleryInfo.captions[index] ?? pathname,
+      category: galleryInfo.categories[index] ?? "",
+    })) ?? []),
+  ];
+
   return (
     <>
       <Head>
@@ -505,41 +469,43 @@ export default function AchievementsPage() {
 
         {/* Gallery */}
         <section className="px-4 md:px-12 pb-16">
-          <div className="overflow-x-auto scrollbar-thin scrollbar-thumb-gray-200 dark:scrollbar-thumb-gray-700 scrollbar-track-transparent pb-3">
-            <div className="flex gap-3 sm:gap-4 min-w-max scroll-pl-4 md:scroll-pl-12 pr-4">
-              {neutralGallery.map(({ src, alt, caption, category, isLandscape }) => (
-                <article
-                  key={alt}
-                  className="w-[260px] sm:w-[320px] shrink-0 rounded-2xl border border-gray-100/70 dark:border-white/10 bg-white/95 dark:bg-black/60 shadow-lg hover:-translate-y-1 transition-transform duration-200"
-                >
-                  <div className="h-1 bg-gradient-to-r from-purple-500 via-indigo-500 to-emerald-500 rounded-t-2xl" aria-hidden />
-                  <div className="p-3 space-y-2">
-                    <ImageMagnify>
-                      <figure className={`relative overflow-hidden rounded-xl bg-gray-50 dark:bg-gray-900 flex items-center justify-center ${category}`}>
-                        <Image
-                          src={src}
-                          alt={alt}
-                          width={800}
-                          height={800}
-                          unoptimized
-                          priority
-                          className="object-contain w-full h-[240px] sm:h-[280px] mx-auto"
-                        />
-                      </figure>
-                    </ImageMagnify>
-                    <div className="space-y-1">
-                      <p className="text-sm font-semibold text-gray-900 dark:text-white leading-snug text-left">
-                        {caption}
-                      </p>
-                      <span className="inline-block text-[11px] uppercase tracking-[0.25em] text-gray-500 dark:text-gray-400">
-                        {category}
-                      </span>
+          {blobTiles.length > 0 && (
+            <div className="overflow-x-auto scrollbar-thin scrollbar-thumb-gray-200 dark:scrollbar-thumb-gray-700 scrollbar-track-transparent pb-3">
+              <div className="flex gap-3 sm:gap-4 min-w-max scroll-pl-4 md:scroll-pl-12 pr-4">
+                {blobTiles.map(({ src, alt, caption, category }) => (
+                  <article
+                    key={src}
+                    className="w-[260px] sm:w-[320px] shrink-0 rounded-2xl border border-gray-100/70 dark:border-white/10 bg-white/95 dark:bg-black/60 shadow-lg hover:-translate-y-1 transition-transform duration-200"
+                  >
+                    <div className="h-1 bg-gradient-to-r from-purple-500 via-indigo-500 to-emerald-500 rounded-t-2xl" aria-hidden />
+                    <div className="p-3 space-y-2">
+                      <ImageMagnify>
+                        <figure className="relative overflow-hidden rounded-xl bg-gray-50 dark:bg-gray-900 flex items-center justify-center">
+                          <Image
+                            src={src}
+                            alt={alt}
+                            width={800}
+                            height={800}
+                            unoptimized
+                            priority
+                            className="object-contain w-full h-[240px] sm:h-[280px] mx-auto"
+                          />
+                        </figure>
+                      </ImageMagnify>
+                      <div className="space-y-1">
+                        <p className="text-sm font-semibold text-gray-900 dark:text-white leading-snug text-left">
+                          {caption}
+                        </p>
+                        <span className="inline-block text-[11px] uppercase tracking-[0.25em] text-gray-500 dark:text-gray-400">
+                          {category || "\u00a0"}
+                        </span>
+                      </div>
                     </div>
-                  </div>
-                </article>
-              ))}
+                  </article>
+                ))}
+              </div>
             </div>
-          </div>
+          )}
         </section>
 
         {/* Academic */}
