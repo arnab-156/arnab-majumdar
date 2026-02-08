@@ -181,24 +181,30 @@ const achievements = {
       ],
     },
     {
-      title: "Athletic Association of Chicago 2018 — Regular Season (Intermediate)",
+      title: "Athletic Association of Chicago 2018 — Regular Season (Intermediate · Table Tennis)",
       description:
         "Captured first prize across the Intermediate regular season, focusing on consistency, cardio base, and injury prevention.",
       bullets: [
-        "Maintained >90% attendance across fixtures; logged progressive strength and conditioning blocks.",
-        "Applied match analytics to target serve percentage and unforced‑error reduction.",
-        "Led team stretch and cooldown protocols to keep the squad healthy through the season.",
+        "Applied match analytics to target serve percentage and unforced-error reduction.",
       ],
     },
     {
-      title: "Athletic Association of Chicago 2018 — Playoffs (Intermediate)",
+      title: "Athletic Association of Chicago 2018 — Playoffs (Intermediate · Table Tennis)",
       description:
-        "Closed the year with a first‑prize playoff run, peaking taper and recovery to stay sharp through elimination rounds.",
+        "Closed the year with a first-prize playoff run, peaking taper and recovery to stay sharp through elimination rounds.",
       bullets: [
-        "Executed high‑intensity interval sessions leading into playoffs for speed and endurance.",
-        "Introduced pre‑match visualization and hydration plans to manage nerves and cramping.",
-        "Finished playoffs undefeated while sustaining joint health and power output.",
+        "Introduced pre-match visualization and hydration plans to manage nerves and cramping.",
       ],
+    },
+    {
+      title: "Yoga for Sports",
+      description:
+        "Programming that weaves mindfulness, awareness, and deep stretching into sport to boost performance, speed recovery, and strengthen overall health.",
+    },
+    {
+      title: "Art, Sports, and Visualization",
+      description:
+        "Bringing creativity into sport—learning from the best to combine artistic thinking with gameplay and practice. Paper coming soon.",
     },
   ],
   arts: [

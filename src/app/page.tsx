@@ -52,10 +52,22 @@ export default function Home() {
             title="Aster for Lotus - Made in Rhode Island"
             description="Luxurious hand-crafted candle featuring exquisite watercolor artwork on a heavy whiskey-colored glass jar."
             url="https://lotusmahal.com/products/aster-for-lotus"
+            openInNewTab
             customClassName={`${cardWrapperStyle}`}
             backgroundTheme={nycBackgroundTheme}
             imageUrl='https://lotusmahal.com/cdn/shop/files/DSCF2076_42f9aa66-c21a-4b76-a0db-88a679d0039e.jpg?v=1741617890&width=1646'
           />
+        </div>
+
+        <div className={cardWrapperStyle}>
+          <h2 className="text-xl font-bold text-center capitalize">Updated Daily!</h2>
+          <Card
+            title="Comic of the day!"
+            url="/tech/comic"
+            description="Have fun reading some fun comics!! More Features to come!"
+          >
+            <ReadIcon height="100px" width="100px" />
+          </Card>
         </div>
 
         <div className={cardWrapperStyle}>
@@ -104,6 +116,7 @@ export default function Home() {
           <Card
             title="Find contact information in the top navigation on mobile or the footer on desktop."
             url="/help"
+            backgroundTheme={nycBackgroundTheme}
           >
             <div>
               <p className="text-wrap">
@@ -117,23 +130,11 @@ export default function Home() {
                 <li className="hover:underline justify-start">Manufacturing and Sourcing</li>
                 <li className="hover:underline justify-start">Education- Program Review, Strategic Planning and Training</li>
                 <li className="hover:underline justify-start">Students</li>
-                <li className="hover:underline justify-start">Community Organizers</li>
-              </ul>
-            </div>
-          </Card>
+            <li className="hover:underline justify-start">Community Organizers</li>
+          </ul>
         </div>
-
-        <div className={cardWrapperStyle}>
-          <h2 className="text-xl font-bold text-center capitalize">Updated Daily!</h2>
-          <Card
-            title="Comic of the day!"
-            url="/tech/comic"
-            description="Have fun reading some fun comics!! More Features to come!"
-            backgroundTheme={nycBackgroundTheme}
-          >
-            <ReadIcon height="100px" width="100px" />
-          </Card>
-        </div>
+      </Card>
+    </div>
 
         <div className="shadow-md rounded-md text-center py-4 px-8 m-4">
           <p className="m-2"><strong>Navigate with ease.</strong> Use the top menu to jump to specific project categories.</p>
@@ -142,7 +143,6 @@ export default function Home() {
         </div>
 
         <div className={cardWrapperStyle}>
-          <h2 className="text-xl font-bold text-center capitalize">100% Free Website!</h2>
           <Card
             title="Click the tile to view my experiences."
             url="/experiences"
@@ -172,7 +172,19 @@ export default function Home() {
             url="https://lotusmahal.com/"
             description="All images and icons are carefully chosen to be either personal creations or royalty-free!"
           >
-            <p className="my-4 pb-4"><strong >Thank you for your support!</strong> Please visit store<Link className={`${buttonStyle}`} href="https://lotusmahal.com/" aria-label="go to lotusmahal.com">Lotus Mahal.</Link></p>
+            <div className="my-4 pb-4 flex flex-col items-center text-center gap-3">
+              <p>
+                <strong>Thank you for your support!</strong> Please visit store
+              </p>
+              <Link
+                className={`${buttonStyle} inline-flex justify-center`}
+                href="https://lotusmahal.com/"
+                aria-label="go to lotusmahal.com"
+              >
+                Lotus Mahal
+              </Link>
+              <p className="text-xs text-gray-500 dark:text-gray-400">opens in a new tab</p>
+            </div>
           </Card>
         </div>
 
