@@ -79,6 +79,14 @@ const courses: Course[] = [
     },
     projects: ["Geopolitical Analysis of Turkey"],
   },
+  {
+    name: "Strategy & Innovation in China",
+    faculty: {
+      name: "Christina Fang",
+      url: "https://sites.google.com/stern.nyu.edu/christinafang/home",
+    },
+    projects: [],
+  },
 ];
 
 const projectInfo: Record<string, { description: string; outcomes: string[]; urls?: ProjectLink[] }> = {
