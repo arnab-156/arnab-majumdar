@@ -35,17 +35,6 @@ export default function Home() {
           />
         </div>
 
-        <div className={cardWrapperStyle} id="garden-of-swann">
-          <h2 className="text-xl font-bold text-center capitalize">New and Trending:</h2>
-          <Card
-            title="World Pride Garden of Swann Washington D.C."
-            description="Click to learn more about Fashion + Activism of William Dorsey Swann"
-            url="/lotus/garden-of-swann"
-            customClassName={`${cardWrapperStyle}`}
-            imageUrl={`https://live.staticflickr.com/65535/55041103674_dd84ce4ce4_w.jpg`}
-          />
-        </div>
-
         <div className={cardWrapperStyle} id="aster">
           <h2 className="text-xl font-bold text-center capitalize" >Made in US Collaboration:</h2>
           <Card
@@ -68,6 +57,17 @@ export default function Home() {
           >
             <ReadIcon height="100px" width="100px" />
           </Card>
+        </div>
+
+        <div className={cardWrapperStyle} id="garden-of-swann">
+          <h2 className="text-xl font-bold text-center capitalize">New and Trending:</h2>
+          <Card
+            title="World Pride Garden of Swann Washington D.C."
+            description="Click to learn more about Fashion + Activism of William Dorsey Swann"
+            url="/lotus/garden-of-swann"
+            customClassName={`${cardWrapperStyle}`}
+            imageUrl={`https://live.staticflickr.com/65535/55041103674_dd84ce4ce4_w.jpg`}
+          />
         </div>
 
         <div className={cardWrapperStyle}>
