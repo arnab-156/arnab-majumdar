@@ -60,7 +60,7 @@ export default function Home() {
         </div>
 
         <div className={cardWrapperStyle} id="garden-of-swann">
-          <h2 className="text-xl font-bold text-center capitalize">New and Trending:</h2>
+          <h2 className="text-xl font-bold text-center capitalize">Stories of Courage</h2>
           <Card
             title="World Pride Garden of Swann Washington D.C."
             description="Click to learn more about Fashion + Activism of William Dorsey Swann"
