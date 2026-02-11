@@ -48,7 +48,6 @@ const resourceLinks = [
   { title: "Ethical Voice & Reporting Channels Design (canvas + instructions)", url: "https://www.ethicscanvas.org/" },
   { title: "Stripe primer on compliance and security", url: "https://docs.stripe.com/security/guide" },
   { title: "SEC Whistleblower program overview", url: "https://www.sec.gov/whistleblower" },
-  { title: "OECD guidance on reporting channels", url: "https://www.oecd.org/corruption/anti-corruption-and-integrity/" },
   { title: "ICCR investor guidance on whistleblowing", url: "https://www.iccr.org/" },
 ];
 
