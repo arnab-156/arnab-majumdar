@@ -35,6 +35,15 @@ export default function Home() {
           />
         </div>
 
+        <div className={cardWrapperStyle}>
+          <h2 className="text-xl font-bold text-center capitalize">New and Trending</h2>
+          <Card
+            title="What I learned from Whistleblowers?"
+            description="What I learned from Whistleblowers? How ethics shows up in real organizations—and how individual choices connect to systems, incentives, and outcomes."
+            url="/nyu/professional-responsibility"
+          />
+        </div>
+
         <div className={cardWrapperStyle} id="aster">
           <h2 className="text-xl font-bold text-center capitalize" >Made in US Collaboration:</h2>
           <Card
