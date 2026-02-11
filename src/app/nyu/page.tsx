@@ -59,7 +59,7 @@ const courses: Course[] = [
   {
     name: "Professional Responsibility",
     faculty: { name: "Alison Taylor", url: "https://www.alisontaylor.co/" },
-    projects: [],
+    projects: ["What I learned from Whistleblowers?"],
   },
   {
     name: "The Global Economy",
@@ -128,6 +128,17 @@ const projectInfo: Record<string, { description: string; outcomes: string[]; url
       { title: "SOAR proposal site", url: "https://soar-highschool-4bl2cj6.gamma.site/" },
       { title: "Principal SOAR presentation", url: "https://gamma.app/docs/Ready-to-SOAR-This-Year--18usn6851cipr7g" },
     ],
+  },
+  "What I learned from Whistleblowers?": {
+    description:
+      "Course reflection on Professional Responsibility: how whistleblowers surface hidden risk, shape governance, and influence culture.",
+    outcomes: [
+      "Apply stakeholder and human-rights lenses to evaluate business models and market failures.",
+      "Spot ethical fading early and practice intentional speak-up with documentation and escalation paths.",
+      "Link ethics to systems: incentives, procurement, metrics, and board oversight.",
+      "Translate whistleblower insights into safeguards that reduce risk across industries.",
+    ],
+    urls: [{ title: "Project page", url: "/nyu/professional-responsibility" }],
   },
 };
 
