@@ -1,12 +1,40 @@
+import { headers } from 'next/headers';
 import Link from 'next/link';
 import { Card } from "./components/card";
+import { HomeClickTracker } from "./components/home-click-tracker";
 import { ReadIcon } from "./components/icons";
-import { cardWrapperStyle, nycBackgroundTheme, buttonStyle, tiffanyBackgroundTheme, invertedButtonStyle } from './utility/stylevariables';
+import { cardWrapperStyle, nycBackgroundTheme, buttonStyle, tiffanyBackgroundTheme } from './utility/stylevariables';
+
+const decodeHeaderValue = (headerValue: string | null): string => {
+  if (!headerValue) {
+    return '';
+  }
+
+  try {
+    return decodeURIComponent(headerValue).trim();
+  } catch {
+    return headerValue.trim();
+  }
+};
+
+const getHomepageUserLocation = (): string => {
+  const requestHeaders = headers();
+
+  const city = decodeHeaderValue(requestHeaders.get('x-vercel-ip-city'));
+  const region = decodeHeaderValue(requestHeaders.get('x-vercel-ip-country-region'));
+  const country = decodeHeaderValue(requestHeaders.get('x-vercel-ip-country'));
+  const formattedLocation = [city, region, country].filter(Boolean).join(', ');
+
+  return formattedLocation || 'unknown';
+};
 
 export default function Home() {
+  const userLocation = getHomepageUserLocation();
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between md:pt-20 mb-32 font-nyu">
-      <div className="grid text-center lg:w-half lg:max-w-5xl lg:grid-cols-3 lg:text-left">
+    <HomeClickTracker userLocation={userLocation}>
+      <main className="flex min-h-screen flex-col items-center justify-between md:pt-20 mb-32 font-nyu">
+        <div className="grid text-center lg:w-half lg:max-w-5xl lg:grid-cols-3 lg:text-left">
         <div className={cardWrapperStyle}>
           <Card
             title="About Arnab!"
@@ -35,14 +63,12 @@ export default function Home() {
           />
         </div>
 
-        <div className={cardWrapperStyle} id="garden-of-swann">
-          <h2 className="text-xl font-bold text-center capitalize">New and Trending:</h2>
+        <div className={cardWrapperStyle}>
+          <h2 className="text-xl font-bold text-center capitalize">New and Trending</h2>
           <Card
-            title="World Pride Garden of Swann Washington D.C."
-            description="Click to learn more about Fashion + Activism of William Dorsey Swann"
-            url="/lotus/garden-of-swann"
-            customClassName={`${cardWrapperStyle}`}
-            imageUrl={`https://live.staticflickr.com/65535/55041103674_dd84ce4ce4_w.jpg`}
+            title="What I learned from Whistleblowers?"
+            description="What I learned from Whistleblowers? How ethics shows up in real organizations—and how individual choices connect to systems, incentives, and outcomes."
+            url="/nyu/professional-responsibility"
           />
         </div>
 
@@ -68,6 +94,17 @@ export default function Home() {
           >
             <ReadIcon height="100px" width="100px" />
           </Card>
+        </div>
+
+        <div className={cardWrapperStyle} id="garden-of-swann">
+          <h2 className="text-xl font-bold text-center capitalize">Stories of Courage</h2>
+          <Card
+            title="World Pride Garden of Swann Washington D.C."
+            description="Click to learn more about Fashion + Activism of William Dorsey Swann"
+            url="/lotus/garden-of-swann"
+            customClassName={`${cardWrapperStyle}`}
+            imageUrl={`https://live.staticflickr.com/65535/55041103674_dd84ce4ce4_w.jpg`}
+          />
         </div>
 
         <div className={cardWrapperStyle}>
@@ -199,8 +236,9 @@ export default function Home() {
           />
         </div>
 
-      </div>
-      <Link href="#navigation" className='hover:underline text-purple-800'>go to top</Link>
-    </main>
+        </div>
+        <Link href="#navigation" className='hover:underline text-purple-800'>go to top</Link>
+      </main>
+    </HomeClickTracker>
   );
 }
