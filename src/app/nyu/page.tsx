@@ -305,7 +305,7 @@ export default function NYUPage() {
         />
       </Head>
 
-      <main className="font-nyu bg-white text-gray-900 dark:bg-black dark:text-gray-100 min-h-screen">
+      <main className="font-nyu bg-white text-gray-900 dark:bg-black dark:text-gray-100 min-h-screen pb-12">
         {/* HERO */}
         <section className="relative overflow-hidden bg-gradient-to-br from-[#2e0068] via-[#5a1dab] to-[#b373ff] text-white py-16 px-6 md:px-12">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.12),transparent_35%)]" aria-hidden />
@@ -529,6 +529,9 @@ export default function NYUPage() {
             </div>
           </div>
         </section>
+        <div className="pt-8 pb-10 md:pb-0 text-center">
+          <Link href="#navigation" className='hover:underline text-purple-800'>go to top</Link>
+        </div>
       </main>
 
       {activeProject && (
