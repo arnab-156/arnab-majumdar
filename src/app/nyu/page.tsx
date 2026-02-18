@@ -46,7 +46,7 @@ const courses: Course[] = [
       name: "Nathan Pettit",
       url: "https://www.stern.nyu.edu/faculty/bio/nathan-pettit",
     },
-    projects: [],
+    projects: ["Leadership Commitments Plan"],
   },
   {
     name: "Strategic Communications",
@@ -113,7 +113,7 @@ const projectInfo: Record<string, { description: string; outcomes: string[]; url
       "Analyzed inflation and FX pass-through for consumer-facing businesses.",
       "Outlined cultural and regulatory considerations for market entry sequencing.",
     ],
-    urls: [{ url: "https://example.com/projects/geopolitical-analysis-of-turkey" }],
+    urls: [{ title: "Open project", url: "https://turkey-geopolitics-xmuj88c.gamma.site/" }],
   },
   "SOAR Student Success": {
     description:
@@ -139,6 +139,16 @@ const projectInfo: Record<string, { description: string; outcomes: string[]; url
       "Translate whistleblower insights into safeguards that reduce risk across industries.",
     ],
     urls: [{ title: "Project page", url: "/nyu/professional-responsibility" }],
+  },
+  "Leadership Commitments Plan": {
+    description:
+      "A one-year leadership plan that translates values into repeatable rituals, with congruence-model alignment across strategy, operations, and outcomes.",
+    outcomes: [
+      "Defined short-term and long-term commitments anchored in health, learning, and collaboration.",
+      "Built an operating cadence for no-blame learning, resilience, and measurable performance.",
+      "Mapped leadership expectations into practical behaviors that support teams and stakeholders.",
+    ],
+    urls: [{ title: "Project page", url: "/nyu/LeadershipCommitmentPlan" }],
   },
 };
 
@@ -464,7 +474,7 @@ export default function NYUPage() {
         </section>
 
         {/* PROJECTS */}
-        <section className="bg-[#0c041a] text-white dark:bg-white dark:text-gray-900 py-14 px-6 md:px-12 transition-colors duration-300">
+        <section id="projects" className="bg-[#0c041a] text-white dark:bg-white dark:text-gray-900 py-14 px-6 md:px-12 transition-colors duration-300">
           <div className="max-w-6xl mx-auto space-y-6">
             <div className="flex items-center justify-between flex-wrap gap-4">
               <div>
@@ -562,6 +572,7 @@ export default function NYUPage() {
               {activeProject.urls?.length ? (
                 activeProject.urls.map((link) => {
                   const isPlaceholder = link.url.startsWith("https://example.com/");
+                  const isExternal = /^https?:\/\//i.test(link.url);
                   return isPlaceholder ? (
                     <span
                       key={link.url}
@@ -573,8 +584,8 @@ export default function NYUPage() {
                     <Link
                       key={link.url}
                       href={link.url}
-                      target="_blank"
-                      rel="noreferrer"
+                      target={isExternal ? "_blank" : undefined}
+                      rel={isExternal ? "noreferrer" : undefined}
                       className="rounded-lg border border-purple-200 bg-purple-600 px-4 py-2 text-sm font-semibold text-white shadow hover:-translate-y-[1px] hover:bg-purple-700 dark:border-purple-800"
                     >
                       {link.title || "Click link"}
