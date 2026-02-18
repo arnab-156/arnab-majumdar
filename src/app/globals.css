@@ -104,3 +104,36 @@ body {
     text-wrap: balance;
   }
 }
+
+@layer components {
+  .tile-3d {
+    transition: transform 240ms ease, box-shadow 240ms ease, filter 240ms ease;
+    transform: translate3d(0, 0, 0);
+    box-shadow: 0 6px 14px -10px rgba(17, 24, 39, 0.65);
+    will-change: transform, box-shadow;
+  }
+
+  .tile-3d:hover {
+    transform: translate3d(0, -2px, 0);
+    box-shadow: 0 12px 22px -14px rgba(17, 24, 39, 0.7);
+  }
+
+  .tile-3d:focus-visible {
+    outline: 2px solid rgba(147, 51, 234, 0.6);
+    outline-offset: 2px;
+  }
+
+  .tile-3d-active {
+    transform: translate3d(0, -6px, 0);
+    box-shadow:
+      0 20px 36px -18px rgba(87, 6, 140, 0.72),
+      0 10px 18px -12px rgba(87, 6, 140, 0.58);
+    filter: saturate(1.06);
+  }
+
+  .dark .tile-3d-active {
+    box-shadow:
+      0 18px 34px -20px rgba(168, 85, 247, 0.75),
+      0 8px 16px -10px rgba(168, 85, 247, 0.55);
+  }
+}

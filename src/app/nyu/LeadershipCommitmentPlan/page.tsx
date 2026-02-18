@@ -116,7 +116,7 @@ export default function LeadershipCommitmentPlanPage() {
         />
       </Head>
 
-      <main className="font-nyu bg-white text-gray-900 dark:bg-black dark:text-gray-100 min-h-screen">
+      <main className="font-nyu bg-white text-gray-900 dark:bg-black dark:text-gray-100 min-h-screen pb-12">
         <section className="relative overflow-hidden bg-gradient-to-br from-[#2e0068] via-[#5a1dab] to-[#b373ff] text-white py-16 px-6 md:px-12">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.12),transparent_35%)]" aria-hidden />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_0%,rgba(255,255,255,0.08),transparent_30%)]" aria-hidden />
@@ -125,6 +125,17 @@ export default function LeadershipCommitmentPlanPage() {
             <div className="space-y-4">
               <p className="text-xs uppercase tracking-[0.35em] text-purple-100">NYU Stern EMBA</p>
               <h1 className="text-4xl md:text-5xl font-nyu-ultra leading-tight">Leadership is the act of continuously becoming.</h1>
+              <p className="text-lg md:text-xl text-purple-50">
+                Taught by{" "}
+                <Link
+                  href="https://www.stern.nyu.edu/faculty/bio/nathan-pettit"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="font-medium underline decoration-purple-200 underline-offset-4 hover:text-amber-200"
+                >
+                  Nathan Pettit
+                </Link>
+              </p>
               <p className="text-lg md:text-xl text-purple-50">
                 I turn values into repeatable rituals, and rituals into results across school, work, and community.
               </p>
@@ -325,6 +336,9 @@ export default function LeadershipCommitmentPlanPage() {
             </div>
           </div>
         </section>
+        <div className="pt-8 pb-10 md:pb-0 text-center">
+          <Link href="#navigation" className="hover:underline text-purple-800">go to top</Link>
+        </div>
       </main>
     </>
   );

@@ -38,7 +38,7 @@ const courses: Course[] = [
       name: "Ilan Guttman",
       url: "https://www.stern.nyu.edu/faculty/bio/ilan-guttman",
     },
-    projects: [],
+    projects: ["Financial Accounting Learnings"],
   },
   {
     name: "Leadership in Organizations",
@@ -150,6 +150,16 @@ const projectInfo: Record<string, { description: string; outcomes: string[]; url
     ],
     urls: [{ title: "Project page", url: "/nyu/LeadershipCommitmentPlan" }],
   },
+  "Financial Accounting Learnings": {
+    description:
+      "A practical reflection on financial accounting: statement linkages, accrual mechanics, cash flow checks, and decision-oriented red flags.",
+    outcomes: [
+      "Connected transactions, journal mechanics, and statement outputs as one operating system.",
+      "Built a repeatable indirect-cash-flow checklist to test earnings quality and liquidity reality.",
+      "Applied ratio and working-capital analysis to spot timing risk, estimate concentration, and potential distortions.",
+    ],
+    urls: [{ title: "Project page", url: "/nyu/financial-accounting" }],
+  },
 };
 
 const specializations = ["Strategy", "Sustainability & Innovation", "Global Business"];
@@ -205,6 +215,12 @@ export default function NYUPage() {
 
   const handleCourseClick = (courseName: string) => {
     setSelectedCourse((current) => (current === courseName ? null : courseName));
+
+    const projectsSection = document.getElementById("projects");
+    if (projectsSection) {
+      projectsSection.scrollIntoView({ behavior: "smooth", block: "start" });
+      window.history.replaceState(null, "", "#projects");
+    }
   };
 
   const renderSlide = () => {
@@ -295,7 +311,7 @@ export default function NYUPage() {
         />
       </Head>
 
-      <main className="font-nyu bg-white text-gray-900 dark:bg-black dark:text-gray-100 min-h-screen">
+      <main className="font-nyu bg-white text-gray-900 dark:bg-black dark:text-gray-100 min-h-screen pb-12">
         {/* HERO */}
         <section className="relative overflow-hidden bg-gradient-to-br from-[#2e0068] via-[#5a1dab] to-[#b373ff] text-white py-16 px-6 md:px-12">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.12),transparent_35%)]" aria-hidden />
@@ -429,10 +445,10 @@ export default function NYUPage() {
                     type="button"
                     onClick={() => handleCourseClick(course.name)}
                     className={classNames(
-                      "min-w-[260px] max-w-[320px] rounded-2xl p-5 text-left transition shadow-sm border flex flex-col h-full",
+                      "min-w-[260px] max-w-[320px] rounded-2xl p-5 text-left border flex flex-col h-full tile-3d",
                       "bg-[#57068c] text-white border-purple-200/40",
                       "dark:bg-white dark:text-[#2e0068] dark:border-purple-900/60",
-                      selectedCourse === course.name && "shadow-[0_15px_40px_-15px_rgba(87,6,140,0.65)] ring-4 ring-purple-200 dark:ring-purple-700"
+                      selectedCourse === course.name && "tile-3d-active ring-4 ring-purple-200 dark:ring-purple-700"
                     )}
                   >
                     <div className="flex h-full flex-col gap-3">
@@ -519,6 +535,9 @@ export default function NYUPage() {
             </div>
           </div>
         </section>
+        <div className="pt-8 pb-10 md:pb-0 text-center">
+          <Link href="#navigation" className='hover:underline text-purple-800'>go to top</Link>
+        </div>
       </main>
 
       {activeProject && (
