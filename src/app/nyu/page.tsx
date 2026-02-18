@@ -215,6 +215,12 @@ export default function NYUPage() {
 
   const handleCourseClick = (courseName: string) => {
     setSelectedCourse((current) => (current === courseName ? null : courseName));
+
+    const projectsSection = document.getElementById("projects");
+    if (projectsSection) {
+      projectsSection.scrollIntoView({ behavior: "smooth", block: "start" });
+      window.history.replaceState(null, "", "#projects");
+    }
   };
 
   const renderSlide = () => {
@@ -439,10 +445,10 @@ export default function NYUPage() {
                     type="button"
                     onClick={() => handleCourseClick(course.name)}
                     className={classNames(
-                      "min-w-[260px] max-w-[320px] rounded-2xl p-5 text-left transition shadow-sm border flex flex-col h-full",
+                      "min-w-[260px] max-w-[320px] rounded-2xl p-5 text-left border flex flex-col h-full tile-3d",
                       "bg-[#57068c] text-white border-purple-200/40",
                       "dark:bg-white dark:text-[#2e0068] dark:border-purple-900/60",
-                      selectedCourse === course.name && "shadow-[0_15px_40px_-15px_rgba(87,6,140,0.65)] ring-4 ring-purple-200 dark:ring-purple-700"
+                      selectedCourse === course.name && "tile-3d-active ring-4 ring-purple-200 dark:ring-purple-700"
                     )}
                   >
                     <div className="flex h-full flex-col gap-3">
