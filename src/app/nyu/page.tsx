@@ -38,7 +38,7 @@ const courses: Course[] = [
       name: "Ilan Guttman",
       url: "https://www.stern.nyu.edu/faculty/bio/ilan-guttman",
     },
-    projects: [],
+    projects: ["Financial Accounting Learnings"],
   },
   {
     name: "Leadership in Organizations",
@@ -149,6 +149,16 @@ const projectInfo: Record<string, { description: string; outcomes: string[]; url
       "Mapped leadership expectations into practical behaviors that support teams and stakeholders.",
     ],
     urls: [{ title: "Project page", url: "/nyu/LeadershipCommitmentPlan" }],
+  },
+  "Financial Accounting Learnings": {
+    description:
+      "A practical reflection on financial accounting: statement linkages, accrual mechanics, cash flow checks, and decision-oriented red flags.",
+    outcomes: [
+      "Connected transactions, journal mechanics, and statement outputs as one operating system.",
+      "Built a repeatable indirect-cash-flow checklist to test earnings quality and liquidity reality.",
+      "Applied ratio and working-capital analysis to spot timing risk, estimate concentration, and potential distortions.",
+    ],
+    urls: [{ title: "Project page", url: "/nyu/financial-accounting" }],
   },
 };
 
