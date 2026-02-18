@@ -126,6 +126,17 @@ export default function LeadershipCommitmentPlanPage() {
               <p className="text-xs uppercase tracking-[0.35em] text-purple-100">NYU Stern EMBA</p>
               <h1 className="text-4xl md:text-5xl font-nyu-ultra leading-tight">Leadership is the act of continuously becoming.</h1>
               <p className="text-lg md:text-xl text-purple-50">
+                Taught by{" "}
+                <Link
+                  href="https://www.stern.nyu.edu/faculty/bio/nathan-pettit"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="font-medium underline decoration-purple-200 underline-offset-4 hover:text-amber-200"
+                >
+                  Nathan Pettit
+                </Link>
+              </p>
+              <p className="text-lg md:text-xl text-purple-50">
                 I turn values into repeatable rituals, and rituals into results across school, work, and community.
               </p>
               <p className="text-purple-100/90 max-w-2xl">

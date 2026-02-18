@@ -171,6 +171,17 @@ export default function FinancialAccountingPage() {
               <p className="text-xs uppercase tracking-[0.35em] text-purple-100">NYU Stern EMBA • Course Reflection</p>
               <h1 className="text-4xl md:text-5xl font-nyu-ultra leading-tight">Financial Accounting Learnings</h1>
               <p className="text-lg md:text-xl text-purple-50">
+                Taught by{" "}
+                <Link
+                  href="https://www.stern.nyu.edu/faculty/bio/ilan-guttman"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="font-medium underline decoration-purple-200 underline-offset-4 hover:text-amber-200"
+                >
+                  Ilan Guttman
+                </Link>
+              </p>
+              <p className="text-lg md:text-xl text-purple-50">
                 The mental models, mechanics, and red flags I keep using beyond the classroom.
               </p>
               <p className="text-purple-100/90 max-w-2xl">
