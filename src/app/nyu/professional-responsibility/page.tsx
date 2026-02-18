@@ -161,7 +161,7 @@ export default function ProfessionalResponsibilityPage() {
                 incentives, and outcomes.
               </p>
               <div className="flex gap-3 flex-wrap">
-                <Link href="/nyu" className={buttonStyle}>
+                <Link href="/nyu#projects" className={buttonStyle}>
                   ← Back to NYU
                 </Link>
                 <Link href="#what-i-learned" className="underline text-purple-100">
