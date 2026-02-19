@@ -160,7 +160,7 @@ body {
     animation: mobilePurpleGrayShimmer 3.4s linear infinite;
   }
 
-  @media (min-width: 640px) {
+  @media (min-width: 1024px) {
     .mobile-purple-gray-shimmer {
       background-image: none;
       animation: none;
