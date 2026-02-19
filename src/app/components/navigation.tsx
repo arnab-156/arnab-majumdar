@@ -1,8 +1,14 @@
+"use client";
+
 import Image from "next/image";
 import Link from 'next/link';
+import { useRouter } from "next/navigation";
 import { MenuIcon, LotusIcon } from "../components/icons";
+import { buttonStyle, roundButtonStyle } from "@/app/utility/stylevariables";
 
 export const Navigation = () => {
+    const router = useRouter();
+
     return (<nav className="flex flex-col items-center justify-between font-nyu" id="navigation">
         <div className="z-10 w-full items-center justify-between flex justify-content font-mono text-sm lg:text-transparent hover:lg:text-black dark:hover:lg:text-white lg:shadow-2xl lg:shadow-purple-800/40 hover:lg:shadow-none">
             {/* Header on desktop and footer on mobile */}
@@ -18,32 +24,33 @@ export const Navigation = () => {
                         <MenuIcon height="1.5rem" width="1.5rem" color="purple" />
                     </button>
                 </p>
-                <div className="hidden grid-cols-3 group-hover:grid sm:grid-cols-4 sm:gap-2 lg:grid">
-                    <Link className="flex justify-center items-center p-2 m-2 hover:lg:text-lg hover:underline hover:font-nyu-thin" href="/">home</Link>
+                <div className="hidden grid-cols-3 group-hover:grid sm:grid-cols-3 sm:gap-2 lg:grid">
+                    <button
+                        type="button"
+                        onClick={() => router.push("/")}
+                        className={`${roundButtonStyle} hidden group-hover:flex justify-center items-center`}
+                    >
+                        home
+                    </button>
 
-                    <Link className="flex justify-center items-center hover:underline" href="/experiences">
-                        <span className="p-2 m-2 block sm:hidden"><LotusIcon height={"50px"} width={"50px"} className="hover:bg-purple-800 hover:rounded-full dark:bg-white rounded-full" /></span>
-                        <span className="hidden sm:block hover:lg:text-lg hover:font-nyu-thin">experiences</span>
-                    </Link>
+                    <button
+                        type="button"
+                        onClick={() => router.push("/experiences")}
+                        className={`${roundButtonStyle} hidden group-hover:flex justify-center items-center`}
+                    >
+                        <span className="p-2 m-2 block sm:hidden"><LotusIcon height={"50px"} width={"50px"} fill="white" className="hover:bg-purple-800 hover:rounded-full dark:bg-white rounded-full" /></span>
+                        <span className="hidden sm:block">experiences</span>
+                    </button>
 
                     {/* <Link className="flex justify-center items-center p-2 m-2 hover:lg:text-lg hover:underline" href="/edu">education</Link> */}
 
-                    <Link className="flex flex-col justify-center items-center" href="/about">
-                        {/* <Link className="relative flex h-3 w-3 hidden sm:group-hover:block top-5 left-10 z-10" href="/about">
-                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white dark:bg-black opacity-75"></span>
-                            <span className="relative inline-flex rounded-full h-3 w-3 bg-white dark:bg-black"></span>
-                        </Link>
-                        <Image
-                            className="invisible sm:group-hover:visible relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] rounded-2xl mx-2"
-                            src="/headshot.png"
-                            alt="headshot of arnab majumdar"
-                            width={100}
-                            height={50}
-                            priority
-                            unoptimized
-                        /> */}
-                        <span className="p-2 m-2 block hover:lg:text-lg hover:underline hover:font-nyu-thin">about</span>
-                    </Link>
+                    <button
+                        type="button"
+                        onClick={() => router.push("/about")}
+                        className={`${roundButtonStyle} hidden group-hover:flex  justify-center items-center`}
+                    >
+                        <span className="p-2 m-2 block">about</span>
+                    </button>
                 </div>
             </section>
 
