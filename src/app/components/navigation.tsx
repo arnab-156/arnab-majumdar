@@ -17,7 +17,7 @@ export const Navigation = () => {
              sm:w-full lg:w-full lg:static lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30 
              hover:w-[96%] hover:sm:w-full hover:ml-2 hover:sm:ml-0 lg:h-24 hover:bg-gradient-to-t from-purple-800 to-zinc-800/30 hover:opacity-99 dark:hover:bg-purple-800
              left-0 bottom-3 lg:top-0 
-             transition ease-in-out delay-150 group-hover:duration-300 
+             transition ease-in-out delay-300 group-hover:duration-500 
              `}>
                 <div className="opacity-0 group-hover:opacity-100 transition ease-in-out delay-500 grid-cols-3 group-hover:grid sm:grid-cols-3 sm:gap-2 lg:grid">
                     <button
@@ -35,7 +35,7 @@ export const Navigation = () => {
                         onClick={() => router.push("/experiences")}
                         className={`${roundButtonStyle} hidden group-hover:flex justify-center items-center`}
                     >
-                        <span className="p-2 m-2 block sm:hidden"><LotusIcon height={"50px"} width={"50px"} fill="white" className="hover:bg-purple-800 hover:rounded-full dark:bg-white rounded-full" /></span>
+                        <span className="p-2 m-2 block sm:hidden"><LotusIcon height={"50px"} width={"50px"} fill="white" /></span>
                         <span className="hidden sm:block">experiences</span>
                     </button>
 
