@@ -2,13 +2,10 @@
 
 import Image from "next/image";
 import Link from 'next/link';
-import { useRouter } from "next/navigation";
-import { MenuIcon, LotusIcon } from "../components/icons";
+import { LotusIcon } from "../components/icons";
 import { roundButtonStyle } from "@/app/utility/stylevariables";
 
 export const Navigation = () => {
-    const router = useRouter();
-
     return (<nav className="flex flex-col items-center justify-between font-nyu" id="navigation">
         <div className="z-10 w-full items-center justify-between flex justify-content font-mono text-sm lg:text-transparent hover:lg:text-black dark:hover:lg:text-white lg:shadow-2xl lg:shadow-purple-800/40 hover:lg:shadow-none">
             {/* Header on desktop and footer on mobile */}
@@ -19,36 +16,33 @@ export const Navigation = () => {
              left-0 bottom-3 lg:top-0 
              transition ease-in-out delay-300 group-hover:duration-500 
              `}>
-                <div className="opacity-0 group-hover:opacity-100 transition ease-in-out delay-500 grid-cols-3 group-hover:grid sm:grid-cols-3 sm:gap-2 lg:grid">
-                    <button
-                        type="button"
+                <div className="h-0 group-hover:h-auto transition ease-in-out delay-500 grid-cols-3 group-hover:grid sm:grid-cols-3 sm:gap-2 lg:grid">
+                    <Link
+                        href="/"
                         tabIndex={0}
-                        onClick={() => router.push("/")}
-                        className={`${roundButtonStyle} hidden group-hover:flex justify-center items-center`}
+                        className={`${roundButtonStyle} group-hover:border-white group-hover:text-white justify-center items-center`}
                     >
-                        home
-                    </button>
+                        <span className="p-2 m-2 hidden group-hover:block">home</span>
+                    </Link>
 
-                    <button
-                        type="button"
+                    <Link
+                        href="/experiences"
                         tabIndex={0}
-                        onClick={() => router.push("/experiences")}
-                        className={`${roundButtonStyle} hidden group-hover:flex justify-center items-center`}
+                        className={`${roundButtonStyle} group-hover:border-white group-hover:text-white justify-center items-center`}
                     >
-                        <span className="p-2 m-2 block sm:hidden"><LotusIcon height={"50px"} width={"50px"} fill="white" /></span>
-                        <span className="hidden sm:block">experiences</span>
-                    </button>
+                        <span className="p-2 m-2 block sm:hidden"><LotusIcon fill="white" className={`hidden group-hover:flex group-hover:h-[50px] group-hover:w-[50px]`} /></span>
+                        <span className="p-2 m-2 hidden group-hover:sm:block">experiences</span>
+                    </Link>
 
                     {/* <Link className="flex justify-center items-center p-2 m-2 hover:lg:text-lg hover:underline" href="/edu">education</Link> */}
 
-                    <button
-                        type="button"
+                    <Link
+                        href="/about"
                         tabIndex={0}
-                        onClick={() => router.push("/about")}
-                        className={`${roundButtonStyle} hidden group-hover:flex  justify-center items-center`}
+                        className={`${roundButtonStyle} group-hover:border-white group-hover:text-white justify-center items-center`}
                     >
-                        <span className="p-2 m-2 block">about</span>
-                    </button>
+                        <span className="p-2 m-2 hidden group-hover:block">about</span>
+                    </Link>
                 </div>
             </section>
 
