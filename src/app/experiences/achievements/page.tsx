@@ -5,30 +5,36 @@ import { list } from "@vercel/blob";
 import { ImageMagnify } from "@/app/components/ImageMagnify";
 import { buttonStyle } from "@/app/utility/stylevariables";
 
-const galleryCaptions = [
-  "Senior Diploma - Painting",
-  "Certificate of Merit - Art",
-  "Certificate of Merit - Painting",
-  "Certificate of Merit - Art",
-  "BBusiness Start-up Certification from City of Chicago",
-  "Winner, 2nd Prize - All India Camel Color Contest", "Winner, 2nd Prize - All India Camel Color Contest", "Participation", "Participation",
-  "Circular Supply Chains: Size Standardization Study at Reliance Trends",
-  "Certificate - College of Fine Arts",
-  "House Captain",
-  "2nd Prize - Group Song Competition",
-  "Certificate - Science Olympiad",
-  "2nd prize in Rabindra Sangeet Category by Music Academy, 2004",
-  "Timex - Paint a watch competition",
-  "Winner, 2nd Prize - Dance,  NIFT, 2007",
-  "Winner, 3rd Prize - Dance,  NIFT, 2007", "Help Age India", "Letter of Appreciation - Majlish"
-
+const galleryInfo = [
+  { caption: "Senior Diploma - Painting", category: "art" },
+  { caption: "Certificate of Merit - Art", category: "art" },
+  { caption: "Certificate of Merit - Painting", category: "Academic" },
+  { caption: "Certificate of Merit - Art", category: "art" },
+  { caption: "Business Start-up Certification from City of Chicago", category: "leadership" },
+  { caption: "Winner, 2nd Prize - All India Camel Color Contest", category: "art" },
+  { caption: "Winner, 2nd Prize - All India Camel Color Contest", category: "art" },
+  { caption: "Participation", category: "art" },
+  { caption: "Participation", category: "art" },
+  { caption: "Circular Supply Chains: Size Standardization Study at Reliance Trends", category: "academic" },
+  { caption: "Certificate - College of Fine Arts", category: "art" },
+  { caption: "House Captain", category: "leadership" },
+  { caption: "2nd Prize - Group Song Competition", category: "art" },
+  { caption: "Certificate - Science Olympiad", category: "academic" },
+  { caption: "2nd prize in Rabindra Sangeet Category by Music Academy, 2004", category: "music" },
+  { caption: "Timex - Paint a watch competition", category: "painting" },
+  { caption: "Winner, 2nd Prize - Dance,  NIFT, 2007", category: "dance" },
+  { caption: "Winner, 3rd Prize - Dance,  NIFT, 2007", category: "dance" },
+  { caption: "Help Age India", category: "leadership" },
+  { caption: "Letter of Appreciation - Majlish", category: "leadership" },
 ];
 
-const galleryCategories = ["art", "art", "Academic", "art", "leadership", "art", "art", "art", "art", "academic", "art", "leadership", "art", "academic", "music", "painting", "dance", "dance", "leadership", "leadership"];
-
-const galleryInfo = {
-  captions: galleryCaptions,
-  categories: galleryCategories,
+const shuffleArray = <T,>(items: T[]): T[] => {
+  const shuffled = [...items];
+  for (let i = shuffled.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
 };
 
 type LinkItem = { label: string; href?: string };
@@ -434,15 +440,14 @@ export default async function AchievementsPage() {
     category: "Leadership",
   };
 
-  const blobTiles = [
-    classRepTile,
-    ...(blobs?.map(({ url, pathname }, index) => ({
+  const mappedBlobTiles = blobs?.map(({ url, pathname }, index) => ({
       src: url,
       alt: pathname,
-      caption: galleryInfo.captions[index] ?? pathname,
-      category: galleryInfo.categories[index] ?? "",
-    })) ?? []),
-  ];
+      caption: galleryInfo[index]?.caption ?? pathname,
+      category: galleryInfo[index]?.category ?? "",
+    })) ?? [];
+
+  const blobTiles = shuffleArray([classRepTile, ...mappedBlobTiles]);
 
   return (
     <>
