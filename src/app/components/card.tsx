@@ -78,7 +78,7 @@ export const Card: NextPage<CardProps> = ({
                 <Link
                     className={classNames(
                         buttonStyle,
-                        "z-10 -mt-3 w-1/2 hover:w-[70%] text-center font-nyu font-medium capitalize bg-purple-800 hover:bg-purple-900 text-white shadow-lg transition-all"
+                        "-mt-3 w-1/2 hover:w-[70%] text-center font-nyu font-medium capitalize bg-purple-800 hover:bg-purple-900 text-white shadow-lg transition-all"
                     )}
                     href={url}
                     {...linkProps}
