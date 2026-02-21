@@ -22,3 +22,37 @@ test('loads and displays a card', async () => {
     expect(screen.getByRole('link')).toBeInTheDocument();
     expect(screen.getByRole('link')).toHaveAttribute('href', testUrl);
 });
+
+test('renders default CTA text when useCtaButton is enabled', async () => {
+    const testUrl = "/cta-destination";
+
+    render(<Card
+        title="cta title"
+        url={testUrl}
+        description="cta description"
+        useCtaButton
+    />);
+
+    expect(screen.getByText('cta title')).toBeInTheDocument();
+    expect(screen.getByText('cta description')).toBeInTheDocument();
+    expect(screen.getAllByRole('link')).toHaveLength(1);
+    expect(screen.getByRole('link', { name: 'Learn More' })).toHaveAttribute('href', testUrl);
+});
+
+test('renders custom CTA text when buttonText is provided', async () => {
+    const testUrl = "/cta-destination";
+    const buttonText = "Schedule now";
+
+    render(<Card
+        title="cta title"
+        url={testUrl}
+        description="cta description"
+        useCtaButton
+        buttonText={buttonText}
+    />);
+
+    expect(screen.getByText('cta title')).toBeInTheDocument();
+    expect(screen.getByText('cta description')).toBeInTheDocument();
+    expect(screen.getAllByRole('link')).toHaveLength(1);
+    expect(screen.getByRole('link', { name: buttonText })).toHaveAttribute('href', testUrl);
+});
