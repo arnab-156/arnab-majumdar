@@ -18,6 +18,7 @@ interface CardProps {
     imageWidth?: number;
     openInNewTab?: boolean;
     useCtaButton?: boolean;
+    buttonText?: string;
     ctaLabel?: string;
 }
 
@@ -35,10 +36,12 @@ export const Card: NextPage<CardProps> = ({
     imageWidth = 100,
     openInNewTab = false,
     useCtaButton = false,
-    ctaLabel = "Learn More",
+    buttonText,
+    ctaLabel,
 }) => {
     const cardClassName = classNames(`card-component mr-4 ml-4 mb-4 rounded shadow-md content-center`, customClassName);
     const linkProps = openInNewTab ? { target: "_blank", rel: "noopener noreferrer" } : { rel: "noopener" };
+    const ctaText = buttonText ?? ctaLabel ?? "Learn More";
     const cardContent = (
         <div className={`p-4 rounded shadow-md bg-gray-200 hover:bg-gray-300 active:bg-gray-400 dark:bg-gray-900 ${backgroundTheme}`}>
             <h3 className="font-nyu-ultra font-extrabold uppercase text-overflow-ellipsis overflow-hidden line-clamp-2">
@@ -75,12 +78,12 @@ export const Card: NextPage<CardProps> = ({
                 <Link
                     className={classNames(
                         buttonStyle,
-                        "z-10 -mt-3 w-1/3 hover:w-[70%] text-center font-nyu font-medium bg-purple-800 hover:bg-purple-900 text-white shadow-lg transition-all"
+                        "z-10 -mt-3 w-1/2 hover:w-[70%] text-center font-nyu font-medium capitalize bg-purple-800 hover:bg-purple-900 text-white shadow-lg transition-all"
                     )}
                     href={url}
                     {...linkProps}
                 >
-                    {ctaLabel}
+                    {ctaText}
                 </Link>
             </div>
         );
