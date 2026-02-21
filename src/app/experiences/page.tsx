@@ -11,6 +11,9 @@ export default function ExperiencesPage() {
           <Link href="/experiences/achievements" className={buttonStyle}>
             See all achievements
           </Link>
+          <div className="pb-6">
+            <Link href="/" className="hover:underline text-purple-800">go back to home</Link>
+          </div>
         </div>
 
         <div className={cardWrapperStyle}>
@@ -261,6 +264,9 @@ export default function ExperiencesPage() {
         <p className="m-4 p-4"><strong >Thank you for visiting! There are more information to come, please visit again! </strong>
           <Link className={`${buttonStyle}`} href="/about" aria-label="go back to about">click here </Link> to go the About page.
         </p>
+      </div>
+      <div className="pt-8 pb-32 text-center">
+        <Link href="#navigation" className="hover:underline text-purple-800">go to top</Link>
       </div>
     </main>
   );
