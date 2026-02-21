@@ -92,6 +92,16 @@
   }
 }
 
+@keyframes mobilePurpleGrayShimmer {
+  0% {
+    background-position: 200% 0;
+  }
+
+  100% {
+    background-position: -200% 0;
+  }
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(to bottom,
@@ -135,5 +145,25 @@ body {
     box-shadow:
       0 18px 34px -20px rgba(168, 85, 247, 0.75),
       0 8px 16px -10px rgba(168, 85, 247, 0.55);
+  }
+
+  .mobile-purple-gray-shimmer {
+    background-image: linear-gradient(
+      110deg,
+      #4c1d95 16%,
+      #6d28d9 36%,
+      #9ca3af 50%,
+      #6d28d9 64%,
+      #4c1d95 84%
+    );
+    background-size: 240% 100%;
+    animation: mobilePurpleGrayShimmer 3.4s linear infinite;
+  }
+
+  @media (min-width: 1024px) {
+    .mobile-purple-gray-shimmer {
+      background-image: none;
+      animation: none;
+    }
   }
 }
