@@ -340,6 +340,9 @@ export default function NYUPage() {
                     <span className="block text-xs text-purple-100 group-hover:underline">Opens in new tab</span>
                   </span>
                 </Link>
+                <Link href="/" className="underline text-purple-100">
+                  go back to home
+                </Link>
               </div>
             </div>
 
