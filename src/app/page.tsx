@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { Card } from "./components/card";
 import { HomeClickTracker } from "./components/home-click-tracker";
 import { ReadIcon } from "./components/icons";
+import { nyuProjects } from './nyu/projects-data';
 import { cardWrapperStyle, nycBackgroundTheme, buttonStyle, tiffanyBackgroundTheme } from './utility/stylevariables';
 
 const decodeHeaderValue = (headerValue: string | null): string => {
@@ -33,6 +34,12 @@ export default function Home() {
   const homeCardProps = {
     useCtaButton: true,
   };
+  const newLearningProjects = nyuProjects
+    .filter((project) => project.description && project.urls?.length)
+    .filter((project) => !project.urls?.[0]?.url.includes("example.com"));
+  const randomNewLearningProject = newLearningProjects.length
+    ? newLearningProjects[Math.floor(Math.random() * newLearningProjects.length)]
+    : null;
 
   return (
     <HomeClickTracker userLocation={userLocation}>
@@ -69,15 +76,26 @@ export default function Home() {
           </div>
 
           <div className={cardWrapperStyle}>
-            <h2 className="text-xl font-bold text-center capitalize">New and Trending</h2>
-            <Card
-              {...homeCardProps}
-              title="What I learned from Whistleblowers?"
-              description="What I learned from Whistleblowers? How ethics shows up in real organizations—and how individual choices connect to systems, incentives, and outcomes."
-              url="/nyu/professional-responsibility"
-              buttonText="Read more"
-            />
+            <h2 className="text-xl font-bold text-center capitalize">New Learnings!</h2>
+            {randomNewLearningProject && (() => {
+            const primaryUrl = randomNewLearningProject.urls?.[0]?.url ?? "/nyu";
+            const openInNewTab = primaryUrl.startsWith("http");
+
+            return (
+              <div key={`new-learning-${randomNewLearningProject.projectName}`} className={cardWrapperStyle}>
+                <Card
+                  {...homeCardProps}
+                  title={randomNewLearningProject.projectName}
+                  description={randomNewLearningProject.description}
+                  url={primaryUrl}
+                  buttonText="view details"
+                  openInNewTab={openInNewTab}
+                />
+              </div>
+            );
+          })()}
           </div>
+        
 
           <div className={cardWrapperStyle} id="aster">
             <h2 className="text-xl font-bold text-center capitalize" >Made in US Collaboration:</h2>
