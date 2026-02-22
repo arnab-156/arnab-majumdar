@@ -26,7 +26,7 @@ export default function ExperiencesPage() {
             title="Owner"
             url="/lotus"
             description="We are a boutique consulting studio helping organizations ship strategy & digital experiences"
-            customClassName={`${cardWrapperStyle}`}
+
             imageUrl="https://live.staticflickr.com/65535/53819325384_d2b8af917f_w.jpg"
           />
         </div>
