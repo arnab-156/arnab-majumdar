@@ -96,7 +96,6 @@ export default function Home() {
           })()}
           </div>
         
-
           <div className={cardWrapperStyle} id="aster">
             <h2 className="text-xl font-bold text-center capitalize" >Made in US Collaboration:</h2>
             <Card
