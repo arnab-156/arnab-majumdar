@@ -72,7 +72,7 @@ export default function NYUPage() {
   const renderSlide = () => {
     if (activeSlide === 0) {
       return (
-        <div className="grid md:grid-cols-2 gap-8 items-center">
+        <article className="grid md:grid-cols-2 gap-8 items-center rounded-2xl p-2">
           <div className="relative w-full max-w-[198px] md:max-w-[231px] aspect-[3/4] overflow-hidden rounded-2xl shadow-xl mx-auto md:mx-auto justify-self-center">
             <Image
               src="/class-rep.png"
@@ -94,7 +94,7 @@ export default function NYUPage() {
               This role keeps student voices at the center of every conversation with faculty and administration.
             </p>
           </div>
-        </div>
+        </article>
       );
     }
 
@@ -114,7 +114,7 @@ export default function NYUPage() {
                 <span className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition" />
                 <span className="relative text-xl font-semibold">{area}</span>
                 <span className="relative block text-sm mt-2 opacity-75">
-                  Tap to expand (coming soon)
+                  Tap to view next snapshot
                 </span>
               </button>
             ))}
@@ -135,11 +135,14 @@ export default function NYUPage() {
               href={group.url}
               target="_blank"
               rel="noreferrer"
-              className="group block rounded-2xl border border-purple-200 dark:border-purple-900 bg-white dark:bg-purple-900/40 p-6 text-center shadow-md transition hover:-translate-y-1 hover:shadow-xl"
+              onClick={(event) => event.stopPropagation()}
+              className="group rounded-2xl border border-purple-200 dark:border-purple-900 bg-white dark:bg-purple-900/40 p-6 text-center shadow-md transition hover:-translate-y-1 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-purple-400"
             >
               <div className="text-3xl font-black tracking-tight text-purple-800 dark:text-purple-100">{group.short}</div>
               <div className="mt-3 font-semibold text-gray-800 dark:text-gray-100">{group.title}</div>
-              <span className="mt-2 inline-block text-sm text-purple-600 dark:text-purple-200 underline">Open in new tab</span>
+              <span className="mt-2 inline-block text-sm text-purple-600 dark:text-purple-200 underline">
+                Open in new tab
+              </span>
             </Link>
           ))}
         </div>
@@ -230,7 +233,19 @@ export default function NYUPage() {
               </div>
             </div>
 
-            <div className="relative mt-8 rounded-3xl border border-purple-100 dark:border-purple-900 bg-gradient-to-br from-purple-50 via-white to-purple-50 dark:from-[#0c041a] dark:via-[#0f0922] dark:to-[#160f2f] p-6 shadow-xl">
+            <div
+              className="relative mt-8 rounded-3xl border border-purple-100 dark:border-purple-900 bg-gradient-to-br from-purple-50 via-white to-purple-50 dark:from-[#0c041a] dark:via-[#0f0922] dark:to-[#160f2f] p-6 shadow-xl cursor-pointer focus:outline-none focus:ring-2 focus:ring-purple-400"
+              role="button"
+              tabIndex={0}
+              aria-label="Go to next Stern snapshot"
+              onClick={nextSlide}
+              onKeyDown={(event) => {
+                if (event.key === "Enter" || event.key === " ") {
+                  event.preventDefault();
+                  nextSlide();
+                }
+              }}
+            >
               <div className="relative min-h-[640px] md:min-h-[360px]">
                 {[0, 1, 2].map((index) => (
                   <div
@@ -252,7 +267,10 @@ export default function NYUPage() {
                   <button
                     key={index}
                     type="button"
-                    onClick={() => setActiveSlide(index)}
+                    onClick={(event) => {
+                      event.stopPropagation();
+                      setActiveSlide(index);
+                    }}
                     className={classNames(
                       "h-2.5 w-2.5 rounded-full transition",
                       index === activeSlide
