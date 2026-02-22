@@ -38,7 +38,7 @@ export default function ExperiencesPage() {
             url="https://www.bonobos.com/"
             imageUrl="/bonobos-logo-dark.svg"
             backgroundTheme={`${nycBackgroundTheme}`}
-            description="Initially under Walmart Inc and then under Express LLC"
+            description="Initially under Walmart Inc and then under Express LLC. Responsible for front end technology projects."
           />
         </div>
 
@@ -49,7 +49,7 @@ export default function ExperiencesPage() {
             url="https://www.shoprunner.com/"
             imageUrl="/shoprunner_byfedex.svg"
             backgroundTheme={`${nycBackgroundTheme}`}
-            description="In a start up, and went through acquisition by FedEx"
+            description="In a start up, and went through acquisition by FedEx. WCAG Accessibility Expert! Promoted Twice."
           />
         </div>
 
