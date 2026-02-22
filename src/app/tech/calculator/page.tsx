@@ -1,5 +1,4 @@
 import { Calculator } from "../../components/calculator";
-import { BinomialLLNSimulator } from "../../components/binomial-lln-simulator";
 import { StatsTool } from "../../components/stats-tool";
 
 export default function CalculatorPage() {
@@ -22,13 +21,6 @@ export default function CalculatorPage() {
         <section className="mt-8">
           <h2 className="text-center text-2xl font-semibold text-purple-900 dark:text-purple-100">Stats Calculator</h2>
           <StatsTool />
-        </section>
-
-        <section className="mt-8">
-          <h2 className="text-center text-2xl font-semibold text-purple-900 dark:text-purple-100">
-            Binomial Distribution Explorer
-          </h2>
-          <BinomialLLNSimulator />
         </section>
       </div>
     </main>
