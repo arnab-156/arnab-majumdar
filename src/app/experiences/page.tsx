@@ -209,7 +209,6 @@ export default function ExperiencesPage() {
           />
         </div>
 
-
         <div className={cardWrapperStyle}>
           <Card
             {...experienceCardProps}
@@ -253,7 +252,6 @@ export default function ExperiencesPage() {
             openInNewTab
           />
         </div>
-
 
         <div className={`${cardWrapperStyle}`}>
           <h3 className="text-xl font-bold text-center"> Other Experiences:</h3>
