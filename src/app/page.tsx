@@ -78,24 +78,24 @@ export default function Home() {
           <div className={cardWrapperStyle}>
             <h2 className="text-xl font-bold text-center capitalize">New Learnings!</h2>
             {randomNewLearningProject && (() => {
-            const primaryUrl = randomNewLearningProject.urls?.[0]?.url ?? "/nyu";
-            const openInNewTab = primaryUrl.startsWith("http");
+              const primaryUrl = randomNewLearningProject.urls?.[0]?.url ?? "/nyu";
+              const openInNewTab = primaryUrl.startsWith("http");
 
-            return (
-              <div key={`new-learning-${randomNewLearningProject.projectName}`} className={cardWrapperStyle}>
-                <Card
-                  {...homeCardProps}
-                  title={randomNewLearningProject.projectName}
-                  description={randomNewLearningProject.description}
-                  url={primaryUrl}
-                  buttonText="view details"
-                  openInNewTab={openInNewTab}
-                />
-              </div>
-            );
-          })()}
+              return (
+                <div key={`new-learning-${randomNewLearningProject.projectName}`} className={cardWrapperStyle}>
+                  <Card
+                    {...homeCardProps}
+                    title={randomNewLearningProject.projectName}
+                    description={randomNewLearningProject.description}
+                    url={primaryUrl}
+                    buttonText="view details"
+                    openInNewTab={openInNewTab}
+                  />
+                </div>
+              );
+            })()}
           </div>
-        
+
           <div className={cardWrapperStyle} id="aster">
             <h2 className="text-xl font-bold text-center capitalize" >Made in US Collaboration:</h2>
             <Card
@@ -183,7 +183,7 @@ export default function Home() {
             <h2 className="text-xl font-bold text-center capitalize" >Click Book NOW! button to schedule a meeting.</h2>
             <Card
               {...homeCardProps}
-            title="Building Bridges. Creating Momentum."
+              title="Building Bridges. Creating Momentum."
               url="/help"
               buttonText="Book NOW!"
               backgroundTheme={nycBackgroundTheme}
@@ -247,6 +247,16 @@ export default function Home() {
               description="A PDF file will download."
               backgroundTheme={nycBackgroundTheme}
               imageUrl='/cv.png'
+            />
+          </div>
+
+          <div className={cardWrapperStyle}>
+            <Card
+              {...homeCardProps}
+              title="Tic Tac Toe game for you to enjoy on the go!"
+              url="/games/tic-tac-toe"
+              imageUrl="/tic-tac-toe.gif"
+              description="Simple Tik Tac Toe Game for when you are bored."
             />
           </div>
 

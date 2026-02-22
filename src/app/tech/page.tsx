@@ -80,40 +80,6 @@ export default function Tech() {
 
         <div className={cardWrapperStyle}>
           <Card
-            title="Coming soon: Resume Generator!"
-            url="/tech/create-resume"
-            imageUrl="/cv.png"
-            description="Free service to create your own resume right on your phone. Coming: Fall 2025!"
-            customClassName="invert"
-          />
-        </div>
-
-        <div className={cardWrapperStyle}>
-          <Card
-            title="Coming soon: Launch your website!"
-            url="/edu"
-            description="Technology education resources that are available to you!"
-            customClassName="invert"
-          >
-            <ComputerIcon height="100px" width="100px" />
-          </Card>
-        </div>
-
-
-
-        <div className={cardWrapperStyle}>
-          <Card
-            title="Coming soon: React PLP Store without Redux!"
-            url="/edu"
-            description="Technology education resources that are available to you!"
-            customClassName="invert"
-          >
-            <ComputerIcon height="100px" width="100px" />
-          </Card>
-        </div>
-
-        <div className={cardWrapperStyle}>
-          <Card
             title="Apparel Quality"
             url="/edu"
             description="Cut the BS: Product Perception and Quality"
