@@ -3,6 +3,10 @@ import { Card } from "../components/card";
 import { buttonStyle, cardWrapperStyle, nycBackgroundTheme } from "../utility/stylevariables";
 
 export default function ExperiencesPage() {
+  const experienceCardProps = {
+    useCtaButton: true,
+  };
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between pt-20 ">
       <div className="mb-32 grid text-center lg:w-half lg:max-w-5xl lg:grid-cols-3 lg:text-left">
@@ -18,6 +22,7 @@ export default function ExperiencesPage() {
 
         <div className={cardWrapperStyle}>
           <Card
+            {...experienceCardProps}
             title="Owner"
             url="/lotus"
             description="We are a boutique consulting studio helping organizations ship strategy & digital experiences"
@@ -28,6 +33,7 @@ export default function ExperiencesPage() {
 
         <div className={cardWrapperStyle}>
           <Card
+            {...experienceCardProps}
             title="Senior Software Engineer"
             url="https://www.bonobos.com/"
             imageUrl="/bonobos-logo-dark.svg"
@@ -38,6 +44,7 @@ export default function ExperiencesPage() {
 
         <div className={cardWrapperStyle}>
           <Card
+            {...experienceCardProps}
             title="Software Engineer 2"
             url="https://www.shoprunner.com/"
             imageUrl="/shoprunner_byfedex.svg"
@@ -48,6 +55,7 @@ export default function ExperiencesPage() {
 
         <div className={cardWrapperStyle}>
           <Card
+            {...experienceCardProps}
             title="Owner and CEO"
             url="/moc"
             imageUrl="https://live.staticflickr.com/65535/53808934296_8330a5b182_w.jpg"
@@ -59,6 +67,7 @@ export default function ExperiencesPage() {
 
         <div className={cardWrapperStyle}>
           <Card
+            {...experienceCardProps}
             title="Instructional Assistant"
             url=""
             imageUrl="northwestern.svg"
@@ -70,6 +79,7 @@ export default function ExperiencesPage() {
 
         <div className={cardWrapperStyle}>
           <Card
+            {...experienceCardProps}
             title="Department Chair - Fashion Marketing and Merchandising"
             url=""
             imageUrl="https://live.staticflickr.com/65535/53818079467_6eaf1c63ea_w.jpg"
@@ -82,6 +92,7 @@ export default function ExperiencesPage() {
 
         <div className={cardWrapperStyle}>
           <Card
+            {...experienceCardProps}
             title="Eye on India - The Saree Project (Co-ordinator)"
             url="/lotus/eye-on-india"
             imageUrl="https://live.staticflickr.com/65535/53839425086_c36fa84f70_w.jpg"
@@ -94,6 +105,7 @@ export default function ExperiencesPage() {
 
         <div className={cardWrapperStyle}>
           <Card
+            {...experienceCardProps}
             title="Assistant Professor, Fashion Studies."
             url=""
             imageUrl="https://live.staticflickr.com/65535/53819339684_9c2b53cb83_w.jpg"
@@ -106,6 +118,7 @@ export default function ExperiencesPage() {
 
         <div className={cardWrapperStyle}>
           <Card
+            {...experienceCardProps}
             title="AT&T Samsung Galaxy Project"
             url="/lotus/samsung"
             imageUrl="https://live.staticflickr.com/65535/53851021701_6619ae0f97_w.jpg"
@@ -117,6 +130,7 @@ export default function ExperiencesPage() {
 
         <div className={cardWrapperStyle}>
           <Card
+            {...experienceCardProps}
             title="Docent - Lincoln Park Conservatory"
             url="/experiences/lincolnpark"
             imageUrl="https://live.staticflickr.com/65535/53863196190_faa7d80208_w.jpg"
@@ -128,6 +142,7 @@ export default function ExperiencesPage() {
 
         <div className={cardWrapperStyle}>
           <Card
+            {...experienceCardProps}
             title="Instructor - Family and Consumer Sciences"
             url=""
             imageUrl="/pittstate.svg"
@@ -140,6 +155,7 @@ export default function ExperiencesPage() {
 
         <div className={cardWrapperStyle}>
           <Card
+            {...experienceCardProps}
             title="StyleWeek - PR Executive"
             url=""
             imageUrl="https://www.styleweeknortheast.com/wp-content/uploads/sites/26/2019/07/STYLEWEEK-LOGO-1.png"
@@ -151,6 +167,7 @@ export default function ExperiencesPage() {
 
         <div className={cardWrapperStyle}>
           <Card
+            {...experienceCardProps}
             title="Graduate Teaching Assistant"
             url=""
             imageUrl="/uri.svg"
@@ -161,6 +178,7 @@ export default function ExperiencesPage() {
 
         <div className={cardWrapperStyle}>
           <Card
+            {...experienceCardProps}
             title="Assistant Manager, Reliance Trends"
             url=""
             imageUrl="https://live.staticflickr.com/65535/53819337484_729e51ba15_w.jpg"
@@ -171,6 +189,7 @@ export default function ExperiencesPage() {
 
         <div className={cardWrapperStyle}>
           <Card
+            {...experienceCardProps}
             title="Reach Technologies"
             url=""
             imageUrl=""
@@ -181,6 +200,7 @@ export default function ExperiencesPage() {
         <h2 id="my-education" className="text-3xl font-bold text-center mt-8 font-nyu-ultra">Education</h2>
         <div className={cardWrapperStyle}>
           <Card
+            {...experienceCardProps}
             title="NYU - Stern School of Business"
             url="/nyu"
             imageUrl="/stern.png"
@@ -192,6 +212,7 @@ export default function ExperiencesPage() {
 
         <div className={cardWrapperStyle}>
           <Card
+            {...experienceCardProps}
             title="Northwestern University"
             url=""
             imageUrl="/northwestern.svg"
@@ -202,6 +223,7 @@ export default function ExperiencesPage() {
 
         <div className={cardWrapperStyle}>
           <Card
+            {...experienceCardProps}
             title="University of Rhode Island - College of Business"
             url="https://web.uri.edu/business/about/tmd/"
             imageUrl="/uri.svg"
@@ -212,6 +234,7 @@ export default function ExperiencesPage() {
 
         <div className={cardWrapperStyle} id="my-education-nift">
           <Card
+            {...experienceCardProps}
             title="National Institute of Fashion Technology"
             url="https://nift.ac.in/theinstitute"
             imageUrl="/nift.svg"
@@ -221,6 +244,7 @@ export default function ExperiencesPage() {
 
         <div className={cardWrapperStyle}>
           <Card
+            {...experienceCardProps}
             title="Bangiya Sangeet Parishad"
             url="https://www.bangiyasangeetparishad.org/bsp/index.html"
             imageUrl="https://placehold.co/300x300?text=Painting"
@@ -252,6 +276,7 @@ export default function ExperiencesPage() {
 
         <div className={cardWrapperStyle}>
           <Card
+            {...experienceCardProps}
             title="Download Resume Here"
             openInNewTab
             url="/resume"
