@@ -1,7 +1,7 @@
 'use client';
 
 import type { NextPage } from "next";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 const parseDataValues = (rawInput: string): number[] => {
   return rawInput
@@ -57,6 +57,7 @@ export const StatsTool: NextPage = () => {
   const [singleEntry, setSingleEntry] = useState<string>("");
   const [bulkEntry, setBulkEntry] = useState<string>("");
   const [dataValues, setDataValues] = useState<number[]>([]);
+  const [selectedSampleIndex, setSelectedSampleIndex] = useState<number | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const stats = useMemo(() => {
@@ -68,6 +69,11 @@ export const StatsTool: NextPage = () => {
     const count = sorted.length;
     const sum = sorted.reduce((total, value) => total + value, 0);
     const mean = sum / count;
+    const squaredDiffSum = sorted.reduce((total, value) => total + (value - mean) ** 2, 0);
+    const populationVariance = squaredDiffSum / count;
+    const populationStdDev = Math.sqrt(populationVariance);
+    const sampleVariance = count > 1 ? squaredDiffSum / (count - 1) : null;
+    const sampleStdDev = sampleVariance !== null ? Math.sqrt(sampleVariance) : null;
     const middle = Math.floor(count / 2);
     const median =
       count % 2 === 0 ? (sorted[middle - 1] + sorted[middle]) / 2 : sorted[middle];
@@ -78,6 +84,10 @@ export const StatsTool: NextPage = () => {
       median,
       min: sorted[0],
       max: sorted[sorted.length - 1],
+      populationVariance,
+      populationStdDev,
+      sampleVariance,
+      sampleStdDev,
     };
   }, [dataValues]);
 
@@ -113,8 +123,30 @@ export const StatsTool: NextPage = () => {
     setDataValues([]);
     setBulkEntry("");
     setSingleEntry("");
+    setSelectedSampleIndex(null);
     setErrorMessage(null);
   };
+
+  useEffect(() => {
+    if (!dataValues.length) {
+      setSelectedSampleIndex(null);
+      return;
+    }
+
+    if (selectedSampleIndex === null || selectedSampleIndex >= dataValues.length) {
+      setSelectedSampleIndex(0);
+    }
+  }, [dataValues, selectedSampleIndex]);
+
+  const selectedSampleValue =
+    selectedSampleIndex !== null && selectedSampleIndex < dataValues.length
+      ? dataValues[selectedSampleIndex]
+      : null;
+
+  const zScore =
+    stats && selectedSampleValue !== null && stats.sampleStdDev && stats.sampleStdDev > 0
+      ? (selectedSampleValue - stats.mean) / stats.sampleStdDev
+      : null;
 
   return (
     <section className="mx-auto mt-8 w-full max-w-5xl rounded-3xl border border-purple-200 bg-gradient-to-b from-white to-purple-50 p-5 shadow-xl dark:border-purple-900 dark:from-zinc-900 dark:to-[#120a24]">
@@ -198,7 +230,7 @@ export const StatsTool: NextPage = () => {
 
         {errorMessage && <p className="text-sm font-medium text-red-600">{errorMessage}</p>}
 
-        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-7">
           <div className="rounded-xl border border-purple-200 bg-white px-3 py-2 dark:border-purple-800 dark:bg-zinc-950">
             <div className="text-xs uppercase tracking-wide text-purple-600 dark:text-purple-300">Count</div>
             <div className="text-xl font-bold text-purple-900 dark:text-purple-100">{stats?.count ?? 0}</div>
@@ -226,6 +258,57 @@ export const StatsTool: NextPage = () => {
             <div className="text-xl font-bold text-purple-900 dark:text-purple-100">
               {stats ? `${formatNumber(stats.max)} ${unitLabel}` : "--"}
             </div>
+          </div>
+          <div className="rounded-xl border border-purple-200 bg-white px-3 py-2 dark:border-purple-800 dark:bg-zinc-950">
+            <div className="text-xs uppercase tracking-wide text-purple-600 dark:text-purple-300">Variance (sample)</div>
+            <div className="text-xl font-bold text-purple-900 dark:text-purple-100">
+              {stats?.sampleVariance !== null && stats?.sampleVariance !== undefined
+                ? `${formatNumber(stats.sampleVariance)} ${unitLabel}²`
+                : "--"}
+            </div>
+          </div>
+          <div className="rounded-xl border border-purple-200 bg-white px-3 py-2 dark:border-purple-800 dark:bg-zinc-950">
+            <div className="text-xs uppercase tracking-wide text-purple-600 dark:text-purple-300">Std Dev (sample)</div>
+            <div className="text-xl font-bold text-purple-900 dark:text-purple-100">
+              {stats?.sampleStdDev !== null && stats?.sampleStdDev !== undefined
+                ? `${formatNumber(stats.sampleStdDev)} ${unitLabel}`
+                : "--"}
+            </div>
+          </div>
+        </div>
+
+        <div className="grid gap-3 rounded-2xl border border-purple-200 bg-white p-3 dark:border-purple-800 dark:bg-zinc-950 md:grid-cols-[1fr_1fr]">
+          <label className="flex flex-col gap-1 text-sm font-medium text-purple-800 dark:text-purple-200">
+            Select a sample value
+            <select
+              value={selectedSampleIndex ?? ""}
+              onChange={(event) =>
+                setSelectedSampleIndex(event.target.value === "" ? null : Number(event.target.value))
+              }
+              disabled={!dataValues.length}
+              className="rounded-lg border border-purple-300 bg-white px-3 py-2 text-purple-900 shadow-sm focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-300 disabled:cursor-not-allowed disabled:opacity-60 dark:border-purple-800 dark:bg-zinc-950 dark:text-purple-100"
+            >
+              {!dataValues.length && <option value="">Add data first</option>}
+              {dataValues.map((value, index) => (
+                <option key={`sample-${index}-${value}`} value={index}>
+                  #{index + 1}: {formatNumber(value)} {unitLabel}
+                </option>
+              ))}
+            </select>
+          </label>
+
+          <div className="rounded-xl border border-purple-200 bg-purple-50 px-4 py-3 dark:border-purple-800 dark:bg-[#1a1232]">
+            <div className="text-xs uppercase tracking-wide text-purple-600 dark:text-purple-300">Selected z-score</div>
+            <div className="mt-1 text-2xl font-bold text-purple-900 dark:text-purple-100">
+              {zScore !== null ? formatNumber(zScore) : "--"}
+            </div>
+            <p className="mt-1 text-xs text-purple-700 dark:text-purple-300">
+              {stats?.sampleStdDev === 0
+                ? "All values are identical, so z-score is undefined."
+                : selectedSampleValue !== null && stats?.sampleStdDev
+                  ? `z = (x - mean) / s = (${formatNumber(selectedSampleValue)} - ${formatNumber(stats.mean)}) / ${formatNumber(stats.sampleStdDev)}`
+                  : "Select a sample to view z-score."}
+            </p>
           </div>
         </div>
 
