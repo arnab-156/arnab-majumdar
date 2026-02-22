@@ -228,7 +228,7 @@ export default function ExperiencesPage() {
             url="https://web.uri.edu/business/about/tmd/"
             imageUrl="/uri.svg"
             backgroundTheme={`${nycBackgroundTheme}`}
-            description="Master of Science - Textiles, Fashion Merchandising & Design"
+            description={`Master of Science - Textiles, Fashion Merchandising & Design; Senator - Graduate Student Association`}
           />
         </div>
 
@@ -247,7 +247,7 @@ export default function ExperiencesPage() {
             {...experienceCardProps}
             title="Bangiya Sangeet Parishad"
             url="https://www.bangiyasangeetparishad.org/bsp/index.html"
-            imageUrl="https://placehold.co/300x300?text=Painting"
+            imageUrl="https://svt69ytw2j2onadk.public.blob.vercel-storage.com/BSP_Certificate_2nd_1996.png"
             backgroundTheme={`${nycBackgroundTheme}`}
             description="Diploma in Fine Arts, Painting (5th year) - Chitrankan Kala Mandir - Ranchi."
             openInNewTab
