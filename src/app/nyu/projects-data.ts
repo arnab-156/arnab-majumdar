@@ -88,12 +88,13 @@ export const nyuCourses: NyuCourse[] = [
 
 export const nyuProjectInfo: Record<string, NyuProjectDetails> = {
   "Macroscopic Analysis of Germany": {
-    description: "Macro deep dive into Germany’s growth drivers, export engine, and energy transition risks.",
+    description:
+      "Germany is the largest economy in Europe — a compelling case study of a highly developed economy navigating cyclical weakness, demographic headwinds, and structural transformation. This analysis examines Germany through four connected lenses: measurement and labor markets, long-run growth, fiscal policy, and monetary policy.",
     outcomes: [
       "Modeled GDP sensitivity to ECB rate moves and industrial output shifts.",
       "Evaluated energy mix transition impacts on trade balance and manufacturing margins.",
     ],
-    urls: [{ url: "https://example.com/projects/macroscopic-analysis-of-germany" }],
+    urls: [{ title: "Open project", url: "https://germany-macroecon-analys-bnflv4z.gamma.site/" }],
   },
   "Analysis of China": {
     description: "Scenario analysis of China’s post‑COVID demand, property deleveraging, and supply-chain reshoring.",
