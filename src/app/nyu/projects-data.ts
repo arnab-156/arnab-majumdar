@@ -38,6 +38,12 @@ export const nyuCourses: NyuCourse[] = [
     projects: ["Financial Accounting Learnings"],
   },
   {
+    name: "The Global Economy",
+    passWithDistinction: true,
+    faculty: { name: "Julen Esteban-Pretel" },
+    projects: ["Macroscopic Analysis of Germany", "Analysis of China"],
+  },
+  {
     name: "Leadership in Organizations",
     faculty: {
       name: "Nathan Pettit",
@@ -57,11 +63,6 @@ export const nyuCourses: NyuCourse[] = [
     name: "Professional Responsibility",
     faculty: { name: "Alison Taylor", url: "https://www.alisontaylor.co/" },
     projects: ["What I learned from Whistleblowers?"],
-  },
-  {
-    name: "The Global Economy",
-    faculty: { name: "Julen Esteban-Pretel" },
-    projects: ["Macroscopic Analysis of Germany", "Analysis of China"],
   },
   {
     name: "Business Statistics and Data Analytics",
