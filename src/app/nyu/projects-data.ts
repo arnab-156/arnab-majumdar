@@ -85,6 +85,15 @@ export const nyuCourses: NyuCourse[] = [
     },
     projects: [],
   },
+  {
+    name: "Strategy",
+    passWithDistinction: true,
+    faculty: {
+      name: "Sonia Marciano",
+      url: "https://www.stern.nyu.edu/faculty/bio/sonia-marciano",
+    },
+    projects: [],
+  },
 ];
 
 export const nyuProjectInfo: Record<string, NyuProjectDetails> = {
