@@ -8,7 +8,7 @@ import { useMemo, useState } from "react";
 import { buttonStyle } from "@/app/utility/stylevariables";
 import { nyuCourses as courses, nyuProjectInfo as projectInfo, type NyuProject } from "./projects-data";
 
-const specializations = ["Strategy", "Sustainability & Innovation", "Global Business"];
+const specializations = ["Strategy", "Sustainability & Innovation", "Finance"];
 
 const groups = [
   {
@@ -341,13 +341,26 @@ export default function NYUPage() {
 
                       <div className="flex-1" />
 
-                      {course.passWithDistinction && (
-                        <div className="flex justify-start">
-                          <span className="inline-flex items-center rounded-full bg-amber-300 px-3 py-1 text-xs font-semibold text-black shadow-sm">
-                            Pass with distinction
-                          </span>
+                      <div className="flex items-end justify-between gap-2">
+                        <div className="flex flex-col gap-1">
+                          {course.passWithDistinction && (
+                            <span className="inline-flex items-center rounded-full bg-amber-300 px-3 py-1 text-xs font-semibold text-black shadow-sm">
+                              Pass with distinction
+                            </span>
+                          )}
+                          {course.langoneExtraClass && (
+                            <span className="inline-flex items-center rounded-full bg-slate-300 px-3 py-1 text-xs font-semibold text-slate-800 shadow-sm">
+                              Langone (extra class)
+                            </span>
+                          )}
                         </div>
-                      )}
+                        {course.credits !== undefined && (
+                          <div className="border border-white/80 dark:border-[#2e0068]/60 rounded-full px-2 py-1 text-right font-light leading-none shrink-0">
+                            <span className="text-base">{course.credits}</span>
+                            <span className="text-[10px]"> Cr.</span>
+                          </div>
+                        )}
+                      </div>
                     </div>
                   </button>
                 ))}

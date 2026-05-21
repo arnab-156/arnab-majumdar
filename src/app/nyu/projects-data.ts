@@ -1,6 +1,8 @@
 export type NyuCourse = {
   name: string;
   passWithDistinction?: boolean;
+  langoneExtraClass?: boolean;
+  credits?: number;
   faculty: { name: string; url?: string };
   projects: string[];
 };
@@ -25,12 +27,14 @@ export const nyuCourses: NyuCourse[] = [
   {
     name: "Firms and Markets",
     passWithDistinction: true,
+    credits: 3,
     faculty: { name: "Simon Bowmaker", url: "https://www.simonbowmaker.com/" },
     projects: [],
   },
   {
     name: "Financial Accounting",
     passWithDistinction: true,
+    credits: 3,
     faculty: {
       name: "Ilan Guttman",
       url: "https://www.stern.nyu.edu/faculty/bio/ilan-guttman",
@@ -40,11 +44,13 @@ export const nyuCourses: NyuCourse[] = [
   {
     name: "The Global Economy",
     passWithDistinction: true,
+    credits: 3,
     faculty: { name: "Julen Esteban-Pretel" },
     projects: ["Macroscopic Analysis of Germany", "Analysis of China"],
   },
   {
     name: "Leadership in Organizations",
+    credits: 3,
     faculty: {
       name: "Nathan Pettit",
       url: "https://www.stern.nyu.edu/faculty/bio/nathan-pettit",
@@ -53,6 +59,7 @@ export const nyuCourses: NyuCourse[] = [
   },
   {
     name: "Strategic Communications",
+    credits: 1.5,
     faculty: {
       name: "Brian Hanssen",
       url: "https://www.stern.nyu.edu/faculty/bio/brian-hanssen",
@@ -61,16 +68,19 @@ export const nyuCourses: NyuCourse[] = [
   },
   {
     name: "Professional Responsibility",
+    credits: 1.5,
     faculty: { name: "Alison Taylor", url: "https://www.alisontaylor.co/" },
     projects: ["What I learned from Whistleblowers?"],
   },
   {
     name: "Business Statistics and Data Analytics",
+    credits: 3,
     faculty: { name: "Grace Haaf", url: "https://www.stern.nyu.edu/faculty/bio/grace-haaf" },
     projects: [],
   },
   {
     name: "Global Immersion Experience in Turkiye",
+    credits: 3,
     faculty: {
       name: "Tulin Erdem",
       url: "https://www.stern.nyu.edu/faculty/bio/tulin-erdem",
@@ -78,10 +88,22 @@ export const nyuCourses: NyuCourse[] = [
     projects: ["Geopolitical Analysis of Turkey"],
   },
   {
-    name: "Strategy & Innovation in China",
+    name: "The Strategist",
+    langoneExtraClass: true,
+    credits: 1.5,
     faculty: {
-      name: "Christina Fang",
-      url: "https://sites.google.com/stern.nyu.edu/christinafang/home",
+      name: "Adam Brandenburger",
+      url: "https://www.adambrandenburger.com/",
+    },
+    projects: [],
+  },
+  {
+    name: "Strategy",
+    passWithDistinction: true,
+    credits: 3,
+    faculty: {
+      name: "Sonia Marciano",
+      url: "https://www.stern.nyu.edu/faculty/bio/sonia-marciano",
     },
     projects: [],
   },
