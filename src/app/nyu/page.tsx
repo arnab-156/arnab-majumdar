@@ -8,7 +8,7 @@ import { useMemo, useState } from "react";
 import { buttonStyle } from "@/app/utility/stylevariables";
 import { nyuCourses as courses, nyuProjectInfo as projectInfo, type NyuProject } from "./projects-data";
 
-const specializations = ["Strategy", "Sustainability & Innovation", "Global Business"];
+const specializations = ["Strategy", "Sustainability & Innovation", "Finance"];
 
 const groups = [
   {
