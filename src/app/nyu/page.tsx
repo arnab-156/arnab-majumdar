@@ -355,7 +355,7 @@ export default function NYUPage() {
                           )}
                         </div>
                         {course.credits !== undefined && (
-                          <div className="border border-white/80 dark:border-[#2e0068]/60 rounded-lg px-2 py-1 text-right font-light leading-none shrink-0">
+                          <div className="border border-white/80 dark:border-[#2e0068]/60 rounded-full px-2 py-1 text-right font-light leading-none shrink-0">
                             <span className="text-base">{course.credits}</span>
                             <span className="text-[10px]"> Cr.</span>
                           </div>
