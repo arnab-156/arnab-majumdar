@@ -348,6 +348,13 @@ export default function NYUPage() {
                           </span>
                         </div>
                       )}
+                      {course.langoneExtraClass && (
+                        <div className="flex justify-start">
+                          <span className="inline-flex items-center rounded-full bg-slate-300 px-3 py-1 text-xs font-semibold text-slate-800 shadow-sm">
+                            Langone (extra class)
+                          </span>
+                        </div>
+                      )}
                     </div>
                   </button>
                 ))}

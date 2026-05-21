@@ -1,6 +1,7 @@
 export type NyuCourse = {
   name: string;
   passWithDistinction?: boolean;
+  langoneExtraClass?: boolean;
   faculty: { name: string; url?: string };
   projects: string[];
 };
@@ -78,10 +79,11 @@ export const nyuCourses: NyuCourse[] = [
     projects: ["Geopolitical Analysis of Turkey"],
   },
   {
-    name: "Strategy & Innovation in China",
+    name: "The Strategist",
+    langoneExtraClass: true,
     faculty: {
-      name: "Christina Fang",
-      url: "https://sites.google.com/stern.nyu.edu/christinafang/home",
+      name: "Adam Brandenburger",
+      url: "https://www.adambrandenburger.com/",
     },
     projects: [],
   },
