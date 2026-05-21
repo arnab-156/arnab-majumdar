@@ -2,6 +2,7 @@ export type NyuCourse = {
   name: string;
   passWithDistinction?: boolean;
   langoneExtraClass?: boolean;
+  credits?: number;
   faculty: { name: string; url?: string };
   projects: string[];
 };
@@ -54,6 +55,7 @@ export const nyuCourses: NyuCourse[] = [
   },
   {
     name: "Strategic Communications",
+    credits: 1.5,
     faculty: {
       name: "Brian Hanssen",
       url: "https://www.stern.nyu.edu/faculty/bio/brian-hanssen",
