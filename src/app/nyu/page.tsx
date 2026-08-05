@@ -353,6 +353,11 @@ export default function NYUPage() {
                               Langone (extra class)
                             </span>
                           )}
+                          {course.inProgress && (
+                            <span className="inline-flex items-center rounded-full bg-sky-300 px-3 py-1 text-xs font-semibold text-sky-950 shadow-sm">
+                              In-Progress
+                            </span>
+                          )}
                         </div>
                         {course.credits !== undefined && (
                           <div className="border border-white/80 dark:border-[#2e0068]/60 rounded-full px-2 py-1 text-right font-light leading-none shrink-0">
@@ -422,7 +427,7 @@ export default function NYUPage() {
 
       {activeProject && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
-          <div className="w-full max-w-lg rounded-3xl bg-white p-6 text-gray-900 shadow-2xl dark:bg-zinc-950 dark:text-gray-100">
+          <div className="w-full max-w-lg max-h-[90vh] overflow-y-auto rounded-3xl bg-white p-6 text-gray-900 shadow-2xl dark:bg-zinc-950 dark:text-gray-100">
             <div className="flex items-start justify-between gap-4">
               <div>
                 <p className="text-xs uppercase tracking-[0.2em] text-purple-600 dark:text-purple-300">Project</p>
