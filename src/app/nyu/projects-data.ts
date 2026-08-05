@@ -2,6 +2,7 @@ export type NyuCourse = {
   name: string;
   passWithDistinction?: boolean;
   langoneExtraClass?: boolean;
+  inProgress?: boolean;
   credits?: number;
   faculty: { name: string; url?: string };
   projects: string[];
@@ -107,6 +108,36 @@ export const nyuCourses: NyuCourse[] = [
     },
     projects: [],
   },
+  {
+    name: "Foundations of Finance",
+    inProgress: true,
+    credits: 3,
+    faculty: {
+      name: "Alexi Savov",
+      url: "https://www.stern.nyu.edu/faculty/bio/alexi-savov",
+    },
+    projects: [],
+  },
+  {
+    name: "Marketing",
+    inProgress: true,
+    credits: 3,
+    faculty: {
+      name: "Thomaï Serdari",
+      url: "https://www.stern.nyu.edu/faculty/bio/thomai-serdari",
+    },
+    projects: ["Chelsea Piers Fitness"],
+  },
+  {
+    name: "Sustainability Value Creation in Private Markets",
+    langoneExtraClass: true,
+    credits: 3,
+    faculty: {
+      name: "Angela Jhanji",
+      url: "https://www.stern.nyu.edu/faculty/bio/angela-jhanji",
+    },
+    projects: [],
+  },
 ];
 
 export const nyuProjectInfo: Record<string, NyuProjectDetails> = {
@@ -180,6 +211,17 @@ export const nyuProjectInfo: Record<string, NyuProjectDetails> = {
       "Applied ratio and working-capital analysis to spot timing risk, estimate concentration, and potential distortions.",
     ],
     urls: [{ title: "Project page", url: "/nyu/financial-accounting" }],
+  },
+  "Chelsea Piers Fitness": {
+    description:
+      "CP Fitness is the fitness club arm of Chelsea Piers, the sports and entertainment complex on Manhattan's West Side. It sits in a crowded NYC premium fitness market with a brand identity tied to the larger Chelsea Piers name — known for multi-sport facilities and youth athletics — rather than a distinct luxury-fitness position of its own. The main ask: decide whether CP Fitness should lean into Chelsea Piers heritage, break out as a standalone luxury brand, or take a middle path — with the recommendation grounded in Millennial and Gen Z consumer analysis.",
+    outcomes: [
+      "Brand architecture is a positioning trade-off, not a naming exercise. Deciding between heritage, standalone luxury, and a hybrid path forced us to weigh the equity Chelsea Piers already owns against the premium associations it can't credibly claim — and the middle path only works if each sub-brand has a distinct job.",
+      "Consumer segmentation should drive strategy, not decorate it. Millennial and Gen Z fitness behaviors diverge enough (community vs. performance, price sensitivity vs. experience-seeking) that a single message dilutes both; the segment analysis is what disqualified the “one brand for everyone” option.",
+      "CLV discipline separates ambition from viability. Building the model on an incremental rather than fully loaded margin, and holding to a 3× LTV:CAC threshold, turned “should we expand?” into a defensible sequencing question about which five markets and in what order.",
+      "Partnerships extend a brand faster than advertising can. The Standard High Line × Malin+Goetz × Tracksmith concept borrowed credibility CP Fitness would take years and significant spend to build organically — the lesson being that the right collaborator is a positioning shortcut.",
+    ],
+    urls: [{ title: "Open project", url: "https://canva.link/l22n6v28cnf4n69" }],
   },
 };
 
