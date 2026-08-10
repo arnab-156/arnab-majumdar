@@ -120,7 +120,7 @@ export const nyuCourses: NyuCourse[] = [
   },
   {
     name: "Marketing",
-    inProgress: true,
+    passWithDistinction: true,
     credits: 3,
     faculty: {
       name: "Thomaï Serdari",
