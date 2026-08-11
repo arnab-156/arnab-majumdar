@@ -96,7 +96,7 @@ export const nyuCourses: NyuCourse[] = [
       name: "Adam Brandenburger",
       url: "https://www.adambrandenburger.com/",
     },
-    projects: [],
+    projects: ["What I Learned About Strategy"],
   },
   {
     name: "Strategy",
@@ -222,6 +222,17 @@ export const nyuProjectInfo: Record<string, NyuProjectDetails> = {
       "Partnerships extend a brand faster than advertising can. The Standard High Line × Malin+Goetz × Tracksmith concept borrowed credibility CP Fitness would take years and significant spend to build organically — the lesson being that the right collaborator is a positioning shortcut.",
     ],
     urls: [{ title: "Open project", url: "https://canva.link/l22n6v28cnf4n69" }],
+  },
+  "What I Learned About Strategy": {
+    description:
+      "The Strategist rests on a single premise: creativity in strategy is not a gift but a craft, made up of four moves — Constraint, Combination, Contrast, and Context — that anyone can learn to apply to any problem.",
+    outcomes: [
+      "Turn a constraint into a starting point. Read a limit — budget, access, credentials, infrastructure — as the brief for a strategy rather than the reason there isn’t one.",
+      "Create value by recombining what already exists. Recognize that most novelty comes from assembling inherited parts in a new configuration, not from inventing at zero.",
+      "Name the assumption everyone treats as fixed — then test it. Surface the conventional wisdom holding an industry in place, and ask what becomes possible if it turns out to be false.",
+      "Move an idea across fields by analogy. Borrow a solved problem from one context as the lead for an unsolved one in another, and learn from outsiders, extreme users, and non-customers.",
+    ],
+    urls: [{ title: "Project page", url: "/nyu/the-strategist" }],
   },
 };
 
