@@ -459,7 +459,7 @@ export default function NYUPage() {
                   <ul className="mt-2 space-y-2 rounded-2xl border border-dashed border-purple-200 bg-purple-50 p-4 text-sm text-purple-900 dark:border-purple-800 dark:bg-purple-900/30 dark:text-purple-50">
                     {activeProject.outcomes.map((item) => (
                       <li key={item} className="flex gap-3">
-                        <span className="mt-1 h-2 w-2 rounded-full bg-purple-500" aria-hidden />
+                        <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-purple-500" aria-hidden />
                         <span>{item}</span>
                       </li>
                     ))}
