@@ -1,6 +1,7 @@
 export type NyuCourse = {
   name: string;
   passWithDistinction?: boolean;
+  highPass?: boolean;
   langoneExtraClass?: boolean;
   inProgress?: boolean;
   credits?: number;
@@ -75,12 +76,14 @@ export const nyuCourses: NyuCourse[] = [
   },
   {
     name: "Business Statistics and Data Analytics",
+    highPass: true,
     credits: 3,
     faculty: { name: "Grace Haaf", url: "https://www.stern.nyu.edu/faculty/bio/grace-haaf" },
     projects: [],
   },
   {
     name: "Global Immersion Experience in Turkiye",
+    highPass: true,
     credits: 3,
     faculty: {
       name: "Tulin Erdem",
@@ -110,7 +113,7 @@ export const nyuCourses: NyuCourse[] = [
   },
   {
     name: "Foundations of Finance",
-    inProgress: true,
+    highPass: true,
     credits: 3,
     faculty: {
       name: "Alexi Savov",

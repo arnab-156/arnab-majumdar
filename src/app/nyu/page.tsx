@@ -28,6 +28,16 @@ const groups = [
   },
 ];
 
+const performanceStats = [
+  { value: "50%", detail: "pass with a Distinction grade in 1st-year EMBA core courses." },
+  { value: "80%", detail: "pass with a Distinction or High Pass grade in 1st-year EMBA core courses." },
+];
+
+const performanceHighlights = [
+  "Organized team-building cohort events in collaboration with others, such as Friendsgiving, Turkish Brunch, and the Class Picnic.",
+  "Organized an Executive MBA Lunch & Learn with the NYU Stern Center for Sustainable Business.",
+];
+
 const classNames = (...values: Array<string | false | null | undefined>) =>
   values.filter(Boolean).join(" ");
 
@@ -54,7 +64,7 @@ export default function NYUPage() {
     ? projects.filter((project) => project.courseName === selectedCourse)
     : projects;
 
-  const slideCount = 3;
+  const slideCount = 4;
 
   const nextSlide = () => setActiveSlide((prev) => (prev + 1) % slideCount);
   const prevSlide = () => setActiveSlide((prev) => (prev - 1 + slideCount) % slideCount);
@@ -117,6 +127,38 @@ export default function NYUPage() {
                   Tap to view next snapshot
                 </span>
               </button>
+            ))}
+          </div>
+        </div>
+      );
+    }
+
+    if (activeSlide === 2) {
+      return (
+        <div className="space-y-4">
+          <p className="text-sm uppercase tracking-[0.2em] text-purple-700 dark:text-purple-200">Track Record</p>
+          <h3 className="text-3xl font-nyu-ultra">Performance</h3>
+
+          <div className="grid gap-4 sm:grid-cols-2">
+            {performanceStats.map((stat) => (
+              <div
+                key={stat.value}
+                className="rounded-2xl bg-gradient-to-br from-purple-700 to-indigo-700 text-white px-5 py-6 shadow-md"
+              >
+                <div className="text-4xl font-black tracking-tight">{stat.value}</div>
+                <p className="mt-2 text-sm text-purple-50">{stat.detail}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="grid gap-3 sm:grid-cols-2">
+            {performanceHighlights.map((item) => (
+              <article
+                key={item}
+                className="rounded-2xl border border-purple-200 dark:border-purple-900 bg-white dark:bg-purple-900/40 p-4 shadow-md"
+              >
+                <p className="text-sm text-gray-800 dark:text-gray-100 leading-relaxed">{item}</p>
+              </article>
             ))}
           </div>
         </div>
@@ -247,7 +289,7 @@ export default function NYUPage() {
               }}
             >
               <div className="relative min-h-[640px] md:min-h-[360px]">
-                {[0, 1, 2].map((index) => (
+                {Array.from({ length: slideCount }, (_, index) => index).map((index) => (
                   <div
                     key={index}
                     className={classNames(
@@ -263,7 +305,7 @@ export default function NYUPage() {
               </div>
 
               <div className="mt-6 flex items-center justify-center gap-2">
-                {[0, 1, 2].map((index) => (
+                {Array.from({ length: slideCount }, (_, index) => index).map((index) => (
                   <button
                     key={index}
                     type="button"
@@ -348,9 +390,14 @@ export default function NYUPage() {
                               Pass with distinction
                             </span>
                           )}
+                          {course.highPass && (
+                            <span className="inline-flex items-center rounded-full bg-purple-200 px-3 py-1 text-xs font-semibold text-[#57068c] shadow-sm">
+                              High Pass
+                            </span>
+                          )}
                           {course.langoneExtraClass && (
                             <span className="inline-flex items-center rounded-full bg-slate-300 px-3 py-1 text-xs font-semibold text-slate-800 shadow-sm">
-                              Langone (extra class)
+                              Langone
                             </span>
                           )}
                           {course.inProgress && (
@@ -360,7 +407,14 @@ export default function NYUPage() {
                           )}
                         </div>
                         {course.credits !== undefined && (
-                          <div className="border border-white/80 dark:border-[#2e0068]/60 rounded-full px-2 py-1 text-right font-light leading-none shrink-0">
+                          <div
+                            className={classNames(
+                              "border rounded-full px-2 py-1 text-right font-light leading-none shrink-0",
+                              course.credits <= 1.5
+                                ? "border-white bg-white text-[#57068c] dark:border-[#2e0068] dark:bg-[#2e0068] dark:text-white"
+                                : "border-white/80 dark:border-[#2e0068]/60"
+                            )}
+                          >
                             <span className="text-base">{course.credits}</span>
                             <span className="text-[10px]"> Cr.</span>
                           </div>
