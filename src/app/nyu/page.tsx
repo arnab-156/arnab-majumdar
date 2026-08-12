@@ -3,7 +3,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import { buttonStyle } from "@/app/utility/stylevariables";
 import { nyuCourses as courses, nyuProjectInfo as projectInfo, type NyuProject } from "./projects-data";
@@ -28,9 +28,12 @@ const groups = [
   },
 ];
 
+// Slug per snapshot slide, in slide order — drives the shareable /nyu#<slug> deep links.
+const slideSlugs = ["class-representative", "specializations", "performance", "clubs-and-cohorts"];
+
 const performanceStats = [
-  { value: "50%", detail: "pass with a Distinction grade in 1st-year EMBA core courses." },
-  { value: "80%", detail: "pass with a Distinction or High Pass grade in 1st-year EMBA core courses." },
+  { value: "50%", detail: "pass with a Distinction grade in 1st-year EMBA core credits." },
+  { value: "80%", detail: "pass with a Distinction or High Pass grade in 1st-year EMBA core credits." },
 ];
 
 const performanceHighlights = [
@@ -64,10 +67,31 @@ export default function NYUPage() {
     ? projects.filter((project) => project.courseName === selectedCourse)
     : projects;
 
-  const slideCount = 4;
+  const slideCount = slideSlugs.length;
 
-  const nextSlide = () => setActiveSlide((prev) => (prev + 1) % slideCount);
-  const prevSlide = () => setActiveSlide((prev) => (prev - 1 + slideCount) % slideCount);
+  // Open the slide named in the URL hash, so /nyu#performance can be shared directly.
+  useEffect(() => {
+    const applyHash = () => {
+      const index = slideSlugs.indexOf(window.location.hash.replace("#", ""));
+      if (index === -1) return;
+
+      setActiveSlide(index);
+      document.getElementById("snapshots")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    };
+
+    applyHash();
+    window.addEventListener("hashchange", applyHash);
+    return () => window.removeEventListener("hashchange", applyHash);
+  }, []);
+
+  // Only user-driven slide changes rewrite the hash, so an incoming deep link is never clobbered on mount.
+  const goToSlide = (index: number) => {
+    setActiveSlide(index);
+    window.history.replaceState(null, "", `#${slideSlugs[index]}`);
+  };
+
+  const nextSlide = () => goToSlide((activeSlide + 1) % slideCount);
+  const prevSlide = () => goToSlide((activeSlide - 1 + slideCount) % slideCount);
 
   const handleCourseClick = (courseName: string) => {
     setSelectedCourse((current) => (current === courseName ? null : courseName));
@@ -251,7 +275,7 @@ export default function NYUPage() {
         </section>
 
         {/* SLIDING SECTIONS */}
-        <section className="bg-white dark:bg-zinc-950 py-14 px-6 md:px-12 min-h-[780px] md:min-h-[540px]">
+        <section id="snapshots" className="scroll-mt-20 bg-white dark:bg-zinc-950 py-14 px-6 md:px-12 min-h-[780px] md:min-h-[540px]">
           <div className="max-w-6xl mx-auto">
             <div className="flex items-center justify-between gap-4">
               <h2 className="text-3xl md:text-4xl font-nyu-ultra">Stern Snapshots</h2>
@@ -311,7 +335,7 @@ export default function NYUPage() {
                     type="button"
                     onClick={(event) => {
                       event.stopPropagation();
-                      setActiveSlide(index);
+                      goToSlide(index);
                     }}
                     className={classNames(
                       "h-2.5 w-2.5 rounded-full transition",
