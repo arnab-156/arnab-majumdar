@@ -193,6 +193,7 @@ const achievements = {
 const skillTiles: SkillTile[] = [
   { title: "Large-scale Store Launch", subtitle: "Reliance Trends · Marketing & Brand launches" },
   { title: "Pop-up Shop Launch", subtitle: "Lotus Mahal & Made of Chicago" },
+  { title: "Fashion Show Technical Producer", subtitle: "Drexel University" },
   { title: "Customer-facing Website Launch/Upgrade", subtitle: "Shoprunner" },
   { title: "Strategic Plan Implementation", subtitle: "Coppin State University" },
   { title: "Program Review Lead", subtitle: "Northwood University" },
