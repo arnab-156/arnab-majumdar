@@ -157,7 +157,7 @@ export default function TheStrategistPage() {
   return (
     <>
       <Head>
-        <title>What I Learned About Strategy | NYU Stern EMBA</title>
+        <title>What I Learned About the Creative Strategist? | NYU Stern EMBA</title>
         <meta
           name="description"
           content="Course reflection for The Strategist at NYU Stern EMBA, taught by Adam Brandenburger: Constraint, Combination, Contrast, and Context."
@@ -172,7 +172,7 @@ export default function TheStrategistPage() {
           <div className="relative max-w-5xl mx-auto grid gap-8 md:grid-cols-[1.1fr_0.9fr] items-center">
             <div className="space-y-4">
               <p className="text-xs uppercase tracking-[0.35em] text-purple-100">NYU Stern EMBA • Course Reflection</p>
-              <h1 className="text-4xl md:text-5xl font-nyu-ultra leading-tight">What I Learned About Strategy</h1>
+              <h1 className="text-4xl md:text-5xl font-nyu-ultra leading-tight">What I Learned About the Creative Strategist?</h1>
               <p className="text-lg md:text-xl text-purple-50">
                 Taught by{" "}
                 <Link
