@@ -158,7 +158,7 @@ export default function ExperiencesPage() {
             {...experienceCardProps}
             title="StyleWeek - PR Executive"
             url=""
-            imageUrl="https://www.styleweeknortheast.com/wp-content/uploads/sites/26/2019/07/STYLEWEEK-LOGO-1.png"
+            imageUrl="https://www.styleweeknortheast.com/wp-content/uploads/2019/07/STYLEWEEK-LOGO-1.png"
             imageHeight={200}
             imageWidth={190}
             description="PR + Fashion show production assistant."
