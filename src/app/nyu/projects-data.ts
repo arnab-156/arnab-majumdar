@@ -99,7 +99,7 @@ export const nyuCourses: NyuCourse[] = [
       name: "Adam Brandenburger",
       url: "https://www.adambrandenburger.com/",
     },
-    projects: ["What I Learned About Strategy"],
+    projects: ["What I Learned About the Creative Strategist?"],
   },
   {
     name: "Strategy",
@@ -119,7 +119,7 @@ export const nyuCourses: NyuCourse[] = [
       name: "Alexi Savov",
       url: "https://www.stern.nyu.edu/faculty/bio/alexi-savov",
     },
-    projects: [],
+    projects: ["My Finance Cheatsheet"],
   },
   {
     name: "Marketing",
@@ -226,7 +226,17 @@ export const nyuProjectInfo: Record<string, NyuProjectDetails> = {
     ],
     urls: [{ title: "Open project", url: "https://canva.link/l22n6v28cnf4n69" }],
   },
-  "What I Learned About Strategy": {
+  "My Finance Cheatsheet": {
+    description:
+      "Combining every formula from the course — TVM, bonds, stocks, capital budgeting, free cash flow, portfolio theory, CAPM, WACC and capital structure, options, and market mechanics — organized into 11 categories with a note on when each applies.",
+    outcomes: [
+      "Value is the present value of future cash flows. Everything in the course is PV = Σ CF/(1+R)^t wearing a different costume: a bond with contractual coupons, a stock with dividends, a project called NPV, a company called enterprise value.",
+      "Get the numerator right — incremental cash flow, not accounting profit. Sunk R&D doesn't change with the decision; the depreciation tax shield does, even though depreciation itself is never a cash cost.",
+      "Get the denominator right — only systematic risk is priced. Diversification eliminates firm-specific risk for free, so the market refuses to pay you for bearing it; beta alone sets the required return.",
+    ],
+    urls: [{ title: "Project page", url: "/nyu/finance-cheatsheet" }],
+  },
+  "What I Learned About the Creative Strategist?": {
     description:
       "The Strategist rests on a single premise: creativity in strategy is not a gift but a craft, made up of four moves — Constraint, Combination, Contrast, and Context — that anyone can learn to apply to any problem.",
     outcomes: [
