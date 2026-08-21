@@ -85,6 +85,14 @@ export const nyuCourses: NyuCourse[] = [
     },
     projects: [],
   },
+  {
+    name: "Sustainability Value Creation in Private Markets",
+    faculty: {
+      name: "Angela Jhanji",
+      url: "https://www.stern.nyu.edu/faculty/bio/angela-jhanji",
+    },
+    projects: ["Sustainability Due Diligence: Coty Inc."],
+  },
 ];
 
 export const nyuProjectInfo: Record<string, NyuProjectDetails> = {
@@ -148,6 +156,17 @@ export const nyuProjectInfo: Record<string, NyuProjectDetails> = {
       "Mapped leadership expectations into practical behaviors that support teams and stakeholders.",
     ],
     urls: [{ title: "Project page", url: "/nyu/LeadershipCommitmentPlan" }],
+  },
+  "Sustainability Due Diligence: Coty Inc.": {
+    description:
+      "A simulated investment committee: four teams ran a full sustainability diligence on a global beauty company, and I led the risk assessment workstream — identifying material risks, assigning severity, proposing mitigations, and defending the analysis under IC questioning.",
+    outcomes: [
+      "Triangulated SASB, the company's own ESRS double materiality assessment, and an investor mandate to build a gross-basis risk register.",
+      "Learned to read one tier below the headline claim: certification tiers, exclusions, and what a disclosure omits.",
+      "Sized commercial versus environmental risk honestly, and sequenced remediation against the balance sheet that has to fund it.",
+      "Translated diligence findings into prioritized value creation levers and a conditional IC recommendation.",
+    ],
+    urls: [{ title: "Project page", url: "/nyu/sustainability-value-creation/coty-inc" }],
   },
   "Financial Accounting Learnings": {
     description:
