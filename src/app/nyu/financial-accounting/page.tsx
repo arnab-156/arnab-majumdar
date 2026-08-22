@@ -4,6 +4,7 @@ import Head from "next/head";
 import Link from "next/link";
 import { useState } from "react";
 
+import { AnimationLayer, Reveal } from "@/app/components/animation";
 import { buttonStyle } from "@/app/utility/stylevariables";
 
 const coreLogicTiles = [
@@ -161,13 +162,21 @@ export default function FinancialAccountingPage() {
         />
       </Head>
 
-      <main className="font-nyu bg-white text-gray-900 dark:bg-black dark:text-gray-100 min-h-screen pb-12">
+      <AnimationLayer
+        as="main"
+        className="font-nyu bg-white text-gray-900 dark:bg-black dark:text-gray-100 min-h-screen pb-12 overflow-x-clip"
+        method="alternate"
+        distance={64}
+        duration={760}
+        threshold={0.12}
+        rootMargin="0px 0px -12% 0px"
+      >
         <section className="relative overflow-hidden bg-gradient-to-br from-[#2e0068] via-[#5a1dab] to-[#b373ff] text-white py-16 px-6 md:px-12">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.12),transparent_35%)]" aria-hidden />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_0%,rgba(255,255,255,0.08),transparent_30%)]" aria-hidden />
 
-          <div className="relative max-w-6xl mx-auto grid gap-10 md:grid-cols-[1.2fr_0.8fr] items-center">
-            <div className="space-y-4">
+          <AnimationLayer as="div" className="relative max-w-6xl mx-auto grid gap-10 md:grid-cols-[1.2fr_0.8fr] items-center" method="alternate" distance={48} threshold={0} rootMargin="0px">
+            <Reveal method="left" className="space-y-4">
               <p className="text-xs uppercase tracking-[0.35em] text-purple-100">NYU Stern EMBA • Course Reflection</p>
               <h1 className="text-4xl md:text-5xl font-nyu-ultra leading-tight">Financial Accounting Learnings</h1>
               <p className="text-lg md:text-xl text-purple-50">
@@ -192,31 +201,33 @@ export default function FinancialAccountingPage() {
                 Accounting is not just recording; it is a system of choices, estimates, and constraints that shapes what performance looks like on paper.
               </p>
 
-              <div className="flex gap-3 flex-wrap">
+              <Reveal method="left" delay={220} className="flex gap-3 flex-wrap">
                 <Link href="/nyu#projects" className={buttonStyle}>
                   Back to NYU
                 </Link>
                 <Link href="#core-logic" className="underline text-purple-100">
                   Jump to content
                 </Link>
-              </div>
-            </div>
+              </Reveal>
+            </Reveal>
 
-            <div className="rounded-3xl bg-white/10 p-6 backdrop-blur shadow-2xl border border-white/20">
+            <Reveal method="right" delay={140} className="rounded-3xl bg-white/10 p-6 backdrop-blur shadow-2xl border border-white/20">
               <h2 className="text-xl font-semibold">What this page focuses on</h2>
               <ul className="mt-4 space-y-2 text-sm text-purple-100">
                 <li>- Statement linkage and timing logic.</li>
                 <li>- Cash flow reality checks.</li>
                 <li>- Practical signals and red flags.</li>
               </ul>
-            </div>
-          </div>
+            </Reveal>
+          </AnimationLayer>
         </section>
 
         <section id="core-logic" className="bg-white dark:bg-zinc-950 py-14 px-6 md:px-12">
           <div className="max-w-6xl mx-auto space-y-6">
-            <h2 className="text-3xl font-nyu-ultra">The core logic I always return to</h2>
-            <div className="grid gap-4 md:grid-cols-3">
+            <Reveal>
+              <h2 className="text-3xl font-nyu-ultra">The core logic I always return to</h2>
+            </Reveal>
+            <Reveal className="grid gap-4 md:grid-cols-3">
               {coreLogicTiles.map((item) => (
                 <article
                   key={item.title}
@@ -226,14 +237,16 @@ export default function FinancialAccountingPage() {
                   <p className="mt-3 text-sm leading-relaxed text-gray-800 dark:text-gray-100">{item.body}</p>
                 </article>
               ))}
-            </div>
+            </Reveal>
           </div>
         </section>
 
         <section className="bg-gradient-to-br from-purple-50 via-white to-purple-100 dark:from-[#0f0a1f] dark:via-[#0b061a] dark:to-[#120d29] py-14 px-6 md:px-12">
           <div className="max-w-6xl mx-auto space-y-6">
-            <h2 className="text-3xl font-nyu-ultra">The three statements, and how they talk to each other</h2>
-            <div className="grid gap-4 md:grid-cols-3">
+            <Reveal>
+              <h2 className="text-3xl font-nyu-ultra">The three statements, and how they talk to each other</h2>
+            </Reveal>
+            <Reveal className="grid gap-4 md:grid-cols-3">
               {statementTiles.map((item) => (
                 <article
                   key={item.title}
@@ -244,22 +257,24 @@ export default function FinancialAccountingPage() {
                   <p className="mt-3 text-sm leading-relaxed text-gray-800 dark:text-gray-100">{item.body}</p>
                 </article>
               ))}
-            </div>
-            <div className="rounded-2xl border border-dashed border-purple-200 dark:border-purple-800 bg-white/80 dark:bg-purple-900/30 p-5">
+            </Reveal>
+            <Reveal className="rounded-2xl border border-dashed border-purple-200 dark:border-purple-800 bg-white/80 dark:bg-purple-900/30 p-5">
               <h3 className="text-lg font-semibold text-[#2e0068] dark:text-purple-100">Statement linkage I keep in my head</h3>
               <ul className="mt-3 space-y-2 text-sm text-gray-800 dark:text-gray-100">
                 <li>- Net income flows into retained earnings (equity).</li>
                 <li>- Cash changes reconcile through operating, investing, and financing cash flows.</li>
                 <li>- Working capital changes explain many differences between net income and cash from operations.</li>
               </ul>
-            </div>
+            </Reveal>
           </div>
         </section>
 
         <section className="bg-white dark:bg-zinc-950 py-14 px-6 md:px-12">
           <div className="max-w-6xl mx-auto space-y-6">
-            <h2 className="text-3xl font-nyu-ultra">Mechanics that became second nature from exercises</h2>
-            <div className="grid gap-4 md:grid-cols-5">
+            <Reveal>
+              <h2 className="text-3xl font-nyu-ultra">Mechanics that became second nature from exercises</h2>
+            </Reveal>
+            <Reveal className="grid gap-4 md:grid-cols-5">
               {mechanicsTiles.map((item) => (
                 <article
                   key={item.title}
@@ -269,9 +284,9 @@ export default function FinancialAccountingPage() {
                   <p className="mt-2 text-sm text-gray-800 dark:text-gray-100">{item.body}</p>
                 </article>
               ))}
-            </div>
+            </Reveal>
 
-            <div className="space-y-3">
+            <Reveal className="space-y-3">
               <h3 className="text-xl font-semibold">Adjusting entries I never forget</h3>
               <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
                 {adjustingEntryTiles.map((item) => (
@@ -283,16 +298,18 @@ export default function FinancialAccountingPage() {
                   </article>
                 ))}
               </div>
-            </div>
+            </Reveal>
           </div>
         </section>
 
         <section className="bg-gradient-to-br from-[#2e0068] via-[#521a9a] to-[#7a3fd9] text-white py-14 px-6 md:px-12">
           <div className="max-w-6xl mx-auto space-y-6">
-            <h2 className="text-3xl font-nyu-ultra">Cash flow, especially the indirect method</h2>
-            <p className="text-purple-100">
-              One of the most useful skills was building operating cash flow from net income and reconciling to cash.
-            </p>
+            <Reveal className="space-y-6">
+              <h2 className="text-3xl font-nyu-ultra">Cash flow, especially the indirect method</h2>
+              <p className="text-purple-100">
+                One of the most useful skills was building operating cash flow from net income and reconciling to cash.
+              </p>
+            </Reveal>
             <ClickTile
               title="My quick mental checklist for CFO (indirect)"
               body={cfoChecklistTiles[cfoIndex]}
@@ -300,15 +317,15 @@ export default function FinancialAccountingPage() {
               index={cfoIndex}
               total={cfoChecklistTiles.length}
             />
-            <p className="text-sm text-purple-100">
+            <Reveal as="p" className="text-sm text-purple-100">
               Practical lens: a company can be profitable and still cash-stressed if working capital expands faster than collections.
-            </p>
+            </Reveal>
           </div>
         </section>
 
         <section className="bg-white dark:bg-zinc-950 py-14 px-6 md:px-12">
-          <div className="max-w-6xl mx-auto grid gap-6 lg:grid-cols-2">
-            <article className="rounded-2xl border border-purple-100 dark:border-purple-900 bg-purple-50 dark:bg-[#0f0a1f] p-6">
+          <AnimationLayer as="div" className="max-w-6xl mx-auto grid gap-6 lg:grid-cols-2" method="alternate" distance={48}>
+            <Reveal as="article" className="rounded-2xl border border-purple-100 dark:border-purple-900 bg-purple-50 dark:bg-[#0f0a1f] p-6">
               <h2 className="text-2xl font-nyu-ultra">How I read statements now</h2>
               <ul className="mt-4 space-y-2 text-sm text-gray-800 dark:text-gray-100">
                 {readingSignals.map((item) => (
@@ -318,9 +335,9 @@ export default function FinancialAccountingPage() {
                   </li>
                 ))}
               </ul>
-            </article>
+            </Reveal>
 
-            <article className="rounded-2xl border border-purple-100 dark:border-purple-900 bg-purple-50 dark:bg-[#0f0a1f] p-6">
+            <Reveal as="article" className="rounded-2xl border border-purple-100 dark:border-purple-900 bg-purple-50 dark:bg-[#0f0a1f] p-6">
               <h2 className="text-2xl font-nyu-ultra">Ratios that stayed useful (with context)</h2>
               <ul className="mt-4 space-y-2 text-sm text-gray-800 dark:text-gray-100">
                 {usefulRatios.map((item) => (
@@ -330,14 +347,16 @@ export default function FinancialAccountingPage() {
                   </li>
                 ))}
               </ul>
-            </article>
-          </div>
+            </Reveal>
+          </AnimationLayer>
         </section>
 
         <section className="bg-gradient-to-br from-[#2e0068] via-[#521a9a] to-[#7a3fd9] text-white py-14 px-6 md:px-12">
           <div className="max-w-6xl mx-auto space-y-6">
-            <h2 className="text-3xl font-nyu-ultra">Red flags and things to remember</h2>
-            <p className="text-purple-100">Tap through the flags I use when a story feels too clean.</p>
+            <Reveal className="space-y-6">
+              <h2 className="text-3xl font-nyu-ultra">Red flags and things to remember</h2>
+              <p className="text-purple-100">Tap through the flags I use when a story feels too clean.</p>
+            </Reveal>
             <ClickTile
               title="Red flag checks"
               body={redFlagTiles[redFlagIndex]}
@@ -350,8 +369,10 @@ export default function FinancialAccountingPage() {
 
         <section className="bg-white dark:bg-zinc-950 py-14 px-6 md:px-12">
           <div className="max-w-6xl mx-auto space-y-6">
-            <h2 className="text-3xl font-nyu-ultra">What I take forward</h2>
-            <div className="grid gap-4 md:grid-cols-2">
+            <Reveal>
+              <h2 className="text-3xl font-nyu-ultra">What I take forward</h2>
+            </Reveal>
+            <Reveal className="grid gap-4 md:grid-cols-2">
               {whatITakeForward.map((item) => (
                 <article
                   key={item}
@@ -364,17 +385,17 @@ export default function FinancialAccountingPage() {
                   {item}
                 </article>
               ))}
-            </div>
+            </Reveal>
 
-            <p className="pt-2 text-base font-medium text-gray-800 dark:text-gray-100">
+            <Reveal as="p" className="pt-2 text-base font-medium text-gray-800 dark:text-gray-100">
               For me, accounting is less about memorizing rules and more about building a reliable way to reason through a business.
-            </p>
+            </Reveal>
           </div>
         </section>
         <div className="pt-8 pb-10 md:pb-0 text-center">
           <Link href="#navigation" className="hover:underline text-purple-800">go to top</Link>
         </div>
-      </main>
+      </AnimationLayer>
     </>
   );
 }

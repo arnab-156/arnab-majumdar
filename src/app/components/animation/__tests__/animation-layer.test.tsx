@@ -1,4 +1,4 @@
-import { act, render, screen } from '@testing-library/react';
+import { act, fireEvent, render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 import { AnimationLayer, Reveal } from '../animation-layer';
@@ -108,4 +108,126 @@ test('an unknown method falls back to fade instead of throwing', () => {
         transform: 'none',
         filter: 'none',
     });
+});
+
+test('inline styles are dropped once the entrance finishes, freeing hover CSS', () => {
+    render(
+        <AnimationLayer>
+            <Reveal className="hover:-translate-y-1">card</Reveal>
+        </AnimationLayer>,
+    );
+
+    const card = screen.getByText('card');
+    expect(card.getAttribute('style')).toContain('transform');
+
+    const observer = observed[observed.length - 1];
+    act(() => {
+        observer.callback(observer.targets.map((target) => ({ target, isIntersecting: true })));
+    });
+    expect(card).toHaveAttribute('data-reveal-shown', 'true');
+
+    act(() => {
+        fireEvent.transitionEnd(card);
+    });
+
+    expect(card).toHaveAttribute('data-reveal-settled', 'true');
+    expect(card.getAttribute('style')).toBe('');
+});
+
+test('a transition bubbling up from a child does not settle the element early', () => {
+    render(
+        <AnimationLayer>
+            <Reveal>
+                <span>child</span>
+            </Reveal>
+        </AnimationLayer>,
+    );
+
+    const observer = observed[observed.length - 1];
+    act(() => {
+        observer.callback(observer.targets.map((target) => ({ target, isIntersecting: true })));
+    });
+
+    act(() => {
+        fireEvent.transitionEnd(screen.getByText('child'));
+    });
+
+    expect(screen.getByText('child').parentElement).not.toHaveAttribute('data-reveal-settled');
+});
+
+test('a child mounted later is picked up by the observer', () => {
+    const Page = ({ items }: { items: string[] }) => (
+        <AnimationLayer>
+            {items.map((item) => (
+                <Reveal key={item}>{item}</Reveal>
+            ))}
+        </AnimationLayer>
+    );
+
+    const { rerender } = render(<Page items={['a', 'b']} />);
+    rerender(<Page items={['c']} />);
+
+    const observer = observed[observed.length - 1];
+    expect(observer.targets).toContain(screen.getByText('c'));
+});
+
+test('a Reveal nested inside another Reveal gets its own entrance', () => {
+    render(
+        <AnimationLayer method="alternate">
+            <Reveal method="left">
+                headline
+                <Reveal method="left" delay={220}>
+                    cta
+                </Reveal>
+            </Reveal>
+            <Reveal method="right" delay={140}>
+                aside
+            </Reveal>
+        </AnimationLayer>,
+    );
+
+    const cta = screen.getByText('cta');
+    const aside = screen.getByText('aside');
+
+    // Explicit methods must win over the alternation order, which would
+    // otherwise hand the third element in DOM order a left entrance.
+    expect(cta).toHaveAttribute('data-reveal', 'left');
+    expect(aside).toHaveAttribute('data-reveal', 'right');
+
+    const observer = observed[observed.length - 1];
+    expect(observer.targets).toContain(cta);
+    expect(observer.targets).toContain(aside);
+
+    act(() => {
+        observer.callback(observer.targets.map((target) => ({ target, isIntersecting: true })));
+    });
+
+    expect(cta).toHaveAttribute('data-reveal-shown', 'true');
+    expect(aside).toHaveAttribute('data-reveal-shown', 'true');
+    // The stagger delay rides on the entrance only; leaving stays snappy.
+    expect(cta.getAttribute('style')).toContain('220ms');
+    expect(aside.getAttribute('style')).toContain('140ms');
+});
+
+test('staggerCycle restarts the cascade each row', () => {
+    render(
+        <AnimationLayer method="rise" stagger={90} staggerCycle={3}>
+            {['a', 'b', 'c', 'd', 'e'].map((item) => (
+                <Reveal key={item}>{item}</Reveal>
+            ))}
+        </AnimationLayer>,
+    );
+
+    const observer = observed[observed.length - 1];
+    act(() => {
+        observer.callback(observer.targets.map((target) => ({ target, isIntersecting: true })));
+    });
+
+    // Row one cascades 0 / 90 / 180; row two starts over rather than
+    // stranding the fourth card behind a 270ms wait.
+    expect(screen.getByText('a').getAttribute('style')).toContain('0ms');
+    expect(screen.getByText('b').getAttribute('style')).toContain('90ms');
+    expect(screen.getByText('c').getAttribute('style')).toContain('180ms');
+    expect(screen.getByText('d').getAttribute('style')).toContain('0ms');
+    expect(screen.getByText('e').getAttribute('style')).toContain('90ms');
 });

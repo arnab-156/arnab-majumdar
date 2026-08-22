@@ -10,7 +10,7 @@ import {
   useRef,
   useState,
 } from "react";
-import type { CSSProperties, ElementType, HTMLAttributes, ReactNode } from "react";
+import type { AllHTMLAttributes, CSSProperties, ElementType, ReactNode, TransitionEvent } from "react";
 
 import { getMotion, motionToStyle, sideMotions, type MotionName } from "./motions";
 
@@ -28,6 +28,13 @@ export type AnimationLayerConfig = {
   delay: number;
   /** Extra delay per child, in DOM order, in ms. */
   stagger: number;
+  /**
+   * Wrap the stagger every N children. Set this to a grid's column count so
+   * each row cascades from zero: without it the delay keeps accumulating down
+   * the grid, and a card near the bottom sits still for `index * stagger`
+   * after it is already on screen. 0 means never wrap.
+   */
+  staggerCycle: number;
   /** Fraction of the element that must be visible before it reveals. */
   threshold: number;
   /** IntersectionObserver rootMargin. */
@@ -52,6 +59,7 @@ export const defaultAnimationLayerConfig: AnimationLayerConfig = {
   duration: 700,
   delay: 0,
   stagger: 0,
+  staggerCycle: 0,
   threshold: 0.15,
   rootMargin: "0px 0px -10% 0px",
   once: true,
@@ -164,6 +172,8 @@ export function AnimationLayer({ children, as, className, ...overrides }: Animat
       return;
     }
 
+    const shown = new Set<Element>();
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -171,9 +181,11 @@ export function AnimationLayer({ children, as, className, ...overrides }: Animat
           if (!handlers) return;
 
           if (entry.isIntersecting) {
+            shown.add(entry.target);
             handlers.setShown(true);
             if (config.once) observer.unobserve(entry.target);
           } else if (!config.once) {
+            shown.delete(entry.target);
             handlers.setShown(false);
           }
         });
@@ -182,7 +194,35 @@ export function AnimationLayer({ children, as, className, ...overrides }: Animat
     );
 
     nodes.forEach((node) => observer.observe(node));
-    return () => observer.disconnect();
+
+    // An IntersectionObserver computes geometry when it starts observing and
+    // then only on scroll. If the page reflows straight afterwards — a filtered
+    // list shortening the document and the browser clamping scroll, an image
+    // arriving, a font swapping — an element can land in view without the
+    // observer ever saying so, and it would sit at opacity 0 until the reader
+    // scrolled. Re-observing on reflow makes it recompute against the new
+    // layout, honouring threshold and rootMargin exactly as configured.
+    let frame = 0;
+    const recheck = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        nodes.forEach((node) => {
+          if (shown.has(node)) return;
+          observer.unobserve(node);
+          observer.observe(node);
+        });
+      });
+    };
+
+    const reflow =
+      typeof ResizeObserver === "undefined" ? null : new ResizeObserver(recheck);
+    reflow?.observe(document.documentElement);
+
+    return () => {
+      cancelAnimationFrame(frame);
+      reflow?.disconnect();
+      observer.disconnect();
+    };
   }, [registrationTick, config.disabled, config.once, config.threshold, config.rootMargin]);
 
   const value = useMemo<LayerContextValue>(
@@ -208,7 +248,12 @@ export function AnimationLayer({ children, as, className, ...overrides }: Animat
   );
 }
 
-export type RevealProps = Omit<HTMLAttributes<HTMLElement>, "children"> & {
+/**
+ * Reveal is polymorphic, so it accepts any element's attributes — `type` on a
+ * button, `href` on an anchor. Note the animation opt-out is `skip`, not
+ * `disabled`, which stays free to mean what it means on a real form control.
+ */
+export type RevealProps = Omit<AllHTMLAttributes<HTMLElement>, "children" | "as"> & {
   children: ReactNode;
   /** Element to render. Defaults to `div`. */
   as?: ElementType;
@@ -218,8 +263,8 @@ export type RevealProps = Omit<HTMLAttributes<HTMLElement>, "children"> & {
   delay?: number;
   duration?: number;
   distance?: number;
-  /** Skip the animation for this element only. */
-  disabled?: boolean;
+  /** Render this one element immediately, with no animation. */
+  skip?: boolean;
 };
 
 /**
@@ -235,24 +280,35 @@ export function Reveal({
   delay,
   duration,
   distance,
-  disabled = false,
+  skip = false,
   className,
   style,
+  onTransitionEnd,
   ...rest
 }: RevealProps) {
   const layer = useAnimationLayer();
   const ref = useRef<HTMLElement | null>(null);
   const [index, setIndex] = useState(0);
   const [shown, setShown] = useState(false);
+  // Once the entrance has played out we drop the inline styles entirely, so the
+  // element is left pristine and its own CSS — a `tile-3d` lift, a
+  // `hover:-translate-y-1` — is not fighting an inline `transform`.
+  const [settled, setSettled] = useState(false);
 
   const register = layer?.register;
   useEffect(() => {
     const node = ref.current;
-    if (!node || !register || disabled) return;
-    return register(node, { setIndex, setShown });
-  }, [register, disabled]);
+    if (!node || !register || skip) return;
+    return register(node, {
+      setIndex,
+      setShown: (next) => {
+        setShown(next);
+        if (!next) setSettled(false);
+      },
+    });
+  }, [register, skip]);
 
-  const inert = !layer || disabled;
+  const inert = !layer || skip;
   const config = layer?.config ?? defaultAnimationLayerConfig;
   const compact = layer?.compact ?? false;
 
@@ -268,12 +324,15 @@ export function Reveal({
     return {
       from: motionToStyle(motion.from(travel)),
       duration: (duration ?? config.duration) * (motion.durationScale ?? 1),
-      delay: delay ?? config.delay + index * config.stagger,
+      delay:
+        delay ??
+        config.delay +
+          (config.staggerCycle > 0 ? index % config.staggerCycle : index) * config.stagger,
       name,
     };
   }, [method, config, compact, index, distance, duration, delay]);
 
-  const revealStyle: CSSProperties = inert
+  const revealStyle: CSSProperties = inert || (shown && settled)
     ? {}
     : shown
       ? {
@@ -296,6 +355,13 @@ export function Reveal({
           ].join(", "),
         };
 
+  const handleTransitionEnd = (event: TransitionEvent<HTMLElement>) => {
+    // Only our own entrance counts — a transition bubbling up from a child
+    // must not strip the styles while the element is still moving.
+    if (event.target === ref.current && shown) setSettled(true);
+    onTransitionEnd?.(event);
+  };
+
   return createElement(
     as,
     {
@@ -303,8 +369,10 @@ export function Reveal({
       ref,
       className,
       style: { ...revealStyle, ...style },
+      onTransitionEnd: inert ? onTransitionEnd : handleTransitionEnd,
       "data-reveal": inert ? undefined : resolved.name,
       "data-reveal-shown": inert ? undefined : shown ? "true" : "false",
+      "data-reveal-settled": inert || !settled ? undefined : "true",
     },
     children,
   );

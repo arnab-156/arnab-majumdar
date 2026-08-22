@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 
+import { AnimationLayer, Reveal } from "@/app/components/animation";
 import { buttonStyle } from "@/app/utility/stylevariables";
 import { nyuCourses as courses, nyuProjectInfo as projectInfo, type NyuProject } from "./projects-data";
 
@@ -226,21 +227,29 @@ export default function NYUPage() {
         />
       </Head>
 
-      <main className="font-nyu bg-white text-gray-900 dark:bg-black dark:text-gray-100 min-h-screen pb-12">
+      <AnimationLayer
+        as="main"
+        className="font-nyu bg-white text-gray-900 dark:bg-black dark:text-gray-100 min-h-screen pb-12 overflow-x-clip"
+        method="alternate"
+        distance={64}
+        duration={760}
+        threshold={0.12}
+        rootMargin="0px 0px -12% 0px"
+      >
         {/* HERO */}
         <section className="relative overflow-hidden bg-gradient-to-br from-[#2e0068] via-[#5a1dab] to-[#b373ff] text-white py-16 px-6 md:px-12">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.12),transparent_35%)]" aria-hidden />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_0%,rgba(255,255,255,0.08),transparent_30%)]" aria-hidden />
 
-          <div className="relative max-w-6xl mx-auto grid gap-10 md:grid-cols-[1.2fr_0.8fr] items-center">
-            <div className="space-y-4">
+          <AnimationLayer as="div" className="relative max-w-6xl mx-auto grid gap-10 md:grid-cols-[1.2fr_0.8fr] items-center" method="alternate" distance={48} threshold={0} rootMargin="0px">
+            <Reveal method="left" className="space-y-4">
               <p className="uppercase tracking-[0.3em] text-sm text-purple-100">New York University Leonard N. Stern School of Business</p>
               <h1 className="text-4xl md:text-5xl font-nyu-ultra leading-tight">Executive MBA, Class of A27</h1>
               <p className="text-lg md:text-xl text-purple-50 max-w-2xl">
                 A journey rooted in rigor, community, and leadership—built in the heart of New York City and sharpened through Stern&apos;s collaborative culture.
               </p>
 
-              <div className="flex flex-wrap items-center gap-4 pt-2">
+              <Reveal method="left" delay={220} className="flex flex-wrap items-center gap-4 pt-2">
                 <Link
                   href="https://www.stern.nyu.edu/"
                   target="_blank"
@@ -258,10 +267,10 @@ export default function NYUPage() {
                 <Link href="/" className="underline text-purple-100">
                   go back to home
                 </Link>
-              </div>
-            </div>
+              </Reveal>
+            </Reveal>
 
-            <div className="relative">
+            <Reveal method="right" delay={140} className="relative">
               <div className="rounded-3xl bg-white/10 p-6 backdrop-blur shadow-2xl border border-white/20">
                 <h2 className="text-xl font-semibold">What drives this chapter</h2>
                 <ul className="mt-4 space-y-2 text-sm text-purple-100">
@@ -270,14 +279,14 @@ export default function NYUPage() {
                   <li>• Elevating classmates as Class Representative.</li>
                 </ul>
               </div>
-            </div>
-          </div>
+            </Reveal>
+          </AnimationLayer>
         </section>
 
         {/* SLIDING SECTIONS */}
         <section id="snapshots" className="scroll-mt-20 bg-white dark:bg-zinc-950 py-14 px-6 md:px-12 min-h-[780px] md:min-h-[540px]">
           <div className="max-w-6xl mx-auto">
-            <div className="flex items-center justify-between gap-4">
+            <Reveal className="flex items-center justify-between gap-4">
               <h2 className="text-3xl md:text-4xl font-nyu-ultra">Stern Snapshots</h2>
               <div className="flex items-center gap-2">
                 <button
@@ -297,64 +306,66 @@ export default function NYUPage() {
                   ›
                 </button>
               </div>
-            </div>
+            </Reveal>
 
-            <div
-              className="relative mt-8 rounded-3xl border border-purple-100 dark:border-purple-900 bg-gradient-to-br from-purple-50 via-white to-purple-50 dark:from-[#0c041a] dark:via-[#0f0922] dark:to-[#160f2f] p-6 shadow-xl cursor-pointer focus:outline-none focus:ring-2 focus:ring-purple-400"
-              role="button"
-              tabIndex={0}
-              aria-label="Go to next Stern snapshot"
-              onClick={nextSlide}
-              onKeyDown={(event) => {
-                if (event.key === "Enter" || event.key === " ") {
-                  event.preventDefault();
-                  nextSlide();
-                }
-              }}
-            >
-              <div className="relative min-h-[640px] md:min-h-[360px]">
-                {Array.from({ length: slideCount }, (_, index) => index).map((index) => (
-                  <div
-                    key={index}
-                    className={classNames(
-                      "absolute inset-0 transition duration-500",
-                      index === activeSlide
-                        ? "opacity-100 translate-x-0"
-                        : "opacity-0 pointer-events-none translate-x-6"
-                    )}
-                  >
-                    {index === activeSlide && renderSlide()}
-                  </div>
-                ))}
-              </div>
+            <Reveal>
+              <div
+                className="relative mt-8 rounded-3xl border border-purple-100 dark:border-purple-900 bg-gradient-to-br from-purple-50 via-white to-purple-50 dark:from-[#0c041a] dark:via-[#0f0922] dark:to-[#160f2f] p-6 shadow-xl cursor-pointer focus:outline-none focus:ring-2 focus:ring-purple-400"
+                role="button"
+                tabIndex={0}
+                aria-label="Go to next Stern snapshot"
+                onClick={nextSlide}
+                onKeyDown={(event) => {
+                  if (event.key === "Enter" || event.key === " ") {
+                    event.preventDefault();
+                    nextSlide();
+                  }
+                }}
+              >
+                <div className="relative min-h-[640px] md:min-h-[360px]">
+                  {Array.from({ length: slideCount }, (_, index) => index).map((index) => (
+                    <div
+                      key={index}
+                      className={classNames(
+                        "absolute inset-0 transition duration-500",
+                        index === activeSlide
+                          ? "opacity-100 translate-x-0"
+                          : "opacity-0 pointer-events-none translate-x-6"
+                      )}
+                    >
+                      {index === activeSlide && renderSlide()}
+                    </div>
+                  ))}
+                </div>
 
-              <div className="mt-6 flex items-center justify-center gap-2">
-                {Array.from({ length: slideCount }, (_, index) => index).map((index) => (
-                  <button
-                    key={index}
-                    type="button"
-                    onClick={(event) => {
-                      event.stopPropagation();
-                      goToSlide(index);
-                    }}
-                    className={classNames(
-                      "h-2.5 w-2.5 rounded-full transition",
-                      index === activeSlide
-                        ? "bg-purple-700"
-                        : "bg-purple-200 dark:bg-purple-900"
-                    )}
-                    aria-label={`Go to slide ${index + 1}`}
-                  />
-                ))}
+                <div className="mt-6 flex items-center justify-center gap-2">
+                  {Array.from({ length: slideCount }, (_, index) => index).map((index) => (
+                    <button
+                      key={index}
+                      type="button"
+                      onClick={(event) => {
+                        event.stopPropagation();
+                        goToSlide(index);
+                      }}
+                      className={classNames(
+                        "h-2.5 w-2.5 rounded-full transition",
+                        index === activeSlide
+                          ? "bg-purple-700"
+                          : "bg-purple-200 dark:bg-purple-900"
+                      )}
+                      aria-label={`Go to slide ${index + 1}`}
+                    />
+                  ))}
+                </div>
               </div>
-            </div>
+            </Reveal>
           </div>
         </section>
 
         {/* COURSES */}
         <section className="bg-gradient-to-b from-purple-50 via-white to-purple-50 dark:from-black dark:via-[#0a0514] dark:to-black py-14 px-6 md:px-12">
           <div className="max-w-6xl mx-auto space-y-6">
-            <div className="flex items-center justify-between flex-wrap gap-4">
+            <Reveal className="flex items-center justify-between flex-wrap gap-4">
               <div>
                 <h2 className="text-3xl md:text-4xl font-nyu-ultra">Courses</h2>
                 <p className="text-gray-700 dark:text-gray-300">Tap to focus a course and see related projects.</p>
@@ -368,9 +379,9 @@ export default function NYUPage() {
                   Show all courses
                 </button>
               )}
-            </div>
+            </Reveal>
 
-            <div className="overflow-x-auto pb-4">
+            <Reveal className="overflow-x-auto pb-4">
               <div className="grid grid-rows-1 grid-flow-col gap-4 md:grid-rows-2">
                 {courses.map((course) => (
                   <button
@@ -448,14 +459,14 @@ export default function NYUPage() {
                   </button>
                 ))}
               </div>
-            </div>
+            </Reveal>
           </div>
         </section>
 
         {/* PROJECTS */}
         <section id="projects" className="bg-[#0c041a] text-white dark:bg-white dark:text-gray-900 py-14 px-6 md:px-12 transition-colors duration-300">
           <div className="max-w-6xl mx-auto space-y-6">
-            <div className="flex items-center justify-between flex-wrap gap-4">
+            <Reveal className="flex items-center justify-between flex-wrap gap-4">
               <div>
                 <h2 className="text-3xl md:text-4xl font-nyu-ultra">Projects</h2>
                 <p className="text-purple-100 dark:text-gray-700">
@@ -472,16 +483,24 @@ export default function NYUPage() {
                   Show all
                 </button>
               )}
-            </div>
+            </Reveal>
 
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <AnimationLayer
+              as="div"
+              className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
+              method="rise"
+              distance={44}
+              stagger={80}
+              staggerCycle={3}
+            >
               {visibleProjects.length === 0 ? (
                 <div className="col-span-full rounded-2xl border border-white/20 bg-white/5 p-6 text-center text-sm text-purple-100 dark:border-purple-200 dark:bg-purple-50 dark:text-[#2e0068]">
                   {selectedCourse ? "No projects listed yet for this course." : "Projects will appear here as they are added."}
                 </div>
               ) : (
                 visibleProjects.map((project) => (
-                  <button
+                  <Reveal
+                    as="button"
                     key={`${project.courseName}-${project.projectName}`}
                     type="button"
                     onClick={() => setActiveProject(project)}
@@ -492,16 +511,16 @@ export default function NYUPage() {
                     <span className="mt-3 inline-flex items-center gap-2 text-sm text-purple-100 underline decoration-purple-200 group-hover:underline-offset-4 dark:text-purple-700">
                       View details
                     </span>
-                  </button>
+                  </Reveal>
                 ))
               )}
-            </div>
+            </AnimationLayer>
           </div>
         </section>
         <div className="pt-8 pb-10 md:pb-0 text-center">
           <Link href="#navigation" className='hover:underline text-purple-800'>go to top</Link>
         </div>
-      </main>
+      </AnimationLayer>
 
       {activeProject && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">

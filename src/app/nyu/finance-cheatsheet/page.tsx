@@ -2,6 +2,7 @@
 
 import Head from "next/head";
 import Link from "next/link";
+import { AnimationLayer, Reveal } from "@/app/components/animation";
 import { buttonStyle } from "@/app/utility/stylevariables";
 import {
   cheatSections,
@@ -116,13 +117,21 @@ export default function FinanceCheatsheetPage() {
         />
       </Head>
 
-      <main className="font-nyu bg-white text-gray-900 dark:bg-black dark:text-gray-50 min-h-screen pb-12">
+      <AnimationLayer
+        as="main"
+        className="font-nyu bg-white text-gray-900 dark:bg-black dark:text-gray-50 min-h-screen pb-12 overflow-x-clip"
+        method="alternate"
+        distance={64}
+        duration={760}
+        threshold={0.12}
+        rootMargin="0px 0px -12% 0px"
+      >
         <section className="relative overflow-hidden bg-gradient-to-br from-[#2e0068] via-[#5a1dab] to-[#b373ff] text-white py-16 px-6 md:px-12">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.12),transparent_35%)]" aria-hidden />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_0%,rgba(255,255,255,0.08),transparent_30%)]" aria-hidden />
 
-          <div className="relative max-w-5xl mx-auto grid gap-8 md:grid-cols-[1.1fr_0.9fr] items-center">
-            <div className="space-y-4">
+          <AnimationLayer as="div" className="relative max-w-5xl mx-auto grid gap-8 md:grid-cols-[1.1fr_0.9fr] items-center" method="alternate" distance={48} threshold={0} rootMargin="0px">
+            <Reveal method="left" className="space-y-4">
               <p className="text-xs uppercase tracking-[0.35em] text-purple-100">NYU Stern EMBA • Foundations of Finance</p>
               <h1 className="text-4xl md:text-5xl font-nyu-ultra leading-tight">My Finance Cheatsheet</h1>
               <p className="text-lg md:text-xl text-purple-50">
@@ -140,17 +149,17 @@ export default function FinanceCheatsheetPage() {
                 Master formula reference and problem-type selection guide — every formula from the course organized into
                 11 categories, each with a note on when it applies.
               </p>
-              <div className="flex gap-3 flex-wrap">
+              <Reveal method="left" delay={220} className="flex gap-3 flex-wrap">
                 <Link href="/nyu#projects" className={buttonStyle}>
                   ← Back to NYU
                 </Link>
                 <Link href="#navigator" className="underline text-purple-100">
                   Jump to content
                 </Link>
-              </div>
-            </div>
+              </Reveal>
+            </Reveal>
 
-            <div className="relative">
+            <Reveal method="right" delay={140} className="relative">
               <div className="rounded-3xl bg-white/10 p-6 backdrop-blur shadow-2xl border border-white/20">
                 <h2 className="text-xl font-semibold">3 Main Concepts to Know</h2>
                 <ul className="mt-4 space-y-3 text-sm text-purple-100">
@@ -162,14 +171,16 @@ export default function FinanceCheatsheetPage() {
                   ))}
                 </ul>
               </div>
-            </div>
-          </div>
+            </Reveal>
+          </AnimationLayer>
         </section>
 
         <section className="bg-white dark:bg-zinc-950 py-14 px-6 md:px-12">
           <div className="max-w-5xl mx-auto space-y-6">
-            <h2 className="text-3xl font-nyu-ultra">3 Main Concepts to Know</h2>
-            <div className="grid gap-4 md:grid-cols-3">
+            <Reveal>
+              <h2 className="text-3xl font-nyu-ultra">3 Main Concepts to Know</h2>
+            </Reveal>
+            <Reveal className="grid gap-4 md:grid-cols-3">
               {mainConcepts.map((concept) => (
                 <article
                   key={concept.title}
@@ -180,7 +191,7 @@ export default function FinanceCheatsheetPage() {
                   <p className="text-sm text-gray-700 dark:text-gray-200 leading-relaxed">{concept.text}</p>
                 </article>
               ))}
-            </div>
+            </Reveal>
           </div>
         </section>
 
@@ -189,11 +200,13 @@ export default function FinanceCheatsheetPage() {
           className="scroll-mt-24 bg-gradient-to-br from-purple-50 via-white to-purple-100 dark:from-[#0f0a1f] dark:via-[#0b061a] dark:to-[#120d29] py-14 px-6 md:px-12"
         >
           <div className="max-w-5xl mx-auto space-y-4">
-            <h2 className="text-3xl font-nyu-ultra">What is the question actually asking?</h2>
-            <p className="text-gray-700 dark:text-gray-200">
-              Start here — match what the problem hands you to the section that answers it.
-            </p>
-            <ul className="grid gap-3 sm:grid-cols-2">
+            <Reveal className="space-y-4">
+              <h2 className="text-3xl font-nyu-ultra">What is the question actually asking?</h2>
+              <p className="text-gray-700 dark:text-gray-200">
+                Start here — match what the problem hands you to the section that answers it.
+              </p>
+            </Reveal>
+            <Reveal as="ul" className="grid gap-3 sm:grid-cols-2">
               {quickNavigator.map((item, index) => (
                 <li key={item.given}>
                   <Link
@@ -205,22 +218,22 @@ export default function FinanceCheatsheetPage() {
                   </Link>
                 </li>
               ))}
-            </ul>
-            <p className="pt-2 text-xs text-gray-600 dark:text-gray-300">
+            </Reveal>
+            <Reveal as="p" className="pt-2 text-xs text-gray-600 dark:text-gray-300">
               <span className="font-semibold">Notation: </span>
               {notation}
-            </p>
+            </Reveal>
           </div>
         </section>
 
         <section className="bg-white dark:bg-zinc-950 py-14 px-6 md:px-12">
           <div className="max-w-5xl mx-auto space-y-12">
-            <div className="space-y-2">
+            <Reveal className="space-y-2">
               <h2 className="text-3xl font-nyu-ultra">Formula reference by category</h2>
               <p className="text-gray-700 dark:text-gray-200">
                 Consolidated from the course formula sheet, handwritten notes, Problem Sets 1–4, and the final exam.
               </p>
-            </div>
+            </Reveal>
             {cheatSections.map((section) => (
               <Section key={section.id} section={section} />
             ))}
@@ -229,22 +242,24 @@ export default function FinanceCheatsheetPage() {
 
         <section className="bg-gradient-to-br from-[#2e0068] via-[#521a9a] to-[#7a3fd9] text-white py-14 px-6 md:px-12">
           <div className="max-w-5xl mx-auto space-y-4">
-            <h2 className="text-2xl font-semibold">Cross-cutting relationships worth memorising</h2>
-            <ul className="space-y-2 rounded-2xl border border-white/20 bg-white/10 p-5 text-sm">
+            <Reveal>
+              <h2 className="text-2xl font-semibold">Cross-cutting relationships worth memorising</h2>
+            </Reveal>
+            <Reveal as="ul" className="space-y-2 rounded-2xl border border-white/20 bg-white/10 p-5 text-sm">
               {crossCutting.map((item) => (
                 <li key={item} className="flex gap-3">
                   <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-purple-200" aria-hidden />
                   <span className="leading-relaxed">{item}</span>
                 </li>
               ))}
-            </ul>
+            </Reveal>
           </div>
         </section>
 
         <div className="pt-8 pb-10 md:pb-0 text-center">
           <Link href="#navigation" className="hover:underline text-purple-800">go to top</Link>
         </div>
-      </main>
+      </AnimationLayer>
     </>
   );
 }

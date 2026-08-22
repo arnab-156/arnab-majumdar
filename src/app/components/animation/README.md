@@ -45,6 +45,7 @@ renders nothing but the context.
 | `duration` | `700` | Transition duration in ms. |
 | `delay` | `0` | Base delay in ms. |
 | `stagger` | `0` | Extra delay per child, in DOM order. |
+| `staggerCycle` | `0` | Wrap the stagger every N children. Set it to a grid's column count. `0` never wraps. |
 | `threshold` | `0.15` | Fraction visible before revealing. |
 | `rootMargin` | `"0px 0px -10% 0px"` | Observer margin. |
 | `once` | `true` | Reveal once, or re-hide when scrolled back out. |
@@ -54,16 +55,25 @@ renders nothing but the context.
 | `compactBreakpoint` | `767` | Max width in px treated as compact. |
 | `disabled` | `false` | Render everything immediately. |
 
-`Reveal` takes `method`, `delay`, `duration`, `distance`, `disabled` and `as` to
-override the layer for one element, plus any normal DOM props.
+`Reveal` takes `method`, `delay`, `duration`, `distance`, `skip` and `as` to
+override the layer for one element, plus any normal DOM props. It is polymorphic,
+so element-specific attributes work too — `type` on a button, `href` on an
+anchor. The opt-out is `skip` rather than `disabled`, leaving `disabled` free to
+mean what it means on a real form control.
 
 ### A note on `stagger`
 
 Stagger is per-element delay by DOM order, and each element is observed
 individually. That reads well for a row of cards that enter together, and badly
 for a long vertical list where items enter one at a time — the tenth item would
-sit still for `10 × stagger` after it is already on screen. Use `stagger` on
-grids; leave it at `0` for stacked rows.
+sit still for `10 × stagger` after it is already on screen.
+
+For a grid taller than one row, pair `stagger` with `staggerCycle` set to the
+column count. The delay then restarts each row (0, 90, 180, 0, 90, 180 …), so
+every row cascades and nothing accumulates. The homepage card wall uses
+`stagger={90} staggerCycle={3}`.
+
+Leave `stagger` at `0` for stacked rows that enter one at a time.
 
 ## Adding a method later
 
@@ -97,10 +107,31 @@ Built in: `none`, `fade`, `left`, `right`, `bottom`, `top`, `zoom`, `rise`, `til
   travel, which avoids the sideways lurch that horizontal slides give on a phone.
 - **Horizontal overflow** — sliding elements can push the page wide. Put
   `overflow-x-clip` on the layer's own element (as the Coty page does).
-- **Hover transforms** — `Reveal` writes an inline `transform`, which beats a
-  Tailwind `hover:-translate-y-1` class. Wrap such an element in a `Reveal`
-  rather than making it one.
+- **Hover transforms** — the inline styles are removed once the entrance
+  finishes (`transitionend`), so an element's own `tile-3d` lift or
+  `hover:-translate-y-1` works normally afterwards. You can put `Reveal`
+  directly on an interactive tile. The settled element carries
+  `data-reveal-settled="true"`.
+- **Scroll containers** — a transform on a child of an `overflow-x-auto` or
+  `overflow-y-auto` element enlarges that element's scrollable area. Reveal the
+  scroller as one unit instead of its items (see the courses rail on `/nyu`).
+- **Headers** — anything above the fold should play on load, not wait on the
+  scroll threshold. Give the header its own controller with `threshold={0}`
+  and `rootMargin="0px"`, as every NYU hero does; otherwise whether a
+  low-sitting element animates depends on hero height and viewport.
+- **Class-driven carousels** — anything already animating itself with classes
+  (the Stern Snapshots slides) should be wrapped as a block, not retagged, so
+  the two transform sources never fight.
 
 ## Where it is used
 
+- [`/`](../../page.tsx) — a server component; the layer is a client
+  component used inside it, which works because the cards are passed through
+  as server-rendered children.
+- [`/nyu`](../../nyu/page.tsx)
 - [`/nyu/sustainability/coty`](../../nyu/sustainability/coty/page.tsx)
+- [`/nyu/the-strategist`](../../nyu/the-strategist/page.tsx)
+- [`/nyu/financial-accounting`](../../nyu/financial-accounting/page.tsx)
+- [`/nyu/finance-cheatsheet`](../../nyu/finance-cheatsheet/page.tsx)
+- [`/nyu/professional-responsibility`](../../nyu/professional-responsibility/page.tsx)
+- [`/nyu/LeadershipCommitmentPlan`](../../nyu/LeadershipCommitmentPlan/page.tsx)

@@ -249,8 +249,8 @@ export default function CotyCaseStudyPage() {
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.12),transparent_35%)]" aria-hidden />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_0%,rgba(255,255,255,0.08),transparent_30%)]" aria-hidden />
 
-          <div className="relative max-w-6xl mx-auto grid gap-10 md:grid-cols-[1.2fr_0.8fr] items-center">
-            <Reveal method="tilt" className="space-y-4">
+          <AnimationLayer as="div" className="relative max-w-6xl mx-auto grid gap-10 md:grid-cols-[1.2fr_0.8fr] items-center" method="alternate" distance={48} threshold={0} rootMargin="0px">
+            <Reveal method="left" className="space-y-4">
               <p className="text-xs uppercase tracking-[0.35em] text-purple-100">NYU Stern EMBA &bull; Course Project</p>
               <h1 className="text-4xl md:text-5xl font-nyu-ultra leading-tight">
                 Pricing sustainability risk in a private-markets deal
@@ -275,17 +275,17 @@ export default function CotyCaseStudyPage() {
                 the analysis under questioning from the rest of the class acting as the IC.
               </p>
 
-              <div className="flex gap-3 flex-wrap">
+              <Reveal method="left" delay={220} className="flex gap-3 flex-wrap">
                 <Link href="/nyu#projects" className={buttonStyle}>
                   Back to NYU
                 </Link>
                 <Link href="#framework" className="underline text-purple-100">
                   Jump to content
                 </Link>
-              </div>
+              </Reveal>
             </Reveal>
 
-            <Reveal method="right" delay={160} className="rounded-3xl bg-white/10 p-6 backdrop-blur shadow-2xl border border-white/20">
+            <Reveal method="right" delay={140} className="rounded-3xl bg-white/10 p-6 backdrop-blur shadow-2xl border border-white/20">
               <h2 className="text-xl font-semibold">My role</h2>
               <ul className="mt-4 space-y-2 text-sm text-purple-100">
                 <li>- Led the risk assessment workstream.</li>
@@ -296,7 +296,7 @@ export default function CotyCaseStudyPage() {
                 Team of nine, four workstreams, August 2026.
               </p>
             </Reveal>
-          </div>
+          </AnimationLayer>
         </section>
 
         {/* FRAMEWORK */}
