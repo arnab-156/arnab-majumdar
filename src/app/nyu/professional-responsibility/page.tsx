@@ -4,6 +4,7 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { AnimationLayer, Reveal } from "@/app/components/animation";
 import { buttonStyle } from "@/app/utility/stylevariables";
 
 const whatILearned = [
@@ -136,13 +137,21 @@ export default function ProfessionalResponsibilityPage() {
         <meta name="description" content="Course reflection for Professional Responsibility at NYU Stern EMBA, taught by Alison Taylor." />
       </Head>
 
-      <main className="font-nyu bg-white text-gray-900 dark:bg-black dark:text-gray-50 min-h-screen pb-12">
+      <AnimationLayer
+        as="main"
+        className="font-nyu bg-white text-gray-900 dark:bg-black dark:text-gray-50 min-h-screen pb-12 overflow-x-clip"
+        method="alternate"
+        distance={64}
+        duration={760}
+        threshold={0.12}
+        rootMargin="0px 0px -12% 0px"
+      >
         <section className="relative overflow-hidden bg-gradient-to-br from-[#2e0068] via-[#5a1dab] to-[#b373ff] text-white py-16 px-6 md:px-12">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.12),transparent_35%)]" aria-hidden />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_0%,rgba(255,255,255,0.08),transparent_30%)]" aria-hidden />
 
-          <div className="relative max-w-5xl mx-auto grid gap-8 md:grid-cols-[1.1fr_0.9fr] items-center">
-            <div className="space-y-4">
+          <AnimationLayer as="div" className="relative max-w-5xl mx-auto grid gap-8 md:grid-cols-[1.1fr_0.9fr] items-center" method="alternate" distance={48}>
+            <Reveal className="space-y-4">
               <p className="text-xs uppercase tracking-[0.35em] text-purple-100">NYU Stern EMBA • Course Reflection</p>
               <h1 className="text-4xl md:text-5xl font-nyu-ultra leading-tight">Professional Responsibility</h1>
               <p className="text-lg md:text-xl text-purple-50">
@@ -168,9 +177,9 @@ export default function ProfessionalResponsibilityPage() {
                   Jump to content
                 </Link>
               </div>
-            </div>
+            </Reveal>
 
-            <div className="relative">
+            <Reveal className="relative">
               <div className="rounded-3xl bg-white/10 p-6 backdrop-blur shadow-2xl border border-white/20">
                 <h2 className="text-xl font-semibold">Course Focus</h2>
                 <ul className="mt-4 space-y-2 text-sm text-purple-100">
@@ -179,50 +188,58 @@ export default function ProfessionalResponsibilityPage() {
                   <li>• Building speak-up cultures and safe reporting channels.</li>
                 </ul>
               </div>
-            </div>
-          </div>
+            </Reveal>
+          </AnimationLayer>
         </section>
 
         <section id="what-i-learned" className="bg-white dark:bg-zinc-950 py-14 px-6 md:px-12">
           <div className="max-w-5xl mx-auto space-y-6">
-            <div className="space-y-3">
+            <Reveal className="space-y-3">
               <h2 className="text-3xl font-nyu-ultra">What I learned</h2>
               <p className="text-lg text-gray-700 dark:text-gray-200">
                 This course reshaped how I think about the role of business in society and my own responsibility as a professional. I came away with a
                 clearer understanding of how ethics plays out in real organizations and how individual choices connect to systems, incentives, and
                 outcomes.
               </p>
-            </div>
-            <TileRail title="Scroll the learnings" items={whatILearned} />
+            </Reveal>
+            <Reveal>
+              <TileRail title="Scroll the learnings" items={whatILearned} />
+            </Reveal>
           </div>
         </section>
 
         <section className="bg-gradient-to-br from-purple-50 via-white to-purple-100 dark:from-[#0f0a1f] dark:via-[#0b061a] dark:to-[#120d29] py-14 px-6 md:px-12">
           <div className="max-w-5xl mx-auto space-y-6">
-            <TileGrid title="Key takeaways" items={keyTakeaways} />
+            <Reveal>
+              <TileGrid title="Key takeaways" items={keyTakeaways} />
+            </Reveal>
           </div>
         </section>
 
         <section className="bg-white dark:bg-zinc-950 py-14 px-6 md:px-12">
           <div className="max-w-5xl mx-auto space-y-6">
-            <TileGrid title="Why whistleblowers matter" items={whistleBenefits} />
+            <Reveal>
+              <TileGrid title="Why whistleblowers matter" items={whistleBenefits} />
+            </Reveal>
           </div>
         </section>
 
         <section className="bg-gradient-to-br from-[#2e0068] via-[#521a9a] to-[#7a3fd9] text-white py-14 px-6 md:px-12">
           <div className="max-w-5xl mx-auto space-y-8">
-            <div className="space-y-6">
+            <Reveal className="space-y-6">
               <h3 className="text-2xl font-semibold">Why do people stay silent</h3>
               <Carousel items={silentReasons} label="Silence drivers" />
               <Carousel items={voiceSupports} label="What companies can change to support an ethical voice" />
-            </div>
+            </Reveal>
           </div>
         </section>
 
         <section className="bg-white dark:bg-zinc-950 py-14 px-6 md:px-12">
           <div className="max-w-5xl mx-auto space-y-4">
-            <h3 className="text-2xl font-semibold text-gray-900 dark:text-white">Additional resources</h3>
-            <ul className="space-y-2 text-sm">
+            <Reveal>
+              <h3 className="text-2xl font-semibold text-gray-900 dark:text-white">Additional resources</h3>
+            </Reveal>
+            <Reveal as="ul" className="space-y-2 text-sm">
               {resourceLinks.map((item) => (
                 <li key={item.url}>
                   <Link
@@ -236,13 +253,13 @@ export default function ProfessionalResponsibilityPage() {
                   <span className="ml-2 text-gray-500 dark:text-gray-400">(opens in new tab)</span>
                 </li>
               ))}
-            </ul>
+            </Reveal>
           </div>
         </section>
         <div className="pt-8 pb-10 md:pb-0 text-center">
           <Link href="#navigation" className="hover:underline text-purple-800">go to top</Link>
         </div>
-      </main>
+      </AnimationLayer>
     </>
   );
 }

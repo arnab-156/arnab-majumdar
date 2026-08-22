@@ -3,6 +3,7 @@
 import Head from "next/head";
 import Link from "next/link";
 import { useState } from "react";
+import { AnimationLayer, Reveal } from "@/app/components/animation";
 import { buttonStyle } from "@/app/utility/stylevariables";
 
 const COMBINATION_DECK =
@@ -164,13 +165,21 @@ export default function TheStrategistPage() {
         />
       </Head>
 
-      <main className="font-nyu bg-white text-gray-900 dark:bg-black dark:text-gray-50 min-h-screen pb-12">
+      <AnimationLayer
+        as="main"
+        className="font-nyu bg-white text-gray-900 dark:bg-black dark:text-gray-50 min-h-screen pb-12 overflow-x-clip"
+        method="alternate"
+        distance={64}
+        duration={760}
+        threshold={0.12}
+        rootMargin="0px 0px -12% 0px"
+      >
         <section className="relative overflow-hidden bg-gradient-to-br from-[#2e0068] via-[#5a1dab] to-[#b373ff] text-white py-16 px-6 md:px-12">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.12),transparent_35%)]" aria-hidden />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_0%,rgba(255,255,255,0.08),transparent_30%)]" aria-hidden />
 
-          <div className="relative max-w-5xl mx-auto grid gap-8 md:grid-cols-[1.1fr_0.9fr] items-center">
-            <div className="space-y-4">
+          <AnimationLayer as="div" className="relative max-w-5xl mx-auto grid gap-8 md:grid-cols-[1.1fr_0.9fr] items-center" method="alternate" distance={48}>
+            <Reveal className="space-y-4">
               <p className="text-xs uppercase tracking-[0.35em] text-purple-100">NYU Stern EMBA • Course Reflection</p>
               <h1 className="text-4xl md:text-5xl font-nyu-ultra leading-tight">What I Learned About the Creative Strategist?</h1>
               <p className="text-lg md:text-xl text-purple-50">
@@ -193,9 +202,9 @@ export default function TheStrategistPage() {
                   Jump to content
                 </Link>
               </div>
-            </div>
+            </Reveal>
 
-            <div className="relative">
+            <Reveal className="relative">
               <div className="rounded-3xl bg-white/10 p-6 backdrop-blur shadow-2xl border border-white/20">
                 <h2 className="text-xl font-semibold">The Four Cs</h2>
                 <ul className="mt-4 space-y-2 text-sm text-purple-100">
@@ -205,19 +214,19 @@ export default function TheStrategistPage() {
                   <li>• Context — move an idea across fields by analogy.</li>
                 </ul>
               </div>
-            </div>
-          </div>
+            </Reveal>
+          </AnimationLayer>
         </section>
 
         <section id="what-i-learned" className="bg-white dark:bg-zinc-950 py-14 px-6 md:px-12">
           <div className="max-w-5xl mx-auto space-y-6">
-            <div className="space-y-3">
+            <Reveal className="space-y-3">
               <h2 className="text-3xl font-nyu-ultra">What I learned</h2>
               <p className="text-lg text-gray-700 dark:text-gray-200">
                 Four things I can now do — one per C.
               </p>
-            </div>
-            <div className="grid gap-4 sm:grid-cols-2">
+            </Reveal>
+            <Reveal className="grid gap-4 sm:grid-cols-2">
               {learningOutcomes.map((item) => (
                 <article
                   key={item.c}
@@ -229,28 +238,30 @@ export default function TheStrategistPage() {
                   <p className="mt-3 text-sm text-gray-800 dark:text-gray-100 leading-relaxed">{item.text}</p>
                 </article>
               ))}
-            </div>
+            </Reveal>
           </div>
         </section>
 
         <section className="bg-gradient-to-br from-purple-50 via-white to-purple-100 dark:from-[#0f0a1f] dark:via-[#0b061a] dark:to-[#120d29] py-14 px-6 md:px-12">
           <div className="max-w-5xl mx-auto space-y-6">
-            <TileRail title="Course focus" items={courseFocus} />
+            <Reveal>
+              <TileRail title="Course focus" items={courseFocus} />
+            </Reveal>
           </div>
         </section>
 
         <section className="bg-white dark:bg-zinc-950 py-14 px-6 md:px-12">
           <div className="max-w-5xl mx-auto space-y-6">
-            <div className="space-y-3">
+            <Reveal className="space-y-3">
               <h3 className="text-2xl font-semibold text-gray-900 dark:text-white">
                 The four Cs, through my own work
               </h3>
               <p className="text-gray-700 dark:text-gray-200">
                 Four strategists I studied and wrote about, one for each move.
               </p>
-            </div>
+            </Reveal>
 
-            <div className="space-y-4">
+            <Reveal className="space-y-4">
               {fourCs.map((item) => (
                 <article
                   key={item.c}
@@ -283,22 +294,22 @@ export default function TheStrategistPage() {
                   )}
                 </article>
               ))}
-            </div>
+            </Reveal>
           </div>
         </section>
 
         <section id="manifesto" className="scroll-mt-20 bg-gradient-to-br from-[#2e0068] via-[#521a9a] to-[#7a3fd9] text-white py-14 px-6 md:px-12">
           <div className="max-w-5xl mx-auto space-y-8">
-            <div className="space-y-4">
+            <Reveal className="space-y-4">
               <h3 className="text-2xl font-semibold">My strategic manifesto</h3>
               {manifesto.map((paragraph) => (
                 <p key={paragraph} className="text-purple-50 leading-relaxed">
                   {paragraph}
                 </p>
               ))}
-            </div>
+            </Reveal>
 
-            <div className="space-y-3">
+            <Reveal className="space-y-3">
               <h4 className="text-lg font-semibold">It reduces to four questions I can ask at any point</h4>
               <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
                 {fourQuestions.map((question) => (
@@ -310,25 +321,29 @@ export default function TheStrategistPage() {
                   </article>
                 ))}
               </div>
-            </div>
+            </Reveal>
 
-            <Carousel items={pullQuotes} label="Pull quotes" />
+            <Reveal>
+              <Carousel items={pullQuotes} label="Pull quotes" />
+            </Reveal>
 
-            <p className="text-sm text-purple-100/90">
+            <Reveal as="p" className="text-sm text-purple-100/90">
               The world is large enough for many champions. My work is to know where I can create value, learn, partner,
               and thrive.
-            </p>
+            </Reveal>
           </div>
         </section>
 
         <section className="bg-white dark:bg-zinc-950 py-14 px-6 md:px-12">
           <div className="max-w-5xl mx-auto space-y-4">
-            <h3 className="text-2xl font-semibold text-gray-900 dark:text-white">Source material</h3>
-            <p className="text-sm text-gray-700 dark:text-gray-200">
-              Drawn from five course memos — Richard Williams, the Taj Mahal, Suzlon Energy, Charles Babbage, and The
-              Strategist is Me — plus the Combination: Architecture deck.
-            </p>
-            <ul className="space-y-2 text-sm">
+            <Reveal className="space-y-4">
+              <h3 className="text-2xl font-semibold text-gray-900 dark:text-white">Source material</h3>
+              <p className="text-sm text-gray-700 dark:text-gray-200">
+                Drawn from five course memos — Richard Williams, the Taj Mahal, Suzlon Energy, Charles Babbage, and The
+                Strategist is Me — plus the Combination: Architecture deck.
+              </p>
+            </Reveal>
+            <Reveal as="ul" className="space-y-2 text-sm">
               <li>
                 <Link
                   href={COMBINATION_DECK}
@@ -340,14 +355,14 @@ export default function TheStrategistPage() {
                 </Link>
                 <span className="ml-2 text-gray-500 dark:text-gray-400">(opens in new tab)</span>
               </li>
-            </ul>
+            </Reveal>
           </div>
         </section>
 
         <div className="pt-8 pb-10 md:pb-0 text-center">
           <Link href="#navigation" className="hover:underline text-purple-800">go to top</Link>
         </div>
-      </main>
+      </AnimationLayer>
     </>
   );
 }

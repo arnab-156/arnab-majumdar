@@ -4,6 +4,7 @@ import Head from "next/head";
 import Link from "next/link";
 import { useState } from "react";
 
+import { AnimationLayer, Reveal } from "@/app/components/animation";
 import { buttonStyle } from "@/app/utility/stylevariables";
 
 type CongruenceSlide = {
@@ -116,13 +117,21 @@ export default function LeadershipCommitmentPlanPage() {
         />
       </Head>
 
-      <main className="font-nyu bg-white text-gray-900 dark:bg-black dark:text-gray-100 min-h-screen pb-12">
+      <AnimationLayer
+        as="main"
+        className="font-nyu bg-white text-gray-900 dark:bg-black dark:text-gray-100 min-h-screen pb-12 overflow-x-clip"
+        method="alternate"
+        distance={64}
+        duration={760}
+        threshold={0.12}
+        rootMargin="0px 0px -12% 0px"
+      >
         <section className="relative overflow-hidden bg-gradient-to-br from-[#2e0068] via-[#5a1dab] to-[#b373ff] text-white py-16 px-6 md:px-12">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.12),transparent_35%)]" aria-hidden />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_0%,rgba(255,255,255,0.08),transparent_30%)]" aria-hidden />
 
-          <div className="relative max-w-6xl mx-auto grid gap-10 md:grid-cols-[1.2fr_0.8fr] items-center">
-            <div className="space-y-4">
+          <AnimationLayer as="div" className="relative max-w-6xl mx-auto grid gap-10 md:grid-cols-[1.2fr_0.8fr] items-center" method="alternate" distance={48}>
+            <Reveal className="space-y-4">
               <p className="text-xs uppercase tracking-[0.35em] text-purple-100">NYU Stern EMBA</p>
               <h1 className="text-4xl md:text-5xl font-nyu-ultra leading-tight">Leadership is the act of continuously becoming.</h1>
               <p className="text-lg md:text-xl text-purple-50">
@@ -152,31 +161,31 @@ export default function LeadershipCommitmentPlanPage() {
                   Jump to model
                 </Link>
               </div>
-            </div>
+            </Reveal>
 
-            <div className="rounded-3xl bg-white/10 p-6 backdrop-blur shadow-2xl border border-white/20">
+            <Reveal className="rounded-3xl bg-white/10 p-6 backdrop-blur shadow-2xl border border-white/20">
               <h2 className="text-xl font-semibold">Plan anchors</h2>
               <ul className="mt-4 space-y-2 text-sm text-purple-100">
                 <li>- Values become rituals.</li>
                 <li>- Rituals become systems.</li>
                 <li>- Systems create resilient outcomes.</li>
               </ul>
-            </div>
-          </div>
+            </Reveal>
+          </AnimationLayer>
         </section>
 
         <section className="bg-white dark:bg-zinc-950 py-14 px-6 md:px-12">
           <div className="max-w-6xl mx-auto space-y-6">
-            <div className="space-y-3">
+            <Reveal className="space-y-3">
               <h2 className="text-3xl font-nyu-ultra">My leadership lens (values first)</h2>
               <p className="text-lg text-gray-700 dark:text-gray-200">
                 I lead with five core values: creativity, determination, justice, collaboration, and love. These values were earned through
                 migration, rebuilding, and learning how communities survive and thrive. My goal is to build environments where people feel safe
                 contributing and where diverse perspectives become an advantage.
               </p>
-            </div>
+            </Reveal>
 
-            <div className="flex flex-wrap gap-3">
+            <Reveal className="flex flex-wrap gap-3">
               {coreValues.map((value) => (
                 <span
                   key={value}
@@ -185,13 +194,13 @@ export default function LeadershipCommitmentPlanPage() {
                   {value}
                 </span>
               ))}
-            </div>
+            </Reveal>
           </div>
         </section>
 
         <section id="congruence-model" className="bg-gradient-to-br from-purple-50 via-white to-purple-100 dark:from-[#0f0a1f] dark:via-[#0b061a] dark:to-[#120d29] py-14 px-6 md:px-12">
           <div className="max-w-6xl mx-auto space-y-6">
-            <div className="space-y-3">
+            <Reveal className="space-y-3">
               <h2 className="text-3xl font-nyu-ultra">Congruence Model (interactive)</h2>
               <p className="text-gray-700 dark:text-gray-200">
                 This model is my alignment check. When results feel off, it is usually not effort, it is misfit. I use this framework to make
@@ -200,71 +209,79 @@ export default function LeadershipCommitmentPlanPage() {
               <p className="text-sm uppercase tracking-[0.2em] text-purple-700 dark:text-purple-300">
                 Click the tile to move through the model: Input to Strategy to Transformation to Output.
               </p>
-            </div>
+            </Reveal>
 
-            <article
-              onClick={nextCongruence}
-              className="cursor-pointer rounded-2xl border border-purple-200 dark:border-purple-800 bg-white dark:bg-[#0f0a1f] shadow-lg p-6 transition hover:-translate-y-1"
-            >
-              <p className="text-xs uppercase tracking-[0.3em] text-purple-600 dark:text-purple-300">
-                Step {congruenceIndex + 1} of {congruenceSlides.length}
-              </p>
-              <h3 className="mt-2 text-2xl font-semibold text-[#2e0068] dark:text-purple-100">{activeCongruence.title}</h3>
-              <p className="mt-2 text-base font-medium text-gray-700 dark:text-gray-200">{activeCongruence.subtitle}</p>
-              <p className="mt-3 text-sm leading-relaxed text-gray-700 dark:text-gray-100">{activeCongruence.body}</p>
-
-              <button
-                type="button"
-                onClick={(event) => {
-                  event.stopPropagation();
-                  nextCongruence();
-                }}
-                className="mt-5 rounded-lg border border-purple-200 dark:border-purple-700 bg-purple-600 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-purple-700"
+            <Reveal>
+              <article
+                onClick={nextCongruence}
+                className="cursor-pointer rounded-2xl border border-purple-200 dark:border-purple-800 bg-white dark:bg-[#0f0a1f] shadow-lg p-6 transition hover:-translate-y-1"
               >
-                {activeCongruence.buttonText}
-              </button>
-            </article>
+                <p className="text-xs uppercase tracking-[0.3em] text-purple-600 dark:text-purple-300">
+                  Step {congruenceIndex + 1} of {congruenceSlides.length}
+                </p>
+                <h3 className="mt-2 text-2xl font-semibold text-[#2e0068] dark:text-purple-100">{activeCongruence.title}</h3>
+                <p className="mt-2 text-base font-medium text-gray-700 dark:text-gray-200">{activeCongruence.subtitle}</p>
+                <p className="mt-3 text-sm leading-relaxed text-gray-700 dark:text-gray-100">{activeCongruence.body}</p>
 
-            <p className="text-sm text-gray-600 dark:text-gray-300">
+                <button
+                  type="button"
+                  onClick={(event) => {
+                    event.stopPropagation();
+                    nextCongruence();
+                  }}
+                  className="mt-5 rounded-lg border border-purple-200 dark:border-purple-700 bg-purple-600 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-purple-700"
+                >
+                  {activeCongruence.buttonText}
+                </button>
+              </article>
+            </Reveal>
+
+            <Reveal as="p" className="text-sm text-gray-600 dark:text-gray-300">
               If one element is misaligned, performance suffers. If all four reinforce each other, teams move faster with less friction.
-            </p>
+            </Reveal>
           </div>
         </section>
 
         <section className="bg-gradient-to-br from-[#2e0068] via-[#521a9a] to-[#7a3fd9] text-white py-14 px-6 md:px-12">
           <div className="max-w-6xl mx-auto space-y-5">
-            <h2 className="text-3xl font-nyu-ultra">Leadership frameworks in practice</h2>
-            <p className="text-purple-100">
-              Each tile is one framework. Click the tile or button to rotate through all six.
-            </p>
-
-            <article
-              onClick={nextFramework}
-              className="cursor-pointer rounded-2xl border border-purple-200/40 bg-white/10 p-6 shadow-xl transition hover:-translate-y-1"
-            >
-              <p className="text-xs uppercase tracking-[0.3em] text-purple-100">
-                Tile {frameworkIndex + 1} of {leadershipFrameworkTiles.length}
+            <Reveal className="space-y-5">
+              <h2 className="text-3xl font-nyu-ultra">Leadership frameworks in practice</h2>
+              <p className="text-purple-100">
+                Each tile is one framework. Click the tile or button to rotate through all six.
               </p>
-              <h3 className="mt-2 text-2xl font-semibold">{activeFramework.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-purple-50">{activeFramework.body}</p>
-              <button
-                type="button"
-                onClick={(event) => {
-                  event.stopPropagation();
-                  nextFramework();
-                }}
-                className="mt-5 rounded-lg border border-white/40 bg-white/10 px-4 py-2 text-sm font-semibold text-white hover:bg-white/20"
+            </Reveal>
+
+            <Reveal>
+              <article
+                onClick={nextFramework}
+                className="cursor-pointer rounded-2xl border border-purple-200/40 bg-white/10 p-6 shadow-xl transition hover:-translate-y-1"
               >
-                Next tile
-              </button>
-            </article>
+                <p className="text-xs uppercase tracking-[0.3em] text-purple-100">
+                  Tile {frameworkIndex + 1} of {leadershipFrameworkTiles.length}
+                </p>
+                <h3 className="mt-2 text-2xl font-semibold">{activeFramework.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-purple-50">{activeFramework.body}</p>
+                <button
+                  type="button"
+                  onClick={(event) => {
+                    event.stopPropagation();
+                    nextFramework();
+                  }}
+                  className="mt-5 rounded-lg border border-white/40 bg-white/10 px-4 py-2 text-sm font-semibold text-white hover:bg-white/20"
+                >
+                  Next tile
+                </button>
+              </article>
+            </Reveal>
           </div>
         </section>
 
         <section className="bg-white dark:bg-zinc-950 py-14 px-6 md:px-12">
           <div className="max-w-6xl mx-auto space-y-6">
-            <h2 className="text-3xl font-nyu-ultra">My commitments</h2>
-            <div className="grid gap-6 md:grid-cols-2">
+            <Reveal>
+              <h2 className="text-3xl font-nyu-ultra">My commitments</h2>
+            </Reveal>
+            <Reveal className="grid gap-6 md:grid-cols-2">
               <article className="rounded-2xl border border-purple-100 dark:border-purple-900 bg-purple-50 dark:bg-[#0f0a1f] p-6">
                 <h3 className="text-xl font-semibold text-[#2e0068] dark:text-purple-100">Short-term commitments (next 12 months)</h3>
                 <ul className="mt-4 space-y-2 text-sm text-gray-800 dark:text-gray-100">
@@ -291,25 +308,29 @@ export default function LeadershipCommitmentPlanPage() {
                   ))}
                 </ul>
               </article>
-            </div>
+            </Reveal>
           </div>
         </section>
 
         <section className="bg-gradient-to-br from-purple-50 via-white to-purple-100 dark:from-[#0f0a1f] dark:via-[#0b061a] dark:to-[#120d29] py-14 px-6 md:px-12">
           <div className="max-w-6xl mx-auto space-y-4">
-            <h2 className="text-3xl font-nyu-ultra">How I will stay on track (rituals, not wishes)</h2>
-            <p className="text-lg text-gray-700 dark:text-gray-200">
-              My plan works only if it shows up on my calendar. I use simple anchors: meditation, fitness (tennis and gym), deep-work blocks for
-              school and projects, and intentional time with my spouse and close relationships. I run a monthly review to rebalance time, reduce
-              overcommitment, and protect recovery before burnout makes decisions for me.
-            </p>
+            <Reveal className="space-y-4">
+              <h2 className="text-3xl font-nyu-ultra">How I will stay on track (rituals, not wishes)</h2>
+              <p className="text-lg text-gray-700 dark:text-gray-200">
+                My plan works only if it shows up on my calendar. I use simple anchors: meditation, fitness (tennis and gym), deep-work blocks for
+                school and projects, and intentional time with my spouse and close relationships. I run a monthly review to rebalance time, reduce
+                overcommitment, and protect recovery before burnout makes decisions for me.
+              </p>
+            </Reveal>
           </div>
         </section>
 
         <section className="bg-[#0c041a] text-white dark:bg-white dark:text-gray-900 py-14 px-6 md:px-12">
           <div className="max-w-6xl mx-auto space-y-6">
-            <h2 className="text-3xl font-nyu-ultra">What you can expect from me</h2>
-            <div className="grid gap-4 sm:grid-cols-2">
+            <Reveal>
+              <h2 className="text-3xl font-nyu-ultra">What you can expect from me</h2>
+            </Reveal>
+            <Reveal className="grid gap-4 sm:grid-cols-2">
               {expectations.map((item) => (
                 <article
                   key={item}
@@ -318,28 +339,30 @@ export default function LeadershipCommitmentPlanPage() {
                   <p className="text-sm leading-relaxed text-purple-50 dark:text-[#2e0068]">{item}</p>
                 </article>
               ))}
-            </div>
+            </Reveal>
           </div>
         </section>
 
         <section className="bg-white dark:bg-zinc-950 py-14 px-6 md:px-12">
           <div className="max-w-6xl mx-auto rounded-3xl border border-purple-100 dark:border-purple-900 bg-gradient-to-br from-purple-50 to-white dark:from-[#140b27] dark:to-[#0b0618] p-8 md:p-10 text-center space-y-4">
-            <p className="text-sm uppercase tracking-[0.25em] text-purple-700 dark:text-purple-300">Call to action</p>
-            <h2 className="text-3xl md:text-4xl font-nyu-ultra text-[#2e0068] dark:text-purple-100">Let us build something worth belonging to.</h2>
-            <p className="text-gray-700 dark:text-gray-200">
-              Change: dare it, dream it, drive it.
-            </p>
-            <div className="pt-2">
+            <Reveal className="space-y-4">
+              <p className="text-sm uppercase tracking-[0.25em] text-purple-700 dark:text-purple-300">Call to action</p>
+              <h2 className="text-3xl md:text-4xl font-nyu-ultra text-[#2e0068] dark:text-purple-100">Let us build something worth belonging to.</h2>
+              <p className="text-gray-700 dark:text-gray-200">
+                Change: dare it, dream it, drive it.
+              </p>
+            </Reveal>
+            <Reveal className="pt-2">
               <Link href="/help" className={buttonStyle}>
                 Work with me
               </Link>
-            </div>
+            </Reveal>
           </div>
         </section>
         <div className="pt-8 pb-10 md:pb-0 text-center">
           <Link href="#navigation" className="hover:underline text-purple-800">go to top</Link>
         </div>
-      </main>
+      </AnimationLayer>
     </>
   );
 }

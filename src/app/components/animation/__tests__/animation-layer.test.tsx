@@ -1,4 +1,4 @@
-import { act, render, screen } from '@testing-library/react';
+import { act, fireEvent, render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 import { AnimationLayer, Reveal } from '../animation-layer';
@@ -108,4 +108,65 @@ test('an unknown method falls back to fade instead of throwing', () => {
         transform: 'none',
         filter: 'none',
     });
+});
+
+test('inline styles are dropped once the entrance finishes, freeing hover CSS', () => {
+    render(
+        <AnimationLayer>
+            <Reveal className="hover:-translate-y-1">card</Reveal>
+        </AnimationLayer>,
+    );
+
+    const card = screen.getByText('card');
+    expect(card.getAttribute('style')).toContain('transform');
+
+    const observer = observed[observed.length - 1];
+    act(() => {
+        observer.callback(observer.targets.map((target) => ({ target, isIntersecting: true })));
+    });
+    expect(card).toHaveAttribute('data-reveal-shown', 'true');
+
+    act(() => {
+        fireEvent.transitionEnd(card);
+    });
+
+    expect(card).toHaveAttribute('data-reveal-settled', 'true');
+    expect(card.getAttribute('style')).toBe('');
+});
+
+test('a transition bubbling up from a child does not settle the element early', () => {
+    render(
+        <AnimationLayer>
+            <Reveal>
+                <span>child</span>
+            </Reveal>
+        </AnimationLayer>,
+    );
+
+    const observer = observed[observed.length - 1];
+    act(() => {
+        observer.callback(observer.targets.map((target) => ({ target, isIntersecting: true })));
+    });
+
+    act(() => {
+        fireEvent.transitionEnd(screen.getByText('child'));
+    });
+
+    expect(screen.getByText('child').parentElement).not.toHaveAttribute('data-reveal-settled');
+});
+
+test('a child mounted later is picked up by the observer', () => {
+    const Page = ({ items }: { items: string[] }) => (
+        <AnimationLayer>
+            {items.map((item) => (
+                <Reveal key={item}>{item}</Reveal>
+            ))}
+        </AnimationLayer>
+    );
+
+    const { rerender } = render(<Page items={['a', 'b']} />);
+    rerender(<Page items={['c']} />);
+
+    const observer = observed[observed.length - 1];
+    expect(observer.targets).toContain(screen.getByText('c'));
 });

@@ -54,8 +54,11 @@ renders nothing but the context.
 | `compactBreakpoint` | `767` | Max width in px treated as compact. |
 | `disabled` | `false` | Render everything immediately. |
 
-`Reveal` takes `method`, `delay`, `duration`, `distance`, `disabled` and `as` to
-override the layer for one element, plus any normal DOM props.
+`Reveal` takes `method`, `delay`, `duration`, `distance`, `skip` and `as` to
+override the layer for one element, plus any normal DOM props. It is polymorphic,
+so element-specific attributes work too — `type` on a button, `href` on an
+anchor. The opt-out is `skip` rather than `disabled`, leaving `disabled` free to
+mean what it means on a real form control.
 
 ### A note on `stagger`
 
@@ -97,10 +100,24 @@ Built in: `none`, `fade`, `left`, `right`, `bottom`, `top`, `zoom`, `rise`, `til
   travel, which avoids the sideways lurch that horizontal slides give on a phone.
 - **Horizontal overflow** — sliding elements can push the page wide. Put
   `overflow-x-clip` on the layer's own element (as the Coty page does).
-- **Hover transforms** — `Reveal` writes an inline `transform`, which beats a
-  Tailwind `hover:-translate-y-1` class. Wrap such an element in a `Reveal`
-  rather than making it one.
+- **Hover transforms** — the inline styles are removed once the entrance
+  finishes (`transitionend`), so an element's own `tile-3d` lift or
+  `hover:-translate-y-1` works normally afterwards. You can put `Reveal`
+  directly on an interactive tile. The settled element carries
+  `data-reveal-settled="true"`.
+- **Scroll containers** — a transform on a child of an `overflow-x-auto` or
+  `overflow-y-auto` element enlarges that element's scrollable area. Reveal the
+  scroller as one unit instead of its items (see the courses rail on `/nyu`).
+- **Class-driven carousels** — anything already animating itself with classes
+  (the Stern Snapshots slides) should be wrapped as a block, not retagged, so
+  the two transform sources never fight.
 
 ## Where it is used
 
+- [`/nyu`](../../nyu/page.tsx)
 - [`/nyu/sustainability/coty`](../../nyu/sustainability/coty/page.tsx)
+- [`/nyu/the-strategist`](../../nyu/the-strategist/page.tsx)
+- [`/nyu/financial-accounting`](../../nyu/financial-accounting/page.tsx)
+- [`/nyu/finance-cheatsheet`](../../nyu/finance-cheatsheet/page.tsx)
+- [`/nyu/professional-responsibility`](../../nyu/professional-responsibility/page.tsx)
+- [`/nyu/LeadershipCommitmentPlan`](../../nyu/LeadershipCommitmentPlan/page.tsx)
