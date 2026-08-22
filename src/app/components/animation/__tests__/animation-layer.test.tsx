@@ -170,3 +170,41 @@ test('a child mounted later is picked up by the observer', () => {
     const observer = observed[observed.length - 1];
     expect(observer.targets).toContain(screen.getByText('c'));
 });
+
+test('a Reveal nested inside another Reveal gets its own entrance', () => {
+    render(
+        <AnimationLayer method="alternate">
+            <Reveal method="left">
+                headline
+                <Reveal method="left" delay={220}>
+                    cta
+                </Reveal>
+            </Reveal>
+            <Reveal method="right" delay={140}>
+                aside
+            </Reveal>
+        </AnimationLayer>,
+    );
+
+    const cta = screen.getByText('cta');
+    const aside = screen.getByText('aside');
+
+    // Explicit methods must win over the alternation order, which would
+    // otherwise hand the third element in DOM order a left entrance.
+    expect(cta).toHaveAttribute('data-reveal', 'left');
+    expect(aside).toHaveAttribute('data-reveal', 'right');
+
+    const observer = observed[observed.length - 1];
+    expect(observer.targets).toContain(cta);
+    expect(observer.targets).toContain(aside);
+
+    act(() => {
+        observer.callback(observer.targets.map((target) => ({ target, isIntersecting: true })));
+    });
+
+    expect(cta).toHaveAttribute('data-reveal-shown', 'true');
+    expect(aside).toHaveAttribute('data-reveal-shown', 'true');
+    // The stagger delay rides on the entrance only; leaving stays snappy.
+    expect(cta.getAttribute('style')).toContain('220ms');
+    expect(aside.getAttribute('style')).toContain('140ms');
+});

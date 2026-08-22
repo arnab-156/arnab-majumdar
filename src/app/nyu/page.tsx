@@ -242,14 +242,14 @@ export default function NYUPage() {
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_0%,rgba(255,255,255,0.08),transparent_30%)]" aria-hidden />
 
           <AnimationLayer as="div" className="relative max-w-6xl mx-auto grid gap-10 md:grid-cols-[1.2fr_0.8fr] items-center" method="alternate" distance={48}>
-            <Reveal className="space-y-4">
+            <Reveal method="left" className="space-y-4">
               <p className="uppercase tracking-[0.3em] text-sm text-purple-100">New York University Leonard N. Stern School of Business</p>
               <h1 className="text-4xl md:text-5xl font-nyu-ultra leading-tight">Executive MBA, Class of A27</h1>
               <p className="text-lg md:text-xl text-purple-50 max-w-2xl">
                 A journey rooted in rigor, community, and leadership—built in the heart of New York City and sharpened through Stern&apos;s collaborative culture.
               </p>
 
-              <div className="flex flex-wrap items-center gap-4 pt-2">
+              <Reveal method="left" delay={220} className="flex flex-wrap items-center gap-4 pt-2">
                 <Link
                   href="https://www.stern.nyu.edu/"
                   target="_blank"
@@ -267,10 +267,10 @@ export default function NYUPage() {
                 <Link href="/" className="underline text-purple-100">
                   go back to home
                 </Link>
-              </div>
+              </Reveal>
             </Reveal>
 
-            <Reveal className="relative">
+            <Reveal method="right" delay={140} className="relative">
               <div className="rounded-3xl bg-white/10 p-6 backdrop-blur shadow-2xl border border-white/20">
                 <h2 className="text-xl font-semibold">What drives this chapter</h2>
                 <ul className="mt-4 space-y-2 text-sm text-purple-100">
