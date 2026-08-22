@@ -254,7 +254,8 @@ export function AnimationLayer({ children, as, className, ...overrides }: Animat
  * `disabled`, which stays free to mean what it means on a real form control.
  */
 export type RevealProps = Omit<AllHTMLAttributes<HTMLElement>, "children" | "as"> & {
-  children: ReactNode;
+  /** Optional, so a self-closing decorative element can be revealed in place. */
+  children?: ReactNode;
   /** Element to render. Defaults to `div`. */
   as?: ElementType;
   /** Overrides the layer's default method for this element. */
