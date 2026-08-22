@@ -14,6 +14,9 @@ const urlImageDefault = "/headshot.png"
 // is what broke hydration on this page.
 const aboutCardProps = {
   useCtaButton: true,
+  // The resume tile carries an image and sets the row height; the others
+  // stretch to match rather than leaving the row ragged.
+  fillHeight: true,
 };
 
 // One measure for the whole essay, so the prose reads as a column rather than
@@ -177,8 +180,8 @@ export default function About() {
           />
         </Reveal>
 
-        <Reveal className={cardWrapperStyle}>
-          <div className="shadow-md rounded-md text-center py-4 px-8 m-4">
+        <Reveal className={`${cardWrapperStyle} flex`}>
+          <div className="flex-1 shadow-md rounded-md text-center py-4 px-8 m-4">
             <p className="m-2">
               For business enquiries, <strong> <Link className={`${buttonStyle}`} href="/help" aria-label="go to calendar to schedule a google meet">Contact me.</Link></strong>
             </p>

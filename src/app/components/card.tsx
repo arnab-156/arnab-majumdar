@@ -18,6 +18,8 @@ interface CardProps {
     imageWidth?: number;
     openInNewTab?: boolean;
     useCtaButton?: boolean;
+    /** Stretch the card to its grid cell, so a row of cards squares off. */
+    fillHeight?: boolean;
     buttonText?: string;
     ctaLabel?: string;
 }
@@ -36,6 +38,7 @@ export const Card: NextPage<CardProps> = ({
     imageWidth = 100,
     openInNewTab = false,
     useCtaButton = false,
+    fillHeight = false,
     buttonText,
     ctaLabel,
 }) => {
@@ -44,7 +47,10 @@ export const Card: NextPage<CardProps> = ({
     const ctaText = buttonText ?? ctaLabel ?? "Learn More";
     const hasNavigableUrl = url.trim().length > 0;
     const cardContent = (
-        <div className={`p-4 rounded shadow-md bg-gray-200 hover:bg-gray-300 active:bg-gray-400 dark:bg-gray-900 ${backgroundTheme}`}>
+        <div className={classNames(
+            `p-4 rounded shadow-md bg-gray-200 hover:bg-gray-300 active:bg-gray-400 dark:bg-gray-900 ${backgroundTheme}`,
+            fillHeight && "h-full",
+        )}>
             <h3 className="font-nyu-ultra font-extrabold uppercase text-overflow-ellipsis overflow-hidden line-clamp-2">
                 {title}
             </h3>
@@ -72,8 +78,8 @@ export const Card: NextPage<CardProps> = ({
 
     if (useCtaButton) {
         return (
-            <div className="relative flex flex-col items-center">
-                <div className={cardClassName}>
+            <div className={classNames("relative flex flex-col items-center", fillHeight && "h-full")}>
+                <div className={classNames(cardClassName, fillHeight && "flex-1 w-full")}>
                     {cardContent}
                 </div>
                 {hasNavigableUrl && (
