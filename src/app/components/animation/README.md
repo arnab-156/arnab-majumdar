@@ -125,9 +125,14 @@ Built in: `none`, `fade`, `left`, `right`, `bottom`, `top`, `zoom`, `rise`, `til
 
 ## Where it is used
 
-- [`/`](../../page.tsx) — a server component; the layer is a client
-  component used inside it, which works because the cards are passed through
-  as server-rendered children.
+- [`/`](../../page.tsx), [`/about`](../../about/page.tsx) and
+  [`/experiences`](../../experiences/page.tsx) — card walls. All three are
+  server components; the layer is a client component used inside them, which
+  works because the cards are passed through as server-rendered children.
+  `/experiences` opens with a full-width `lg:col-span-3` header, so its tiles
+  sit in their own `AnimationLayer` with no `as` — that renders no DOM, leaving
+  the grid intact while restarting the cascade at the first tile rather than
+  letting the header shift every row out of order.
 - [`/nyu`](../../nyu/page.tsx)
 - [`/nyu/sustainability/coty`](../../nyu/sustainability/coty/page.tsx)
 - [`/nyu/the-strategist`](../../nyu/the-strategist/page.tsx)
