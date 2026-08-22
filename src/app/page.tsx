@@ -1,5 +1,6 @@
 import { headers } from 'next/headers';
 import Link from 'next/link';
+import { AnimationLayer, Reveal } from "./components/animation";
 import { Card } from "./components/card";
 import { HomeClickTracker } from "./components/home-click-tracker";
 import { ReadIcon } from "./components/icons";
@@ -43,9 +44,24 @@ export default function Home() {
 
   return (
     <HomeClickTracker userLocation={userLocation}>
-      <main className="flex min-h-screen flex-col items-center justify-between md:pt-20 mb-32 font-nyu">
-        <div className="grid text-center lg:w-half lg:max-w-5xl lg:grid-cols-3 lg:text-left">
-          <div className={cardWrapperStyle}>
+      <AnimationLayer
+        as="main"
+        className="flex min-h-screen flex-col items-center justify-between md:pt-20 mb-32 font-nyu overflow-x-clip"
+        method="rise"
+        distance={44}
+        duration={760}
+        threshold={0.12}
+        rootMargin="0px 0px -12% 0px"
+      >
+        <AnimationLayer
+          as="div"
+          className="grid text-center lg:w-half lg:max-w-5xl lg:grid-cols-3 lg:text-left"
+          method="rise"
+          distance={44}
+          stagger={90}
+          staggerCycle={3}
+        >
+          <Reveal className={cardWrapperStyle}>
             <Card
               {...homeCardProps}
               title="About Arnab!"
@@ -53,17 +69,17 @@ export default function Home() {
               imageUrl="/headshot.png"
               description="Welcome! Explore Arnab&#39;s world of design, with both real-world and conceptual projects."
             />
-          </div>
+          </Reveal>
 
-          <div className="shadow-md rounded-md text-center py-4 px-8 m-4">
+          <Reveal className="shadow-md rounded-md text-center py-4 px-8 m-4">
             <p className="m-2">
               If you are a small business, a retailer, or an educator who wants to use the latest technologies & practices, <strong> <Link className={`${buttonStyle}`} href="/help" aria-label="go to calendar to schedule a google meet">Contact me.</Link></strong>
             </p>
 
             <p className="mt-4"> Find social information in the top navigation on mobile or the footer on desktop.</p>
-          </div>
+          </Reveal>
 
-          <div className={cardWrapperStyle}>
+          <Reveal className={cardWrapperStyle}>
             <h2 className="text-xl font-bold text-center capitalize">Welcome to my Stern journey!</h2>
             <Card
               {...homeCardProps}
@@ -73,9 +89,9 @@ export default function Home() {
               backgroundTheme={`${nycBackgroundTheme}`}
               description="Class Representative, Master of Business Administration - Class of 2027"
             />
-          </div>
+          </Reveal>
 
-          <div className={cardWrapperStyle}>
+          <Reveal className={cardWrapperStyle}>
             <h2 className="text-xl font-bold text-center capitalize">New Learnings!</h2>
             {randomNewLearningProject && (() => {
               const primaryUrl = randomNewLearningProject.urls?.[0]?.url ?? "/nyu";
@@ -94,9 +110,9 @@ export default function Home() {
                 </div>
               );
             })()}
-          </div>
+          </Reveal>
 
-          <div className={cardWrapperStyle} id="aster">
+          <Reveal className={cardWrapperStyle} id="aster">
             <h2 className="text-xl font-bold text-center capitalize" >Made in US Collaboration:</h2>
             <Card
               {...homeCardProps}
@@ -109,9 +125,9 @@ export default function Home() {
               backgroundTheme={nycBackgroundTheme}
               imageUrl='https://lotusmahal.com/cdn/shop/files/DSCF2076_42f9aa66-c21a-4b76-a0db-88a679d0039e.jpg?v=1741617890&width=1646'
             />
-          </div>
+          </Reveal>
 
-          <div className={cardWrapperStyle}>
+          <Reveal className={cardWrapperStyle}>
             <h2 className="text-xl font-bold text-center capitalize">Updated Daily!</h2>
             <Card
               {...homeCardProps}
@@ -122,9 +138,9 @@ export default function Home() {
             >
               <ReadIcon height="100px" width="100px" />
             </Card>
-          </div>
+          </Reveal>
 
-          <div className={cardWrapperStyle} id="garden-of-swann">
+          <Reveal className={cardWrapperStyle} id="garden-of-swann">
             <h2 className="text-xl font-bold text-center capitalize">Stories of Courage</h2>
             <Card
               {...homeCardProps}
@@ -134,9 +150,9 @@ export default function Home() {
               customClassName={`${cardWrapperStyle}`}
               imageUrl={`https://live.staticflickr.com/65535/55041103674_dd84ce4ce4_w.jpg`}
             />
-          </div>
+          </Reveal>
 
-          <div className={cardWrapperStyle}>
+          <Reveal className={cardWrapperStyle}>
             <h2 className="text-xl font-bold text-center capitalize">Expanding Retail Experiences:</h2>
             <Card
               {...homeCardProps}
@@ -147,9 +163,9 @@ export default function Home() {
               imageWidth={105}
               description="Click here to know more about the innovation, technology, and design."
             />
-          </div>
+          </Reveal>
 
-          <div className={cardWrapperStyle} id="cp">
+          <Reveal className={cardWrapperStyle} id="cp">
             <h2 className="text-xl font-bold text-center capitalize">Project from New Orleans:</h2>
             <Card
               {...homeCardProps}
@@ -166,9 +182,9 @@ export default function Home() {
                 </ul>
               </div>
             </Card>
-          </div>
+          </Reveal>
 
-          <div className={cardWrapperStyle}>
+          <Reveal className={cardWrapperStyle}>
             <Card
               {...homeCardProps}
               title="Free Trivia for you to enjoy on the go!"
@@ -177,9 +193,9 @@ export default function Home() {
               imageUrl="/quiz.png"
               description="Version 1 is live! Version 2 coming soon!"
             />
-          </div>
+          </Reveal>
 
-          <div className={cardWrapperStyle}>
+          <Reveal className={cardWrapperStyle}>
             <h2 className="text-xl font-bold text-center capitalize" >Click Book NOW! button to schedule a meeting.</h2>
             <Card
               {...homeCardProps}
@@ -199,9 +215,9 @@ export default function Home() {
                 </ul>
               </div>
             </Card>
-          </div>
+          </Reveal>
 
-          <div className={cardWrapperStyle}>
+          <Reveal className={cardWrapperStyle}>
             <h2 className="text-xl font-bold text-center">Click learn more to view my experiences.</h2>
             <Card
               {...homeCardProps}
@@ -221,9 +237,9 @@ export default function Home() {
               </div>
 
             </Card>
-          </div>
+          </Reveal>
 
-          <div className={cardWrapperStyle}>
+          <Reveal className={cardWrapperStyle}>
             <h2 className="text-xl font-bold text-center capitalize">Thank you for your support! Please visit store</h2>
             <Card
               {...homeCardProps}
@@ -235,9 +251,9 @@ export default function Home() {
               imageUrl="https://lotusmahal.com/cdn/shop/files/12815231453993207167_2048.jpg?v=1729536713&width=823"
               imageAlt="Picture of a greeting card made by Lotus Mahal called Basant Raga where a women is singing in the calling of the spring"
             />
-          </div>
+          </Reveal>
 
-          <div className={cardWrapperStyle}>
+          <Reveal className={cardWrapperStyle}>
             <Card
               {...homeCardProps}
               title="Download Resume Here"
@@ -248,9 +264,9 @@ export default function Home() {
               backgroundTheme={nycBackgroundTheme}
               imageUrl='/cv.png'
             />
-          </div>
+          </Reveal>
 
-          <div className={cardWrapperStyle}>
+          <Reveal className={cardWrapperStyle}>
             <Card
               {...homeCardProps}
               title="Tic Tac Toe game for you to enjoy on the go!"
@@ -258,11 +274,11 @@ export default function Home() {
               imageUrl="/tic-tac-toe.gif"
               description="Simple Tik Tac Toe Game for when you are bored."
             />
-          </div>
+          </Reveal>
 
-        </div>
+        </AnimationLayer>
         <Link href="#navigation" className='hover:underline text-purple-800'>go to top</Link>
-      </main>
+      </AnimationLayer>
     </HomeClickTracker>
   );
 }

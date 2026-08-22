@@ -28,6 +28,13 @@ export type AnimationLayerConfig = {
   delay: number;
   /** Extra delay per child, in DOM order, in ms. */
   stagger: number;
+  /**
+   * Wrap the stagger every N children. Set this to a grid's column count so
+   * each row cascades from zero: without it the delay keeps accumulating down
+   * the grid, and a card near the bottom sits still for `index * stagger`
+   * after it is already on screen. 0 means never wrap.
+   */
+  staggerCycle: number;
   /** Fraction of the element that must be visible before it reveals. */
   threshold: number;
   /** IntersectionObserver rootMargin. */
@@ -52,6 +59,7 @@ export const defaultAnimationLayerConfig: AnimationLayerConfig = {
   duration: 700,
   delay: 0,
   stagger: 0,
+  staggerCycle: 0,
   threshold: 0.15,
   rootMargin: "0px 0px -10% 0px",
   once: true,
@@ -316,7 +324,10 @@ export function Reveal({
     return {
       from: motionToStyle(motion.from(travel)),
       duration: (duration ?? config.duration) * (motion.durationScale ?? 1),
-      delay: delay ?? config.delay + index * config.stagger,
+      delay:
+        delay ??
+        config.delay +
+          (config.staggerCycle > 0 ? index % config.staggerCycle : index) * config.stagger,
       name,
     };
   }, [method, config, compact, index, distance, duration, delay]);

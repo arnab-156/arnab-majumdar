@@ -45,6 +45,7 @@ renders nothing but the context.
 | `duration` | `700` | Transition duration in ms. |
 | `delay` | `0` | Base delay in ms. |
 | `stagger` | `0` | Extra delay per child, in DOM order. |
+| `staggerCycle` | `0` | Wrap the stagger every N children. Set it to a grid's column count. `0` never wraps. |
 | `threshold` | `0.15` | Fraction visible before revealing. |
 | `rootMargin` | `"0px 0px -10% 0px"` | Observer margin. |
 | `once` | `true` | Reveal once, or re-hide when scrolled back out. |
@@ -65,8 +66,14 @@ mean what it means on a real form control.
 Stagger is per-element delay by DOM order, and each element is observed
 individually. That reads well for a row of cards that enter together, and badly
 for a long vertical list where items enter one at a time — the tenth item would
-sit still for `10 × stagger` after it is already on screen. Use `stagger` on
-grids; leave it at `0` for stacked rows.
+sit still for `10 × stagger` after it is already on screen.
+
+For a grid taller than one row, pair `stagger` with `staggerCycle` set to the
+column count. The delay then restarts each row (0, 90, 180, 0, 90, 180 …), so
+every row cascades and nothing accumulates. The homepage card wall uses
+`stagger={90} staggerCycle={3}`.
+
+Leave `stagger` at `0` for stacked rows that enter one at a time.
 
 ## Adding a method later
 
@@ -118,6 +125,9 @@ Built in: `none`, `fade`, `left`, `right`, `bottom`, `top`, `zoom`, `rise`, `til
 
 ## Where it is used
 
+- [`/`](../../page.tsx) — a server component; the layer is a client
+  component used inside it, which works because the cards are passed through
+  as server-rendered children.
 - [`/nyu`](../../nyu/page.tsx)
 - [`/nyu/sustainability/coty`](../../nyu/sustainability/coty/page.tsx)
 - [`/nyu/the-strategist`](../../nyu/the-strategist/page.tsx)

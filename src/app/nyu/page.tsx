@@ -491,6 +491,7 @@ export default function NYUPage() {
               method="rise"
               distance={44}
               stagger={80}
+              staggerCycle={3}
             >
               {visibleProjects.length === 0 ? (
                 <div className="col-span-full rounded-2xl border border-white/20 bg-white/5 p-6 text-center text-sm text-purple-100 dark:border-purple-200 dark:bg-purple-50 dark:text-[#2e0068]">

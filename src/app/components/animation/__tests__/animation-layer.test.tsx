@@ -208,3 +208,26 @@ test('a Reveal nested inside another Reveal gets its own entrance', () => {
     expect(cta.getAttribute('style')).toContain('220ms');
     expect(aside.getAttribute('style')).toContain('140ms');
 });
+
+test('staggerCycle restarts the cascade each row', () => {
+    render(
+        <AnimationLayer method="rise" stagger={90} staggerCycle={3}>
+            {['a', 'b', 'c', 'd', 'e'].map((item) => (
+                <Reveal key={item}>{item}</Reveal>
+            ))}
+        </AnimationLayer>,
+    );
+
+    const observer = observed[observed.length - 1];
+    act(() => {
+        observer.callback(observer.targets.map((target) => ({ target, isIntersecting: true })));
+    });
+
+    // Row one cascades 0 / 90 / 180; row two starts over rather than
+    // stranding the fourth card behind a 270ms wait.
+    expect(screen.getByText('a').getAttribute('style')).toContain('0ms');
+    expect(screen.getByText('b').getAttribute('style')).toContain('90ms');
+    expect(screen.getByText('c').getAttribute('style')).toContain('180ms');
+    expect(screen.getByText('d').getAttribute('style')).toContain('0ms');
+    expect(screen.getByText('e').getAttribute('style')).toContain('90ms');
+});
