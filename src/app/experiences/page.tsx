@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Card } from "../components/card";
 import { buttonStyle, cardWrapperStyle, nycBackgroundTheme } from "../utility/stylevariables";
+import { AnimationLayer, Reveal } from "../components/animation";
 
 export default function ExperiencesPage() {
   const experienceCardProps = {
@@ -8,9 +9,17 @@ export default function ExperiencesPage() {
   };
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between pt-20 ">
+    <AnimationLayer
+      as="main"
+      className="flex min-h-screen flex-col items-center justify-between pt-20 overflow-x-clip"
+      method="rise"
+      distance={44}
+      duration={760}
+      threshold={0.12}
+      rootMargin="0px 0px -12% 0px"
+    >
       <div className="mb-32 grid text-center lg:w-half lg:max-w-5xl lg:grid-cols-3 lg:text-left">
-        <div className="lg:col-span-3 flex flex-col items-center gap-4">
+        <Reveal className="lg:col-span-3 flex flex-col items-center gap-4">
           <h1 className="text-3xl font-bold text-center mt-8 font-nyu-ultra">Experiences</h1>
           <Link href="/experiences/achievements" className={buttonStyle}>
             See all achievements
@@ -18,279 +27,282 @@ export default function ExperiencesPage() {
           <div className="pb-6">
             <Link href="/" className="hover:underline text-purple-800">go back to home</Link>
           </div>
-        </div>
+        </Reveal>
 
-        <div className={cardWrapperStyle}>
-          <Card
-            {...experienceCardProps}
-            title="Owner"
-            url="/lotus"
-            description="We are a boutique consulting studio helping organizations ship strategy & digital experiences"
+        <AnimationLayer method="rise" distance={44} stagger={90} staggerCycle={3}>
 
-            imageUrl="https://live.staticflickr.com/65535/53819325384_d2b8af917f_w.jpg"
-          />
-        </div>
+          <Reveal className={cardWrapperStyle}>
+            <Card
+              {...experienceCardProps}
+              title="Owner"
+              url="/lotus"
+              description="We are a boutique consulting studio helping organizations ship strategy & digital experiences"
 
-        <div className={cardWrapperStyle}>
-          <Card
-            {...experienceCardProps}
-            title="Senior Software Engineer"
-            url="https://www.bonobos.com/"
-            imageUrl="/bonobos-logo-dark.svg"
-            backgroundTheme={`${nycBackgroundTheme}`}
-            description="Initially under Walmart Inc and then under Express LLC. Responsible for front end technology projects."
-          />
-        </div>
+              imageUrl="https://live.staticflickr.com/65535/53819325384_d2b8af917f_w.jpg"
+            />
+          </Reveal>
 
-        <div className={cardWrapperStyle}>
-          <Card
-            {...experienceCardProps}
-            title="Software Engineer 2"
-            url="https://www.shoprunner.com/"
-            imageUrl="/shoprunner_byfedex.svg"
-            backgroundTheme={`${nycBackgroundTheme}`}
-            description="In a start up, and went through acquisition by FedEx. WCAG Accessibility Expert! Promoted Twice."
-          />
-        </div>
+          <Reveal className={cardWrapperStyle}>
+            <Card
+              {...experienceCardProps}
+              title="Senior Software Engineer"
+              url="https://www.bonobos.com/"
+              imageUrl="/bonobos-logo-dark.svg"
+              backgroundTheme={`${nycBackgroundTheme}`}
+              description="Initially under Walmart Inc and then under Express LLC. Responsible for front end technology projects."
+            />
+          </Reveal>
 
-        <div className={cardWrapperStyle}>
-          <Card
-            {...experienceCardProps}
-            title="Owner and CEO"
-            url="/moc"
-            imageUrl="https://live.staticflickr.com/65535/53808934296_8330a5b182_w.jpg"
-            backgroundTheme={``}
-            imageWidth={105}
-            description="Click here to know more about the innovation, technology, and design."
-          />
-        </div>
+          <Reveal className={cardWrapperStyle}>
+            <Card
+              {...experienceCardProps}
+              title="Software Engineer 2"
+              url="https://www.shoprunner.com/"
+              imageUrl="/shoprunner_byfedex.svg"
+              backgroundTheme={`${nycBackgroundTheme}`}
+              description="In a start up, and went through acquisition by FedEx. WCAG Accessibility Expert! Promoted Twice."
+            />
+          </Reveal>
 
-        <div className={cardWrapperStyle}>
-          <Card
-            {...experienceCardProps}
-            title="Instructional Assistant"
-            url=""
-            imageUrl="northwestern.svg"
-            description="Full Stack Coding Bootcamp - Mongo Express React Node.js stack"
-            imageHeight={80}
-            imageWidth={80}
-          />
-        </div>
+          <Reveal className={cardWrapperStyle}>
+            <Card
+              {...experienceCardProps}
+              title="Owner and CEO"
+              url="/moc"
+              imageUrl="https://live.staticflickr.com/65535/53808934296_8330a5b182_w.jpg"
+              backgroundTheme={``}
+              imageWidth={105}
+              description="Click here to know more about the innovation, technology, and design."
+            />
+          </Reveal>
 
-        <div className={cardWrapperStyle}>
-          <Card
-            {...experienceCardProps}
-            title="Department Chair - Fashion Marketing and Merchandising"
-            url=""
-            imageUrl="https://live.staticflickr.com/65535/53818079467_6eaf1c63ea_w.jpg"
-            backgroundTheme={`${nycBackgroundTheme}`}
-            description="Instructed cross-curriculum and mentored students of fashion merchandising."
-            imageHeight={200}
-            imageWidth={135}
-          />
-        </div>
+          <Reveal className={cardWrapperStyle}>
+            <Card
+              {...experienceCardProps}
+              title="Instructional Assistant"
+              url=""
+              imageUrl="northwestern.svg"
+              description="Full Stack Coding Bootcamp - Mongo Express React Node.js stack"
+              imageHeight={80}
+              imageWidth={80}
+            />
+          </Reveal>
 
-        <div className={cardWrapperStyle}>
-          <Card
-            {...experienceCardProps}
-            title="Eye on India - The Saree Project (Co-ordinator)"
-            url="/lotus/eye-on-india"
-            imageUrl="https://live.staticflickr.com/65535/53839425086_c36fa84f70_w.jpg"
-            imageHeight={200}
-            imageWidth={200}
-            backgroundTheme={`${nycBackgroundTheme}`}
-            description="Click here to know more about Fashion + Education + Sustainability."
-          />
-        </div>
+          <Reveal className={cardWrapperStyle}>
+            <Card
+              {...experienceCardProps}
+              title="Department Chair - Fashion Marketing and Merchandising"
+              url=""
+              imageUrl="https://live.staticflickr.com/65535/53818079467_6eaf1c63ea_w.jpg"
+              backgroundTheme={`${nycBackgroundTheme}`}
+              description="Instructed cross-curriculum and mentored students of fashion merchandising."
+              imageHeight={200}
+              imageWidth={135}
+            />
+          </Reveal>
 
-        <div className={cardWrapperStyle}>
-          <Card
-            {...experienceCardProps}
-            title="Assistant Professor, Fashion Studies."
-            url=""
-            imageUrl="https://live.staticflickr.com/65535/53819339684_9c2b53cb83_w.jpg"
-            imageHeight={200}
-            imageWidth={200}
-            backgroundTheme={`bg-white`}
-            description="Instructed Fashion Studies courses on Apparel Quality, Supply Chain, Technology and Merchandising. Supported International Students and lead program review of Fashion Business Curriculum."
-          />
-        </div>
+          <Reveal className={cardWrapperStyle}>
+            <Card
+              {...experienceCardProps}
+              title="Eye on India - The Saree Project (Co-ordinator)"
+              url="/lotus/eye-on-india"
+              imageUrl="https://live.staticflickr.com/65535/53839425086_c36fa84f70_w.jpg"
+              imageHeight={200}
+              imageWidth={200}
+              backgroundTheme={`${nycBackgroundTheme}`}
+              description="Click here to know more about Fashion + Education + Sustainability."
+            />
+          </Reveal>
 
-        <div className={cardWrapperStyle}>
-          <Card
-            {...experienceCardProps}
-            title="AT&T Samsung Galaxy Project"
-            url="/lotus/samsung"
-            imageUrl="https://live.staticflickr.com/65535/53851021701_6619ae0f97_w.jpg"
-            imageHeight={200}
-            imageWidth={200}
-            description="Click here to know more about Fashion + Education + use of Technology."
-          />
-        </div>
+          <Reveal className={cardWrapperStyle}>
+            <Card
+              {...experienceCardProps}
+              title="Assistant Professor, Fashion Studies."
+              url=""
+              imageUrl="https://live.staticflickr.com/65535/53819339684_9c2b53cb83_w.jpg"
+              imageHeight={200}
+              imageWidth={200}
+              backgroundTheme={`bg-white`}
+              description="Instructed Fashion Studies courses on Apparel Quality, Supply Chain, Technology and Merchandising. Supported International Students and lead program review of Fashion Business Curriculum."
+            />
+          </Reveal>
 
-        <div className={cardWrapperStyle}>
-          <Card
-            {...experienceCardProps}
-            title="Docent - Lincoln Park Conservatory"
-            url="/experiences/lincolnpark"
-            imageUrl="https://live.staticflickr.com/65535/53863196190_faa7d80208_w.jpg"
-            imageHeight={200}
-            imageWidth={200}
-            description="Click here to know more."
-          />
-        </div>
+          <Reveal className={cardWrapperStyle}>
+            <Card
+              {...experienceCardProps}
+              title="AT&T Samsung Galaxy Project"
+              url="/lotus/samsung"
+              imageUrl="https://live.staticflickr.com/65535/53851021701_6619ae0f97_w.jpg"
+              imageHeight={200}
+              imageWidth={200}
+              description="Click here to know more about Fashion + Education + use of Technology."
+            />
+          </Reveal>
 
-        <div className={cardWrapperStyle}>
-          <Card
-            {...experienceCardProps}
-            title="Instructor - Family and Consumer Sciences"
-            url=""
-            imageUrl="/pittstate.svg"
-            imageHeight={200}
-            imageWidth={190}
-            backgroundTheme={`${nycBackgroundTheme}`}
-            description="Instructed 8+8 course load of Textiles and Fashion Merchandising courses of Family and Consumer Sciences."
-          />
-        </div>
+          <Reveal className={cardWrapperStyle}>
+            <Card
+              {...experienceCardProps}
+              title="Docent - Lincoln Park Conservatory"
+              url="/experiences/lincolnpark"
+              imageUrl="https://live.staticflickr.com/65535/53863196190_faa7d80208_w.jpg"
+              imageHeight={200}
+              imageWidth={200}
+              description="Click here to know more."
+            />
+          </Reveal>
 
-        <div className={cardWrapperStyle}>
-          <Card
-            {...experienceCardProps}
-            title="StyleWeek - PR Executive"
-            url=""
-            imageUrl="https://www.styleweeknortheast.com/wp-content/uploads/2019/07/STYLEWEEK-LOGO-1.png"
-            imageHeight={200}
-            imageWidth={190}
-            description="PR + Fashion show production assistant."
-          />
-        </div>
+          <Reveal className={cardWrapperStyle}>
+            <Card
+              {...experienceCardProps}
+              title="Instructor - Family and Consumer Sciences"
+              url=""
+              imageUrl="/pittstate.svg"
+              imageHeight={200}
+              imageWidth={190}
+              backgroundTheme={`${nycBackgroundTheme}`}
+              description="Instructed 8+8 course load of Textiles and Fashion Merchandising courses of Family and Consumer Sciences."
+            />
+          </Reveal>
 
-        <div className={cardWrapperStyle}>
-          <Card
-            {...experienceCardProps}
-            title="Graduate Teaching Assistant"
-            url=""
-            imageUrl="/uri.svg"
-            backgroundTheme={`${nycBackgroundTheme}`}
-            description="Textile Sciences Laboratory"
-          />
-        </div>
+          <Reveal className={cardWrapperStyle}>
+            <Card
+              {...experienceCardProps}
+              title="StyleWeek - PR Executive"
+              url=""
+              imageUrl="https://www.styleweeknortheast.com/wp-content/uploads/2019/07/STYLEWEEK-LOGO-1.png"
+              imageHeight={200}
+              imageWidth={190}
+              description="PR + Fashion show production assistant."
+            />
+          </Reveal>
 
-        <div className={cardWrapperStyle}>
-          <Card
-            {...experienceCardProps}
-            title="Assistant Manager, Reliance Trends"
-            url=""
-            imageUrl="https://live.staticflickr.com/65535/53819337484_729e51ba15_w.jpg"
-            backgroundTheme={`bg-white`}
-            description="Marketing, Promotions, Branding, new store opening (Two 145,000 sq.ft, Five 18,000 sq.ft stores, and vendor management."
-          />
-        </div>
+          <Reveal className={cardWrapperStyle}>
+            <Card
+              {...experienceCardProps}
+              title="Graduate Teaching Assistant"
+              url=""
+              imageUrl="/uri.svg"
+              backgroundTheme={`${nycBackgroundTheme}`}
+              description="Textile Sciences Laboratory"
+            />
+          </Reveal>
 
-        <div className={cardWrapperStyle}>
-          <Card
-            {...experienceCardProps}
-            title="Reach Technologies"
-            url=""
-            imageUrl=""
-            description="Research and Development of Footwear CAD for use of software engineers."
-          />
-        </div>
+          <Reveal className={cardWrapperStyle}>
+            <Card
+              {...experienceCardProps}
+              title="Assistant Manager, Reliance Trends"
+              url=""
+              imageUrl="https://live.staticflickr.com/65535/53819337484_729e51ba15_w.jpg"
+              backgroundTheme={`bg-white`}
+              description="Marketing, Promotions, Branding, new store opening (Two 145,000 sq.ft, Five 18,000 sq.ft stores, and vendor management."
+            />
+          </Reveal>
 
-        <h2 id="my-education" className="text-3xl font-bold text-center mt-8 font-nyu-ultra">Education</h2>
-        <div className={cardWrapperStyle}>
-          <Card
-            {...experienceCardProps}
-            title="NYU - Stern School of Business"
-            url="/nyu"
-            imageUrl="/stern.png"
-            backgroundTheme={`${nycBackgroundTheme}`}
-            description="Class Representative, Master of Business Administration - Class of 2027"
-          />
-        </div>
+          <Reveal className={cardWrapperStyle}>
+            <Card
+              {...experienceCardProps}
+              title="Reach Technologies"
+              url=""
+              imageUrl=""
+              description="Research and Development of Footwear CAD for use of software engineers."
+            />
+          </Reveal>
 
-        <div className={cardWrapperStyle}>
-          <Card
-            {...experienceCardProps}
-            title="Northwestern University"
-            url=""
-            imageUrl="/northwestern.svg"
-            imageHeight={100}
-            description="Certificate - Full Stack Web Development (MERN)"
-          />
-        </div>
+          <h2 id="my-education" className="text-3xl font-bold text-center mt-8 font-nyu-ultra">Education</h2>
+          <Reveal className={cardWrapperStyle}>
+            <Card
+              {...experienceCardProps}
+              title="NYU - Stern School of Business"
+              url="/nyu"
+              imageUrl="/stern.png"
+              backgroundTheme={`${nycBackgroundTheme}`}
+              description="Class Representative, Master of Business Administration - Class of 2027"
+            />
+          </Reveal>
 
-        <div className={cardWrapperStyle}>
-          <Card
-            {...experienceCardProps}
-            title="University of Rhode Island - College of Business"
-            url="https://web.uri.edu/business/about/tmd/"
-            imageUrl="/uri.svg"
-            backgroundTheme={`${nycBackgroundTheme}`}
-            description={`Master of Science - Textiles, Fashion Merchandising & Design; Senator - Graduate Student Association`}
-          />
-        </div>
+          <Reveal className={cardWrapperStyle}>
+            <Card
+              {...experienceCardProps}
+              title="Northwestern University"
+              url=""
+              imageUrl="/northwestern.svg"
+              imageHeight={100}
+              description="Certificate - Full Stack Web Development (MERN)"
+            />
+          </Reveal>
 
-        <div className={cardWrapperStyle} id="my-education-nift">
-          <Card
-            {...experienceCardProps}
-            title="National Institute of Fashion Technology"
-            url="https://nift.ac.in/theinstitute"
-            imageUrl="/nift.svg"
-            description="Bachelor of Technology - Apparel Manufacturing and Information Technology."
-          />
-        </div>
+          <Reveal className={cardWrapperStyle}>
+            <Card
+              {...experienceCardProps}
+              title="University of Rhode Island - College of Business"
+              url="https://web.uri.edu/business/about/tmd/"
+              imageUrl="/uri.svg"
+              backgroundTheme={`${nycBackgroundTheme}`}
+              description={`Master of Science - Textiles, Fashion Merchandising & Design; Senator - Graduate Student Association`}
+            />
+          </Reveal>
 
-        <div className={cardWrapperStyle}>
-          <Card
-            {...experienceCardProps}
-            title="Bangiya Sangeet Parishad"
-            url="https://www.bangiyasangeetparishad.org/bsp/index.html"
-            imageUrl="https://svt69ytw2j2onadk.public.blob.vercel-storage.com/BSP_Certificate_2nd_1996.png"
-            backgroundTheme={`${nycBackgroundTheme}`}
-            description="Diploma in Fine Arts, Painting (5th year) - Chitrankan Kala Mandir - Ranchi."
-            openInNewTab
-          />
-        </div>
+          <Reveal className={cardWrapperStyle} id="my-education-nift">
+            <Card
+              {...experienceCardProps}
+              title="National Institute of Fashion Technology"
+              url="https://nift.ac.in/theinstitute"
+              imageUrl="/nift.svg"
+              description="Bachelor of Technology - Apparel Manufacturing and Information Technology."
+            />
+          </Reveal>
 
-        <div className={`${cardWrapperStyle}`}>
-          <h3 className="text-xl font-bold text-center"> Other Experiences:</h3>
-          <ul className={`rounded-md p-4 ml-2`}>
-            <li className="p-2 underline"> Apple Michigan Avenue Chicago</li>
-            <li className="p-2 underline"> Ocean State Job Lot North Kingstown RI</li>
-            <li className="p-2 underline"> Siyaram Silk Mills Mumbai India</li>
-            <li className="p-2 underline"> Wonder Blues Jeans Factory Bangalore India</li>
-          </ul>
-        </div>
+          <Reveal className={cardWrapperStyle}>
+            <Card
+              {...experienceCardProps}
+              title="Bangiya Sangeet Parishad"
+              url="https://www.bangiyasangeetparishad.org/bsp/index.html"
+              imageUrl="https://svt69ytw2j2onadk.public.blob.vercel-storage.com/BSP_Certificate_2nd_1996.png"
+              backgroundTheme={`${nycBackgroundTheme}`}
+              description="Diploma in Fine Arts, Painting (5th year) - Chitrankan Kala Mandir - Ranchi."
+              openInNewTab
+            />
+          </Reveal>
 
-        <div className={`${cardWrapperStyle}`}>
-          <h3 className="text-2xl font-bold text-center">Volunteer:</h3>
-          <ul className={`rounded-md p-4 ml-2`}>
-            <li className="p-2 underline"> Rhode Island Pride RI</li>
-            <li className="p-2 underline"> CMSA Chicago</li>
-            <li className="p-2 underline"> Capital Pride Alliance</li>
-          </ul>
-        </div>
+          <Reveal className={`${cardWrapperStyle}`}>
+            <h3 className="text-xl font-bold text-center"> Other Experiences:</h3>
+            <ul className={`rounded-md p-4 ml-2`}>
+              <li className="p-2 underline"> Apple Michigan Avenue Chicago</li>
+              <li className="p-2 underline"> Ocean State Job Lot North Kingstown RI</li>
+              <li className="p-2 underline"> Siyaram Silk Mills Mumbai India</li>
+              <li className="p-2 underline"> Wonder Blues Jeans Factory Bangalore India</li>
+            </ul>
+          </Reveal>
 
-        <div className={cardWrapperStyle}>
-          <Card
-            {...experienceCardProps}
-            title="Download Resume Here"
-            openInNewTab
-            url="/resume"
-            description="A PDF file will download."
-            backgroundTheme={nycBackgroundTheme}
-            imageUrl='/cv.png'
-          />
-        </div>
+          <Reveal className={`${cardWrapperStyle}`}>
+            <h3 className="text-2xl font-bold text-center">Volunteer:</h3>
+            <ul className={`rounded-md p-4 ml-2`}>
+              <li className="p-2 underline"> Rhode Island Pride RI</li>
+              <li className="p-2 underline"> CMSA Chicago</li>
+              <li className="p-2 underline"> Capital Pride Alliance</li>
+            </ul>
+          </Reveal>
 
-        <p className="m-4 p-4"><strong >Thank you for visiting! There are more information to come, please visit again! </strong>
-          <Link className={`${buttonStyle}`} href="/about" aria-label="go back to about">click here </Link> to go the About page.
-        </p>
+          <Reveal className={cardWrapperStyle}>
+            <Card
+              {...experienceCardProps}
+              title="Download Resume Here"
+              openInNewTab
+              url="/resume"
+              description="A PDF file will download."
+              backgroundTheme={nycBackgroundTheme}
+              imageUrl='/cv.png'
+            />
+          </Reveal>
+
+          <p className="m-4 p-4"><strong >Thank you for visiting! There are more information to come, please visit again! </strong>
+            <Link className={`${buttonStyle}`} href="/about" aria-label="go back to about">click here </Link> to go the About page.
+          </p>
+        </AnimationLayer>
       </div>
       <div className="pt-8 pb-32 text-center">
         <Link href="#navigation" className="hover:underline text-purple-800">go to top</Link>
       </div>
-    </main>
+    </AnimationLayer>
   );
 }
