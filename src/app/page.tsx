@@ -1,4 +1,5 @@
 import { headers } from 'next/headers';
+import Image from 'next/image';
 import Link from 'next/link';
 import { AnimationLayer, Reveal } from "./components/animation";
 import { Card } from "./components/card";
@@ -41,18 +42,81 @@ export default function Home() {
   const randomNewLearningProject = newLearningProjects.length
     ? newLearningProjects[Math.floor(Math.random() * newLearningProjects.length)]
     : null;
+  const newLearningUrl = randomNewLearningProject?.urls?.[0]?.url ?? "/nyu";
+  const newLearningOpensNewTab = newLearningUrl.startsWith("http");
 
   return (
     <HomeClickTracker userLocation={userLocation}>
       <AnimationLayer
         as="main"
-        className="flex min-h-screen flex-col items-center justify-between md:pt-20 mb-32 font-nyu overflow-x-clip"
+        className="flex min-h-screen flex-col items-center justify-between mb-32 font-nyu overflow-x-clip"
         method="rise"
         distance={44}
         duration={760}
         threshold={0.12}
         rootMargin="0px 0px -12% 0px"
       >
+        {/* HERO */}
+        <section className="relative w-full overflow-hidden bg-gradient-to-br from-[#2e0068] via-[#5a1dab] to-[#b373ff] text-white py-16 px-6 md:px-12">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.12),transparent_35%)]" aria-hidden />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_0%,rgba(255,255,255,0.08),transparent_30%)]" aria-hidden />
+
+          <AnimationLayer
+            as="div"
+            className="relative max-w-6xl mx-auto grid gap-10 md:grid-cols-[1.2fr_0.8fr] items-center text-left"
+            method="alternate"
+            distance={48}
+            threshold={0}
+            rootMargin="0px"
+          >
+            <Reveal method="left" className="space-y-4">
+              <p className="uppercase tracking-[0.3em] text-sm text-purple-100">
+                New York University Leonard N. Stern School of Business
+              </p>
+              <h1 className="text-4xl md:text-5xl font-nyu-ultra leading-tight">
+                Welcome to my Stern journey!
+              </h1>
+              <p className="text-lg md:text-xl text-purple-50 max-w-2xl">
+                Class Representative, Master of Business Administration &mdash; Class of 2027
+              </p>
+
+              <Reveal method="left" delay={220} className="flex flex-wrap items-center gap-4 pt-2">
+                <Link
+                  href="/nyu"
+                  className="group inline-flex items-center gap-3 rounded-xl bg-white/10 px-4 py-3 text-sm font-semibold shadow-lg ring-1 ring-white/30 transition hover:translate-y-[-2px] hover:bg-white/20"
+                >
+                  <span className="relative flex h-12 w-12 items-center justify-center overflow-hidden rounded-lg bg-white/80">
+                    <Image src="/stern.png" alt="" fill className="object-contain" aria-hidden />
+                  </span>
+                  <span>
+                    Click here to Learn
+                    <span className="block text-xs text-purple-100 group-hover:underline">Go to my NYU Stern page</span>
+                  </span>
+                </Link>
+              </Reveal>
+            </Reveal>
+
+            {randomNewLearningProject && (
+              <Reveal method="right" delay={140} className="relative">
+                <div className="rounded-3xl bg-white/10 p-6 backdrop-blur shadow-2xl border border-white/20">
+                  <p className="text-xs uppercase tracking-[0.3em] text-purple-100">New Learnings!</p>
+                  <h2 className="mt-2 text-xl font-semibold">{randomNewLearningProject.projectName}</h2>
+                  <p className="mt-3 text-sm leading-relaxed text-purple-100">
+                    {randomNewLearningProject.description}
+                  </p>
+                  <Link
+                    href={newLearningUrl}
+                    {...(newLearningOpensNewTab ? { target: "_blank", rel: "noreferrer" } : {})}
+                    className="mt-4 inline-block underline text-purple-100 hover:text-amber-200"
+                  >
+                    view details
+                  </Link>
+                </div>
+              </Reveal>
+            )}
+          </AnimationLayer>
+        </section>
+
         <AnimationLayer
           as="div"
           className="grid text-center lg:w-half lg:max-w-5xl lg:grid-cols-3 lg:text-left"
@@ -77,39 +141,6 @@ export default function Home() {
             </p>
 
             <p className="mt-4"> Find social information in the top navigation on mobile or the footer on desktop.</p>
-          </Reveal>
-
-          <Reveal className={cardWrapperStyle}>
-            <h2 className="text-xl font-bold text-center capitalize">Welcome to my Stern journey!</h2>
-            <Card
-              {...homeCardProps}
-              title="NYU - Stern School of Business"
-              url="/nyu"
-              imageUrl="/stern.png"
-              backgroundTheme={`${nycBackgroundTheme}`}
-              description="Class Representative, Master of Business Administration - Class of 2027"
-            />
-          </Reveal>
-
-          <Reveal className={cardWrapperStyle}>
-            <h2 className="text-xl font-bold text-center capitalize">New Learnings!</h2>
-            {randomNewLearningProject && (() => {
-              const primaryUrl = randomNewLearningProject.urls?.[0]?.url ?? "/nyu";
-              const openInNewTab = primaryUrl.startsWith("http");
-
-              return (
-                <div key={`new-learning-${randomNewLearningProject.projectName}`} className={cardWrapperStyle}>
-                  <Card
-                    {...homeCardProps}
-                    title={randomNewLearningProject.projectName}
-                    description={randomNewLearningProject.description}
-                    url={primaryUrl}
-                    buttonText="view details"
-                    openInNewTab={openInNewTab}
-                  />
-                </div>
-              );
-            })()}
           </Reveal>
 
           <Reveal className={cardWrapperStyle} id="aster">
