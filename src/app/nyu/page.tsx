@@ -241,7 +241,7 @@ export default function NYUPage() {
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.12),transparent_35%)]" aria-hidden />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_0%,rgba(255,255,255,0.08),transparent_30%)]" aria-hidden />
 
-          <AnimationLayer as="div" className="relative max-w-6xl mx-auto grid gap-10 md:grid-cols-[1.2fr_0.8fr] items-center" method="alternate" distance={48}>
+          <AnimationLayer as="div" className="relative max-w-6xl mx-auto grid gap-10 md:grid-cols-[1.2fr_0.8fr] items-center" method="alternate" distance={48} threshold={0} rootMargin="0px">
             <Reveal method="left" className="space-y-4">
               <p className="uppercase tracking-[0.3em] text-sm text-purple-100">New York University Leonard N. Stern School of Business</p>
               <h1 className="text-4xl md:text-5xl font-nyu-ultra leading-tight">Executive MBA, Class of A27</h1>

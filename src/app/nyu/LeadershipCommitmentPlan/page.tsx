@@ -130,8 +130,8 @@ export default function LeadershipCommitmentPlanPage() {
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.12),transparent_35%)]" aria-hidden />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_0%,rgba(255,255,255,0.08),transparent_30%)]" aria-hidden />
 
-          <AnimationLayer as="div" className="relative max-w-6xl mx-auto grid gap-10 md:grid-cols-[1.2fr_0.8fr] items-center" method="alternate" distance={48}>
-            <Reveal className="space-y-4">
+          <AnimationLayer as="div" className="relative max-w-6xl mx-auto grid gap-10 md:grid-cols-[1.2fr_0.8fr] items-center" method="alternate" distance={48} threshold={0} rootMargin="0px">
+            <Reveal method="left" className="space-y-4">
               <p className="text-xs uppercase tracking-[0.35em] text-purple-100">NYU Stern EMBA</p>
               <h1 className="text-4xl md:text-5xl font-nyu-ultra leading-tight">Leadership is the act of continuously becoming.</h1>
               <p className="text-lg md:text-xl text-purple-50">
@@ -153,17 +153,17 @@ export default function LeadershipCommitmentPlanPage() {
                 Innovation is my engine, and belonging is my compass.
               </p>
 
-              <div className="flex gap-3 flex-wrap">
+              <Reveal method="left" delay={220} className="flex gap-3 flex-wrap">
                 <Link href="/nyu#projects" className={buttonStyle}>
                   Back to NYU
                 </Link>
                 <Link href="#congruence-model" className="underline text-purple-100">
                   Jump to model
                 </Link>
-              </div>
+              </Reveal>
             </Reveal>
 
-            <Reveal className="rounded-3xl bg-white/10 p-6 backdrop-blur shadow-2xl border border-white/20">
+            <Reveal method="right" delay={140} className="rounded-3xl bg-white/10 p-6 backdrop-blur shadow-2xl border border-white/20">
               <h2 className="text-xl font-semibold">Plan anchors</h2>
               <ul className="mt-4 space-y-2 text-sm text-purple-100">
                 <li>- Values become rituals.</li>

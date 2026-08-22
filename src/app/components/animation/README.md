@@ -108,6 +108,10 @@ Built in: `none`, `fade`, `left`, `right`, `bottom`, `top`, `zoom`, `rise`, `til
 - **Scroll containers** — a transform on a child of an `overflow-x-auto` or
   `overflow-y-auto` element enlarges that element's scrollable area. Reveal the
   scroller as one unit instead of its items (see the courses rail on `/nyu`).
+- **Headers** — anything above the fold should play on load, not wait on the
+  scroll threshold. Give the header its own controller with `threshold={0}`
+  and `rootMargin="0px"`, as every NYU hero does; otherwise whether a
+  low-sitting element animates depends on hero height and viewport.
 - **Class-driven carousels** — anything already animating itself with classes
   (the Stern Snapshots slides) should be wrapped as a block, not retagged, so
   the two transform sources never fight.
