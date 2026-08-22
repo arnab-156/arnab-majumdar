@@ -167,3 +167,17 @@ body {
     }
   }
 }
+
+/*
+ * Animation layer (src/app/components/animation) — safety net.
+ * The controller also checks this in JS, but the rule below guarantees a
+ * settled page for readers who ask for reduced motion, whatever the timing.
+ */
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
+  }
+}

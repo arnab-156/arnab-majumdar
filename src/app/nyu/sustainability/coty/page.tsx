@@ -4,6 +4,7 @@ import Head from "next/head";
 import Link from "next/link";
 import { useState } from "react";
 
+import { AnimationLayer, Reveal } from "@/app/components/animation";
 import { buttonStyle } from "@/app/utility/stylevariables";
 
 const lifecycleTiles = [
@@ -234,14 +235,22 @@ export default function CotyCaseStudyPage() {
         />
       </Head>
 
-      <main className="font-nyu bg-white text-gray-900 dark:bg-black dark:text-gray-100 min-h-screen pb-12">
+      <AnimationLayer
+        as="main"
+        className="font-nyu bg-white text-gray-900 dark:bg-black dark:text-gray-100 min-h-screen pb-12 overflow-x-clip"
+        method="alternate"
+        distance={64}
+        duration={760}
+        threshold={0.12}
+        rootMargin="0px 0px -12% 0px"
+      >
         {/* HERO */}
         <section className="relative overflow-hidden bg-gradient-to-br from-[#2e0068] via-[#5a1dab] to-[#b373ff] text-white py-16 px-6 md:px-12">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.12),transparent_35%)]" aria-hidden />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_0%,rgba(255,255,255,0.08),transparent_30%)]" aria-hidden />
 
           <div className="relative max-w-6xl mx-auto grid gap-10 md:grid-cols-[1.2fr_0.8fr] items-center">
-            <div className="space-y-4">
+            <Reveal method="tilt" className="space-y-4">
               <p className="text-xs uppercase tracking-[0.35em] text-purple-100">NYU Stern EMBA &bull; Course Project</p>
               <h1 className="text-4xl md:text-5xl font-nyu-ultra leading-tight">
                 Pricing sustainability risk in a private-markets deal
@@ -274,9 +283,9 @@ export default function CotyCaseStudyPage() {
                   Jump to content
                 </Link>
               </div>
-            </div>
+            </Reveal>
 
-            <div className="rounded-3xl bg-white/10 p-6 backdrop-blur shadow-2xl border border-white/20">
+            <Reveal method="right" delay={160} className="rounded-3xl bg-white/10 p-6 backdrop-blur shadow-2xl border border-white/20">
               <h2 className="text-xl font-semibold">My role</h2>
               <ul className="mt-4 space-y-2 text-sm text-purple-100">
                 <li>- Led the risk assessment workstream.</li>
@@ -286,46 +295,50 @@ export default function CotyCaseStudyPage() {
               <p className="mt-4 text-xs text-purple-200/80">
                 Team of nine, four workstreams, August 2026.
               </p>
-            </div>
+            </Reveal>
           </div>
         </section>
 
         {/* FRAMEWORK */}
         <section id="framework" className="bg-white dark:bg-zinc-950 py-14 px-6 md:px-12">
           <div className="max-w-6xl mx-auto space-y-6">
-            <h2 className="text-3xl font-nyu-ultra">Sustainability across the investment lifecycle</h2>
-            <p className="max-w-3xl text-gray-800 dark:text-gray-100">
-              The premise of the course is that sustainability is not a reporting exercise bolted onto a deal. It shows
-              up differently at each stage of ownership, and an investor who treats it as a compliance obligation will
-              systematically misprice both the risk and the opportunity.
-            </p>
+            <Reveal className="space-y-6">
+              <h2 className="text-3xl font-nyu-ultra">Sustainability across the investment lifecycle</h2>
+              <p className="max-w-3xl text-gray-800 dark:text-gray-100">
+                The premise of the course is that sustainability is not a reporting exercise bolted onto a deal. It shows
+                up differently at each stage of ownership, and an investor who treats it as a compliance obligation will
+                systematically misprice both the risk and the opportunity.
+              </p>
+            </Reveal>
 
-            <div className="grid gap-4 md:grid-cols-4">
+            <AnimationLayer as="div" className="grid gap-4 md:grid-cols-4" method="rise" distance={44} stagger={90}>
               {lifecycleTiles.map((item) => (
-                <article
+                <Reveal
+                  as="article"
                   key={item.title}
                   className="rounded-2xl border border-purple-100 dark:border-purple-900 bg-purple-50 dark:bg-[#0f0a1f] p-5 shadow-md"
                 >
                   <p className="text-xs uppercase tracking-[0.2em] text-purple-600 dark:text-purple-300">{item.stage}</p>
                   <h3 className="mt-2 text-lg font-semibold text-[#2e0068] dark:text-purple-100">{item.title}</h3>
                   <p className="mt-3 text-sm leading-relaxed text-gray-800 dark:text-gray-100">{item.body}</p>
-                </article>
+                </Reveal>
               ))}
-            </div>
+            </AnimationLayer>
 
-            <div className="grid gap-4 md:grid-cols-2 pt-2">
+            <AnimationLayer as="div" className="grid gap-4 md:grid-cols-2 pt-2" method="alternate" distance={48}>
               {valueDirections.map((item) => (
-                <article
+                <Reveal
+                  as="article"
                   key={item.title}
                   className="rounded-2xl border border-purple-100 dark:border-purple-900 bg-white dark:bg-[#0f0a1f] p-6 shadow-md"
                 >
                   <h3 className="text-xl font-semibold text-[#2e0068] dark:text-purple-100">{item.title}</h3>
                   <p className="mt-3 text-sm leading-relaxed text-gray-800 dark:text-gray-100">{item.body}</p>
-                </article>
+                </Reveal>
               ))}
-            </div>
+            </AnimationLayer>
 
-            <div className="space-y-3 pt-2">
+            <Reveal className="space-y-3 pt-2">
               <h3 className="text-xl font-semibold">Frameworks applied</h3>
               <div className="flex flex-wrap gap-2">
                 {frameworks.map((item) => (
@@ -337,32 +350,35 @@ export default function CotyCaseStudyPage() {
                   </span>
                 ))}
               </div>
-            </div>
+            </Reveal>
           </div>
         </section>
 
         {/* APPROACH */}
         <section className="bg-gradient-to-br from-purple-50 via-white to-purple-100 dark:from-[#0f0a1f] dark:via-[#0b061a] dark:to-[#120d29] py-14 px-6 md:px-12">
           <div className="max-w-6xl mx-auto space-y-6">
-            <h2 className="text-3xl font-nyu-ultra">How we built the assessment</h2>
-            <p className="max-w-3xl text-gray-800 dark:text-gray-100">
-              We triangulated three lenses, deliberately kept in tension. Where they disagreed turned out to be the most
-              interesting part of the analysis.
-            </p>
+            <Reveal className="space-y-6">
+              <h2 className="text-3xl font-nyu-ultra">How we built the assessment</h2>
+              <p className="max-w-3xl text-gray-800 dark:text-gray-100">
+                We triangulated three lenses, deliberately kept in tension. Where they disagreed turned out to be the most
+                interesting part of the analysis.
+              </p>
+            </Reveal>
 
-            <div className="grid gap-4 md:grid-cols-3">
+            <AnimationLayer as="div" className="grid gap-4 md:grid-cols-3" method="rise" distance={44} stagger={90}>
               {approachTiles.map((item) => (
-                <article
+                <Reveal
+                  as="article"
                   key={item.title}
                   className="rounded-2xl border border-purple-100 dark:border-purple-900 bg-white dark:bg-[#0f0a1f] p-5 shadow-md"
                 >
                   <h3 className="text-lg font-semibold text-[#2e0068] dark:text-purple-100">{item.title}</h3>
                   <p className="mt-3 text-sm leading-relaxed text-gray-800 dark:text-gray-100">{item.body}</p>
-                </article>
+                </Reveal>
               ))}
-            </div>
+            </AnimationLayer>
 
-            <div className="rounded-2xl border border-dashed border-purple-200 dark:border-purple-800 bg-white/80 dark:bg-purple-900/30 p-5">
+            <Reveal method="bottom" className="rounded-2xl border border-dashed border-purple-200 dark:border-purple-800 bg-white/80 dark:bg-purple-900/30 p-5">
               <h3 className="text-lg font-semibold text-[#2e0068] dark:text-purple-100">
                 One deliberate methodological choice
               </h3>
@@ -371,20 +387,22 @@ export default function CotyCaseStudyPage() {
                 assessment. As a prospective owner you need visibility of the underlying exposure, not the residual
                 after controls you have not yet independently verified.
               </p>
-            </div>
+            </Reveal>
           </div>
         </section>
 
         {/* RISK REGISTER */}
         <section className="bg-white dark:bg-zinc-950 py-14 px-6 md:px-12">
           <div className="max-w-6xl mx-auto space-y-6">
-            <h2 className="text-3xl font-nyu-ultra">The risk register</h2>
-            <p className="max-w-3xl text-gray-800 dark:text-gray-100">
-              Eight material topics, assessed gross of mitigation. Three carried a High rating — and one of those was
-              not an environmental risk at all.
-            </p>
+            <Reveal className="space-y-6">
+              <h2 className="text-3xl font-nyu-ultra">The risk register</h2>
+              <p className="max-w-3xl text-gray-800 dark:text-gray-100">
+                Eight material topics, assessed gross of mitigation. Three carried a High rating — and one of those was
+                not an environmental risk at all.
+              </p>
+            </Reveal>
 
-            <figure className="rounded-2xl border border-purple-100 dark:border-purple-900 bg-purple-50/60 dark:bg-[#0f0a1f] p-5 md:p-7 shadow-md">
+            <Reveal as="figure" method="zoom" className="rounded-2xl border border-purple-100 dark:border-purple-900 bg-purple-50/60 dark:bg-[#0f0a1f] p-5 md:p-7 shadow-md">
               <svg
                 viewBox="0 0 680 470"
                 role="img"
@@ -504,11 +522,12 @@ export default function CotyCaseStudyPage() {
                 ))}
                 <span className="text-gray-500 dark:text-gray-400">Gross basis, before mitigation.</span>
               </figcaption>
-            </figure>
+            </Reveal>
 
-            <div className="grid gap-3">
+            <AnimationLayer as="div" className="grid gap-3" method="left" distance={40} stagger={0}>
               {riskRegister.map((row) => (
-                <article
+                <Reveal
+                  as="article"
                   key={row.code}
                   className="rounded-2xl border border-purple-100 dark:border-purple-900 bg-purple-50 dark:bg-[#0f0a1f] p-5 shadow-sm md:flex md:items-start md:gap-5"
                 >
@@ -528,50 +547,55 @@ export default function CotyCaseStudyPage() {
                   <p className="mt-3 md:mt-0 flex-1 text-sm leading-relaxed text-gray-800 dark:text-gray-100">
                     {row.rationale}
                   </p>
-                </article>
+                </Reveal>
               ))}
-            </div>
+            </AnimationLayer>
 
-            <p className="text-xs text-gray-500 dark:text-gray-400 max-w-3xl">
+            <Reveal as="p" method="fade" className="text-xs text-gray-500 dark:text-gray-400 max-w-3xl">
               Basis: SASB Household &amp; Personal Products; the company&apos;s FY25 double materiality assessment and
               sustainability report; its FY25 modern slavery statement; and third-party credit research. All figures
               from public disclosure.
-            </p>
+            </Reveal>
           </div>
         </section>
 
         {/* DISAGREEMENTS */}
         <section className="bg-gradient-to-br from-[#2e0068] via-[#521a9a] to-[#7a3fd9] text-white py-14 px-6 md:px-12">
           <div className="max-w-6xl mx-auto space-y-6">
-            <h2 className="text-3xl font-nyu-ultra">Where we disagreed with the company</h2>
-            <p className="text-purple-100 max-w-3xl">
-              The most defensible parts of our analysis came from reading the methodology notes rather than the headline
-              pages. None of the following is hidden — it is all disclosed. But it changes what the disclosure means.
-            </p>
+            <Reveal className="space-y-6">
+              <h2 className="text-3xl font-nyu-ultra">Where we disagreed with the company</h2>
+              <p className="text-purple-100 max-w-3xl">
+                The most defensible parts of our analysis came from reading the methodology notes rather than the headline
+                pages. None of the following is hidden — it is all disclosed. But it changes what the disclosure means.
+              </p>
+            </Reveal>
 
-            <ul className="grid gap-3 md:grid-cols-2">
+            <AnimationLayer as="ul" className="grid gap-3 md:grid-cols-2" method="alternate" distance={48}>
               {disagreements.map((item) => (
-                <li
+                <Reveal
+                  as="li"
                   key={item}
                   className="rounded-2xl border border-white/20 bg-white/10 p-5 text-sm leading-relaxed text-purple-50"
                 >
                   {item}
-                </li>
+                </Reveal>
               ))}
-            </ul>
+            </AnimationLayer>
 
-            <p className="text-sm text-purple-100">
+            <Reveal as="p" method="fade" className="text-sm text-purple-100">
               That gap between what a disclosure says and what it means is exactly what a deal team exists to close.
-            </p>
+            </Reveal>
           </div>
         </section>
 
         {/* RECOMMENDATION + LEVERS */}
         <section className="bg-white dark:bg-zinc-950 py-14 px-6 md:px-12">
           <div className="max-w-6xl mx-auto space-y-6">
-            <h2 className="text-3xl font-nyu-ultra">What we recommended</h2>
+            <Reveal className="space-y-6">
+              <h2 className="text-3xl font-nyu-ultra">What we recommended</h2>
+            </Reveal>
 
-            <div className="rounded-2xl border border-purple-200 dark:border-purple-800 bg-gradient-to-br from-purple-50 via-white to-purple-50 dark:from-[#140b27] dark:via-[#110b22] dark:to-[#0b0618] p-6 shadow-md">
+            <Reveal method="zoom" className="rounded-2xl border border-purple-200 dark:border-purple-800 bg-gradient-to-br from-purple-50 via-white to-purple-50 dark:from-[#140b27] dark:via-[#110b22] dark:to-[#0b0618] p-6 shadow-md">
               <p className="text-xs uppercase tracking-[0.2em] text-purple-600 dark:text-purple-300">
                 Recommendation to the investment committee
               </p>
@@ -580,16 +604,17 @@ export default function CotyCaseStudyPage() {
                 the licence transition and permanent leadership are resolved — two of the largest uncertainties resolve
                 on a known timetable, and waiting preserves the opportunity at a materially better-informed entry point.
               </p>
-            </div>
+            </Reveal>
 
-            <p className="max-w-3xl text-gray-800 dark:text-gray-100">
+            <Reveal as="p" className="max-w-3xl text-gray-800 dark:text-gray-100">
               We paired that with prioritised value creation levers, chosen because each addressed a risk already on the
               register and built on capability the company had already demonstrated.
-            </p>
+            </Reveal>
 
-            <div className="grid gap-4 md:grid-cols-3">
+            <AnimationLayer as="div" className="grid gap-4 md:grid-cols-3" method="rise" distance={44} stagger={90}>
               {levers.map((item) => (
-                <article
+                <Reveal
+                  as="article"
                   key={item.title}
                   className="rounded-2xl border border-purple-100 dark:border-purple-900 bg-purple-50 dark:bg-[#0f0a1f] p-5 shadow-md"
                 >
@@ -598,40 +623,44 @@ export default function CotyCaseStudyPage() {
                   </p>
                   <h3 className="mt-2 text-lg font-semibold text-[#2e0068] dark:text-purple-100">{item.title}</h3>
                   <p className="mt-3 text-sm leading-relaxed text-gray-800 dark:text-gray-100">{item.body}</p>
-                </article>
+                </Reveal>
               ))}
-            </div>
+            </AnimationLayer>
           </div>
         </section>
 
         {/* TAKEAWAYS */}
         <section className="bg-gradient-to-br from-[#2e0068] via-[#521a9a] to-[#7a3fd9] text-white py-14 px-6 md:px-12">
           <div className="max-w-6xl mx-auto space-y-6">
-            <h2 className="text-3xl font-nyu-ultra">What I take forward</h2>
-            <p className="text-purple-100">Tap through the lessons that outlasted the exam.</p>
+            <Reveal className="space-y-6">
+              <h2 className="text-3xl font-nyu-ultra">What I take forward</h2>
+              <p className="text-purple-100">Tap through the lessons that outlasted the exam.</p>
+            </Reveal>
 
-            <article
-              onClick={() => setActiveTakeaway((index) => (index + 1) % takeaways.length)}
-              className="cursor-pointer rounded-2xl border border-purple-200/40 bg-white/10 text-white p-6 shadow-lg transition hover:-translate-y-1"
-            >
-              <p className="text-xs uppercase tracking-[0.3em] text-purple-100">
-                Lesson {activeTakeaway + 1} of {takeaways.length}
-              </p>
-              <h3 className="mt-2 text-2xl font-semibold">{takeaways[activeTakeaway].title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-purple-50">{takeaways[activeTakeaway].body}</p>
-              <button
-                type="button"
-                onClick={(event) => {
-                  event.stopPropagation();
-                  setActiveTakeaway((index) => (index + 1) % takeaways.length);
-                }}
-                className="mt-5 rounded-lg border border-white/40 bg-white/10 px-4 py-2 text-sm font-semibold text-white hover:bg-white/20"
+            <Reveal method="bottom">
+              <article
+                onClick={() => setActiveTakeaway((index) => (index + 1) % takeaways.length)}
+                className="cursor-pointer rounded-2xl border border-purple-200/40 bg-white/10 text-white p-6 shadow-lg transition hover:-translate-y-1"
               >
-                Next lesson
-              </button>
-            </article>
+                <p className="text-xs uppercase tracking-[0.3em] text-purple-100">
+                  Lesson {activeTakeaway + 1} of {takeaways.length}
+                </p>
+                <h3 className="mt-2 text-2xl font-semibold">{takeaways[activeTakeaway].title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-purple-50">{takeaways[activeTakeaway].body}</p>
+                <button
+                  type="button"
+                  onClick={(event) => {
+                    event.stopPropagation();
+                    setActiveTakeaway((index) => (index + 1) % takeaways.length);
+                  }}
+                  className="mt-5 rounded-lg border border-white/40 bg-white/10 px-4 py-2 text-sm font-semibold text-white hover:bg-white/20"
+                >
+                  Next lesson
+                </button>
+              </article>
+            </Reveal>
 
-            <div className="flex items-center justify-center gap-2">
+            <Reveal method="fade" className="flex items-center justify-center gap-2">
               {takeaways.map((item, index) => (
                 <button
                   key={item.title}
@@ -643,14 +672,14 @@ export default function CotyCaseStudyPage() {
                   }`}
                 />
               ))}
-            </div>
+            </Reveal>
           </div>
         </section>
 
         {/* DISCLAIMER */}
         <section className="bg-white dark:bg-zinc-950 py-12 px-6 md:px-12">
           <div className="max-w-6xl mx-auto">
-            <div className="rounded-2xl border border-dashed border-purple-200 dark:border-purple-800 bg-purple-50/70 dark:bg-purple-900/20 p-5">
+            <Reveal method="fade" className="rounded-2xl border border-dashed border-purple-200 dark:border-purple-800 bg-purple-50/70 dark:bg-purple-900/20 p-5">
               <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-purple-700 dark:text-purple-200">
                 Disclaimer
               </h3>
@@ -660,7 +689,7 @@ export default function CotyCaseStudyPage() {
                 constitute investment advice, a recommendation, or a statement of fact about any company. Views are my
                 own and do not represent those of New York University, the course instructor, or any company referenced.
               </p>
-            </div>
+            </Reveal>
           </div>
         </section>
 
@@ -669,7 +698,7 @@ export default function CotyCaseStudyPage() {
             go to top
           </Link>
         </div>
-      </main>
+      </AnimationLayer>
     </>
   );
 }
