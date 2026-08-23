@@ -6,7 +6,6 @@ import {
   cardWrapperStyle,
   nycBackgroundTheme,
   heroPrimaryButtonStyle,
-  heroOutlineButtonStyle,
 } from "../utility/stylevariables";
 import { AnimationLayer, Reveal } from "../components/animation";
 import styles from "../hero.module.css";
@@ -72,10 +71,18 @@ export default function ExperiencesPage() {
                 </Link>
               </div>
 
-              {/* Jumps to the Education heading further down this same page. */}
+              {/* Jumps to the Education heading further down this same page.
+                  Styled as the homepage hero's credential links are — madder
+                  rule, ink at 70%, indigo underline on hover. The size and
+                  colour sit on the link here rather than on a parent row,
+                  since this one stands alone. */}
               <div>
-                <Link href="#my-education" className={heroOutlineButtonStyle}>
-                  See my education
+                <Link
+                  href="#my-education"
+                  className="group inline-flex items-center gap-2 text-sm text-lotus-ink/70 hover:text-lotus-indigo dark:text-lotus-paper/70 dark:hover:text-lotus-paper"
+                >
+                  <span className="h-px w-5 bg-lotus-madder" aria-hidden />
+                  <span className="group-hover:underline">See my education</span>
                 </Link>
               </div>
             </div>
