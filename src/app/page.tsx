@@ -11,9 +11,11 @@ import { cardWrapperStyle, nycBackgroundTheme, buttonStyle, tiffanyBackgroundThe
 
 // The route into the NYU journey, in NYU's own violet rather than the studio
 // palette — #57068c is the same brand violet the course tiles on /nyu use.
-// Same geometry as the buttons above it, so only the colour sets it apart.
+// Deliberately a size down from the panel's primary action: this is the
+// secondary way out of the card, so it keeps the brand colour but not the
+// weight.
 const nyuButtonStyle =
-  "inline-flex items-center rounded-xl bg-[#57068c] px-5 py-3 text-sm font-semibold text-white shadow-lg transition hover:-translate-y-[2px] hover:bg-[#2e0068] focus:outline-none focus:ring-2 focus:ring-[#57068c] focus:ring-offset-2";
+  "inline-flex items-center rounded-lg bg-[#57068c] px-3 py-1.5 text-xs font-semibold text-white shadow-sm transition hover:-translate-y-[1px] hover:bg-[#2e0068] focus:outline-none focus:ring-2 focus:ring-[#57068c] focus:ring-offset-2";
 
 const decodeHeaderValue = (headerValue: string | null): string => {
   if (!headerValue) {
@@ -130,21 +132,22 @@ export default function Home() {
             {randomNewLearningProject && (
               <Reveal method="right" delay={140} className="relative">
                 <div className="rounded-3xl border border-lotus-indigo/20 bg-white/70 p-6 shadow-xl backdrop-blur dark:border-lotus-paper/15 dark:bg-white/5">
-                  <p className="text-xs uppercase tracking-[0.28em] text-lotus-indigo dark:text-lotus-paper/70">New Learnings!</p>
+                  <p className="text-xs uppercase tracking-[0.28em] text-lotus-indigo dark:text-lotus-paper/70">Projects and Learnings!</p>
                   <h2 className="mt-2 text-xl font-semibold">{randomNewLearningProject.projectName}</h2>
                   {/* Descriptions vary a lot in length; clamping keeps the
                       panel from towering over the hero copy beside it. */}
                   <p className="mt-3 text-sm leading-relaxed text-lotus-ink/75 dark:text-lotus-paper/75 line-clamp-5">
                     {randomNewLearningProject.description}
                   </p>
-                  {/* "view details" goes to the one project on show; the button
-                      below goes to the whole journey, and repeats the /nyu route
-                      the credential line already offers. */}
-                  <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-3">
+                  {/* "view details" opens the project on show and is what this
+                      card is for, so it leads. The NYU route stacks underneath
+                      it — same left edge, a size down — so the order down the
+                      card is the order of importance. */}
+                  <div className="mt-4 flex flex-col items-start gap-3">
                     <Link
                       href={newLearningUrl}
                       {...(newLearningOpensNewTab ? { target: "_blank", rel: "noreferrer" } : {})}
-                      className="underline underline-offset-4 text-lotus-indigo hover:text-lotus-madder dark:text-lotus-paper/80"
+                      className={heroPrimaryButtonStyle}
                     >
                       view details
                     </Link>
