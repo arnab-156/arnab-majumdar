@@ -185,6 +185,7 @@ export default function Home() {
               {...homeCardProps}
               title="About Arnab!"
               url="/about"
+              buttonText="Read the full story"
               imageUrl="/headshot.png"
               description="Welcome! Explore Arnab&#39;s world of design, with both real-world and conceptual projects."
               // Squares the tile off against the taller cards beside it in the
