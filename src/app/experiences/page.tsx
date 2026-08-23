@@ -106,6 +106,17 @@ export default function ExperiencesPage() {
           <Reveal className={cardWrapperStyle}>
             <StudioTile
               align="center"
+              title="Adjunct Faculty, College of Business"
+              description="Instruct business and interdisciplinary courses."
+              imageUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRy1KBgM1GYf_60QUoKAWmTLEghgWRy7dqoEk6SWqyLXw&s=10"
+              imageAlt="Coppin State University"
+              href="https://www.coppin.edu/"
+            />
+          </Reveal>
+
+          <Reveal className={cardWrapperStyle}>
+            <StudioTile
+              align="center"
               title="Senior Software Engineer"
               description="Initially under Walmart Inc and then under Express LLC. Responsible for front end technology projects."
               imageUrl="/bonobos-logo-dark.svg"
