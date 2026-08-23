@@ -1,23 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { Card } from "../components/card"
 import { AnimationLayer, Reveal } from "../components/animation";
-import { buttonStyle, cardWrapperStyle, nycBackgroundTheme } from "../utility/stylevariables";
 
 const urlImageDefault = "/headshot.png"
-
-// Matching the homepage tiles. useCtaButton keeps the card body a plain div
-// with the link as a sibling; without it the whole card is an anchor, and the
-// old "click here" link inside this card's children nested one anchor in
-// another — invalid markup that the browser restructures while parsing, which
-// is what broke hydration on this page.
-const aboutCardProps = {
-  useCtaButton: true,
-  // The resume tile carries an image and sets the row height; the others
-  // stretch to match rather than leaving the row ragged.
-  fillHeight: true,
-};
 
 // One measure for the whole essay, so the prose reads as a column rather than
 // as tiles.
@@ -87,6 +73,15 @@ export default function About() {
                   className="object-cover"
                 />
               </div>
+
+              {/* Outline treatment in the hero's own palette — the shared
+                  indigo one would be unreadable on this violet ground. */}
+              <Link
+                href="/experiences"
+                className="mt-4 inline-flex w-full items-center justify-center rounded-xl border border-white/40 px-5 py-3 text-sm font-semibold text-white transition hover:-translate-y-[2px] hover:border-white/70 hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/60"
+              >
+                See experiences
+              </Link>
             </div>
           </Reveal>
         </AnimationLayer>
@@ -160,48 +155,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* NEXT STEPS */}
-      <AnimationLayer
-        as="div"
-        className="grid text-center lg:w-half lg:max-w-5xl lg:grid-cols-3 lg:text-left"
-        method="rise"
-        distance={44}
-        stagger={90}
-        staggerCycle={3}
-      >
-        <Reveal className={cardWrapperStyle}>
-          <Card
-            {...aboutCardProps}
-            title="See More of Arnab's Experiences.."
-            url="/experiences"
-            buttonText="See experiences"
-            backgroundTheme={nycBackgroundTheme}
-            description="Roles, projects, and the work behind them. Thank you for your support!"
-          />
-        </Reveal>
-
-        <Reveal className={`${cardWrapperStyle} flex`}>
-          <div className="flex-1 shadow-md rounded-md text-center py-4 px-8 m-4">
-            <p className="m-2">
-              For business enquiries, <strong> <Link className={`${buttonStyle}`} href="/help" aria-label="go to calendar to schedule a google meet">Contact me.</Link></strong>
-            </p>
-            <p className="mt-4"> Find social information in the top navigation on mobile or the footer on desktop.</p>
-          </div>
-        </Reveal>
-
-        <Reveal className={cardWrapperStyle}>
-          <Card
-            {...aboutCardProps}
-            title="Download Resume Here"
-            openInNewTab
-            url="/resume"
-            buttonText="Download NOW!"
-            description="A PDF file will download."
-            backgroundTheme={nycBackgroundTheme}
-            imageUrl='/cv.png'
-          />
-        </Reveal>
-      </AnimationLayer>
     </AnimationLayer>
   );
 }
