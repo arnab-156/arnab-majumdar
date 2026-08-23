@@ -69,24 +69,38 @@ export default function About() {
                   section lives on /experiences, so the first reaches across to
                   its anchor; the second goes to the NYU page as it does on the
                   homepage. */}
-              <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-sm text-lotus-ink/70 dark:text-lotus-paper/70">
-                <Link
-                  href="/experiences#my-education"
-                  className="group inline-flex items-center gap-2 hover:text-lotus-indigo dark:hover:text-lotus-paper"
-                >
-                  <span className="h-px w-5 bg-lotus-madder" aria-hidden />
-                  <span className="group-hover:underline">See my education</span>
-                </Link>
-                {/* Hidden once the two links wrap onto their own lines, where a
-                    separator between them reads as a stray character. */}
-                <span className="hidden sm:inline text-lotus-ink/30 dark:text-lotus-paper/30" aria-hidden>&bull;</span>
-                <Link
-                  href="/nyu"
-                  className="group inline-flex items-center gap-2 hover:text-lotus-indigo dark:hover:text-lotus-paper"
-                >
-                  <span className="h-px w-5 bg-lotus-madder" aria-hidden />
-                  <span className="group-hover:underline">Follow my NYU Journey</span>
-                </Link>
+              <div className="space-y-2 text-sm text-lotus-ink/70 dark:text-lotus-paper/70">
+                <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
+                  <Link
+                    href="/experiences#my-education"
+                    className="group inline-flex items-center gap-2 hover:text-lotus-indigo dark:hover:text-lotus-paper"
+                  >
+                    <span className="h-px w-5 bg-lotus-madder" aria-hidden />
+                    <span className="group-hover:underline">See my education</span>
+                  </Link>
+                  {/* Hidden once the two links wrap onto their own lines, where a
+                      separator between them reads as a stray character. */}
+                  <span className="hidden sm:inline text-lotus-ink/30 dark:text-lotus-paper/30" aria-hidden>&bull;</span>
+                  <Link
+                    href="/nyu"
+                    className="group inline-flex items-center gap-2 hover:text-lotus-indigo dark:hover:text-lotus-paper"
+                  >
+                    <span className="h-px w-5 bg-lotus-madder" aria-hidden />
+                    <span className="group-hover:underline">Follow my NYU Journey</span>
+                  </Link>
+                </div>
+
+                {/* Its own row at every width, rather than joining the wrap
+                    above — this one is an action, not a credential. */}
+                <div>
+                  <Link
+                    href="/help"
+                    className="group inline-flex items-center gap-2 hover:text-lotus-indigo dark:hover:text-lotus-paper"
+                  >
+                    <span className="h-px w-5 bg-lotus-madder" aria-hidden />
+                    <span className="group-hover:underline">Contact me</span>
+                  </Link>
+                </div>
               </div>
             </Reveal>
           </Reveal>
