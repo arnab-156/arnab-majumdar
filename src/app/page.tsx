@@ -5,6 +5,7 @@ import { AnimationLayer, Reveal } from "./components/animation";
 import { Card } from "./components/card";
 import { HomeClickTracker } from "./components/home-click-tracker";
 import { ReadIcon } from "./components/icons";
+import styles from './home.module.css';
 import { nyuProjects } from './nyu/projects-data';
 import { cardWrapperStyle, nycBackgroundTheme, buttonStyle, tiffanyBackgroundTheme } from './utility/stylevariables';
 
@@ -57,9 +58,9 @@ export default function Home() {
         rootMargin="0px 0px -12% 0px"
       >
         {/* HERO */}
-        <section className="relative w-full overflow-hidden bg-gradient-to-br from-[#2e0068] via-[#5a1dab] to-[#b373ff] text-white py-16 px-6 md:px-12">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.12),transparent_35%)]" aria-hidden />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_0%,rgba(255,255,255,0.08),transparent_30%)]" aria-hidden />
+        <section className="relative w-full overflow-hidden bg-lotus-paper text-lotus-ink dark:bg-[#101114] dark:text-lotus-paper py-16 px-6 md:px-12">
+          <div className={`${styles.heroAurora} pointer-events-none absolute inset-0`} aria-hidden />
+          <div className={`${styles.ruleGrid} pointer-events-none absolute inset-0 opacity-60`} aria-hidden />
 
           <AnimationLayer
             as="div"
@@ -70,44 +71,73 @@ export default function Home() {
             rootMargin="0px"
           >
             <Reveal method="left" className="space-y-4">
-              <p className="uppercase tracking-[0.3em] text-sm text-purple-100">
-                New York University Leonard N. Stern School of Business
-              </p>
+              <div className="flex items-center gap-4">
+                <span className="relative h-14 w-14 shrink-0 overflow-hidden rounded-full ring-2 ring-lotus-indigo/25">
+                  <Image src="/headshot.png" alt="" fill sizes="56px" className="object-cover" aria-hidden />
+                </span>
+                <p className="text-xs uppercase tracking-[0.28em] text-lotus-indigo dark:text-lotus-paper/70">
+                  Fashion &middot; Technology &middot; Sustainability
+                </p>
+              </div>
+
               <h1 className="text-4xl md:text-5xl font-nyu-ultra leading-tight">
-                Welcome to my Stern journey!
+                Arnab Majumdar
               </h1>
-              <p className="text-lg md:text-xl text-purple-50 max-w-2xl">
-                Class Representative, Master of Business Administration &mdash; Class of 2027
+              <p className="text-lg md:text-xl text-lotus-ink/80 dark:text-lotus-paper/80 max-w-2xl">
+                I turn strategy into accessible, high-performing digital experiences &mdash; for retailers,
+                universities, restaurants and the people who run them.
               </p>
 
               <Reveal method="left" delay={220} className="flex flex-wrap items-center gap-4 pt-2">
                 <Link
-                  href="/nyu"
-                  className="group inline-flex items-center gap-3 rounded-xl bg-white/10 px-4 py-3 text-sm font-semibold shadow-lg ring-1 ring-white/30 transition hover:translate-y-[-2px] hover:bg-white/20"
+                  href="/experiences"
+                  className="inline-flex items-center rounded-xl bg-lotus-indigo px-5 py-3 text-sm font-semibold text-lotus-paper shadow-lg transition hover:-translate-y-[2px] hover:bg-lotus-ink focus:outline-none focus:ring-2 focus:ring-lotus-indigo focus:ring-offset-2"
                 >
-                  <span className="relative flex h-12 w-12 items-center justify-center overflow-hidden rounded-lg bg-white/80">
-                    <Image src="/stern.png" alt="" fill className="object-contain" aria-hidden />
-                  </span>
-                  <span>
-                    Click here to Learn
-                    <span className="block text-xs text-purple-100 group-hover:underline">Go to my NYU Stern page</span>
-                  </span>
+                  See the work
+                </Link>
+                <Link
+                  href="/about"
+                  className="inline-flex items-center rounded-xl border border-lotus-indigo/30 px-5 py-3 text-sm font-semibold text-lotus-indigo transition hover:-translate-y-[2px] hover:border-lotus-indigo/60 dark:border-lotus-paper/25 dark:text-lotus-paper"
+                >
+                  Read the full story
+                </Link>
+              </Reveal>
+
+              {/* Stern and the studio ride along as credentials rather than as
+                  the headline, but both keep a prominent route in from home. */}
+              <Reveal
+                method="left"
+                delay={300}
+                className="flex flex-wrap items-center gap-x-3 gap-y-2 pt-2 text-sm text-lotus-ink/70 dark:text-lotus-paper/70"
+              >
+                <Link href="/lotus" className="group inline-flex items-center gap-2 hover:text-lotus-indigo dark:hover:text-lotus-paper">
+                  <span className="h-px w-5 bg-lotus-madder" aria-hidden />
+                  <span className="group-hover:underline">Founder, The Lotus Mahal</span>
+                </Link>
+                {/* Hidden once the two credentials wrap onto their own lines,
+                    where a separator between them reads as a stray character. */}
+                <span className="hidden sm:inline text-lotus-ink/30 dark:text-lotus-paper/30" aria-hidden>&bull;</span>
+                <Link href="/nyu" className="group inline-flex items-center gap-2 hover:text-lotus-indigo dark:hover:text-lotus-paper">
+                  <span className="h-px w-5 bg-lotus-madder" aria-hidden />
+                  <span className="group-hover:underline">Executive MBA, NYU Stern &mdash; Class of A27</span>
                 </Link>
               </Reveal>
             </Reveal>
 
             {randomNewLearningProject && (
               <Reveal method="right" delay={140} className="relative">
-                <div className="rounded-3xl bg-white/10 p-6 backdrop-blur shadow-2xl border border-white/20">
-                  <p className="text-xs uppercase tracking-[0.3em] text-purple-100">New Learnings!</p>
+                <div className="rounded-3xl border border-lotus-indigo/20 bg-white/70 p-6 shadow-xl backdrop-blur dark:border-lotus-paper/15 dark:bg-white/5">
+                  <p className="text-xs uppercase tracking-[0.28em] text-lotus-indigo dark:text-lotus-paper/70">New Learnings!</p>
                   <h2 className="mt-2 text-xl font-semibold">{randomNewLearningProject.projectName}</h2>
-                  <p className="mt-3 text-sm leading-relaxed text-purple-100">
+                  {/* Descriptions vary a lot in length; clamping keeps the
+                      panel from towering over the hero copy beside it. */}
+                  <p className="mt-3 text-sm leading-relaxed text-lotus-ink/75 dark:text-lotus-paper/75 line-clamp-5">
                     {randomNewLearningProject.description}
                   </p>
                   <Link
                     href={newLearningUrl}
                     {...(newLearningOpensNewTab ? { target: "_blank", rel: "noreferrer" } : {})}
-                    className="mt-4 inline-block underline text-purple-100 hover:text-amber-200"
+                    className="mt-4 inline-block underline underline-offset-4 text-lotus-indigo hover:text-lotus-madder dark:text-lotus-paper/80"
                   >
                     view details
                   </Link>

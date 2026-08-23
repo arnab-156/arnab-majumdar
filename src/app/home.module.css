@@ -1,0 +1,42 @@
+/*
+ * Ambient hero wash. Two soft ink-and-madder pools drifting across the paper
+ * ground — brand colours at low opacity, so it reads as texture rather than as
+ * a gradient banner. Purely decorative: the elements carrying these classes are
+ * aria-hidden and sit behind the hero content.
+ */
+@keyframes homeAuroraDrift {
+    0% {
+        transform: translate3d(-3%, -2%, 0) scale(1.05);
+    }
+
+    50% {
+        transform: translate3d(3%, 2%, 0) scale(1.12);
+    }
+
+    100% {
+        transform: translate3d(-3%, -2%, 0) scale(1.05);
+    }
+}
+
+.heroAurora {
+    background-image:
+        radial-gradient(38rem 26rem at 18% 18%, rgba(38, 60, 104, 0.16), transparent 62%),
+        radial-gradient(32rem 24rem at 82% 8%, rgba(138, 71, 60, 0.14), transparent 60%),
+        radial-gradient(30rem 22rem at 62% 96%, rgba(38, 60, 104, 0.1), transparent 62%);
+    animation: homeAuroraDrift 22s ease-in-out infinite;
+    will-change: transform;
+}
+
+/* Hairline rules echoing the studio site's --rule tokens. */
+.ruleGrid {
+    background-image:
+        linear-gradient(to right, rgba(38, 60, 104, 0.12) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(38, 60, 104, 0.12) 1px, transparent 1px);
+    background-size: 96px 96px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .heroAurora {
+        animation: none;
+    }
+}
