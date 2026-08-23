@@ -245,9 +245,14 @@ export default function NYUPage() {
             <Reveal method="left" className="space-y-4">
               <p className="uppercase tracking-[0.3em] text-sm text-purple-100">New York University Leonard N. Stern School of Business</p>
               <h1 className="text-4xl md:text-5xl font-nyu-ultra leading-tight">Executive MBA, Class of A27</h1>
-              <p className="text-lg md:text-xl text-purple-50 max-w-2xl">
-                A journey rooted in rigor, community, and leadership—built in the heart of New York City and sharpened through Stern&apos;s collaborative culture.
-              </p>
+              {/* Same left-rule block the other heroes use. The rule is light
+                  purple rather than madder, which would sink into this hero's
+                  violet ground; this page keeps its NYU colour. */}
+              <aside className="border-l-2 border-purple-200/60 pl-6 py-1">
+                <p className="text-lg leading-8 text-purple-50 max-w-2xl">
+                  A journey rooted in rigor, community, and leadership—built in the heart of New York City and sharpened through Stern&apos;s collaborative culture.
+                </p>
+              </aside>
 
               <Reveal method="left" delay={220} className="flex flex-wrap items-center gap-4 pt-2">
                 <Link
