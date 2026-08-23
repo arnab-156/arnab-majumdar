@@ -8,6 +8,18 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      colors: {
+        // The Lotus Mahal brand palette, read off thelotusmahal.com's own CSS
+        // custom properties (--paper, --paper-deep, --ink, --indigo, --madder).
+        // Namespaced under `lotus` so it cannot shadow Tailwind's own `indigo`.
+        lotus: {
+          paper: "#efeee9",
+          "paper-deep": "#e5e4dd",
+          ink: "#17181a",
+          indigo: "#263c68",
+          madder: "#8a473c",
+        },
+      },
       fontFamily: {
         nyu: ["'NYU Perstare'", "sans-serif"],
         "nyu-bold": ["'NYU Perstare Bold'", "sans-serif"],
