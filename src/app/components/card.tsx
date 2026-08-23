@@ -78,7 +78,13 @@ export const Card: NextPage<CardProps> = ({
 
     if (useCtaButton) {
         return (
-            <div className={classNames("relative flex flex-col items-center", fillHeight && "h-full")}>
+            <div className={classNames(
+                "relative flex flex-col items-center",
+                // h-full covers a plain block parent; flex-1 takes over when the
+                // parent is a flex column with something above the card, where
+                // h-full would resolve to the whole cell and overflow it.
+                fillHeight && "h-full flex-1 min-h-0",
+            )}>
                 <div className={classNames(cardClassName, fillHeight && "flex-1 w-full")}>
                     {cardContent}
                 </div>
