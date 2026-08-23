@@ -91,10 +91,14 @@ export default function Home() {
               <h1 className="text-4xl md:text-5xl font-nyu-ultra leading-tight">
                 Arnab Majumdar
               </h1>
-              <p className="text-lg md:text-xl text-lotus-ink/80 dark:text-lotus-paper/80 max-w-2xl">
-                I turn strategy into accessible, high-performing digital experiences &mdash; for retailers,
-                universities, restaurants and the people who run them.
-              </p>
+              {/* Same treatment as /about's Gallup block and /experiences'
+                  "Focus areas": madder rule down the left, body at text-lg. */}
+              <aside className="border-l-2 border-lotus-madder pl-6 py-1">
+                <p className="text-lg leading-8 text-lotus-ink/85 dark:text-lotus-paper/85 max-w-2xl">
+                  I turn strategy into accessible, high-performing digital experiences &mdash; for retailers,
+                  universities, restaurants and the people who run them.
+                </p>
+              </aside>
 
               <Reveal method="left" delay={220} className="flex flex-wrap items-center gap-4 pt-2">
                 <Link
