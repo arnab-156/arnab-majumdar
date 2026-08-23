@@ -1,10 +1,9 @@
 'use client'
 import type { NextPage } from 'next';
 import { useState, useContext } from "react";
-import Link from 'next/link';
+
 import { TriviaContext, TriviaInputProps } from '../../provider/TriviaProvider';
-import { invertedButtonStyle, roundedBtnStyle } from '../../utility/stylevariables';
-import { PlayIcon } from '../icons';
+import { heroPrimaryButtonStyle } from '../../utility/stylevariables';
 import { Trivia } from './trivia';
 
 const categories: Record<string, number> = {
@@ -28,91 +27,93 @@ const options: Record<string, Array<string | number>> = {
     category: Object.keys(categories),
 };
 
+const labels: Record<string, string> = {
+    difficulty: "How hard?",
+    amount: "How many?",
+    category: "About what?",
+};
+
+const selectStyle =
+    "mt-2 w-full rounded-xl border border-lotus-indigo/25 bg-white/70 px-3 py-2 capitalize text-lotus-ink shadow-sm transition hover:border-lotus-indigo/50 focus:outline-none focus:ring-2 focus:ring-lotus-indigo dark:bg-white/5 dark:text-lotus-paper";
+
 export const TriviaOptions: NextPage = () => {
     const { setInfo, isLoading, errorMsg } = useContext(TriviaContext);
     const [information, setInformation] = useState<TriviaInputProps>({ amount: 5 });
     const [showTrivia, setShowTrivia] = useState<boolean>(false);
 
     const handleSelect = (currInfo: TriviaInputProps, cat: string, event: React.ChangeEvent<HTMLSelectElement>) => {
-        const selectedValue = (cat === "category") ? categories[event.target.value] : event.target.value;
-        const newInfo: TriviaInputProps = { ...currInfo, ...{ [cat]: selectedValue } };
-        setInformation(newInfo);
+        const raw = event.target.value;
+        if (!raw) return;
+        const selectedValue = cat === "category" ? categories[raw] : cat === "amount" ? Number(raw) : raw;
+        setInformation({ ...currInfo, ...{ [cat]: selectedValue } });
     };
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        information ? setInfo(information) : null;
-        setShowTrivia(!showTrivia);
+        setInfo(information);
+        setShowTrivia(true);
     };
 
     const fetchError = errorMsg.length > 1;
 
-    return (
-        <div className="rounded content-center pb-28">
-            <h1 className="text-center capitalize text-bold">
-                {
-                    isLoading ? <p className="px-4 py-3 border-solid border-2 border-indigo-600 bg-gray-300 text-indigo-800 rounded-xl shadow-md shadow-indigo-800/50">Questions are loading... best of luck!</p> : !showTrivia
-                        ? <p className="px-4 py-3 border-solid border-2 border-purple-800 bg-gray-300 rounded-xl shadow-md shadow-purple-800/50">Choose options and press </p>
-                        : ""
-                }
-            </h1>
-            {
-                fetchError && <div className='px-4 py-3 text-bold bg-gray-300 text-indigo-800 rounded-lg capitalize border-solid border-2 border-indigo-600 max-w-lg'>{errorMsg}, please refresh or please try again later!</div>
-            }
-            {
-                (showTrivia && !fetchError && !isLoading) ? <Trivia maxQuestions={information.amount} /> : (
-                    <div className='flex flex-start flex-col dark:text-black'>
-                        <form className="flex flex-col m-2 p-2 justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 to-purple-800/50 backdrop-blur-md rounded-md mb-16" onSubmit={handleSubmit}>
-                            <fieldset>
-                                <ol className='md:py-4 md:px-4'>
-                                    {
-                                        Object.keys(options).map((el, index) => (
-                                            <li key={`${el}-${index}`} className='my-2'>
-                                                <label className={'capitalize'} htmlFor={`${el}-select-${index}`}>Choose {el}:</label>
-                                                <select
+    if (isLoading) {
+        return (
+            <p className="mx-auto max-w-2xl rounded-2xl border border-lotus-indigo/20 bg-lotus-paper p-6 text-lotus-ink/80 shadow-md dark:border-lotus-paper/15 dark:bg-white/5 dark:text-lotus-paper/80">
+                Dealing the questions… best of luck.
+            </p>
+        );
+    }
 
-                                                    className={'m-2 p-2 rounded-md capitalize w-fit-content text-md bg-gradient-to-r from-purple-200/20 to-purple-800/50'}
-                                                    name={el} id={`${el}-select-${index}`}
-                                                    onChange={(event) => information ? handleSelect(information, el, event) : {}}
-                                                >
-                                                    <option
-                                                        value={""}
-                                                        className={'capitalize py-3'}>
-                                                        --Please choose an option--
-                                                    </option>
-                                                    {
-                                                        options[`${el}`].map((val, i) => (
-                                                            (<>
-                                                                <option
-                                                                    key={i}
-                                                                    value={val}
-                                                                    className={'capitalize py-3'}
-                                                                    onChange={() => handleSelect}>
-                                                                    {val}
-                                                                </option>
-                                                            </>))
-                                                        )
-                                                    }
-                                                </select>
-                                            </li>)
-                                        )
-                                    }
-                                </ol>
-                                <button
-                                    type="submit"
-                                    aria-label="press to start trivia"
-                                    className={`px-2 py-2 font-medium text-center mb-8 ${roundedBtnStyle} ${isLoading ? "animate-spin" : ""}`}>
-                                    <PlayIcon height="50px" width="50px" color="gray" />
-                                </button>
-                            </fieldset>
-                        </form>
-                    </div>)
-            }
-            <Link
-                href={"/tech"}
-                className={`${invertedButtonStyle} px-6 py-2 mb-28`}>
-                Go Back
-            </Link>
-        </div>
+    if (fetchError) {
+        return (
+            <div className="mx-auto max-w-2xl rounded-2xl border border-lotus-madder/40 bg-lotus-madder/5 p-6 text-lotus-madder">
+                {errorMsg}. Please refresh, or try again in a moment.
+            </div>
+        );
+    }
+
+    if (showTrivia) {
+        return <Trivia maxQuestions={information.amount} />;
+    }
+
+    return (
+        <form
+            onSubmit={handleSubmit}
+            className="mx-auto w-full max-w-2xl rounded-3xl border border-lotus-indigo/20 bg-lotus-paper p-6 text-left shadow-xl dark:border-lotus-paper/15 dark:bg-white/5 md:p-8"
+        >
+            <fieldset>
+                <legend className="text-xs uppercase tracking-[0.28em] text-lotus-indigo dark:text-lotus-paper/70">
+                    Set up your round
+                </legend>
+
+                <div className="mt-5 grid gap-4 sm:grid-cols-3">
+                    {Object.keys(options).map((key) => (
+                        <div key={key}>
+                            <label className="text-sm font-semibold text-lotus-ink/80 dark:text-lotus-paper/80" htmlFor={`${key}-select`}>
+                                {labels[key]}
+                            </label>
+                            <select
+                                className={selectStyle}
+                                name={key}
+                                id={`${key}-select`}
+                                defaultValue={key === "amount" ? 5 : ""}
+                                onChange={(event) => handleSelect(information, key, event)}
+                            >
+                                <option value="">Surprise me</option>
+                                {options[key].map((value) => (
+                                    <option key={String(value)} value={value} className="capitalize">
+                                        {String(value).replace(/_/g, " ")}
+                                    </option>
+                                ))}
+                            </select>
+                        </div>
+                    ))}
+                </div>
+
+                <button type="submit" className={`${heroPrimaryButtonStyle} mt-6`}>
+                    Start the round
+                </button>
+            </fieldset>
+        </form>
     );
 }
