@@ -32,8 +32,12 @@ export default function About() {
           rootMargin="0px"
         >
           <Reveal method="left" className="space-y-4">
-            <p className="uppercase tracking-[0.3em] text-sm text-purple-100">About</p>
-            <h1 className="text-4xl md:text-5xl font-nyu-ultra leading-tight">Arnab Majumdar</h1>
+            {/* Looser tracking than the other heroes' eyebrows: at 0.3em this
+                line is long enough to wrap into a block of its own. */}
+            <p className="uppercase tracking-[0.18em] text-xs text-purple-100">
+              Gallup CliftonStrengths &mdash; Input, Achiever, Ideation, Futuristic, Learner
+            </p>
+            <h1 className="text-4xl md:text-5xl font-nyu-ultra leading-tight">About Arnab</h1>
             <p className="text-lg md:text-xl text-purple-50 max-w-2xl">
               Sustainability &amp; Retail Tech Leader &mdash; Omnichannel Commerce, Store Experience,
               Accessibility (WCAG)

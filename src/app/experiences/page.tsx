@@ -40,6 +40,9 @@ export default function ExperiencesPage() {
           rootMargin="0px"
         >
           <Reveal method="left" className="space-y-6">
+            <p className="text-xs uppercase tracking-[0.28em] text-lotus-indigo dark:text-lotus-paper/70">
+              Sustainability &amp; Retail Tech Leader
+            </p>
             <h1 className="text-4xl md:text-5xl font-nyu-ultra leading-tight">Experiences</h1>
 
             {/* Moved up from the /about essay, where it sat below several
