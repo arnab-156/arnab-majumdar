@@ -7,7 +7,7 @@ import { HomeClickTracker } from "./components/home-click-tracker";
 import { ReadIcon } from "./components/icons";
 import styles from './hero.module.css';
 import { nyuProjects } from './nyu/projects-data';
-import { cardWrapperStyle, nycBackgroundTheme, buttonStyle, tiffanyBackgroundTheme, heroPrimaryButtonStyle, heroOutlineButtonStyle } from './utility/stylevariables';
+import { cardWrapperStyle, nycBackgroundTheme, tiffanyBackgroundTheme, heroPrimaryButtonStyle, heroOutlineButtonStyle } from './utility/stylevariables';
 
 // The route into the NYU journey, in NYU's own violet rather than the studio
 // palette — #57068c is the same brand violet the course tiles on /nyu use.
@@ -183,12 +183,27 @@ export default function Home() {
             />
           </Reveal>
 
-          <Reveal className="shadow-md rounded-md text-center py-4 px-8 m-4">
-            <p className="m-2">
-              If you are a small business, a retailer, or an educator who wants to use the latest technologies & practices, <strong> <Link className={`${buttonStyle}`} href="/help" aria-label="go to calendar to schedule a google meet">Contact me.</Link></strong>
-            </p>
-
-            <p className="mt-4"> Find social information in the top navigation on mobile or the footer on desktop.</p>
+          {/* The one tile that asks for something, so it is built as a card
+              in the hero's palette rather than as a paragraph with a link
+              buried in it. The wayfinding line about social links moved out:
+              the nav and footer carry those already. */}
+          <Reveal className={cardWrapperStyle}>
+            <div className="flex h-full flex-col rounded-2xl border border-lotus-indigo/15 bg-lotus-paper p-6 text-left shadow-md dark:border-lotus-paper/15 dark:bg-white/5">
+              <p className="text-xs uppercase tracking-[0.28em] text-lotus-indigo dark:text-lotus-paper/70">
+                Work with me
+              </p>
+              <p className="mt-3 flex-1 text-lotus-ink/80 dark:text-lotus-paper/80">
+                If you are a small business, a retailer, or an educator who wants to use the latest
+                technologies &amp; practices, let&apos;s talk.
+              </p>
+              <Link
+                href="/help"
+                aria-label="go to calendar to schedule a google meet"
+                className={`${heroPrimaryButtonStyle} mt-5 self-start`}
+              >
+                Contact me
+              </Link>
+            </div>
           </Reveal>
 
           <Reveal className={cardWrapperStyle} id="aster">
