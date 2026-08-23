@@ -25,6 +25,14 @@ export const Navigation = () => {
                     </Link>
 
                     <Link
+                        href="/about"
+                        tabIndex={0}
+                        className={`${roundButtonStyle} group-hover:border-white group-hover:text-white justify-center items-center`}
+                    >
+                        <span className="p-2 m-2 hidden group-hover:block">About</span>
+                    </Link>
+
+                    <Link
                         href="/experiences"
                         tabIndex={0}
                         className={`${roundButtonStyle} group-hover:border-white group-hover:text-white justify-center items-center`}
@@ -34,14 +42,6 @@ export const Navigation = () => {
                     </Link>
 
                     {/* <Link className={`${roundButtonStyle} group-hover:border-white group-hover:text-white justify-center items-center`} href="/edu">education</Link> */}
-
-                    <Link
-                        href="/about"
-                        tabIndex={0}
-                        className={`${roundButtonStyle} group-hover:border-white group-hover:text-white justify-center items-center`}
-                    >
-                        <span className="p-2 m-2 hidden group-hover:block">About</span>
-                    </Link>
 
                     <Link
                         href="/nyu"
