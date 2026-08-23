@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { AnimationLayer, Reveal } from "./components/animation";
 import { HomeClickTracker } from "./components/home-click-tracker";
+import { StudioTile } from "./components/studio-tile";
 import { ReadIcon } from "./components/icons";
 import styles from './hero.module.css';
 import { nyuProjects } from './nyu/projects-data';
@@ -11,87 +12,6 @@ import { cardWrapperStyle, heroPrimaryButtonStyle, heroOutlineButtonStyle } from
 // Grid cells are flex columns, so a card fills whatever height the row settles
 // on whether or not a heading sits above it.
 const tileWrapperStyle = `${cardWrapperStyle} flex flex-col`;
-
-/**
- * The paper tile the "Work with me" card introduced, now the shape every
- * homepage tile uses: optional indigo eyebrow, title, body, an optional piece
- * of media that slides in from the right, and an indigo primary button pinned
- * to the bottom so rows stay square.
- *
- * Headings stay outside the tile, in the grid cell above it, so the wall keeps
- * the labels it already had.
- */
-const StudioTile = ({
-  eyebrow,
-  title,
-  description,
-  children,
-  imageUrl,
-  imageAlt,
-  media,
-  href,
-  buttonText,
-  openInNewTab = false,
-  ariaLabel,
-}: {
-  eyebrow?: string;
-  title?: string;
-  description?: string;
-  /** Richer body than a single paragraph — lists, several paragraphs. */
-  children?: React.ReactNode;
-  imageUrl?: string;
-  imageAlt?: string;
-  /** Anything that is not a photo, e.g. an icon, in the same animated slot. */
-  media?: React.ReactNode;
-  href: string;
-  buttonText: string;
-  openInNewTab?: boolean;
-  ariaLabel?: string;
-}) => (
-  <div className="flex h-full flex-col rounded-2xl border border-lotus-indigo/15 bg-lotus-paper p-6 text-left shadow-md dark:border-lotus-paper/15 dark:bg-white/5">
-    {eyebrow && (
-      <p className="text-xs uppercase tracking-[0.28em] text-lotus-indigo dark:text-lotus-paper/70">{eyebrow}</p>
-    )}
-    {title && (
-      <h3 className="mt-2 font-nyu-ultra text-lg uppercase leading-tight text-lotus-ink dark:text-lotus-paper">
-        {title}
-      </h3>
-    )}
-    <div className="mt-3 flex flex-1 flex-col gap-4 text-lotus-ink/80 dark:text-lotus-paper/80">
-      {description && <p>{description}</p>}
-      {children}
-      {/* Enters from the right and settles on the left edge, level with the
-          button below. Reveal handles reduced-motion and, on narrow screens,
-          swaps the sideways entrance for one from below. */}
-      {(imageUrl || media) && (
-        <Reveal method="right" delay={120} className="flex justify-start">
-          {imageUrl ? (
-            <Image
-              src={imageUrl}
-              alt={imageAlt ?? ""}
-              width={240}
-              height={240}
-              // Auto on both axes so photos keep their own aspect ratio; the
-              // cap is what keeps every tile's media the same visual weight.
-              className="h-auto max-h-32 w-auto rounded object-contain"
-              unoptimized
-            />
-          ) : (
-            media
-          )}
-        </Reveal>
-      )}
-    </div>
-    <Link
-      href={href}
-      {...(openInNewTab ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-      {...(ariaLabel ? { "aria-label": ariaLabel } : {})}
-      className={`${heroPrimaryButtonStyle} mt-5 self-start`}
-    >
-      {buttonText}
-    </Link>
-  </div>
-);
 
 // The route into the NYU journey, in NYU's own violet rather than the studio
 // palette — #57068c is the same brand violet the course tiles on /nyu use.
