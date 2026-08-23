@@ -42,6 +42,19 @@ export default function ExperiencesPage() {
           <Reveal method="left" className="space-y-6">
             <h1 className="text-4xl md:text-5xl font-nyu-ultra leading-tight">Experiences</h1>
 
+            {/* Moved up from the /about essay, where it sat below several
+                screens of prose. Recoloured from purple to the hero's palette:
+                indigo label, madder rule. */}
+            <aside className="border-l-2 border-lotus-madder pl-6 py-1">
+              <p className="text-xs uppercase tracking-[0.3em] text-lotus-indigo dark:text-lotus-paper/70">
+                Focus areas
+              </p>
+              <p className="mt-3 text-lg leading-8 text-lotus-ink/85 dark:text-lotus-paper/85">
+                Sustainable fashion &amp; consumer goods, digital strategy, e-commerce, accessibility (WCAG),
+                front-end engineering, educational program-building, and brand development.
+              </p>
+            </aside>
+
             <div className="flex flex-wrap items-center gap-4">
               <Link href="/experiences/achievements" className={heroPrimaryButtonStyle}>
                 See all my achievements

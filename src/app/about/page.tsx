@@ -108,18 +108,7 @@ export default function About() {
             </p>
           </Reveal>
 
-          <Reveal>
-            <aside className="border-l-2 border-purple-700 dark:border-purple-400 pl-6 py-1">
-              <p className="text-xs uppercase tracking-[0.3em] text-purple-700 dark:text-purple-300">
-                Focus areas
-              </p>
-              <p className="mt-3 text-lg leading-8 text-gray-900 dark:text-gray-50">
-                Sustainable fashion &amp; consumer goods, digital strategy, e-commerce, accessibility (WCAG),
-                front-end engineering, educational program-building, and brand development.
-              </p>
-            </aside>
-          </Reveal>
-
+          {/* "Focus areas" moved to the /experiences hero. */}
           <Reveal>
             <aside className="border-l-2 border-purple-700 dark:border-purple-400 pl-6 py-1">
               <p className="text-xs uppercase tracking-[0.3em] text-purple-700 dark:text-purple-300">
