@@ -9,6 +9,11 @@ import styles from './home.module.css';
 import { nyuProjects } from './nyu/projects-data';
 import { cardWrapperStyle, nycBackgroundTheme, buttonStyle, tiffanyBackgroundTheme } from './utility/stylevariables';
 
+// Outline button, shared by the hero's secondary action and the New Learnings
+// panel's route to /nyu, so the two cannot drift apart.
+const outlineButtonStyle =
+  "inline-flex items-center rounded-xl border border-lotus-indigo/30 px-5 py-3 text-sm font-semibold text-lotus-indigo transition hover:-translate-y-[2px] hover:border-lotus-indigo/60 dark:border-lotus-paper/25 dark:text-lotus-paper";
+
 const decodeHeaderValue = (headerValue: string | null): string => {
   if (!headerValue) {
     return '';
@@ -95,10 +100,7 @@ export default function Home() {
                 >
                   See the work
                 </Link>
-                <Link
-                  href="/about"
-                  className="inline-flex items-center rounded-xl border border-lotus-indigo/30 px-5 py-3 text-sm font-semibold text-lotus-indigo transition hover:-translate-y-[2px] hover:border-lotus-indigo/60 dark:border-lotus-paper/25 dark:text-lotus-paper"
-                >
+                <Link href="/about" className={outlineButtonStyle}>
                   Read the full story
                 </Link>
               </Reveal>
@@ -134,13 +136,21 @@ export default function Home() {
                   <p className="mt-3 text-sm leading-relaxed text-lotus-ink/75 dark:text-lotus-paper/75 line-clamp-5">
                     {randomNewLearningProject.description}
                   </p>
-                  <Link
-                    href={newLearningUrl}
-                    {...(newLearningOpensNewTab ? { target: "_blank", rel: "noreferrer" } : {})}
-                    className="mt-4 inline-block underline underline-offset-4 text-lotus-indigo hover:text-lotus-madder dark:text-lotus-paper/80"
-                  >
-                    view details
-                  </Link>
+                  {/* "view details" goes to the one project on show; the button
+                      below goes to the whole journey, and repeats the /nyu route
+                      the credential line already offers. */}
+                  <div className="mt-4 flex flex-col items-start gap-4">
+                    <Link
+                      href={newLearningUrl}
+                      {...(newLearningOpensNewTab ? { target: "_blank", rel: "noreferrer" } : {})}
+                      className="underline underline-offset-4 text-lotus-indigo hover:text-lotus-madder dark:text-lotus-paper/80"
+                    >
+                      view details
+                    </Link>
+                    <Link href="/nyu" className={outlineButtonStyle}>
+                      Follow my NYU journey
+                    </Link>
+                  </div>
                 </div>
               </Reveal>
             )}
