@@ -1,23 +1,7 @@
-import Image from "next/image";
 import Link from "next/link";
 
-import { Card } from "../components/card"
 import { AnimationLayer, Reveal } from "../components/animation";
-import { buttonStyle, cardWrapperStyle, nycBackgroundTheme } from "../utility/stylevariables";
-
-const urlImageDefault = "/headshot.png"
-
-// Matching the homepage tiles. useCtaButton keeps the card body a plain div
-// with the link as a sibling; without it the whole card is an anchor, and the
-// old "click here" link inside this card's children nested one anchor in
-// another — invalid markup that the browser restructures while parsing, which
-// is what broke hydration on this page.
-const aboutCardProps = {
-  useCtaButton: true,
-  // The resume tile carries an image and sets the row height; the others
-  // stretch to match rather than leaving the row ragged.
-  fillHeight: true,
-};
+import { ConnectPanel } from "../components/connect-panel";
 
 // One measure for the whole essay, so the prose reads as a column rather than
 // as tiles.
@@ -48,27 +32,34 @@ export default function About() {
           rootMargin="0px"
         >
           <Reveal method="left" className="space-y-4">
-            <p className="uppercase tracking-[0.3em] text-sm text-purple-100">About</p>
-            <h1 className="text-4xl md:text-5xl font-nyu-ultra leading-tight">Arnab Majumdar</h1>
-            <p className="text-lg md:text-xl text-purple-50 max-w-2xl">
-              Sustainability &amp; Retail Tech Leader &mdash; Omnichannel Commerce, Store Experience,
-              Accessibility (WCAG)
+            <p className="uppercase tracking-[0.3em] text-sm text-purple-100">
+              Sustainability &amp; Retail Tech Leader
             </p>
+            <h1 className="text-4xl md:text-5xl font-nyu-ultra leading-tight">About Arnab</h1>
 
+            {/* Moved up from the foot of the essay, in place of the old lede.
+                Recoloured for the violet ground — the essay copy used
+                purple-700 on white, which would disappear here. */}
+            <aside className="border-l-2 border-purple-200/60 pl-6 py-1">
+              <p className="text-xs uppercase tracking-[0.3em] text-purple-100">
+                Gallup CliftonStrengths
+              </p>
+              <p className="mt-3 text-lg leading-8 text-purple-50">
+                Input, Achiever, Ideation, Futuristic, Learner.
+              </p>
+            </aside>
+
+            {/* Button then underline link, as every NYU hero pairs them. The
+                LinkedIn link that used to sit here now lives in the
+                ConnectPanel opposite, so it is not offered twice in one hero. */}
             <Reveal method="left" delay={220} className="flex flex-wrap items-center gap-4 pt-2">
+              {/* Outline in the hero's own palette — lotus-indigo would be
+                  unreadable on this violet ground. */}
               <Link
-                href="https://www.linkedin.com/in/arnab156/"
-                target="_blank"
-                rel="noreferrer"
-                className="group inline-flex items-center gap-3 rounded-xl bg-white/10 px-4 py-3 text-sm font-semibold shadow-lg ring-1 ring-white/30 transition hover:translate-y-[-2px] hover:bg-white/20"
+                href="/experiences"
+                className="inline-flex items-center rounded-xl border border-white/40 px-5 py-3 text-sm font-semibold text-white transition hover:-translate-y-[2px] hover:border-white/70 hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/60"
               >
-                <span className="relative flex h-12 w-12 items-center justify-center overflow-hidden rounded-lg bg-white/80">
-                  <Image src="/linkedin.svg" alt="" fill className="object-contain p-2" aria-hidden />
-                </span>
-                <span>
-                  Click to go to LinkedIn!
-                  <span className="block text-xs text-purple-100 group-hover:underline">Opens in new tab</span>
-                </span>
+                See experiences
               </Link>
               <Link href="/" className="underline text-purple-100">
                 go back to home
@@ -76,18 +67,10 @@ export default function About() {
             </Reveal>
           </Reveal>
 
+          {/* The same tile /experiences carries, so the portrait and the
+              LinkedIn route look identical on both pages. */}
           <Reveal method="right" delay={140} className="relative">
-            <div className="rounded-3xl bg-white/10 p-4 backdrop-blur shadow-2xl border border-white/20">
-              <div className="relative aspect-square w-full overflow-hidden rounded-2xl bg-white/10">
-                <Image
-                  src={urlImageDefault}
-                  alt="Portrait of Arnab Majumdar"
-                  fill
-                  sizes="(max-width: 768px) 90vw, 320px"
-                  className="object-cover"
-                />
-              </div>
-            </div>
+            <ConnectPanel />
           </Reveal>
         </AnimationLayer>
       </section>
@@ -135,73 +118,11 @@ export default function About() {
             </p>
           </Reveal>
 
-          <Reveal>
-            <aside className="border-l-2 border-purple-700 dark:border-purple-400 pl-6 py-1">
-              <p className="text-xs uppercase tracking-[0.3em] text-purple-700 dark:text-purple-300">
-                Focus areas
-              </p>
-              <p className="mt-3 text-lg leading-8 text-gray-900 dark:text-gray-50">
-                Sustainable fashion &amp; consumer goods, digital strategy, e-commerce, accessibility (WCAG),
-                front-end engineering, educational program-building, and brand development.
-              </p>
-            </aside>
-          </Reveal>
-
-          <Reveal>
-            <aside className="border-l-2 border-purple-700 dark:border-purple-400 pl-6 py-1">
-              <p className="text-xs uppercase tracking-[0.3em] text-purple-700 dark:text-purple-300">
-                Gallup CliftonStrengths
-              </p>
-              <p className="mt-3 text-lg leading-8 text-gray-900 dark:text-gray-50">
-                Input, Achiever, Ideation, Futuristic, Learner.
-              </p>
-            </aside>
-          </Reveal>
+          {/* "Focus areas" moved to the /experiences hero; the Gallup
+              strengths moved up into this page's own hero. */}
         </div>
       </section>
 
-      {/* NEXT STEPS */}
-      <AnimationLayer
-        as="div"
-        className="grid text-center lg:w-half lg:max-w-5xl lg:grid-cols-3 lg:text-left"
-        method="rise"
-        distance={44}
-        stagger={90}
-        staggerCycle={3}
-      >
-        <Reveal className={cardWrapperStyle}>
-          <Card
-            {...aboutCardProps}
-            title="See More of Arnab's Experiences.."
-            url="/experiences"
-            buttonText="See experiences"
-            backgroundTheme={nycBackgroundTheme}
-            description="Roles, projects, and the work behind them. Thank you for your support!"
-          />
-        </Reveal>
-
-        <Reveal className={`${cardWrapperStyle} flex`}>
-          <div className="flex-1 shadow-md rounded-md text-center py-4 px-8 m-4">
-            <p className="m-2">
-              For business enquiries, <strong> <Link className={`${buttonStyle}`} href="/help" aria-label="go to calendar to schedule a google meet">Contact me.</Link></strong>
-            </p>
-            <p className="mt-4"> Find social information in the top navigation on mobile or the footer on desktop.</p>
-          </div>
-        </Reveal>
-
-        <Reveal className={cardWrapperStyle}>
-          <Card
-            {...aboutCardProps}
-            title="Download Resume Here"
-            openInNewTab
-            url="/resume"
-            buttonText="Download NOW!"
-            description="A PDF file will download."
-            backgroundTheme={nycBackgroundTheme}
-            imageUrl='/cv.png'
-          />
-        </Reveal>
-      </AnimationLayer>
     </AnimationLayer>
   );
 }

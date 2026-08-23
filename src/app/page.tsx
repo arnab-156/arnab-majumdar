@@ -5,13 +5,9 @@ import { AnimationLayer, Reveal } from "./components/animation";
 import { Card } from "./components/card";
 import { HomeClickTracker } from "./components/home-click-tracker";
 import { ReadIcon } from "./components/icons";
-import styles from './home.module.css';
+import styles from './hero.module.css';
 import { nyuProjects } from './nyu/projects-data';
-import { cardWrapperStyle, nycBackgroundTheme, buttonStyle, tiffanyBackgroundTheme } from './utility/stylevariables';
-
-// The hero's secondary action.
-const outlineButtonStyle =
-  "inline-flex items-center rounded-xl border border-lotus-indigo/30 px-5 py-3 text-sm font-semibold text-lotus-indigo transition hover:-translate-y-[2px] hover:border-lotus-indigo/60 dark:border-lotus-paper/25 dark:text-lotus-paper";
+import { cardWrapperStyle, nycBackgroundTheme, buttonStyle, tiffanyBackgroundTheme, heroPrimaryButtonStyle, heroOutlineButtonStyle } from './utility/stylevariables';
 
 // The route into the NYU journey, in NYU's own violet rather than the studio
 // palette — #57068c is the same brand violet the course tiles on /nyu use.
@@ -101,11 +97,11 @@ export default function Home() {
               <Reveal method="left" delay={220} className="flex flex-wrap items-center gap-4 pt-2">
                 <Link
                   href="/experiences"
-                  className="inline-flex items-center rounded-xl bg-lotus-indigo px-5 py-3 text-sm font-semibold text-lotus-paper shadow-lg transition hover:-translate-y-[2px] hover:bg-lotus-ink focus:outline-none focus:ring-2 focus:ring-lotus-indigo focus:ring-offset-2"
+                  className={heroPrimaryButtonStyle}
                 >
                   See the work
                 </Link>
-                <Link href="/about" className={outlineButtonStyle}>
+                <Link href="/about" className={heroOutlineButtonStyle}>
                   Read the full story
                 </Link>
               </Reveal>
