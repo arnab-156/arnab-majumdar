@@ -132,16 +132,7 @@ export default function Home() {
             {randomNewLearningProject && (
               <Reveal method="right" delay={140} className="relative">
                 <div className="rounded-3xl border border-lotus-indigo/20 bg-white/70 p-6 shadow-xl backdrop-blur dark:border-lotus-paper/15 dark:bg-white/5">
-                  {/* The NYU route rides in the top corner opposite the
-                      eyebrow — present, but out of the way of the card's own
-                      call to action at the foot. shrink-0 keeps it intact if
-                      the eyebrow ever grows. */}
-                  <div className="flex items-center justify-between gap-4">
-                    <p className="text-xs uppercase tracking-[0.28em] text-lotus-indigo dark:text-lotus-paper/70">Projects and Learnings!</p>
-                    <Link href="/nyu" className={`${nyuButtonStyle} shrink-0`}>
-                      Follow my NYU journey
-                    </Link>
-                  </div>
+                  <p className="text-xs uppercase tracking-[0.28em] text-lotus-indigo dark:text-lotus-paper/70">Projects and Learnings!</p>
                   <h2 className="mt-2 text-xl font-semibold">{randomNewLearningProject.projectName}</h2>
                   {/* Descriptions vary a lot in length; clamping keeps the
                       panel from towering over the hero copy beside it. */}
@@ -149,14 +140,19 @@ export default function Home() {
                     {randomNewLearningProject.description}
                   </p>
                   {/* "view details" opens the project on show and is what this
-                      card is for, so it has the foot of the card to itself. */}
-                  <div className="mt-4">
+                      card is for, so it leads. The NYU route stacks underneath
+                      it — same left edge, a size down — so the order down the
+                      card is the order of importance. */}
+                  <div className="mt-4 flex flex-col items-start gap-3">
                     <Link
                       href={newLearningUrl}
                       {...(newLearningOpensNewTab ? { target: "_blank", rel: "noreferrer" } : {})}
                       className={heroPrimaryButtonStyle}
                     >
                       view details
+                    </Link>
+                    <Link href="/nyu" className={nyuButtonStyle}>
+                      Follow my NYU journey
                     </Link>
                   </div>
                 </div>
