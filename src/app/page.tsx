@@ -181,11 +181,12 @@ export default function Home() {
           staggerCycle={3}
         >
           <Reveal className={tileWrapperStyle}>
+            <h2 className="text-xl font-bold text-center capitalize">Read the full story</h2>
             <Card
               {...homeCardProps}
               title="About Arnab!"
               url="/about"
-              buttonText="Read the full story"
+              buttonText="go to about"
               imageUrl="/headshot.png"
               description="Welcome! Explore Arnab&#39;s world of design, with both real-world and conceptual projects."
               // Squares the tile off against the taller cards beside it in the
@@ -238,7 +239,7 @@ export default function Home() {
               {...homeCardProps}
               title="Comic of the day!"
               url="/tech/comic"
-              buttonText="Read Today's Comic"
+              buttonText="Read NOW!"
               description="Have fun reading some fun comics!! More Features to come!"
             >
               <ReadIcon height="100px" width="100px" />
