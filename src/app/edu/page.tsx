@@ -120,7 +120,7 @@ export default function EducationPage() {
           {/* The poem that opened the previous version of this page. */}
           <Reveal method="right" delay={140}>
             <div className="rounded-3xl border border-lotus-indigo/20 bg-white/70 p-6 shadow-xl backdrop-blur dark:border-lotus-paper/15 dark:bg-white/5">
-              <p className={eyebrowStyle}>Truth&apos;s Torch</p>
+              <p className={eyebrowStyle}>Truth&apos;s Torch &mdash; Dewey</p>
               <p className="mt-4 text-lg leading-9 text-lotus-ink/85 dark:text-lotus-paper/85">
                 {thesis.poem.map((line) => (
                   <span key={line} className="block">
