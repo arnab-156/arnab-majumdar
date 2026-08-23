@@ -170,7 +170,7 @@ export const audiences: Audience[] = [
   {
     id: "technology-education",
     label: "Technology education",
-    question: "What is STEM, once you stop treating it as an acronym?",
+    question: "What is STEAM, once you stop treating it as an acronym?",
     resources: [
       { label: "Textiles and apparel", status: "wip" },
       { label: "Arts", status: "wip" },
