@@ -2,65 +2,83 @@ import { headers } from 'next/headers';
 import Image from 'next/image';
 import Link from 'next/link';
 import { AnimationLayer, Reveal } from "./components/animation";
-import { Card } from "./components/card";
 import { HomeClickTracker } from "./components/home-click-tracker";
 import { ReadIcon } from "./components/icons";
 import styles from './hero.module.css';
 import { nyuProjects } from './nyu/projects-data';
-import { cardWrapperStyle, nycBackgroundTheme, tiffanyBackgroundTheme, heroPrimaryButtonStyle, heroOutlineButtonStyle } from './utility/stylevariables';
+import { cardWrapperStyle, heroPrimaryButtonStyle, heroOutlineButtonStyle } from './utility/stylevariables';
 
 // Grid cells are flex columns, so a card fills whatever height the row settles
 // on whether or not a heading sits above it.
 const tileWrapperStyle = `${cardWrapperStyle} flex flex-col`;
 
 /**
- * The paper tile the "Work with me" card introduced: indigo eyebrow, body copy,
- * an optional image, and an indigo primary button pinned to the bottom so rows
- * stay square. Used for the tiles that are an invitation rather than a project.
+ * The paper tile the "Work with me" card introduced, now the shape every
+ * homepage tile uses: optional indigo eyebrow, title, body, an optional piece
+ * of media that slides in from the right, and an indigo primary button pinned
+ * to the bottom so rows stay square.
+ *
+ * Headings stay outside the tile, in the grid cell above it, so the wall keeps
+ * the labels it already had.
  */
 const StudioTile = ({
   eyebrow,
   title,
   description,
+  children,
   imageUrl,
   imageAlt,
+  media,
   href,
   buttonText,
   openInNewTab = false,
   ariaLabel,
 }: {
-  eyebrow: string;
+  eyebrow?: string;
   title?: string;
-  description: string;
+  description?: string;
+  /** Richer body than a single paragraph — lists, several paragraphs. */
+  children?: React.ReactNode;
   imageUrl?: string;
   imageAlt?: string;
+  /** Anything that is not a photo, e.g. an icon, in the same animated slot. */
+  media?: React.ReactNode;
   href: string;
   buttonText: string;
   openInNewTab?: boolean;
   ariaLabel?: string;
 }) => (
   <div className="flex h-full flex-col rounded-2xl border border-lotus-indigo/15 bg-lotus-paper p-6 text-left shadow-md dark:border-lotus-paper/15 dark:bg-white/5">
-    <p className="text-xs uppercase tracking-[0.28em] text-lotus-indigo dark:text-lotus-paper/70">{eyebrow}</p>
+    {eyebrow && (
+      <p className="text-xs uppercase tracking-[0.28em] text-lotus-indigo dark:text-lotus-paper/70">{eyebrow}</p>
+    )}
     {title && (
       <h3 className="mt-2 font-nyu-ultra text-lg uppercase leading-tight text-lotus-ink dark:text-lotus-paper">
         {title}
       </h3>
     )}
-    <div className="mt-3 flex flex-1 flex-col gap-4">
-      <p className="text-lotus-ink/80 dark:text-lotus-paper/80">{description}</p>
+    <div className="mt-3 flex flex-1 flex-col gap-4 text-lotus-ink/80 dark:text-lotus-paper/80">
+      {description && <p>{description}</p>}
+      {children}
       {/* Enters from the right and settles on the left edge, level with the
           button below. Reveal handles reduced-motion and, on narrow screens,
           swaps the sideways entrance for one from below. */}
-      {imageUrl && (
+      {(imageUrl || media) && (
         <Reveal method="right" delay={120} className="flex justify-start">
-          <Image
-            src={imageUrl}
-            alt={imageAlt ?? ""}
-            width={120}
-            height={120}
-            className="rounded"
-            unoptimized
-          />
+          {imageUrl ? (
+            <Image
+              src={imageUrl}
+              alt={imageAlt ?? ""}
+              width={240}
+              height={240}
+              // Auto on both axes so photos keep their own aspect ratio; the
+              // cap is what keeps every tile's media the same visual weight.
+              className="h-auto max-h-32 w-auto rounded object-contain"
+              unoptimized
+            />
+          ) : (
+            media
+          )}
         </Reveal>
       )}
     </div>
@@ -108,12 +126,6 @@ const getHomepageUserLocation = (): string => {
 
 export default function Home() {
   const userLocation = getHomepageUserLocation();
-  const homeCardProps = {
-    useCtaButton: true,
-    // Squares every row off on desktop. Below lg the grid is a single column,
-    // where each cell is its own height and this changes nothing.
-    fillHeight: true,
-  };
   const newLearningProjects = nyuProjects
     .filter((project) => project.description && project.urls?.length)
     .filter((project) => !project.urls?.[0]?.url.includes("example.com"));
@@ -244,27 +256,21 @@ export default function Home() {
         >
           <Reveal className={tileWrapperStyle}>
             <h2 className="text-xl font-bold text-center capitalize">Read the full story</h2>
-            <Card
-              {...homeCardProps}
+            <StudioTile
               title="About Arnab!"
-              url="/about"
-              buttonText="go to about"
-              imageUrl="/headshot.png"
               description="Welcome! Explore Arnab&#39;s world of design, with both real-world and conceptual projects."
-              // Squares the tile off against the taller cards beside it in the
-              // first row; below lg the grid is one column and this is a no-op.
-              fillHeight
+              imageUrl="/headshot.png"
+              imageAlt="Portrait of Arnab Majumdar"
+              href="/about"
+              buttonText="go to about"
             />
           </Reveal>
 
-          {/* The one tile that asks for something, so it is built as a card
-              in the hero's palette rather than as a paragraph with a link
-              buried in it. The wayfinding line about social links moved out:
-              the nav and footer carry those already. */}
+          {/* The one tile that asks for something outright. */}
           <Reveal className={tileWrapperStyle}>
             <StudioTile
               eyebrow="Work with me"
-              description="If you are a small business, a retailer, or an educator who wants to use the latest technologies & practices, let's talk."
+              description="If you are a small business, a retailer, or an educator who wants to use the latest technologies & practices, let&#39;s talk."
               href="/help"
               ariaLabel="go to calendar to schedule a google meet"
               buttonText="Contact me"
@@ -272,75 +278,65 @@ export default function Home() {
           </Reveal>
 
           <Reveal className={tileWrapperStyle} id="aster">
-            <h2 className="text-xl font-bold text-center capitalize" >Made in US Collaboration:</h2>
-            <Card
-              {...homeCardProps}
+            <h2 className="text-xl font-bold text-center capitalize">Made in US Collaboration:</h2>
+            <StudioTile
               title="Aster for Lotus - Made in Rhode Island"
               description="Luxurious hand-crafted candle featuring exquisite watercolor artwork on a heavy whiskey-colored glass jar."
-              url="https://lotusmahal.com/products/aster-for-lotus"
+              imageUrl="https://lotusmahal.com/cdn/shop/files/DSCF2076_42f9aa66-c21a-4b76-a0db-88a679d0039e.jpg?v=1741617890&width=1646"
+              imageAlt="Aster for Lotus candle in a whiskey-coloured glass jar"
+              href="https://lotusmahal.com/products/aster-for-lotus"
               buttonText="See Product"
               openInNewTab
-              customClassName={`${cardWrapperStyle}`}
-              backgroundTheme={nycBackgroundTheme}
-              imageUrl='https://lotusmahal.com/cdn/shop/files/DSCF2076_42f9aa66-c21a-4b76-a0db-88a679d0039e.jpg?v=1741617890&width=1646'
             />
           </Reveal>
 
           <Reveal className={tileWrapperStyle}>
             <h2 className="text-xl font-bold text-center capitalize">Updated Daily!</h2>
-            <Card
-              {...homeCardProps}
+            <StudioTile
               title="Comic of the day!"
-              url="/tech/comic"
-              buttonText="Read NOW!"
               description="Have fun reading some fun comics!! More Features to come!"
-            >
-              <ReadIcon height="100px" width="100px" />
-            </Card>
+              media={<ReadIcon height="100px" width="100px" />}
+              href="/tech/comic"
+              buttonText="Read NOW!"
+            />
           </Reveal>
 
           <Reveal className={tileWrapperStyle} id="garden-of-swann">
             <h2 className="text-xl font-bold text-center capitalize">Stories of Courage</h2>
-            <Card
-              {...homeCardProps}
+            <StudioTile
               title="World Pride Garden of Swann Washington D.C."
               description="Click to learn more about Fashion + Activism of William Dorsey Swann"
-              url="/lotus/garden-of-swann"
-              customClassName={`${cardWrapperStyle}`}
-              imageUrl={`https://live.staticflickr.com/65535/55041103674_dd84ce4ce4_w.jpg`}
+              imageUrl="https://live.staticflickr.com/65535/55041103674_dd84ce4ce4_w.jpg"
+              imageAlt="World Pride Garden of Swann official event partner artwork"
+              href="/lotus/garden-of-swann"
+              buttonText="Learn More"
             />
           </Reveal>
 
           <Reveal className={tileWrapperStyle}>
             <h2 className="text-xl font-bold text-center capitalize">Expanding Retail Experiences:</h2>
-            <Card
-              {...homeCardProps}
+            <StudioTile
               title="Owner and CEO - Made of Chicago"
-              url="/moc"
-              imageUrl="https://live.staticflickr.com/65535/53808934296_8330a5b182_w.jpg"
-              backgroundTheme={``}
-              imageWidth={105}
               description="Click here to know more about the innovation, technology, and design."
+              imageUrl="https://live.staticflickr.com/65535/53808934296_8330a5b182_w.jpg"
+              imageAlt="Made of Chicago vending machine"
+              href="/moc"
+              buttonText="Learn More"
             />
           </Reveal>
 
           <Reveal className={tileWrapperStyle} id="cp">
             <h2 className="text-xl font-bold text-center capitalize">Project from New Orleans:</h2>
-            <Card
-              {...homeCardProps}
-              title="Commander's Palace Project"
-              url="/lotus#commanders"
-              backgroundTheme={tiffanyBackgroundTheme}
+            <StudioTile
+              title="Commander&#39;s Palace Project"
+              description="Developed a new website for Commander&#39;s Palace using Webflow CMS, event scheduling APIs, and agency-provided Figma designs."
+              href="/lotus#commanders"
+              buttonText="Learn More"
             >
-              <div>
-                <p className="text-wrap">
-                  Developed a new website for Commander&#039;s Palace using Webflow CMS, event scheduling APIs, and agency-provided Figma designs.
-                </p>
-                <ul className="list-disc list-inside">
-                  <li className="text-wrap">Distinct Mobile and Desktop Experience</li>
-                </ul>
-              </div>
-            </Card>
+              <ul className="list-disc list-inside">
+                <li>Distinct Mobile and Desktop Experience</li>
+              </ul>
+            </StudioTile>
           </Reveal>
 
           <Reveal className={tileWrapperStyle}>
@@ -356,70 +352,57 @@ export default function Home() {
           </Reveal>
 
           <Reveal className={tileWrapperStyle}>
-            <h2 className="text-xl font-bold text-center capitalize" >Click Book NOW! button to schedule a meeting.</h2>
-            <Card
-              {...homeCardProps}
+            <h2 className="text-xl font-bold text-center capitalize">Click Book NOW! button to schedule a meeting.</h2>
+            <StudioTile
               title="Building Bridges. Creating Momentum."
-              url="/help"
+              description="What I help with:"
+              href="/help"
               buttonText="Book NOW!"
-              backgroundTheme={nycBackgroundTheme}
             >
-              <div>
-                <p className="text-wrap">
-                  What I help with:
-                </p>
-                <ul className="list-disc grid grid-cols-1">
-                  <li className="hover:underline text-wrap justify-start">Strategic planning for small businesses and organizations</li>
-                  <li className="hover:underline justify-start">E-commerce strategy, UX, and product solutions</li>
-                  <li className="hover:underline justify-start">Manufacturing, sourcing, and operational alignment</li>
-                </ul>
-              </div>
-            </Card>
+              <ul className="list-disc list-inside space-y-1">
+                <li>Strategic planning for small businesses and organizations</li>
+                <li>E-commerce strategy, UX, and product solutions</li>
+                <li>Manufacturing, sourcing, and operational alignment</li>
+              </ul>
+            </StudioTile>
           </Reveal>
 
           <Reveal className={tileWrapperStyle}>
             <h2 className="text-xl font-bold text-center">Click learn more to view my experiences.</h2>
-            <Card
-              {...homeCardProps}
-              title="Turning ideas into outcomes. ✨"
-              url="/experiences"
-              backgroundTheme={nycBackgroundTheme}
+            <StudioTile
+              title="Turning ideas into outcomes. &#10024;"
+              description="What I help with:"
+              href="/experiences"
+              buttonText="Learn More"
             >
-              <div>
-                <p className="text-wrap">
-                  What I help with:
-                </p>
-                <ul className="list-disc grid grid-cols-1">
-                  <li className="text-wrap">Education: program review, strategic planning, and training</li>
-                  <li className="text-wrap">Student-led projects and career-ready initiatives</li>
-                  <li className="text-wrap">Community organizers and mission-driven programming</li>
-                </ul>
-              </div>
-
-            </Card>
+              <ul className="list-disc list-inside space-y-1">
+                <li>Education: program review, strategic planning, and training</li>
+                <li>Student-led projects and career-ready initiatives</li>
+                <li>Community organizers and mission-driven programming</li>
+              </ul>
+            </StudioTile>
           </Reveal>
 
           <Reveal className={tileWrapperStyle}>
             <h2 className="text-xl font-bold text-center capitalize">Thank you for your support! Please visit store</h2>
-            <Card
-              {...homeCardProps}
+            <StudioTile
               title="Made with Love, Free to Use"
-              openInNewTab
-              url="https://lotusmahal.com/"
-              buttonText="go to Lotus Mahal"
               description="All images and icons are carefully chosen to be either personal creations or royalty-free!"
               imageUrl="https://lotusmahal.com/cdn/shop/files/12815231453993207167_2048.jpg?v=1729536713&width=823"
-              imageAlt="Picture of a greeting card made by Lotus Mahal called Basant Raga where a women is singing in the calling of the spring"
+              imageAlt="Greeting card by Lotus Mahal called Basant Raga, a woman singing in the calling of the spring"
+              href="https://lotusmahal.com/"
+              buttonText="go to Lotus Mahal"
+              openInNewTab
             />
           </Reveal>
 
           <Reveal className={tileWrapperStyle}>
             <StudioTile
-              eyebrow="Résumé"
+              eyebrow="R&eacute;sum&eacute;"
               title="Download resume here"
               description="A PDF file will download."
               imageUrl="/cv.png"
-              imageAlt="First page of Arnab's resume"
+              imageAlt="First page of Arnab&#39;s resume"
               href="/resume"
               buttonText="Download NOW!"
               openInNewTab
