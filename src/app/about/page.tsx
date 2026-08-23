@@ -32,16 +32,22 @@ export default function About() {
           rootMargin="0px"
         >
           <Reveal method="left" className="space-y-4">
-            {/* Looser tracking than the other heroes' eyebrows: at 0.3em this
-                line is long enough to wrap into a block of its own. */}
-            <p className="uppercase tracking-[0.18em] text-xs text-purple-100">
-              Gallup CliftonStrengths &mdash; Input, Achiever, Ideation, Futuristic, Learner
+            <p className="uppercase tracking-[0.3em] text-sm text-purple-100">
+              Sustainability &amp; Retail Tech Leader
             </p>
             <h1 className="text-4xl md:text-5xl font-nyu-ultra leading-tight">About Arnab</h1>
-            <p className="text-lg md:text-xl text-purple-50 max-w-2xl">
-              Sustainability &amp; Retail Tech Leader &mdash; Omnichannel Commerce, Store Experience,
-              Accessibility (WCAG)
-            </p>
+
+            {/* Moved up from the foot of the essay, in place of the old lede.
+                Recoloured for the violet ground — the essay copy used
+                purple-700 on white, which would disappear here. */}
+            <aside className="border-l-2 border-purple-200/60 pl-6 py-1">
+              <p className="text-xs uppercase tracking-[0.3em] text-purple-100">
+                Gallup CliftonStrengths
+              </p>
+              <p className="mt-3 text-lg leading-8 text-purple-50">
+                Input, Achiever, Ideation, Futuristic, Learner.
+              </p>
+            </aside>
 
             {/* Button then underline link, as every NYU hero pairs them. The
                 LinkedIn link that used to sit here now lives in the
@@ -112,17 +118,8 @@ export default function About() {
             </p>
           </Reveal>
 
-          {/* "Focus areas" moved to the /experiences hero. */}
-          <Reveal>
-            <aside className="border-l-2 border-purple-700 dark:border-purple-400 pl-6 py-1">
-              <p className="text-xs uppercase tracking-[0.3em] text-purple-700 dark:text-purple-300">
-                Gallup CliftonStrengths
-              </p>
-              <p className="mt-3 text-lg leading-8 text-gray-900 dark:text-gray-50">
-                Input, Achiever, Ideation, Futuristic, Learner.
-              </p>
-            </aside>
-          </Reveal>
+          {/* "Focus areas" moved to the /experiences hero; the Gallup
+              strengths moved up into this page's own hero. */}
         </div>
       </section>
 
