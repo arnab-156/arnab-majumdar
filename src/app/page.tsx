@@ -139,7 +139,7 @@ export default function Home() {
                   {/* "view details" goes to the one project on show; the button
                       below goes to the whole journey, and repeats the /nyu route
                       the credential line already offers. */}
-                  <div className="mt-4 flex flex-col items-start gap-4">
+                  <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-3">
                     <Link
                       href={newLearningUrl}
                       {...(newLearningOpensNewTab ? { target: "_blank", rel: "noreferrer" } : {})}
