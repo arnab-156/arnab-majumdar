@@ -255,8 +255,8 @@ export default function Home() {
           staggerCycle={3}
         >
           <Reveal className={tileWrapperStyle}>
-            <h2 className="text-xl font-bold text-center capitalize">Read the full story</h2>
             <StudioTile
+              eyebrow="Read the full story"
               title="About Arnab!"
               description="Welcome! Explore Arnab&#39;s world of design, with both real-world and conceptual projects."
               imageUrl="/headshot.png"
@@ -278,8 +278,8 @@ export default function Home() {
           </Reveal>
 
           <Reveal className={tileWrapperStyle} id="aster">
-            <h2 className="text-xl font-bold text-center capitalize">Made in US Collaboration:</h2>
             <StudioTile
+              eyebrow="Made in US Collaboration:"
               title="Aster for Lotus - Made in Rhode Island"
               description="Luxurious hand-crafted candle featuring exquisite watercolor artwork on a heavy whiskey-colored glass jar."
               imageUrl="https://lotusmahal.com/cdn/shop/files/DSCF2076_42f9aa66-c21a-4b76-a0db-88a679d0039e.jpg?v=1741617890&width=1646"
@@ -291,8 +291,8 @@ export default function Home() {
           </Reveal>
 
           <Reveal className={tileWrapperStyle}>
-            <h2 className="text-xl font-bold text-center capitalize">Updated Daily!</h2>
             <StudioTile
+              eyebrow="Updated Daily!"
               title="Comic of the day!"
               description="Have fun reading some fun comics!! More Features to come!"
               media={<ReadIcon height="100px" width="100px" />}
@@ -302,8 +302,8 @@ export default function Home() {
           </Reveal>
 
           <Reveal className={tileWrapperStyle} id="garden-of-swann">
-            <h2 className="text-xl font-bold text-center capitalize">Stories of Courage</h2>
             <StudioTile
+              eyebrow="Stories of Courage"
               title="World Pride Garden of Swann Washington D.C."
               description="Click to learn more about Fashion + Activism of William Dorsey Swann"
               imageUrl="https://live.staticflickr.com/65535/55041103674_dd84ce4ce4_w.jpg"
@@ -314,8 +314,8 @@ export default function Home() {
           </Reveal>
 
           <Reveal className={tileWrapperStyle}>
-            <h2 className="text-xl font-bold text-center capitalize">Expanding Retail Experiences:</h2>
             <StudioTile
+              eyebrow="Expanding Retail Experiences:"
               title="Owner and CEO - Made of Chicago"
               description="Click here to know more about the innovation, technology, and design."
               imageUrl="https://live.staticflickr.com/65535/53808934296_8330a5b182_w.jpg"
@@ -326,8 +326,8 @@ export default function Home() {
           </Reveal>
 
           <Reveal className={tileWrapperStyle} id="cp">
-            <h2 className="text-xl font-bold text-center capitalize">Project from New Orleans:</h2>
             <StudioTile
+              eyebrow="Project from New Orleans:"
               title="Commander&#39;s Palace Project"
               description="Developed a new website for Commander&#39;s Palace using Webflow CMS, event scheduling APIs, and agency-provided Figma designs."
               href="/lotus#commanders"
@@ -352,8 +352,8 @@ export default function Home() {
           </Reveal>
 
           <Reveal className={tileWrapperStyle}>
-            <h2 className="text-xl font-bold text-center capitalize">Click Book NOW! button to schedule a meeting.</h2>
             <StudioTile
+              eyebrow="Click Book NOW! button to schedule a meeting."
               title="Building Bridges. Creating Momentum."
               description="What I help with:"
               href="/help"
@@ -368,8 +368,8 @@ export default function Home() {
           </Reveal>
 
           <Reveal className={tileWrapperStyle}>
-            <h2 className="text-xl font-bold text-center">Click learn more to view my experiences.</h2>
             <StudioTile
+              eyebrow="Click learn more to view my experiences."
               title="Turning ideas into outcomes. &#10024;"
               description="What I help with:"
               href="/experiences"
@@ -384,8 +384,8 @@ export default function Home() {
           </Reveal>
 
           <Reveal className={tileWrapperStyle}>
-            <h2 className="text-xl font-bold text-center capitalize">Thank you for your support! Please visit store</h2>
             <StudioTile
+              eyebrow="Thank you for your support! Please visit store"
               title="Made with Love, Free to Use"
               description="All images and icons are carefully chosen to be either personal creations or royalty-free!"
               imageUrl="https://lotusmahal.com/cdn/shop/files/12815231453993207167_2048.jpg?v=1729536713&width=823"
