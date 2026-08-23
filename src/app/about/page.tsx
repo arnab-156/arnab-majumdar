@@ -4,8 +4,9 @@ import { AnimationLayer, Reveal } from "../components/animation";
 import { ConnectPanel } from "../components/connect-panel";
 
 // One measure for the whole essay, so the prose reads as a column rather than
-// as tiles.
-const proseStyle = "text-lg leading-8 text-gray-700 dark:text-gray-200 font-nyu-thin";
+// as tiles. Every paragraph shares the opening paragraph's larger setting, so
+// the essay reads at one size from "I work at..." through to the last line.
+const proseStyle = "text-xl md:text-2xl leading-relaxed text-gray-900 dark:text-gray-50 font-nyu-thin";
 
 export default function About() {
   return (
@@ -79,7 +80,7 @@ export default function About() {
       <section className="w-full px-6 md:px-12 py-16 text-left">
         <div className="mx-auto max-w-2xl space-y-8">
           <Reveal>
-            <p className="text-xl md:text-2xl leading-relaxed text-gray-900 dark:text-gray-50 font-nyu-thin">
+            <p className={proseStyle}>
               I work at the intersection of fashion, technology, and sustainability. My career started in
               factories and retail, launching private labels and new stores for one of India&rsquo;s largest
               retailers, and has evolved into building accessible, high-performing digital experiences for
