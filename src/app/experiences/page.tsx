@@ -6,7 +6,6 @@ import {
   cardWrapperStyle,
   nycBackgroundTheme,
   heroPrimaryButtonStyle,
-  heroOutlineButtonStyle,
 } from "../utility/stylevariables";
 import { AnimationLayer, Reveal } from "../components/animation";
 import styles from "../hero.module.css";
@@ -58,13 +57,34 @@ export default function ExperiencesPage() {
               </p>
             </aside>
 
-            <div className="flex flex-wrap items-center gap-4">
-              <Link href="/experiences/achievements" className={heroPrimaryButtonStyle}>
-                See all my achievements
-              </Link>
-              <Link href="/" className={heroOutlineButtonStyle}>
-                Go back to home
-              </Link>
+            <div className="space-y-4">
+              <div className="flex flex-wrap items-center gap-4">
+                <Link href="/experiences/achievements" className={heroPrimaryButtonStyle}>
+                  See all my achievements
+                </Link>
+                {/* A plain underlined link, as on /about and /lotus, rather than
+                    a second button competing with the achievements CTA. Indigo
+                    rather than /about's purple-100, which is tuned for that
+                    page's violet hero and would vanish on paper. */}
+                <Link href="/" className="underline underline-offset-4 text-lotus-indigo dark:text-lotus-paper/80">
+                  go back to home
+                </Link>
+              </div>
+
+              {/* Jumps to the Education heading further down this same page.
+                  Styled as the homepage hero's credential links are — madder
+                  rule, ink at 70%, indigo underline on hover. The size and
+                  colour sit on the link here rather than on a parent row,
+                  since this one stands alone. */}
+              <div>
+                <Link
+                  href="#my-education"
+                  className="group inline-flex items-center gap-2 text-sm text-lotus-ink/70 hover:text-lotus-indigo dark:text-lotus-paper/70 dark:hover:text-lotus-paper"
+                >
+                  <span className="h-px w-5 bg-lotus-madder" aria-hidden />
+                  <span className="group-hover:underline">See my education</span>
+                </Link>
+              </div>
             </div>
           </Reveal>
 
@@ -254,7 +274,9 @@ export default function ExperiencesPage() {
             />
           </Reveal>
 
-          <h2 id="my-education" className="text-3xl font-bold text-center mt-8 font-nyu-ultra">Education</h2>
+          {/* scroll-mt keeps this clear of the fixed nav when the hero's
+              "See my education" button jumps to it. */}
+          <h2 id="my-education" className="scroll-mt-24 text-3xl font-bold text-center mt-8 font-nyu-ultra">Education</h2>
           <Reveal className={cardWrapperStyle}>
             <Card
               {...experienceCardProps}
