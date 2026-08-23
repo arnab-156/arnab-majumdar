@@ -39,9 +39,18 @@ export default function About() {
               Accessibility (WCAG)
             </p>
 
-            {/* The LinkedIn link that used to sit here now lives in the
+            {/* Button then underline link, as every NYU hero pairs them. The
+                LinkedIn link that used to sit here now lives in the
                 ConnectPanel opposite, so it is not offered twice in one hero. */}
             <Reveal method="left" delay={220} className="flex flex-wrap items-center gap-4 pt-2">
+              {/* Outline in the hero's own palette — lotus-indigo would be
+                  unreadable on this violet ground. */}
+              <Link
+                href="/experiences"
+                className="inline-flex items-center rounded-xl border border-white/40 px-5 py-3 text-sm font-semibold text-white transition hover:-translate-y-[2px] hover:border-white/70 hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/60"
+              >
+                See experiences
+              </Link>
               <Link href="/" className="underline text-purple-100">
                 go back to home
               </Link>
@@ -52,16 +61,6 @@ export default function About() {
               LinkedIn route look identical on both pages. */}
           <Reveal method="right" delay={140} className="relative">
             <ConnectPanel />
-
-            {/* Kept from the tile this replaced — otherwise /about loses its
-                route to /experiences again. Outline in the hero's own palette,
-                since lotus-indigo would be unreadable on this violet ground. */}
-            <Link
-              href="/experiences"
-              className="mt-4 inline-flex w-full items-center justify-center rounded-xl border border-white/40 px-5 py-3 text-sm font-semibold text-white transition hover:-translate-y-[2px] hover:border-white/70 hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/60"
-            >
-              See experiences
-            </Link>
           </Reveal>
         </AnimationLayer>
       </section>
