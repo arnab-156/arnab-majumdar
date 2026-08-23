@@ -9,10 +9,15 @@ import styles from './home.module.css';
 import { nyuProjects } from './nyu/projects-data';
 import { cardWrapperStyle, nycBackgroundTheme, buttonStyle, tiffanyBackgroundTheme } from './utility/stylevariables';
 
-// Outline button, shared by the hero's secondary action and the New Learnings
-// panel's route to /nyu, so the two cannot drift apart.
+// The hero's secondary action.
 const outlineButtonStyle =
   "inline-flex items-center rounded-xl border border-lotus-indigo/30 px-5 py-3 text-sm font-semibold text-lotus-indigo transition hover:-translate-y-[2px] hover:border-lotus-indigo/60 dark:border-lotus-paper/25 dark:text-lotus-paper";
+
+// The route into the NYU journey, in NYU's own violet rather than the studio
+// palette — #57068c is the same brand violet the course tiles on /nyu use.
+// Same geometry as the buttons above it, so only the colour sets it apart.
+const nyuButtonStyle =
+  "inline-flex items-center rounded-xl bg-[#57068c] px-5 py-3 text-sm font-semibold text-white shadow-lg transition hover:-translate-y-[2px] hover:bg-[#2e0068] focus:outline-none focus:ring-2 focus:ring-[#57068c] focus:ring-offset-2";
 
 const decodeHeaderValue = (headerValue: string | null): string => {
   if (!headerValue) {
@@ -147,7 +152,7 @@ export default function Home() {
                     >
                       view details
                     </Link>
-                    <Link href="/nyu" className={outlineButtonStyle}>
+                    <Link href="/nyu" className={nyuButtonStyle}>
                       Follow my NYU journey
                     </Link>
                   </div>
