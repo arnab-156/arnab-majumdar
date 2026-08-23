@@ -1,9 +1,7 @@
-import Image from "next/image";
 import Link from "next/link";
 
 import { AnimationLayer, Reveal } from "../components/animation";
-
-const urlImageDefault = "/headshot.png"
+import { ConnectPanel } from "../components/connect-panel";
 
 // One measure for the whole essay, so the prose reads as a column rather than
 // as tiles.
@@ -41,48 +39,29 @@ export default function About() {
               Accessibility (WCAG)
             </p>
 
+            {/* The LinkedIn link that used to sit here now lives in the
+                ConnectPanel opposite, so it is not offered twice in one hero. */}
             <Reveal method="left" delay={220} className="flex flex-wrap items-center gap-4 pt-2">
-              <Link
-                href="https://www.linkedin.com/in/arnab156/"
-                target="_blank"
-                rel="noreferrer"
-                className="group inline-flex items-center gap-3 rounded-xl bg-white/10 px-4 py-3 text-sm font-semibold shadow-lg ring-1 ring-white/30 transition hover:translate-y-[-2px] hover:bg-white/20"
-              >
-                <span className="relative flex h-12 w-12 items-center justify-center overflow-hidden rounded-lg bg-white/80">
-                  <Image src="/linkedin.svg" alt="" fill className="object-contain p-2" aria-hidden />
-                </span>
-                <span>
-                  Click to go to LinkedIn!
-                  <span className="block text-xs text-purple-100 group-hover:underline">Opens in new tab</span>
-                </span>
-              </Link>
               <Link href="/" className="underline text-purple-100">
                 go back to home
               </Link>
             </Reveal>
           </Reveal>
 
+          {/* The same tile /experiences carries, so the portrait and the
+              LinkedIn route look identical on both pages. */}
           <Reveal method="right" delay={140} className="relative">
-            <div className="rounded-3xl bg-white/10 p-4 backdrop-blur shadow-2xl border border-white/20">
-              <div className="relative aspect-square w-full overflow-hidden rounded-2xl bg-white/10">
-                <Image
-                  src={urlImageDefault}
-                  alt="Portrait of Arnab Majumdar"
-                  fill
-                  sizes="(max-width: 768px) 90vw, 320px"
-                  className="object-cover"
-                />
-              </div>
+            <ConnectPanel />
 
-              {/* Outline treatment in the hero's own palette — the shared
-                  indigo one would be unreadable on this violet ground. */}
-              <Link
-                href="/experiences"
-                className="mt-4 inline-flex w-full items-center justify-center rounded-xl border border-white/40 px-5 py-3 text-sm font-semibold text-white transition hover:-translate-y-[2px] hover:border-white/70 hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/60"
-              >
-                See experiences
-              </Link>
-            </div>
+            {/* Kept from the tile this replaced — otherwise /about loses its
+                route to /experiences again. Outline in the hero's own palette,
+                since lotus-indigo would be unreadable on this violet ground. */}
+            <Link
+              href="/experiences"
+              className="mt-4 inline-flex w-full items-center justify-center rounded-xl border border-white/40 px-5 py-3 text-sm font-semibold text-white transition hover:-translate-y-[2px] hover:border-white/70 hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/60"
+            >
+              See experiences
+            </Link>
           </Reveal>
         </AnimationLayer>
       </section>
