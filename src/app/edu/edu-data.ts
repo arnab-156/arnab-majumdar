@@ -138,6 +138,36 @@ export const audiences: Audience[] = [
     ],
   },
   {
+    id: "jobs-career-roi",
+    label: "Jobs, career and ROI",
+    question: "Does this pay off, and what does it actually lead to?",
+    resources: [
+      { label: "Does the degree pay for itself?", status: "wip", note: "Payback period, not just starting salary." },
+      { label: "Debt measured against first-year earnings", status: "wip" },
+      { label: "Earnings by field, and what the averages hide", status: "wip" },
+      { label: "Certification versus degree", status: "wip", note: "When the shorter route is the better one." },
+      { label: "Internships and the first job", status: "wip" },
+      { label: "Portfolios, interviews, and what employers actually read", status: "wip" },
+      { label: "Changing career in the middle of one", status: "wip" },
+      { label: "Upskilling without starting over", status: "soon" },
+      {
+        label: "A career across four industries",
+        href: "/experiences",
+        note: "Fashion, retail, technology and education \u2014 and the moves between them.",
+      },
+      {
+        label: "A r\u00e9sum\u00e9 to work from",
+        href: "/resume",
+        note: "Downloads a PDF.",
+      },
+      {
+        label: "Talk a decision through",
+        href: "/help",
+        note: "Useful when the numbers alone do not settle it.",
+      },
+    ],
+  },
+  {
     id: "technology-education",
     label: "Technology education",
     question: "What is STEM, once you stop treating it as an acronym?",
