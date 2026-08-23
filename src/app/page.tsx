@@ -13,6 +13,65 @@ import { cardWrapperStyle, nycBackgroundTheme, tiffanyBackgroundTheme, heroPrima
 // on whether or not a heading sits above it.
 const tileWrapperStyle = `${cardWrapperStyle} flex flex-col`;
 
+/**
+ * The paper tile the "Work with me" card introduced: indigo eyebrow, body copy,
+ * an optional image, and an indigo primary button pinned to the bottom so rows
+ * stay square. Used for the tiles that are an invitation rather than a project.
+ */
+const StudioTile = ({
+  eyebrow,
+  title,
+  description,
+  imageUrl,
+  imageAlt,
+  href,
+  buttonText,
+  openInNewTab = false,
+  ariaLabel,
+}: {
+  eyebrow: string;
+  title?: string;
+  description: string;
+  imageUrl?: string;
+  imageAlt?: string;
+  href: string;
+  buttonText: string;
+  openInNewTab?: boolean;
+  ariaLabel?: string;
+}) => (
+  <div className="flex h-full flex-col rounded-2xl border border-lotus-indigo/15 bg-lotus-paper p-6 text-left shadow-md dark:border-lotus-paper/15 dark:bg-white/5">
+    <p className="text-xs uppercase tracking-[0.28em] text-lotus-indigo dark:text-lotus-paper/70">{eyebrow}</p>
+    {title && (
+      <h3 className="mt-2 font-nyu-ultra text-lg uppercase leading-tight text-lotus-ink dark:text-lotus-paper">
+        {title}
+      </h3>
+    )}
+    <div className="mt-3 flex flex-1 flex-col gap-4">
+      <p className="text-lotus-ink/80 dark:text-lotus-paper/80">{description}</p>
+      {imageUrl && (
+        <div className="flex justify-center">
+          <Image
+            src={imageUrl}
+            alt={imageAlt ?? ""}
+            width={120}
+            height={120}
+            className="rounded"
+            unoptimized
+          />
+        </div>
+      )}
+    </div>
+    <Link
+      href={href}
+      {...(openInNewTab ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+      {...(ariaLabel ? { "aria-label": ariaLabel } : {})}
+      className={`${heroPrimaryButtonStyle} mt-5 self-start`}
+    >
+      {buttonText}
+    </Link>
+  </div>
+);
+
 // The route into the NYU journey, in NYU's own violet rather than the studio
 // palette — #57068c is the same brand violet the course tiles on /nyu use.
 // Deliberately a size down from the panel's primary action: this is the
@@ -200,22 +259,13 @@ export default function Home() {
               buried in it. The wayfinding line about social links moved out:
               the nav and footer carry those already. */}
           <Reveal className={tileWrapperStyle}>
-            <div className="flex h-full flex-col rounded-2xl border border-lotus-indigo/15 bg-lotus-paper p-6 text-left shadow-md dark:border-lotus-paper/15 dark:bg-white/5">
-              <p className="text-xs uppercase tracking-[0.28em] text-lotus-indigo dark:text-lotus-paper/70">
-                Work with me
-              </p>
-              <p className="mt-3 flex-1 text-lotus-ink/80 dark:text-lotus-paper/80">
-                If you are a small business, a retailer, or an educator who wants to use the latest
-                technologies &amp; practices, let&apos;s talk.
-              </p>
-              <Link
-                href="/help"
-                aria-label="go to calendar to schedule a google meet"
-                className={`${heroPrimaryButtonStyle} mt-5 self-start`}
-              >
-                Contact me
-              </Link>
-            </div>
+            <StudioTile
+              eyebrow="Work with me"
+              description="If you are a small business, a retailer, or an educator who wants to use the latest technologies & practices, let's talk."
+              href="/help"
+              ariaLabel="go to calendar to schedule a google meet"
+              buttonText="Contact me"
+            />
           </Reveal>
 
           <Reveal className={tileWrapperStyle} id="aster">
@@ -291,13 +341,14 @@ export default function Home() {
           </Reveal>
 
           <Reveal className={tileWrapperStyle}>
-            <Card
-              {...homeCardProps}
-              title="Free Trivia for you to enjoy on the go!"
-              url="/games/quiz"
-              buttonText="Play NOW!"
+            <StudioTile
+              eyebrow="Free to play"
+              title="Free trivia for you to enjoy on the go!"
+              description="Version 1 is live. Version 2 coming soon."
               imageUrl="/quiz.png"
-              description="Version 1 is live! Version 2 coming soon!"
+              imageAlt="Trivia game artwork"
+              href="/games/quiz"
+              buttonText="Play NOW!"
             />
           </Reveal>
 
@@ -360,25 +411,27 @@ export default function Home() {
           </Reveal>
 
           <Reveal className={tileWrapperStyle}>
-            <Card
-              {...homeCardProps}
-              title="Download Resume Here"
-              openInNewTab
-              url="/resume"
-              buttonText="Download NOW!"
+            <StudioTile
+              eyebrow="Résumé"
+              title="Download resume here"
               description="A PDF file will download."
-              backgroundTheme={nycBackgroundTheme}
-              imageUrl='/cv.png'
+              imageUrl="/cv.png"
+              imageAlt="First page of Arnab's resume"
+              href="/resume"
+              buttonText="Download NOW!"
+              openInNewTab
             />
           </Reveal>
 
           <Reveal className={tileWrapperStyle}>
-            <Card
-              {...homeCardProps}
-              title="Tic Tac Toe game for you to enjoy on the go!"
-              url="/games/tic-tac-toe"
+            <StudioTile
+              eyebrow="Free to play"
+              title="Tic Tac Toe for you to enjoy on the go!"
+              description="A simple Tic Tac Toe game for when you are bored."
               imageUrl="/tic-tac-toe.gif"
-              description="Simple Tik Tac Toe Game for when you are bored."
+              imageAlt="Tic Tac Toe board"
+              href="/games/tic-tac-toe"
+              buttonText="Play NOW!"
             />
           </Reveal>
 
