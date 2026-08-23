@@ -9,3 +9,9 @@ export const buttonStyle = "text-white p-1 m-2 transition ease-in-out delay-150 
 export const roundButtonStyle = "inline-flex h-0 group-hover:h-10 group-hover:lg:h-auto min-w-10 px-2 items-center justify-center text-white m-2 border text-transparent border-transparent bg-transparent hover:bg-transparent shadow-md transition ease-in-out delay-[600ms] hover:-translate-y-1 hover:scale-110 duration-500 rounded-full lg:h-auto lg:min-w-0 lg:px-3 lg:py-1 lg:rounded-md lg:shadow-none";
 export const roundedBtnStyle = "text-white shadow-md transition ease-in-out delay-150 bg-purple-600/75 hover:-translate-y-1 hover:scale-110 hover:bg-purple-900 duration-300 hover:text-lg rounded-full"
 export const invertedButtonStyle = "p-1 m-2 transition ease-in-out delay-150 bg-purple-800 text-white hover:-translate-y-1 hover:scale-110 hover:bg-purple-400/75 duration-300 hover:text-lg rounded-md hover:text-black";
+
+// Hero buttons in the Lotus Mahal palette, shared by the homepage and
+// /experiences heroes so the two stay in step. Same geometry, different weight:
+// filled indigo for the primary action, an outline for the one beside it.
+export const heroPrimaryButtonStyle = "inline-flex items-center rounded-xl bg-lotus-indigo px-5 py-3 text-sm font-semibold text-lotus-paper shadow-lg transition hover:-translate-y-[2px] hover:bg-lotus-ink focus:outline-none focus:ring-2 focus:ring-lotus-indigo focus:ring-offset-2";
+export const heroOutlineButtonStyle = "inline-flex items-center rounded-xl border border-lotus-indigo/30 px-5 py-3 text-sm font-semibold text-lotus-indigo transition hover:-translate-y-[2px] hover:border-lotus-indigo/60 dark:border-lotus-paper/25 dark:text-lotus-paper";

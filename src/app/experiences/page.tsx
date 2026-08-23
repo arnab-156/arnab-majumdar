@@ -1,7 +1,14 @@
 import Link from "next/link";
 import { Card } from "../components/card";
-import { buttonStyle, cardWrapperStyle, nycBackgroundTheme } from "../utility/stylevariables";
+import {
+  buttonStyle,
+  cardWrapperStyle,
+  nycBackgroundTheme,
+  heroPrimaryButtonStyle,
+  heroOutlineButtonStyle,
+} from "../utility/stylevariables";
 import { AnimationLayer, Reveal } from "../components/animation";
+import styles from "../hero.module.css";
 
 export default function ExperiencesPage() {
   const experienceCardProps = {
@@ -11,24 +18,42 @@ export default function ExperiencesPage() {
   return (
     <AnimationLayer
       as="main"
-      className="flex min-h-screen flex-col items-center justify-between pt-20 overflow-x-clip"
+      className="flex min-h-screen flex-col items-center justify-between overflow-x-clip"
       method="rise"
       distance={44}
       duration={760}
       threshold={0.12}
       rootMargin="0px 0px -12% 0px"
     >
-      <div className="mb-32 grid text-center lg:w-half lg:max-w-5xl lg:grid-cols-3 lg:text-left">
-        <Reveal className="lg:col-span-3 flex flex-col items-center gap-4">
-          <h1 className="text-3xl font-bold text-center mt-8 font-nyu-ultra">Experiences</h1>
-          <Link href="/experiences/achievements" className={buttonStyle}>
-            See all achievements
-          </Link>
-          <div className="pb-6">
-            <Link href="/" className="hover:underline text-purple-800">go back to home</Link>
-          </div>
-        </Reveal>
+      {/* HERO */}
+      <section className="relative w-full overflow-hidden bg-lotus-paper text-lotus-ink dark:bg-[#101114] dark:text-lotus-paper py-16 px-6 md:px-12">
+        <div className={`${styles.heroAurora} pointer-events-none absolute inset-0`} aria-hidden />
+        <div className={`${styles.ruleGrid} pointer-events-none absolute inset-0 opacity-60`} aria-hidden />
 
+        <AnimationLayer
+          as="div"
+          className="relative mx-auto max-w-6xl text-left"
+          method="alternate"
+          distance={48}
+          threshold={0}
+          rootMargin="0px"
+        >
+          <Reveal method="left" className="space-y-6">
+            <h1 className="text-4xl md:text-5xl font-nyu-ultra leading-tight">Experiences</h1>
+
+            <div className="flex flex-wrap items-center gap-4">
+              <Link href="/experiences/achievements" className={heroPrimaryButtonStyle}>
+                See all my achievements
+              </Link>
+              <Link href="/" className={heroOutlineButtonStyle}>
+                Go back to home
+              </Link>
+            </div>
+          </Reveal>
+        </AnimationLayer>
+      </section>
+
+      <div className="mb-32 mt-12 grid text-center lg:w-half lg:max-w-5xl lg:grid-cols-3 lg:text-left">
         <AnimationLayer method="rise" distance={44} stagger={90} staggerCycle={3}>
 
           <Reveal className={cardWrapperStyle}>
