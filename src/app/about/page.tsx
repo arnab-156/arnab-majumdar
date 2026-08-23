@@ -2,6 +2,8 @@ import Link from "next/link";
 
 import { AnimationLayer, Reveal } from "../components/animation";
 import { ConnectPanel } from "../components/connect-panel";
+import { heroOutlineButtonStyle } from "../utility/stylevariables";
+import styles from "../hero.module.css";
 
 // One measure for the whole essay, so the prose reads as a column rather than
 // as tiles. Every paragraph shares the opening paragraph's larger setting, so
@@ -20,9 +22,9 @@ export default function About() {
       rootMargin="0px 0px -12% 0px"
     >
       {/* HERO */}
-      <section className="relative w-full overflow-hidden bg-gradient-to-br from-[#2e0068] via-[#5a1dab] to-[#b373ff] text-white py-16 px-6 md:px-12">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.12),transparent_35%)]" aria-hidden />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_0%,rgba(255,255,255,0.08),transparent_30%)]" aria-hidden />
+      <section className="relative w-full overflow-hidden bg-lotus-paper text-lotus-ink dark:bg-[#101114] dark:text-lotus-paper py-16 px-6 md:px-12">
+        <div className={`${styles.heroAurora} pointer-events-none absolute inset-0`} aria-hidden />
+        <div className={`${styles.ruleGrid} pointer-events-none absolute inset-0 opacity-60`} aria-hidden />
 
         <AnimationLayer
           as="div"
@@ -33,38 +35,47 @@ export default function About() {
           rootMargin="0px"
         >
           <Reveal method="left" className="space-y-4">
-            <p className="uppercase tracking-[0.3em] text-sm text-purple-100">
+            <p className="uppercase tracking-[0.3em] text-sm text-lotus-indigo dark:text-lotus-paper/70">
               Sustainability &amp; Retail Tech Leader
             </p>
             <h1 className="text-4xl md:text-5xl font-nyu-ultra leading-tight">About Arnab</h1>
 
             {/* Moved up from the foot of the essay, in place of the old lede.
-                Recoloured for the violet ground — the essay copy used
-                purple-700 on white, which would disappear here. */}
-            <aside className="border-l-2 border-purple-200/60 pl-6 py-1">
-              <p className="text-xs uppercase tracking-[0.3em] text-purple-100">
+                Same treatment /experiences gives its "Focus areas" block:
+                indigo label, madder rule. */}
+            <aside className="border-l-2 border-lotus-madder pl-6 py-1">
+              <p className="text-xs uppercase tracking-[0.3em] text-lotus-indigo dark:text-lotus-paper/70">
                 Gallup CliftonStrengths
               </p>
-              <p className="mt-3 text-lg leading-8 text-purple-50">
+              <p className="mt-3 text-lg leading-8 text-lotus-ink/85 dark:text-lotus-paper/85">
                 Input, Achiever, Ideation, Futuristic, Learner.
               </p>
             </aside>
 
-            {/* Button then underline link, as every NYU hero pairs them. The
+            {/* Button then underline link, as every hero here pairs them. The
                 LinkedIn link that used to sit here now lives in the
                 ConnectPanel opposite, so it is not offered twice in one hero. */}
-            <Reveal method="left" delay={220} className="flex flex-wrap items-center gap-4 pt-2">
-              {/* Outline in the hero's own palette — lotus-indigo would be
-                  unreadable on this violet ground. */}
-              <Link
-                href="/experiences"
-                className="inline-flex items-center rounded-xl border border-white/40 px-5 py-3 text-sm font-semibold text-white transition hover:-translate-y-[2px] hover:border-white/70 hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/60"
-              >
-                See experiences
-              </Link>
-              <Link href="/" className="underline text-purple-100">
-                go back to home
-              </Link>
+            <Reveal method="left" delay={220} className="space-y-4 pt-2">
+              <div className="flex flex-wrap items-center gap-4">
+                <Link href="/experiences" className={heroOutlineButtonStyle}>
+                  See experiences
+                </Link>
+                <Link href="/" className="underline underline-offset-4 text-lotus-indigo dark:text-lotus-paper/80">
+                  go back to home
+                </Link>
+              </div>
+
+              {/* The education section lives on /experiences, so this reaches
+                  across to its anchor. Styled as the same link is there. */}
+              <div>
+                <Link
+                  href="/experiences#my-education"
+                  className="group inline-flex items-center gap-2 text-sm text-lotus-ink/70 hover:text-lotus-indigo dark:text-lotus-paper/70 dark:hover:text-lotus-paper"
+                >
+                  <span className="h-px w-5 bg-lotus-madder" aria-hidden />
+                  <span className="group-hover:underline">See my education</span>
+                </Link>
+              </div>
             </Reveal>
           </Reveal>
 
