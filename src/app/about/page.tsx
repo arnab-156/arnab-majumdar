@@ -2,7 +2,7 @@ import Link from "next/link";
 
 import { AnimationLayer, Reveal } from "../components/animation";
 import { ConnectPanel } from "../components/connect-panel";
-import { heroOutlineButtonStyle } from "../utility/stylevariables";
+import { heroPrimaryButtonStyle } from "../utility/stylevariables";
 import styles from "../hero.module.css";
 
 // One measure for the whole essay, so the prose reads as a column rather than
@@ -57,7 +57,7 @@ export default function About() {
                 ConnectPanel opposite, so it is not offered twice in one hero. */}
             <Reveal method="left" delay={220} className="space-y-4 pt-2">
               <div className="flex flex-wrap items-center gap-4">
-                <Link href="/experiences" className={heroOutlineButtonStyle}>
+                <Link href="/experiences" className={heroPrimaryButtonStyle}>
                   See experiences
                 </Link>
                 <Link href="/" className="underline underline-offset-4 text-lotus-indigo dark:text-lotus-paper/80">
