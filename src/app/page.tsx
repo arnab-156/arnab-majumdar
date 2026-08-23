@@ -9,6 +9,10 @@ import styles from './hero.module.css';
 import { nyuProjects } from './nyu/projects-data';
 import { cardWrapperStyle, nycBackgroundTheme, tiffanyBackgroundTheme, heroPrimaryButtonStyle, heroOutlineButtonStyle } from './utility/stylevariables';
 
+// Grid cells are flex columns, so a card fills whatever height the row settles
+// on whether or not a heading sits above it.
+const tileWrapperStyle = `${cardWrapperStyle} flex flex-col`;
+
 // The route into the NYU journey, in NYU's own violet rather than the studio
 // palette — #57068c is the same brand violet the course tiles on /nyu use.
 // Deliberately a size down from the panel's primary action: this is the
@@ -44,6 +48,9 @@ export default function Home() {
   const userLocation = getHomepageUserLocation();
   const homeCardProps = {
     useCtaButton: true,
+    // Squares every row off on desktop. Below lg the grid is a single column,
+    // where each cell is its own height and this changes nothing.
+    fillHeight: true,
   };
   const newLearningProjects = nyuProjects
     .filter((project) => project.description && project.urls?.length)
@@ -173,13 +180,16 @@ export default function Home() {
           stagger={90}
           staggerCycle={3}
         >
-          <Reveal className={cardWrapperStyle}>
+          <Reveal className={tileWrapperStyle}>
             <Card
               {...homeCardProps}
               title="About Arnab!"
               url="/about"
               imageUrl="/headshot.png"
               description="Welcome! Explore Arnab&#39;s world of design, with both real-world and conceptual projects."
+              // Squares the tile off against the taller cards beside it in the
+              // first row; below lg the grid is one column and this is a no-op.
+              fillHeight
             />
           </Reveal>
 
@@ -187,7 +197,7 @@ export default function Home() {
               in the hero's palette rather than as a paragraph with a link
               buried in it. The wayfinding line about social links moved out:
               the nav and footer carry those already. */}
-          <Reveal className={cardWrapperStyle}>
+          <Reveal className={tileWrapperStyle}>
             <div className="flex h-full flex-col rounded-2xl border border-lotus-indigo/15 bg-lotus-paper p-6 text-left shadow-md dark:border-lotus-paper/15 dark:bg-white/5">
               <p className="text-xs uppercase tracking-[0.28em] text-lotus-indigo dark:text-lotus-paper/70">
                 Work with me
@@ -206,7 +216,7 @@ export default function Home() {
             </div>
           </Reveal>
 
-          <Reveal className={cardWrapperStyle} id="aster">
+          <Reveal className={tileWrapperStyle} id="aster">
             <h2 className="text-xl font-bold text-center capitalize" >Made in US Collaboration:</h2>
             <Card
               {...homeCardProps}
@@ -221,7 +231,7 @@ export default function Home() {
             />
           </Reveal>
 
-          <Reveal className={cardWrapperStyle}>
+          <Reveal className={tileWrapperStyle}>
             <h2 className="text-xl font-bold text-center capitalize">Updated Daily!</h2>
             <Card
               {...homeCardProps}
@@ -234,7 +244,7 @@ export default function Home() {
             </Card>
           </Reveal>
 
-          <Reveal className={cardWrapperStyle} id="garden-of-swann">
+          <Reveal className={tileWrapperStyle} id="garden-of-swann">
             <h2 className="text-xl font-bold text-center capitalize">Stories of Courage</h2>
             <Card
               {...homeCardProps}
@@ -246,7 +256,7 @@ export default function Home() {
             />
           </Reveal>
 
-          <Reveal className={cardWrapperStyle}>
+          <Reveal className={tileWrapperStyle}>
             <h2 className="text-xl font-bold text-center capitalize">Expanding Retail Experiences:</h2>
             <Card
               {...homeCardProps}
@@ -259,7 +269,7 @@ export default function Home() {
             />
           </Reveal>
 
-          <Reveal className={cardWrapperStyle} id="cp">
+          <Reveal className={tileWrapperStyle} id="cp">
             <h2 className="text-xl font-bold text-center capitalize">Project from New Orleans:</h2>
             <Card
               {...homeCardProps}
@@ -278,7 +288,7 @@ export default function Home() {
             </Card>
           </Reveal>
 
-          <Reveal className={cardWrapperStyle}>
+          <Reveal className={tileWrapperStyle}>
             <Card
               {...homeCardProps}
               title="Free Trivia for you to enjoy on the go!"
@@ -289,7 +299,7 @@ export default function Home() {
             />
           </Reveal>
 
-          <Reveal className={cardWrapperStyle}>
+          <Reveal className={tileWrapperStyle}>
             <h2 className="text-xl font-bold text-center capitalize" >Click Book NOW! button to schedule a meeting.</h2>
             <Card
               {...homeCardProps}
@@ -311,7 +321,7 @@ export default function Home() {
             </Card>
           </Reveal>
 
-          <Reveal className={cardWrapperStyle}>
+          <Reveal className={tileWrapperStyle}>
             <h2 className="text-xl font-bold text-center">Click learn more to view my experiences.</h2>
             <Card
               {...homeCardProps}
@@ -333,7 +343,7 @@ export default function Home() {
             </Card>
           </Reveal>
 
-          <Reveal className={cardWrapperStyle}>
+          <Reveal className={tileWrapperStyle}>
             <h2 className="text-xl font-bold text-center capitalize">Thank you for your support! Please visit store</h2>
             <Card
               {...homeCardProps}
@@ -347,7 +357,7 @@ export default function Home() {
             />
           </Reveal>
 
-          <Reveal className={cardWrapperStyle}>
+          <Reveal className={tileWrapperStyle}>
             <Card
               {...homeCardProps}
               title="Download Resume Here"
@@ -360,7 +370,7 @@ export default function Home() {
             />
           </Reveal>
 
-          <Reveal className={cardWrapperStyle}>
+          <Reveal className={tileWrapperStyle}>
             <Card
               {...homeCardProps}
               title="Tic Tac Toe game for you to enjoy on the go!"
