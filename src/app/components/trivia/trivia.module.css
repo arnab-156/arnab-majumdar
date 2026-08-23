@@ -1,0 +1,108 @@
+/* Question cards slide in from the right and out to the left, so a run of
+   questions reads as a deck being dealt. */
+@keyframes cardIn {
+    from {
+        opacity: 0;
+        transform: translateX(42px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@keyframes cardOut {
+    from {
+        opacity: 1;
+        transform: none;
+    }
+
+    to {
+        opacity: 0;
+        transform: translateX(-42px) scale(0.98);
+    }
+}
+
+.cardIn {
+    animation: cardIn 320ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.cardOut {
+    animation: cardOut 260ms cubic-bezier(0.4, 0, 1, 1) both;
+}
+
+/* A tapped answer gives a little kick before the card leaves. */
+@keyframes pop {
+    0% { transform: scale(1); }
+    45% { transform: scale(1.04); }
+    100% { transform: scale(1); }
+}
+
+.pop {
+    animation: pop 320ms ease-out;
+}
+
+/* The per-question timer bar drains left to right. */
+@keyframes drain {
+    from { transform: scaleX(1); }
+    to { transform: scaleX(0); }
+}
+
+.drain {
+    transform-origin: left center;
+    animation-name: drain;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+
+/*
+ * Fireworks for a perfect score. Each particle carries its own --dx/--dy and
+ * delay inline; the shared keyframe throws it outward and fades it.
+ */
+@keyframes burst {
+    0% {
+        opacity: 0;
+        transform: translate(0, 0) scale(0.4);
+    }
+
+    12% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(var(--dx), var(--dy)) scale(0.25);
+    }
+}
+
+.spark {
+    animation: burst 1400ms ease-out infinite;
+}
+
+@keyframes cheer {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    25% { transform: translateY(-6px) rotate(-3deg); }
+    75% { transform: translateY(-3px) rotate(3deg); }
+}
+
+.cheer {
+    animation: cheer 1600ms ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .cardIn,
+    .cardOut,
+    .pop,
+    .spark,
+    .cheer,
+    .drain {
+        animation: none;
+    }
+
+    /* Without the drain animation the bar would sit invisible at scaleX(0). */
+    .drain {
+        transform: none;
+    }
+}
