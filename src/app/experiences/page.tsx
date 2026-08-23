@@ -6,7 +6,6 @@ import {
   cardWrapperStyle,
   nycBackgroundTheme,
   heroPrimaryButtonStyle,
-  heroOutlineButtonStyle,
 } from "../utility/stylevariables";
 import { AnimationLayer, Reveal } from "../components/animation";
 import styles from "../hero.module.css";
@@ -62,8 +61,12 @@ export default function ExperiencesPage() {
               <Link href="/experiences/achievements" className={heroPrimaryButtonStyle}>
                 See all my achievements
               </Link>
-              <Link href="/" className={heroOutlineButtonStyle}>
-                Go back to home
+              {/* A plain underlined link, as on /about and /lotus, rather than
+                  a second button competing with the achievements CTA. Indigo
+                  rather than /about's purple-100, which is tuned for that
+                  page's violet hero and would vanish on paper. */}
+              <Link href="/" className="underline underline-offset-4 text-lotus-indigo dark:text-lotus-paper/80">
+                go back to home
               </Link>
             </div>
           </Reveal>
