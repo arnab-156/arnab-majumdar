@@ -65,15 +65,24 @@ export default function About() {
                 </Link>
               </div>
 
-              {/* The education section lives on /experiences, so this reaches
-                  across to its anchor. Styled as the same link is there. */}
-              <div>
+              {/* Credential links in the homepage hero's style. The education
+                  section lives on /experiences, so the first reaches across to
+                  its anchor; the second goes to the NYU page as it does on the
+                  homepage. */}
+              <div className="flex flex-col items-start gap-2 text-sm text-lotus-ink/70 dark:text-lotus-paper/70">
                 <Link
                   href="/experiences#my-education"
-                  className="group inline-flex items-center gap-2 text-sm text-lotus-ink/70 hover:text-lotus-indigo dark:text-lotus-paper/70 dark:hover:text-lotus-paper"
+                  className="group inline-flex items-center gap-2 hover:text-lotus-indigo dark:hover:text-lotus-paper"
                 >
                   <span className="h-px w-5 bg-lotus-madder" aria-hidden />
                   <span className="group-hover:underline">See my education</span>
+                </Link>
+                <Link
+                  href="/nyu"
+                  className="group inline-flex items-center gap-2 hover:text-lotus-indigo dark:hover:text-lotus-paper"
+                >
+                  <span className="h-px w-5 bg-lotus-madder" aria-hidden />
+                  <span className="group-hover:underline">Executive MBA, NYU Stern &mdash; Class of A27</span>
                 </Link>
               </div>
             </Reveal>
