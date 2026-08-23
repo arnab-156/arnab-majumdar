@@ -82,7 +82,7 @@ export default function About() {
                   className="group inline-flex items-center gap-2 hover:text-lotus-indigo dark:hover:text-lotus-paper"
                 >
                   <span className="h-px w-5 bg-lotus-madder" aria-hidden />
-                  <span className="group-hover:underline">Executive MBA, NYU Stern &mdash; Class of A27</span>
+                  <span className="group-hover:underline">Follow my NYU Journey</span>
                 </Link>
               </div>
             </Reveal>
