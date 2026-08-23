@@ -1,464 +1,296 @@
-import Link from 'next/link';
-import Image from "next/image";
-import { cardWrapperStyle, $cardWrapperStyle, buttonStyle } from "../utility/stylevariables";
-import styles from "./styles.module.css";
+import Link from "next/link";
+
+import { AnimationLayer, Reveal } from "../components/animation";
+import {
+  heroPrimaryButtonStyle,
+  heroOutlineButtonStyle,
+} from "../utility/stylevariables";
+import heroStyles from "../hero.module.css";
+import { audiences, thesis, thinkers, type Resource } from "./edu-data";
+
+const eyebrowStyle =
+  "text-xs uppercase tracking-[0.28em] text-lotus-indigo dark:text-lotus-paper/70";
+
+const statusLabel: Record<NonNullable<Resource["status"]>, string> = {
+  wip: "WIP",
+  soon: "Coming soon",
+};
+
+/**
+ * One row in an audience's list. A resource with an href is a link; one
+ * without is a placeholder carrying its status, so the page can show what is
+ * planned without pretending it exists yet.
+ */
+const ResourceRow = ({ resource }: { resource: Resource }) => {
+  const body = (
+    <>
+      <span className="flex flex-wrap items-center gap-x-3 gap-y-1">
+        <span className={resource.href ? "group-hover:underline" : undefined}>{resource.label}</span>
+        {resource.status && (
+          <span className="inline-flex shrink-0 items-center rounded-full border border-lotus-madder/40 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-lotus-madder">
+            {statusLabel[resource.status]}
+          </span>
+        )}
+      </span>
+      {resource.note && (
+        <span className="mt-1 block text-sm text-lotus-ink/60 dark:text-lotus-paper/60">{resource.note}</span>
+      )}
+    </>
+  );
+
+  return (
+    <li className="flex gap-3 py-2">
+      <span className="mt-[0.7em] h-px w-4 shrink-0 bg-lotus-madder" aria-hidden />
+      {resource.href ? (
+        <Link
+          href={resource.href}
+          className="group block text-lotus-ink/85 hover:text-lotus-indigo dark:text-lotus-paper/85 dark:hover:text-lotus-paper"
+        >
+          {body}
+        </Link>
+      ) : (
+        <span className="block text-lotus-ink/85 dark:text-lotus-paper/85">{body}</span>
+      )}
+    </li>
+  );
+};
 
 export default function EducationPage() {
   return (
-    <main className={`flex min-h-screen flex-col items-center justify-between pt-20 pb-16`}>
-      <div className={`mb-6 grid text-center 
-        md:grid-cols-2
-        lg:grid-cols-3 lg:text-left
-        `}>
-        {/* START OF TOP SECTION */}
-        <div className="text-center m-auto w-full lg:h-screen">
-          <div className="flex flex-col lg:flex-row lg:h-1/2 m-2 lg:m-0">
-            <div className={`${styles.card} lg:w-1/2 rounded-2xl border-2 border-white mb-2 lg:mb-0`}>
-              <div className={`${styles.card__content} h-full text-center relative p-20 transition-transform duration-1000 text-black font-bold`}>
-                <div className={`${styles.card__front} rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8 ${styles.gradientAnimation} flex items-center justify-center`}>
-                  <h2 className='dark:invert'>Truth&#39;s Torch</h2>
-                </div>
-                <div className={`${styles.card__back} rounded-2xl text-white absolute top-0 bottom-0 right-0 left-0 p-8 bg-purple-800 flex items-center justify-center`}>
-                  <h2 className='dark:invert'>
-                    No Course is lit, <br />
-                    By light that former burned,  <br />
-                    From darkness bit by bit,  <br />
-                    The present road is learned.</h2>
-                </div>
-              </div>
-            </div>
-            <div className="lg:w-1/2 rounded-2xl p-2 content-center">
-              <h1 className="text-3xl font-bold text-center uppercase dark:text-black">Education</h1>
-              <p className='mt-2 dark:invert'>Please excuse the look, this page is under construction.</p>
-            </div>
-          </div>
+    <AnimationLayer
+      as="main"
+      className="flex min-h-screen flex-col font-nyu text-lotus-ink dark:text-lotus-paper overflow-x-clip"
+      method="rise"
+      distance={44}
+      duration={760}
+      threshold={0.12}
+      rootMargin="0px 0px -12% 0px"
+    >
+      {/* HERO */}
+      <section className="relative w-full overflow-hidden bg-lotus-paper px-6 py-16 dark:bg-[#101114] md:px-12">
+        <div className={`${heroStyles.heroAurora} pointer-events-none absolute inset-0`} aria-hidden />
+        <div className={`${heroStyles.ruleGrid} pointer-events-none absolute inset-0 opacity-60`} aria-hidden />
 
-          <div
-            className={`m-4 rounded-full md:h-svh md:max-h-64 lg:max-h-96 lg:max-w-96 border-0 border-transparent md:m-auto lg:hidden`}
+        <AnimationLayer
+          as="div"
+          className="relative mx-auto grid max-w-6xl items-center gap-10 text-left md:grid-cols-[1.2fr_0.8fr]"
+          method="alternate"
+          distance={48}
+          threshold={0}
+          rootMargin="0px"
+        >
+          <Reveal method="left" className="space-y-4">
+            <p className={eyebrowStyle}>Education</p>
+            <h1 className="font-nyu-ultra text-4xl leading-tight md:text-5xl">
+              One place to start
+            </h1>
+
+            <aside className="border-l-2 border-lotus-madder pl-6 py-1">
+              <p className="max-w-2xl text-lg leading-8 text-lotus-ink/85 dark:text-lotus-paper/85">
+                A working reference for the people who carry education between them &mdash; students,
+                parents, teachers, advisors, policy makers and the communities that pay for all of it.
+              </p>
+            </aside>
+
+            <Reveal method="left" delay={220} className="flex flex-wrap items-center gap-4 pt-2">
+              <Link href="#directory" className={heroPrimaryButtonStyle}>
+                Find your section
+              </Link>
+              <Link href="#thesis" className={heroOutlineButtonStyle}>
+                Read the thinking
+              </Link>
+            </Reveal>
+
+            <Reveal
+              method="left"
+              delay={300}
+              className="flex flex-wrap items-center gap-x-3 gap-y-2 pt-2 text-sm text-lotus-ink/70 dark:text-lotus-paper/70"
+            >
+              <Link href="/experiences#my-education" className="group inline-flex items-center gap-2 hover:text-lotus-indigo dark:hover:text-lotus-paper">
+                <span className="h-px w-5 bg-lotus-madder" aria-hidden />
+                <span className="group-hover:underline">See my education</span>
+              </Link>
+              <span className="hidden sm:inline text-lotus-ink/30 dark:text-lotus-paper/30" aria-hidden>&bull;</span>
+              <Link href="/" className="underline underline-offset-4 text-lotus-indigo dark:text-lotus-paper/80">
+                go back to home
+              </Link>
+            </Reveal>
+          </Reveal>
+
+          {/* The poem that opened the previous version of this page. */}
+          <Reveal method="right" delay={140}>
+            <div className="rounded-3xl border border-lotus-indigo/20 bg-white/70 p-6 shadow-xl backdrop-blur dark:border-lotus-paper/15 dark:bg-white/5">
+              <p className={eyebrowStyle}>Truth&apos;s Torch &mdash; Dewey</p>
+              <p className="mt-4 text-lg leading-9 text-lotus-ink/85 dark:text-lotus-paper/85">
+                {thesis.poem.map((line) => (
+                  <span key={line} className="block">
+                    {line}
+                  </span>
+                ))}
+              </p>
+            </div>
+          </Reveal>
+        </AnimationLayer>
+      </section>
+
+      {/* DIRECTORY — the jump list, so nobody has to scroll to find themselves. */}
+      <section
+        id="directory"
+        className="w-full scroll-mt-20 bg-lotus-indigo px-6 py-14 text-lotus-paper md:px-12"
+        aria-labelledby="directory-heading"
+      >
+        <div className="mx-auto max-w-6xl">
+          <Reveal>
+            <p className="text-xs uppercase tracking-[0.28em] text-lotus-paper/60">Start here</p>
+            <h2 id="directory-heading" className="mt-2 font-nyu-ultra text-3xl md:text-4xl">
+              Who are you here as?
+            </h2>
+          </Reveal>
+
+          <AnimationLayer
+            as="div"
+            className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
+            method="rise"
+            distance={44}
+            stagger={80}
+            staggerCycle={3}
           >
-            <Link href="/about" className='block hover:font-bold'><Image
-              className={`rounded-full m-auto w-12/16 rounded-t-full border-2 border-white`}
-              src={"/headshot.png"}
-              alt="image of headhsot of arnab"
-              priority
-              unoptimized
-              width={300}
-              height={300}
-            /></Link>
-
-          </div>
-          <div className='block underline m-24'>
-            <Link href="/experiences" className='block hover:font-bold'>see all experience</Link>
-            <Link href="/experiences#my-education" className={`${buttonStyle} block hover:font-bold`}>go to my education</Link>
-          </div>
+            {audiences.map((audience) => (
+              <Reveal
+                as="a"
+                key={audience.id}
+                href={`#${audience.id}`}
+                className="group rounded-2xl border border-lotus-paper/20 bg-white/10 p-5 text-left transition hover:-translate-y-1 hover:bg-white/15"
+              >
+                <div className="font-nyu-ultra text-lg uppercase group-hover:underline">{audience.label}</div>
+                <p className="mt-2 text-sm text-lotus-paper/70">{audience.question}</p>
+              </Reveal>
+            ))}
+          </AnimationLayer>
         </div>
+      </section>
 
-        <div className="text-center m-auto flex flex-col w-full lg:h-screen">
-          <div className="flex flex-col lg:h-1/2 mb-2">
-            <div className="flex-col lg:flex lg:flex-row flex-grow mx-2 lg:mx-0">
+      {/* THE SECTIONS */}
+      <section className="w-full bg-lotus-paper px-6 py-16 dark:bg-[#101114] md:px-12">
+        <div className="mx-auto max-w-6xl space-y-14">
+          {audiences.map((audience) => (
+            <Reveal as="article" key={audience.id} id={audience.id} className="scroll-mt-20">
+              <div className="grid gap-8 md:grid-cols-[0.9fr_1.1fr]">
+                <div>
+                  <p className={eyebrowStyle}>{audience.label}</p>
+                  <h2 className="mt-2 font-nyu-ultra text-2xl leading-tight md:text-3xl">
+                    {audience.question}
+                  </h2>
 
-              <div className={`${styles.card} w-full lg:w-1/2 rounded-2xl border-2 border-white`}>
-                <div className={`${styles.card__content} h-full text-center relative p-20 transition-transform duration-1000 text-black font-bold`}>
-
-                  <div className={`${styles.card__front} rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8 ${styles.gradientAnimation} flex items-center justify-center`}>
-                    <h2 className='dark:invert'>Who is John Dewey?</h2>
-                  </div>
-                  <div className={`${styles.card__back} rounded-2xl  text-white absolute top-0 bottom-0 right-0 left-0 p-8 bg-purple-800 flex items-center justify-center`}>
-                    <h2 className='dark:invert'>Dewey is an educator and shared the idea that education is not so much preparation for living, rather living in the fullest sense of the word.</h2>
-                  </div>
-
+                  {audience.answer ? (
+                    <aside className="mt-4 border-l-2 border-lotus-madder pl-6 py-1">
+                      <p className="text-lg leading-8 text-lotus-ink/85 dark:text-lotus-paper/85">
+                        {audience.answer}
+                      </p>
+                    </aside>
+                  ) : (
+                    <p className="mt-4 inline-flex items-center rounded-full border border-dashed border-lotus-madder/50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-lotus-madder">
+                      Response coming soon
+                    </p>
+                  )}
                 </div>
+
+                <ul className="divide-y divide-lotus-indigo/10 dark:divide-lotus-paper/10">
+                  {audience.resources.map((resource) => (
+                    <ResourceRow key={resource.label} resource={resource} />
+                  ))}
+                </ul>
               </div>
-
-
-              <div className={`${styles.card} w-full lg:w-1/2 rounded-2xl border-2 border-white`}>
-                <div className={`${styles.card__content} h-full text-center relative p-20 transition-transform duration-1000 text-black font-bold`}>
-
-                  <div className={`${styles.card__front} text-white rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8 bg-purple-800 flex items-center justify-center`}>
-                    <h2 className='dark:invert'>Who is Tagore?</h2>
-                  </div>
-                  <div className={`${styles.card__back} rounded-2xl  absolute top-0 bottom-0 right-0 left-0 p-8 ${styles.gradientAnimationReversed} flex items-center justify-center dark:invert`}>
-                    <h2>Tagore is a noble laureate and an independent thinker. Like Dewey, he believed in mentor-disciple relationship as integral part of learning.</h2>
-                  </div>
-
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className={`
-            md:mx-2 lg:mx-0 text-sm h-svh max-h-64 lg:max-h-96 rounded-t-full md:rounded-t-sm lg:rounded-t-full border-2 border-white 
-            bg-[url('https://live.staticflickr.com/65535/53841418931_301432a964_w.jpg')] bg-cover bg-no-repeat bg-center 
-            `}>
-          </div>
+            </Reveal>
+          ))}
         </div>
+      </section>
 
+      {/* THESIS */}
+      <section
+        id="thesis"
+        className="w-full scroll-mt-20 bg-lotus-paper-deep px-6 py-16 dark:bg-[#16181c] md:px-12"
+        aria-labelledby="thesis-heading"
+      >
+        <div className="mx-auto max-w-6xl">
+          <Reveal>
+            <p className={eyebrowStyle}>The thinking behind it</p>
+            <h2 id="thesis-heading" className="mt-2 font-nyu-ultra text-3xl md:text-4xl">
+              Where this comes from
+            </h2>
+          </Reveal>
 
-        <div className="text-center m-auto w-full lg:h-screen flex flex-col lg:flex-col lg:px-2 flex flex-col-reverse">
-          <Link
-            href="/experiences"
-            className={`${cardWrapperStyle} rounded-full md:h-svh md:max-h-64 lg:max-h-96 lg:max-w-96 border-0 border-transparent md:m-auto hidden lg:block`}
+          <AnimationLayer
+            as="div"
+            className="mt-8 grid gap-6 md:grid-cols-2"
+            method="rise"
+            distance={44}
+            stagger={80}
+            staggerCycle={2}
           >
-            <Image
-              className={`rounded-full w-full lg:max-h-96 lg:max-w-96 rounded-t-full border-2 border-white`}
-              src={"/headshot.png"}
-              width={300}
-              height={300}
-              alt="click on the image of headhsot of arnab to see all experience"
-              priority
-              unoptimized
-            />
+            {thinkers.map((thinker) => (
+              <Reveal
+                as="article"
+                key={thinker.name}
+                className="rounded-2xl border border-lotus-indigo/15 bg-lotus-paper p-6 shadow-md dark:border-lotus-paper/15 dark:bg-white/5"
+              >
+                <h3 className="font-nyu-ultra text-lg uppercase">{thinker.name}</h3>
+                <p className="mt-3 text-lotus-ink/80 dark:text-lotus-paper/80">{thinker.summary}</p>
+              </Reveal>
+            ))}
+
+            <Reveal
+              as="article"
+              className="rounded-2xl border border-lotus-indigo/15 bg-lotus-paper p-6 shadow-md dark:border-lotus-paper/15 dark:bg-white/5"
+            >
+              <h3 className="font-nyu-ultra text-lg uppercase">Mission</h3>
+              <p className="mt-3 text-lotus-ink/80 dark:text-lotus-paper/80">{thesis.mission}</p>
+              <h3 className="mt-6 font-nyu-ultra text-lg uppercase">Shared philosophy</h3>
+              <p className="mt-3 text-lotus-ink/80 dark:text-lotus-paper/80">{thesis.sharedPhilosophy}</p>
+            </Reveal>
+
+            <Reveal
+              as="article"
+              className="rounded-2xl border border-lotus-indigo/15 bg-lotus-paper p-6 shadow-md dark:border-lotus-paper/15 dark:bg-white/5"
+            >
+              <h3 className="font-nyu-ultra text-lg uppercase">Vision</h3>
+              <p className="mt-3 text-lotus-ink/80 dark:text-lotus-paper/80">{thesis.vision}</p>
+            </Reveal>
+
+            <Reveal
+              as="article"
+              id="edu-design"
+              className="scroll-mt-20 rounded-2xl border border-lotus-indigo/15 bg-lotus-paper p-6 shadow-md md:col-span-2 dark:border-lotus-paper/15 dark:bg-white/5"
+            >
+              <h3 className="font-nyu-ultra text-lg uppercase">Education design, and technology</h3>
+              <p className="mt-3 text-lotus-ink/80 dark:text-lotus-paper/80">{thesis.technology}</p>
+            </Reveal>
+          </AnimationLayer>
+        </div>
+      </section>
+
+      {/* CONTACT */}
+      <section className="w-full bg-lotus-paper px-6 py-16 dark:bg-[#101114] md:px-12">
+        <Reveal className="mx-auto max-w-2xl text-center">
+          <h2 className="font-nyu-ultra text-2xl md:text-3xl">This page is being built in the open</h2>
+          <p className="mt-3 text-lotus-ink/70 dark:text-lotus-paper/70">
+            Sections marked WIP are next in line. If something you need is missing, saying so is the
+            fastest way to get it written.
+          </p>
+          <Link href="/help" className={`${heroPrimaryButtonStyle} mt-6`}>
+            Tell me what is missing
           </Link>
-
-
-          <div className="flex flex-col lg:flex-row h-full lg:h-1/2 mx-2 lg:mx-0">
-            <div className={`${styles.card} w-full lg:w-1/2 rounded-2xl border-2 border-white`}>
-              <div className={`${styles.card__content} h-full text-center relative p-20 transition-transform duration-1000 text-black font-bold`}>
-
-                <div className={`${styles.card__front} rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8 ${styles.gradientAnimation} flex items-center justify-center`}>
-                  <h2 className='dark:invert'>Mission</h2>
-                </div>
-                <div className={`${styles.card__back} rounded-2xl  text-white absolute top-0 bottom-0 right-0 left-0 p-8 bg-purple-800 flex items-center justify-center`}>
-                  <h2>Self-empowerment through community</h2>
-                </div>
-
-              </div>
-            </div>
-
-
-
-            <div className={`${styles.card} w-full lg:w-1/2 rounded-2xl border-2 border-white`}>
-              <div className={`${styles.card__content} h-full text-center relative p-20 transition-transform duration-1000 text-black font-bold`}>
-                <div className={`${styles.card__front} rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8  flex items-center justify-center`}>
-                  <h2 className='dark:invert'>Shared Philosophy</h2>
-                </div>
-                <div className={`${styles.card__back} rounded-2xl text-white absolute top-0 bottom-0 right-0 left-0 p-8 bg-purple-800 flex items-center justify-center`}>
-                  <p>As diamond can be polished only by another diamond, a human can be refined only by other human beings.
-                    The most important ingredient of learning is patience.</p>
-                </div>
-
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* END OF TOP SECTION */}
-
-
-
-
-
-        {/* START OF SECOND SECTION */}
-        <div className="text-center m-auto w-full lg:h-screen ">
-          <div className="flex lg:h-1/2">
-            <p className={`lg:w-1/2 rounded-2xl border-2 border-white p-2 m-2 content-center ${styles.gradientAnimation}`}>
-              <h1 id="expr" className="text-3xl font-bold text-center m-auto font-bold">My Experience</h1>
-            </p>
-            <p className="lg:w-1/2 rounded-2xl border-2 border-white p-2 m-2 content-center"><h3 className="text-lg font-bold">Arts, Sciences & Technology</h3>.</p>
-          </div>
-
-
-          <div className="flex lg:h-1/2 m-2">
-            <Link href="/experiences" className={`lg:w-1/2 rounded-2xl border-2 border-white p-2 content-center ${styles.slideInFromRightAnimationSlowDelayed} hover:underline`}>see all of arnab&apos;s experience</Link>
-
-            <p className={`lg:w-1/2 rounded-2xl border-2 border-white p-2 m-2 content-center ${styles.gradientAnimationReversed}`}>
-              Arnab has been a creative problem solver since he was young. With decades of experience in the education, fashion, retail, art, and technology industries. Arnab enjoys playing with data and making “things” happen!
-            </p>
-
-          </div>
-        </div>
-
-
-        <div className="text-center m-auto flex flex-col-reverse w-full lg:h-screen">
-          <div className="flex flex-col lg:h-1/2  mt-8 mb-2 lg:h-96">
-            <div className="flex flex-col lg:flex-row mx-2 lg:mx-0 flex-grow">
-              <div className={`${styles.card} lg:w-1/2 rounded-2xl border-2 border-white`}>
-                <div className={`${styles.card__content} lg:h-96 text-center relative p-20 transition-transform duration-1000 text-black`}>
-
-                  <div className={`${styles.card__front} rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8 ${styles.gradientAnimation} flex items-center justify-center`}>
-                    <h2 className='font-bold'>My Vision</h2>
-                  </div>
-                  <div className={`${styles.card__back} lg:h-96 rounded-2xl text-sm text-white absolute top-0 bottom-0 right-0 left-0  bg-purple-800 flex items-center justify-center`}>
-                    <p className='p-2'>
-                      Since the 80s, my mom created a work-from-home environment due to unique social and economic challenges, shaping me into a skilled organizer of creative projects. This approach reflects Tagore&#39;s grassroots education, emphasizing community and parental autonomy over standardized education, as one size does not fit all.
-                    </p>
-                  </div>
-
-                </div>
-              </div>
-
-
-              <div className={`${styles.card} lg:w-1/2 rounded-2xl border-2 border-white`}>
-                <div className={`${styles.card__content} h-full text-center relative p-20 transition-transform duration-1000 text-black`}>
-
-                  <div className={`${styles.card__front} text-white rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8 bg-purple-800 flex items-center justify-center`}>
-                    <p>Education based on core mathematics and sciences may not be boring. An economically self-reliant and accessible model exists.</p>
-                  </div>
-                  <div className={`${styles.card__back} rounded-2xl  absolute top-0 bottom-0 right-0 left-0 p-8 ${styles.gradientAnimationReversed} flex items-center justify-center`}>
-                    <p className="text-sm p-2 dark:invert">
-                      AI can be revolutionary in helping people make informed decisions. The concept of self relies on the essential human aspect of community; without
-                      life, we cannot understand what it means to be life-less.
-                    </p>
-                  </div>
-
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <Link
-            href="/lotus/eye-on-india"
-            className={`
-            text-sm h-svh max-h-64 lg:max-h-96 rounded-b-full border-2 border-white 
-            bg-[url('https://live.staticflickr.com/65535/53839425086_c36fa84f70_w.jpg')] bg-cover bg-no-repeat bg-top 
-            ${$cardWrapperStyle}`}>
-          </Link>
-        </div>
-
-
-        <div className="text-center m-auto w-full flex flex-col lg:flex-col lg:h-screen">
-          <Link
-            href="/experiences/lincolnpark"
-            className={`${cardWrapperStyle} rounded-t-full h-svh max-h-64 lg:max-h-96 rounded-t-full border-2 border-white bg-[url('https://live.staticflickr.com/65535/53863144554_28d446360a_w.jpg')] bg-cover bg-no-repeat bg-top`}>
-          </Link>
-
-
-          <Link
-            href="/moc"
-            className={`${cardWrapperStyle} rounded-b-full h-svh max-h-64 lg:max-h-96 border-2 border-white bg-[url('https://live.staticflickr.com/65535/53808934296_8330a5b182_w.jpg')] bg-cover bg-no-repeat bg-top`}>
-          </Link>
-        </div>
-
-        {/* END OF SECOND SECTION */}
-
-
-
-
-
-
-
-
-        {/* START OF THIRD SECTION */}
-
-        <div className="flex flex-row ">
-          <div className={`${styles.card} w-1/2 lg:w-1/2 rounded-2xl border-2 border-white`}>
-            <div className={`${styles.card__content} h-96 text-center relative p-20 transition-transform duration-1000 text-black`}>
-
-              <div className={`${styles.card__front} rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8 ${styles.gradientAnimation} flex items-center justify-center`}>
-                <h2 className='font-bold'>For General Educators:</h2>
-              </div>
-              <div className={`${styles.card__back} rounded-2xl text-xs text-white absolute top-0 bottom-0 right-0 left-0 p-8 bg-purple-800 flex items-center justify-center h-full`}>
-                <ul className="text-sm p-2">
-                  <li>Teaching for any ages</li>
-                  <li>Concepts and Ideas of Teaching</li>
-                  <li>Experiential Learning</li>
-                  <li>Celebrate success and failure</li>
-                  <li>Economic Profitability of Education</li>
-                  <li>Certification</li>
-                  <li>Design a Course!</li>
-                  <li>Make a Rubric for anything</li>
-                  <li>Language</li>
-                </ul>
-              </div>
-
-            </div>
-          </div>
-
-
-          <div id="edu-design" className={`${styles.card} w-1/2 lg:w-1/2 rounded-2xl border-2 border-white`}>
-            <div className={`${styles.card__content} h-full text-center relative p-20 transition-transform duration-1000 text-black`}>
-              <div className={`${styles.card__front} text-white rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8 bg-purple-800 flex items-center justify-center`}>
-                <p>Early Childhood to home schooling to higher education to adult education</p>
-              </div>
-              <div className={`${styles.card__back} rounded-2xl  absolute top-0 bottom-0 right-0 left-0 p-8 ${styles.gradientAnimationReversed} flex items-center justify-center`}>
-                <p className="text-sm p-2">
-                  Coming Soon...
-                </p>
-              </div>
-
-            </div>
-          </div>
-        </div>
-        <div className="flex flex-row-reverse">
-          <div className={`${styles.card} w-1/2 lg:w-1/2 rounded-2xl border-2 border-white`}>
-            <div className={`${styles.card__content} h-96 text-center relative p-20 transition-transform duration-1000 text-black`}>
-
-              <div className={`${styles.card__front} rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8 ${styles.gradientAnimation} flex items-center justify-center`}>
-                <h2 className='font-bold'>Technology Education</h2>
-              </div>
-              <div className={`${styles.card__back} rounded-2xl text-xs text-white absolute top-0 bottom-0 right-0 left-0 p-8 bg-purple-800 flex items-center justify-center h-full`}>
-                <ul className="text-sm p-2">
-                  <li>Textiles & Apparel</li>
-                  <li>Arts</li>
-                  <li>Engineering - Automotive</li>
-                  <li>Engineering - Computer Sciences</li>
-                  <li>Argiculture</li>
-                  <li>Design</li>
-                </ul>
-              </div>
-
-            </div>
-          </div>
-
-
-          <div className={`${styles.card} w-1/2 lg:w-1/2 rounded-2xl border-2 border-white`}>
-            <div className={`${styles.card__content} h-full text-center relative p-20 transition-transform duration-1000 text-black`}>
-              <div className={`${styles.card__front} text-white rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8 bg-purple-800 flex items-center justify-center`}>
-                <p>What is STEM?</p>
-              </div>
-              <div className={`${styles.card__back} rounded-2xl  absolute top-0 bottom-0 right-0 left-0 p-8 ${styles.gradientAnimationReversed} flex items-center justify-center`}>
-                <p className="text-sm p-2">
-                  Coming Soon...
-                </p>
-              </div>
-
-            </div>
-          </div>
-        </div>
-        <div className="flex flex-row">
-          <div className={`${styles.card} w-1/2 lg:w-1/2 rounded-2xl border-2 border-white`}>
-            <div className={`${styles.card__content} h-96 text-center relative p-20 transition-transform duration-1000 text-black`}>
-
-              <div className={`${styles.card__front} rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8 ${styles.gradientAnimation} flex items-center justify-center`}>
-                <h2 className='font-bold'>For College Students</h2>
-              </div>
-              <div className={`${styles.card__back} rounded-2xl text-xs text-white absolute top-0 bottom-0 right-0 left-0 p-8 bg-purple-800 flex items-center justify-center h-full`}>
-                <ul className="text-sm p-2">
-                  <li>What colleges?</li>
-                  <li>What can I afford?</li>
-                  <li>Financial Aid</li>
-                  <li>Health and Accessibility</li>
-                  <li>Activities</li>
-                  <li>Grades</li>
-                  <li>First Year Experience</li>
-                </ul>
-              </div>
-
-            </div>
-          </div>
-
-
-          <div className={`${styles.card} w-1/2 lg:w-1/2 rounded-2xl border-2 border-white`}>
-            <div className={`${styles.card__content} h-full text-center relative p-20 transition-transform duration-1000 text-black`}>
-              <div className={`${styles.card__front} text-white rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8 bg-purple-800 flex items-center justify-center`}>
-                <p>Preparing for college to recent graduates</p>
-              </div>
-              <div className={`${styles.card__back} rounded-2xl  absolute top-0 bottom-0 right-0 left-0 p-8 ${styles.gradientAnimationReversed} flex items-center justify-center`}>
-                <p className="text-sm p-2">
-                  Coming Soon...
-                </p>
-              </div>
-
-            </div>
-          </div>
-        </div>
-        <div className="flex flex-row-reverse">
-          <div className={`${styles.card} w-1/2 lg:w-1/2 rounded-2xl border-2 border-white`}>
-            <div className={`${styles.card__content} h-96 text-center relative p-20 transition-transform duration-1000 text-black`}>
-
-              <div className={`${styles.card__front} rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8 ${styles.gradientAnimation} flex items-center justify-center`}>
-                <h2 className='font-bold'>For Parents</h2>
-              </div>
-              <div className={`${styles.card__back} rounded-2xl text-xs text-white absolute top-0 bottom-0 right-0 left-0 p-8 bg-purple-800 flex items-center justify-center h-full`}>
-                <ul className="text-sm p-2">
-                  <li>What colleges?</li>
-                  <li>What can I afford?</li>
-                  <li>Financial Aid</li>
-                  <li>Health and Accessibility</li>
-                  <li>Activities</li>
-                  <li>Grades</li>
-                  <li>First Year Experience</li>
-                </ul>
-              </div>
-
-            </div>
-          </div>
-
-
-          <div className={`${styles.card} w-1/2 lg:w-1/2 rounded-2xl border-2 border-white`}>
-            <div className={`${styles.card__content} h-full text-center relative p-20 transition-transform duration-1000 text-black`}>
-              <div className={`${styles.card__front} text-white rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8 bg-purple-800 flex items-center justify-center`}>
-                <p>How to prepare for paying for your children?</p>
-              </div>
-              <div className={`${styles.card__back} rounded-2xl  absolute top-0 bottom-0 right-0 left-0 p-8 ${styles.gradientAnimationReversed} flex items-center justify-center`}>
-                <p className="text-sm p-2">
-                  Coming Soon...
-                </p>
-              </div>
-
-            </div>
-          </div>
-        </div>
-        <div className="flex flex-row">
-          <div className={`${styles.card} w-1/2 lg:w-1/2 rounded-2xl border-2 border-white`}>
-            <div className={`${styles.card__content} h-96 text-center relative p-20 transition-transform duration-1000 text-black`}>
-
-              <div className={`${styles.card__front} rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8 ${styles.gradientAnimation} flex items-center justify-center`}>
-                <h2 className='font-bold'>For Policy Makers</h2>
-              </div>
-              <div className={`${styles.card__back} rounded-2xl text-xs text-white absolute top-0 bottom-0 right-0 left-0 p-8 bg-purple-800 flex items-center justify-center h-full`}>
-                <ul className="text-sm p-2">
-                  <li>Financial Aid</li>
-                  <li>Health and Accessibility</li>
-                </ul>
-              </div>
-
-            </div>
-          </div>
-
-
-          <div className={`${styles.card} w-1/2 lg:w-1/2 rounded-2xl border-2 border-white`}>
-            <div className={`${styles.card__content} h-full text-center relative p-20 transition-transform duration-1000 text-black`}>
-              <div className={`${styles.card__front} text-white rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8 bg-purple-800 flex items-center justify-center`}>
-                <p>How to prepare your citizens for the future</p>
-              </div>
-              <div className={`${styles.card__back} rounded-2xl  absolute top-0 bottom-0 right-0 left-0 p-8 ${styles.gradientAnimationReversed} flex items-center justify-center`}>
-                <p className="text-sm p-2">
-                  Like modern medicine, modern schooling, not education, operated largely on a pahological  model. It is meant to evaluate which is wrong with the learner not what is right!
-                </p>
-              </div>
-            </div>
-          </div>
-
-
-        </div>
-        <div className="flex flex-row-reverse">
-          <div className={`${styles.card} w-1/2 lg:w-1/2 rounded-2xl border-2 border-white`}>
-            <div className={`${styles.card__content} h-96 text-center relative p-20 transition-transform duration-1000 text-black`}>
-
-              <div className={`${styles.card__front} rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8 ${styles.gradientAnimation} flex items-center justify-center`}>
-                <h2 className='font-bold'>For Community</h2>
-              </div>
-              <div className={`${styles.card__back} rounded-2xl text-xs text-white absolute top-0 bottom-0 right-0 left-0 p-8 bg-purple-800 flex items-center justify-center h-full`}>
-                <ul className="text-sm p-2">
-                  <li>Impact of Tax Payer monies</li>
-                </ul>
-              </div>
-
-            </div>
-          </div>
-
-
-          <div className={`${styles.card} w-1/2 lg:w-1/2 rounded-2xl border-2 border-white`}>
-            <div className={`${styles.card__content} h-full text-center relative p-20 transition-transform duration-1000 text-black`}>
-              <div className={`${styles.card__front} text-white rounded-2xl absolute top-0 bottom-0 right-0 left-0 p-8 bg-purple-800 flex items-center justify-center`}>
-                <p>How does all of this matter to me?</p>
-              </div>
-              <div className={`${styles.card__back} rounded-2xl  absolute top-0 bottom-0 right-0 left-0 p-8 ${styles.gradientAnimationReversed} flex items-center justify-center`}>
-                <p className="text-sm p-2">
-                  Coming Soon...
-                </p>
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-        {/* END OF THIRD SECTION */}
-
-
-
+        </Reveal>
+      </section>
+
+      <div className="w-full bg-lotus-paper pb-16 text-center dark:bg-[#101114]">
+        <Link
+          href="#navigation"
+          className="text-lotus-indigo underline underline-offset-4 hover:no-underline dark:text-lotus-paper/80"
+        >
+          go to top
+        </Link>
       </div>
-      <Link href="#navigation" className='hover:underline text-purple-800'>go to top</Link>
-    </main>
+    </AnimationLayer>
   );
 }
