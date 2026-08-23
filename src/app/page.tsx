@@ -48,8 +48,11 @@ const StudioTile = ({
     )}
     <div className="mt-3 flex flex-1 flex-col gap-4">
       <p className="text-lotus-ink/80 dark:text-lotus-paper/80">{description}</p>
+      {/* Enters from the right and settles on the left edge, level with the
+          button below. Reveal handles reduced-motion and, on narrow screens,
+          swaps the sideways entrance for one from below. */}
       {imageUrl && (
-        <div className="flex justify-center">
+        <Reveal method="right" delay={120} className="flex justify-start">
           <Image
             src={imageUrl}
             alt={imageAlt ?? ""}
@@ -58,7 +61,7 @@ const StudioTile = ({
             className="rounded"
             unoptimized
           />
-        </div>
+        </Reveal>
       )}
     </div>
     <Link
