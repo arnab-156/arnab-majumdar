@@ -1,0 +1,59 @@
+/* A card entering the deck slides in from the right, matching the way the rest
+   of the site moves. */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(28px);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+.slideIn {
+    animation: slideIn 320ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* The host strip, as on /lotus: the track carries the list twice and loops at
+   -50%, and each card's right margin keeps every step the same width. */
+@keyframes marquee {
+    from {
+        transform: translate3d(0, 0, 0);
+    }
+
+    to {
+        transform: translate3d(-50%, 0, 0);
+    }
+}
+
+.marquee {
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 5rem, #000 calc(100% - 5rem), transparent);
+    mask-image: linear-gradient(to right, transparent, #000 5rem, #000 calc(100% - 5rem), transparent);
+}
+
+.marqueeTrack {
+    animation: marquee 60s linear infinite;
+    will-change: transform;
+}
+
+.marquee:hover .marqueeTrack,
+.marquee:focus-within .marqueeTrack {
+    animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .slideIn,
+    .marqueeTrack {
+        animation: none;
+    }
+
+    /* Stopped, the strip still needs to be reachable by hand. */
+    .marquee {
+        overflow-x: auto;
+        -webkit-mask-image: none;
+        mask-image: none;
+    }
+}
