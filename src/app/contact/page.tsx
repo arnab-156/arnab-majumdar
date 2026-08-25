@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 import { ContactForm } from "./contact-form";
@@ -20,7 +21,21 @@ export default function ContactPage() {
             <p className="text-lg leading-8 text-lotus-ink/85 dark:text-lotus-paper/85">
               Strategy, retail technology, accessibility, or teaching work — write here and it comes
               straight to my inbox. If you would rather talk,{" "}
-              <Link href="/help" className="text-lotus-indigo underline underline-offset-4 dark:text-lotus-paper">
+              {/* Same calendar mark the footer used to carry, so the booking
+                  route keeps its familiar icon now that the footer links here. */}
+              <Link
+                href="/help"
+                className="inline-flex items-baseline gap-1.5 text-lotus-indigo underline underline-offset-4 dark:text-lotus-paper"
+              >
+                <Image
+                  src="/calendar.svg"
+                  alt=""
+                  width={18}
+                  height={18}
+                  aria-hidden
+                  unoptimized
+                  className="translate-y-[3px]"
+                />
                 book a time instead
               </Link>
               .

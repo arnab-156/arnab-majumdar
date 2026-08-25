@@ -191,8 +191,8 @@ export default function Home() {
             <StudioTile
               eyebrow="Work with me"
               description="If you are a small business, a retailer, or an educator who wants to use the latest technologies & practices, let&#39;s talk."
-              href="/help"
-              ariaLabel="go to calendar to schedule a google meet"
+              href="/contact"
+              ariaLabel="go to the contact form"
               buttonText="Contact me"
             />
           </Reveal>
@@ -276,6 +276,8 @@ export default function Home() {
               eyebrow="Click Book NOW! button to schedule a meeting."
               title="Building Bridges. Creating Momentum."
               description="What I help with:"
+              imageUrl="/calendar.svg"
+              imageAlt="Google Calendar"
               href="/help"
               buttonText="Book NOW!"
             >
