@@ -276,8 +276,6 @@ export default function Home() {
               eyebrow="Click Book NOW! button to schedule a meeting."
               title="Building Bridges. Creating Momentum."
               description="What I help with:"
-              imageUrl="/calendar.svg"
-              imageAlt="Google Calendar"
               href="/help"
               buttonText="Book NOW!"
             >

@@ -92,12 +92,16 @@ export const Navigation = () => {
                             />
                         </Link>
                         <Link
-                            href="/contact"
-                            title="contact arnab"
-                            aria-label="go to the contact form"
-                            className="hover:scale-110 self-center whitespace-nowrap underline underline-offset-4"
+                            href="/help" aria-label="go to calendar to schedule a google meet"
                         >
-                            contact me
+                            <Image
+                                className="hover:scale-110"
+                                src="/calendar.svg"
+                                alt="google calendar"
+                                width={30}
+                                height={30}
+                                unoptimized
+                            />
                         </Link>
                     </div>
                     <p className="mb-2 mt-2">Copyrights and all Rights Reserved.</p>
