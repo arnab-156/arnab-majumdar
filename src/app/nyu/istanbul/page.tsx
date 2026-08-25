@@ -55,20 +55,19 @@ export default async function IstanbulPage() {
 
   // Picked by content rather than by index, so a re-upload cannot shuffle a
   // painting into the hero slot.
-  const hero = shots.find((s) => !isCoffee(s) && !isPainting(s)) ?? shots[0];
+  const hero = shots.filter((s) => !isPainting(s) && !isCoffee(s));
   const coffee = shots.filter(isCoffee).slice(0, 2);
 
   // Paired by filename fragment so each shop link always follows its painting.
   const paintings = paintingShop
-    .map((item) => ({
+    .map((item, index) => ({
       ...item,
-      shot: shots.find((s) => s.pathname.toLowerCase().includes(item.match.toLowerCase())),
+      shot: shots.filter((s) => isPainting(s))[index],
     }))
     .filter((item): item is typeof item & { shot: Shot } => Boolean(item.shot));
 
   // Whichever painting is not one of the four on the shop.
-  const shopMatches = new Set(paintings.map((p) => p.shot.pathname));
-  const framedPainting = shots.filter((s) => isPainting(s) && !shopMatches.has(s.pathname)).slice(0, 1);
+  const framedPainting = shots.filter((s) => isPainting(s)).slice(4, 5);
 
   return (
     <AnimationLayer
@@ -125,10 +124,10 @@ export default async function IstanbulPage() {
 
           <Reveal method="right" delay={140}>
             <div className="rounded-3xl border border-white/20 bg-white/10 p-4 shadow-2xl backdrop-blur">
-              {hero ? (
+              {hero.length > 0 ? (
                 <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl bg-white/10">
                   <Image
-                    src={imageSrc(hero.pathname)}
+                    src={imageSrc(hero[0].pathname)}
                     alt="İstanbul, from the Global Immersion Experience"
                     fill
                     sizes="(max-width: 768px) 90vw, 360px"
@@ -141,12 +140,12 @@ export default async function IstanbulPage() {
               )}
 
               <Link
-                href="https://lotusmahal.com/search?q=istanbul"
+                href="#paintings"
                 target="_blank"
                 rel="noreferrer"
                 className="mt-4 inline-block text-sm font-semibold text-purple-100 underline underline-offset-4 hover:text-amber-200"
               >
-                Click to see the İstanbul collection &mdash; opens in a new tab
+                See the paintings from the trip &rarr;
               </Link>
             </div>
           </Reveal>
@@ -265,6 +264,7 @@ export default async function IstanbulPage() {
             </div>
           </Reveal>
 
+
           {/* Places */}
           <AnimationLayer as="div" className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4" method="rise" distance={44} stagger={80} staggerCycle={4}>
             {places.map((place) => (
@@ -296,15 +296,15 @@ export default async function IstanbulPage() {
 
           {/* Paintings */}
           <Reveal className="space-y-4">
-            <h3 className="font-nyu-ultra text-2xl">Paintings</h3>
+            <h3 id="paintings" className="font-nyu-ultra text-2xl">Paintings</h3>
             <p className="max-w-2xl text-purple-100">
               Painted after the trip. Each one is on the shop.
             </p>
-            {paintings.length ? (
+            {paintings.length > 0 ? (
               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-                {paintings.map(({ shot, title, href }) => (
+                {paintings.map(({ href, title, shot }) => (
                   <Link
-                    key={shot.pathname}
+                    key={title}
                     href={href}
                     target="_blank"
                     rel="noreferrer"
@@ -330,9 +330,32 @@ export default async function IstanbulPage() {
               <Pending what="The paintings" />
             )}
           </Reveal>
+
+          <section className="px-6 py-6 pb-6 md:px-12">
+            <div className="mx-auto max-w-6xl">
+              {framedPainting.length > 0 ? (
+                <div className=" gap-4 ">
+                  {framedPainting.map((shot) => (
+                    <div key={shot.url} className="relative aspect-[16/9] overflow-hidden rounded-2xl">
+                      <Image src={imageSrc(shot.pathname)} alt="Framed painting from İstanbul" fill className="object-cover" unoptimized />
+                    </div>
+                  ))}
+                  <Link
+                    href="https://lotusmahal.com/search?q=istanbul"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="mt-4 inline-block text-sm font-semibold text-purple-100 underline underline-offset-4 hover:text-amber-200"
+                  >
+                    Click to see the entire İstanbul collection &mdash; opens in a new tab
+                  </Link>
+                </div>
+              ) : (
+                <Pending what="The framed painting" />
+              )}
+            </div>
+          </section>
         </div>
       </section>
-
 
       {/* 4 — COMPANIES & LECTURES */}
       <section className="bg-white/[0.03] px-6 py-14 md:px-12">
@@ -368,10 +391,10 @@ export default async function IstanbulPage() {
         </div>
       </section>
 
-      {/* 6 — FRAMED PAINTING */}
+      {/* 6 — HERO BRIDGE PAINTING */}
       <section className="px-6 py-14 pb-24 md:px-12">
         <div className="mx-auto max-w-6xl">
-          {framedPainting.length ? (
+          {/* {framedPainting.length > 0 ? (
             <div className=" gap-4 ">
               {framedPainting.map((shot) => (
                 <div key={shot.url} className="relative aspect-[16/9] overflow-hidden rounded-2xl">
@@ -381,6 +404,22 @@ export default async function IstanbulPage() {
             </div>
           ) : (
             <Pending what="The framed painting" />
+          )} */}
+
+          {hero.length > 1 && (
+            <div className=" gap-4 ">
+              {
+                <div key={hero[1].url} className="relative aspect-[16/9] overflow-hidden rounded-2xl">
+                  <Image
+                    src={imageSrc(hero[1].pathname)}
+                    alt="İstanbul, building bridges"
+                    fill
+                    className="object-fill"
+                    unoptimized
+                  />
+                </div>
+              }
+            </div>
           )}
 
           <Reveal className="mt-12">
