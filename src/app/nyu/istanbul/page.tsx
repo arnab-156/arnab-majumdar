@@ -145,7 +145,7 @@ export default async function IstanbulPage() {
                 rel="noreferrer"
                 className="mt-4 inline-block text-sm font-semibold text-purple-100 underline underline-offset-4 hover:text-amber-200"
               >
-                See the paintings from the trip &rarr;
+                See what I made! &rarr;
               </Link>
             </div>
           </Reveal>
@@ -333,24 +333,33 @@ export default async function IstanbulPage() {
 
           <section className="px-6 py-6 pb-6 md:px-12">
             <div className="mx-auto max-w-6xl">
-              {framedPainting.length > 0 ? (
-                <div className=" gap-4 ">
+              {framedPainting.length > 0 && (
+                <div className="gap-4">
                   {framedPainting.map((shot) => (
-                    <div key={shot.url} className="relative aspect-[16/9] overflow-hidden rounded-2xl">
-                      <Image src={imageSrc(shot.pathname)} alt="Framed painting from İstanbul" fill className="object-cover" unoptimized />
+                    <div
+                      key={shot.url}
+                      className="relative aspect-[16/9] overflow-hidden rounded-2xl"
+                    >
+                      <Image
+                        src={imageSrc(shot.pathname)}
+                        alt="Framed painting from İstanbul"
+                        fill
+                        className="object-cover"
+                        unoptimized
+                      />
+
+                      {/* Outline link positioned at the bottom middle */}
+                      <Link
+                        href="https://lotusmahal.com/search?q=istanbul"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap rounded-lg border-2 border-white bg-black/20 px-6 py-3 text-sm font-semibold text-white backdrop-blur-sm transition-all hover:bg-white hover:text-black"
+                      >
+                        Click to see the entire İstanbul collection &mdash; opens in a new tab
+                      </Link>
                     </div>
                   ))}
-                  <Link
-                    href="https://lotusmahal.com/search?q=istanbul"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="mt-4 inline-block text-sm font-semibold text-purple-100 underline underline-offset-4 hover:text-amber-200"
-                  >
-                    Click to see the entire İstanbul collection &mdash; opens in a new tab
-                  </Link>
                 </div>
-              ) : (
-                <Pending what="The framed painting" />
               )}
             </div>
           </section>
@@ -394,31 +403,27 @@ export default async function IstanbulPage() {
       {/* 6 — HERO BRIDGE PAINTING */}
       <section className="px-6 py-14 pb-24 md:px-12">
         <div className="mx-auto max-w-6xl">
-          {/* {framedPainting.length > 0 ? (
-            <div className=" gap-4 ">
-              {framedPainting.map((shot) => (
-                <div key={shot.url} className="relative aspect-[16/9] overflow-hidden rounded-2xl">
-                  <Image src={imageSrc(shot.pathname)} alt="Framed painting from İstanbul" fill className="object-cover" unoptimized />
-                </div>
-              ))}
-            </div>
-          ) : (
-            <Pending what="The framed painting" />
-          )} */}
-
           {hero.length > 1 && (
-            <div className=" gap-4 ">
-              {
-                <div key={hero[1].url} className="relative aspect-[16/9] overflow-hidden rounded-2xl">
-                  <Image
-                    src={imageSrc(hero[1].pathname)}
-                    alt="İstanbul, building bridges"
-                    fill
-                    className="object-fill"
-                    unoptimized
-                  />
+            <div className="gap-4">
+              <div
+                key={hero[1].url}
+                className="relative aspect-[20/9] overflow-hidden rounded-2xl"
+              >
+                <Image
+                  src={imageSrc(hero[1].pathname)}
+                  alt="İstanbul, building bridges"
+                  fill
+                  className="object-cover" /* Changed to object-cover to prevent distortion */
+                  unoptimized
+                />
+
+                {/* Absolute overlay to center the text */}
+                <div className="absolute inset-0 flex items-center justify-center bg-black/30">
+                  <h6 className="text-white text-2xl font-bold z-10 drop-shadow-md">
+                    Building Bridges
+                  </h6>
                 </div>
-              }
+              </div>
             </div>
           )}
 
