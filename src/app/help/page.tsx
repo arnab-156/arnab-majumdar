@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { AnimationLayer, Reveal } from "../components/animation";
-import { heroOutlineButtonStyle } from "../utility/stylevariables";
 import styles from "../hero.module.css";
 
 export const metadata = {
@@ -58,6 +57,13 @@ export default function Help() {
                 <span className="h-px w-5 bg-lotus-madder" aria-hidden />
                 <span className="group-hover:underline">Rather write than talk? Send a message</span>
               </Link>
+              {/* Hidden once the pair wraps onto separate lines, where a
+                  separator reads as a stray character. */}
+              <span className="hidden sm:inline text-lotus-ink/30 dark:text-lotus-paper/30" aria-hidden>&bull;</span>
+              <Link href="/" className="group inline-flex items-center gap-2 hover:text-lotus-indigo dark:hover:text-lotus-paper">
+                <span className="h-px w-5 bg-lotus-madder" aria-hidden />
+                <span className="group-hover:underline">go back to home</span>
+              </Link>
             </Reveal>
           </Reveal>
         </AnimationLayer>
@@ -81,10 +87,9 @@ export default function Help() {
           </div>
         </Reveal>
 
+        {/* The hero carries the way home now; below a tall calendar what is
+            actually useful is a way back up to it. */}
         <Reveal className="mx-auto mt-6 flex max-w-3xl flex-wrap items-center gap-4">
-          <Link href="/" className={heroOutlineButtonStyle}>
-            Go back to home
-          </Link>
           <Link
             href="#navigation"
             className="text-lotus-indigo underline underline-offset-4 hover:no-underline dark:text-lotus-paper/80"

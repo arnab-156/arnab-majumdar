@@ -55,6 +55,16 @@ export default function ContactPage() {
               .
             </p>
           </aside>
+
+          {/* Same credential-link treatment the other heroes use. Only the way
+              home lives here — the lede above already offers the booking
+              route, and two links to /help in one hero is one too many. */}
+          <div className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-2 text-sm text-lotus-ink/70 dark:text-lotus-paper/70">
+            <Link href="/" className="group inline-flex items-center gap-2 hover:text-lotus-indigo dark:hover:text-lotus-paper">
+              <span className="h-px w-5 bg-lotus-madder" aria-hidden />
+              <span className="group-hover:underline">go back to home</span>
+            </Link>
+          </div>
         </Reveal>
       </section>
 
@@ -68,11 +78,6 @@ export default function ContactPage() {
         </Reveal>
       </section>
 
-      <Reveal as="div" className="w-full pb-16 text-center">
-        <Link href="/" className="text-lotus-indigo underline underline-offset-4 hover:no-underline dark:text-lotus-paper/80">
-          go back to home
-        </Link>
-      </Reveal>
     </AnimationLayer>
   );
 }
