@@ -94,7 +94,7 @@ export default function About() {
                     above — this one is an action, not a credential. */}
                 <div>
                   <Link
-                    href="/help"
+                    href="/contact"
                     className="group inline-flex items-center gap-2 hover:text-lotus-indigo dark:hover:text-lotus-paper"
                   >
                     <span className="h-px w-5 bg-lotus-madder" aria-hidden />
