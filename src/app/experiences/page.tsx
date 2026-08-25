@@ -66,18 +66,28 @@ export default function ExperiencesPage() {
                 </Link>
               </div>
 
-              {/* Jumps to the Education heading further down this same page.
-                  Styled as the homepage hero's credential links are — madder
-                  rule, ink at 70%, indigo underline on hover. The size and
-                  colour sit on the link here rather than on a parent row,
-                  since this one stands alone. */}
-              <div>
+              {/* Credential-style links: madder rule, ink at 70%, indigo
+                  underline on hover. The first jumps to the Education heading
+                  further down this page; the second goes to the contact form.
+                  Size and colour sit on the row so both inherit them, matching
+                  how /about builds the same pair. */}
+              <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-sm text-lotus-ink/70 dark:text-lotus-paper/70">
                 <Link
                   href="#my-education"
-                  className="group inline-flex items-center gap-2 text-sm text-lotus-ink/70 hover:text-lotus-indigo dark:text-lotus-paper/70 dark:hover:text-lotus-paper"
+                  className="group inline-flex items-center gap-2 hover:text-lotus-indigo dark:hover:text-lotus-paper"
                 >
                   <span className="h-px w-5 bg-lotus-madder" aria-hidden />
                   <span className="group-hover:underline">See my education</span>
+                </Link>
+                {/* Hidden once the two wrap onto their own lines, where a
+                    separator reads as a stray character. */}
+                <span className="hidden sm:inline text-lotus-ink/30 dark:text-lotus-paper/30" aria-hidden>&bull;</span>
+                <Link
+                  href="/contact"
+                  className="group inline-flex items-center gap-2 hover:text-lotus-indigo dark:hover:text-lotus-paper"
+                >
+                  <span className="h-px w-5 bg-lotus-madder" aria-hidden />
+                  <span className="group-hover:underline">Contact me</span>
                 </Link>
               </div>
             </div>
