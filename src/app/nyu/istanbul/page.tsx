@@ -1,7 +1,6 @@
 import { list } from "@vercel/blob";
 import Image from "next/image";
 import Link from "next/link";
-
 import { AnimationLayer, Reveal } from "@/app/components/animation";
 import { buttonStyle } from "@/app/utility/stylevariables";
 import { CompanyMarquee, ThemeDeck, VideoWall } from "./istanbul-client";
@@ -17,13 +16,13 @@ export const metadata = {
  * Photographs live in Vercel Blob under this prefix. Nothing is uploaded there
  * yet, so every gallery below degrades to a note rather than an empty gap.
  */
-const BLOB_PREFIX = "istanbul-gie-images";
+const BLOB_PREFIX = "arnab-blob-trial-1";
 
 type Shot = { url: string; pathname: string };
 
 async function getShots(): Promise<Shot[]> {
   try {
-    const { blobs } = await list({ prefix: BLOB_PREFIX });
+    const { blobs } = await list({ token: process.env.ISTANBUL_READ_WRITE_TOKEN });
     return blobs.map(({ url, pathname }) => ({ url, pathname }));
   } catch {
     // No token locally, or the prefix does not exist yet. The page still renders.

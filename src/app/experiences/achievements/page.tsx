@@ -436,7 +436,7 @@ export default async function AchievementsPage() {
 
   // The store is shared. /nyu/istanbul keeps its photographs under its own
   // prefix, and without this they would turn up in this gallery too.
-  const blobs = allBlobs.filter(({ pathname }) => !pathname.startsWith("istanbul-gie-images"));
+  const blobs = allBlobs.filter(({ pathname }) => !pathname.startsWith("istanbul_gie"));
 
   const classRepTile = {
     src: "/class-rep.png",
