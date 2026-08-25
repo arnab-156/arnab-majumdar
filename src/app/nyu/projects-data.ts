@@ -173,7 +173,7 @@ export const nyuProjectInfo: Record<string, NyuProjectDetails> = {
     urls: [{ url: "https://example.com/projects/analysis-of-china" }],
   },
   "Welcome to Istanbul": {
-    description: "Geopolitical Analysis of Turkey & more",
+    description: "A week inside Türkiye's economy — conglomerates, banks, factories and kitchens — and the themes that survived the flight home.",
     outcomes: [
       "Geopolitical risk brief ahead of the Türkiye immersion, focusing on energy corridors and currency stability.",
       "Mapped Black Sea/Middle East corridor dynamics and their effect on FDI flows.",

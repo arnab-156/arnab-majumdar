@@ -141,8 +141,6 @@ export default async function IstanbulPage() {
 
               <Link
                 href="#paintings"
-                target="_blank"
-                rel="noreferrer"
                 className="mt-4 inline-block text-sm font-semibold text-purple-100 underline underline-offset-4 hover:text-amber-200"
               >
                 See what I made! &rarr;
@@ -201,24 +199,6 @@ export default async function IstanbulPage() {
               </div>
             </Reveal>
           </div>
-        </div>
-      </section>
-
-      {/* 2 — OVERVIEW */}
-      <section className="bg-white/[0.03] px-6 py-14 md:px-12">
-        <div className="mx-auto max-w-4xl">
-          <Reveal>
-            <p className={eyebrow}>Overview</p>
-            <h2 className="mt-2 font-nyu-ultra text-3xl md:text-4xl">Sixteen things Türkiye taught us</h2>
-            <p className="mt-2 max-w-2xl text-purple-100">
-              From the post-departure session. Step through them, or skip the deck entirely — nothing
-              below depends on it.
-            </p>
-          </Reveal>
-
-          <Reveal className="mt-8">
-            <ThemeDeck />
-          </Reveal>
         </div>
       </section>
 
@@ -379,6 +359,24 @@ export default async function IstanbulPage() {
 
           <Reveal className="mt-8">
             <CompanyMarquee />
+          </Reveal>
+        </div>
+      </section>
+
+      {/* 2 — OVERVIEW */}
+      <section className="bg-white/[0.03] px-6 py-14 md:px-12">
+        <div className="mx-auto max-w-4xl">
+          <Reveal>
+            <p className={eyebrow}>Overview</p>
+            <h2 className="mt-2 font-nyu-ultra text-3xl md:text-4xl">Sixteen things Türkiye taught us</h2>
+            <p className="mt-2 max-w-2xl text-purple-100">
+              From the post-departure session. Step through them, or skip the deck entirely — nothing
+              below depends on it.
+            </p>
+          </Reveal>
+
+          <Reveal className="mt-8">
+            <ThemeDeck />
           </Reveal>
         </div>
       </section>
