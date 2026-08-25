@@ -16,7 +16,7 @@ export const metadata = {
  * Photographs live in Vercel Blob under this prefix. Nothing is uploaded there
  * yet, so every gallery below degrades to a note rather than an empty gap.
  */
-const BLOB_PREFIX = "arnab-blob-trial-1";
+const BLOB_PREFIX = "istanbul_gie";
 
 type Shot = { url: string; pathname: string };
 
@@ -41,9 +41,10 @@ const Pending = ({ what }: { what: string }) => (
 
 export default async function IstanbulPage() {
   const shots = await getShots();
-  const hero = shots[0];
+  const hero = shots[4];
   const coffee = shots.filter((s) => /coffee/i.test(s.pathname)).slice(0, 2);
   const paintings = shots.filter((s) => /paint/i.test(s.pathname)).slice(0, 4);
+  const framedPainting = shots.filter((s) => /paint/i.test(s.pathname)).slice(4, 5);
 
   return (
     <AnimationLayer
@@ -287,6 +288,7 @@ export default async function IstanbulPage() {
         </div>
       </section>
 
+
       {/* 4 — COMPANIES & LECTURES */}
       <section className="bg-white/[0.03] px-6 py-14 md:px-12">
         <div className="mx-auto max-w-6xl">
@@ -318,6 +320,23 @@ export default async function IstanbulPage() {
           <Reveal className="mt-8">
             <VideoWall />
           </Reveal>
+        </div>
+      </section>
+
+      {/* 6 — FRAMED PAINTING */}
+      <section className="px-6 py-14 pb-24 md:px-12">
+        <div className="mx-auto max-w-6xl">
+          {framedPainting.length ? (
+            <div className=" gap-4 ">
+              {framedPainting.map((shot) => (
+                <div key={shot.url} className="relative aspect-[16/9] overflow-hidden rounded-2xl">
+                  <Image src={shot.url} alt="Painting from İstanbul" fill className="object-cover" unoptimized />
+                </div>
+              ))}
+            </div>
+          ) : (
+            <Pending what="The four paintings" />
+          )}
 
           <Reveal className="mt-12">
             <Link href="#navigation" className="text-purple-200 underline underline-offset-4 hover:text-white">
