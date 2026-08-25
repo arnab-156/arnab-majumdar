@@ -30,7 +30,11 @@ export default function ContactPage() {
       </section>
 
       <section className="w-full px-6 pb-20 md:px-12">
-        <ContactForm />
+        {/* Read here rather than in the client component: TURNSTILE_SITE_KEY
+            has no NEXT_PUBLIC_ prefix, so only the server can see it. Passing
+            it down is safe — a Turnstile site key is public by design, and
+            appears in the markup of every site that uses one. */}
+        <ContactForm siteKey={process.env.TURNSTILE_SITE_KEY ?? process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY} />
       </section>
 
       <div className="w-full pb-16 text-center">

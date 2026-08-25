@@ -20,8 +20,7 @@ const field =
   "mt-2 w-full rounded-xl border border-lotus-indigo/25 bg-white/70 px-3 py-2 text-lotus-ink shadow-sm transition placeholder:text-lotus-ink/40 hover:border-lotus-indigo/50 focus:outline-none focus:ring-2 focus:ring-lotus-indigo dark:bg-white/5 dark:text-lotus-paper dark:placeholder:text-lotus-paper/40";
 const label = "text-sm font-semibold text-lotus-ink/80 dark:text-lotus-paper/80";
 
-export const ContactForm = () => {
-  const siteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
+export const ContactForm = ({ siteKey }: { siteKey?: string }) => {
 
   const widgetRef = useRef<HTMLDivElement>(null);
   const widgetId = useRef<string | null>(null);
@@ -48,7 +47,7 @@ export const ContactForm = () => {
       // Developer-facing only. Visitors get a working-looking form; the server
       // is what actually turns the submission away.
       console.warn(
-        "NEXT_PUBLIC_TURNSTILE_SITE_KEY is not set, so the Turnstile widget cannot render and /api/contact will reject submissions."
+        "No Turnstile site key reached the browser, so the widget cannot render and /api/contact will reject submissions. Set TURNSTILE_SITE_KEY (or NEXT_PUBLIC_TURNSTILE_SITE_KEY) and redeploy."
       );
     }
   }, [siteKey]);
