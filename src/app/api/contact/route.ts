@@ -29,8 +29,10 @@ const escapeHtml = (value: string) =>
     .replace(/'/g, "&#39;");
 
 async function verifyTurnstile(token: string, ip: string | null) {
-  const secret = process.env.TURNSTILE_SECRET_KEY;
-  if (!secret) return { ok: false, reason: "Turnstile is not configured on the server." };
+  // TURNSTILE_SECRET is the name already in use; the _KEY spelling is accepted
+  // so either convention works.
+  const secret = process.env.TURNSTILE_SECRET ?? process.env.TURNSTILE_SECRET_KEY;
+  if (!secret) return { ok: false as const, reason: "Turnstile is not configured on the server." };
 
   const form = new FormData();
   form.append("secret", secret);
@@ -42,10 +44,29 @@ async function verifyTurnstile(token: string, ip: string | null) {
       method: "POST",
       body: form,
     });
-    const data = (await res.json()) as { success: boolean; "error-codes"?: string[] };
-    return data.success
-      ? { ok: true as const }
-      : { ok: false as const, reason: "That verification did not check out. Please try again." };
+    const data = (await res.json()) as {
+      success: boolean;
+      hostname?: string;
+      "error-codes"?: string[];
+    };
+
+    if (!data.success) {
+      return { ok: false as const, reason: "That verification did not check out. Please try again." };
+    }
+
+    // Cloudflare reports which host solved the challenge. Pinning it stops a
+    // token minted on someone else's site from being spent against this one.
+    const allowed = (process.env.TURNSTILE_HOSTNAMES ?? "")
+      .split(",")
+      .map((host) => host.trim().toLowerCase())
+      .filter(Boolean);
+
+    if (allowed.length && data.hostname && !allowed.includes(data.hostname.toLowerCase())) {
+      console.error(`Turnstile solved on unexpected host: ${data.hostname}`);
+      return { ok: false as const, reason: "That verification did not check out. Please try again." };
+    }
+
+    return { ok: true as const };
   } catch {
     return { ok: false as const, reason: "Could not reach the verification service." };
   }
