@@ -4,7 +4,7 @@ import Link from "next/link";
 import { AnimationLayer, Reveal } from "@/app/components/animation";
 import { buttonStyle } from "@/app/utility/stylevariables";
 import { CompanyMarquee, ThemeDeck, VideoWall } from "./istanbul-client";
-import { learningOutcomes, places } from "./istanbul-data";
+import { learningOutcomes, paintingShop, places } from "./istanbul-data";
 
 export const metadata = {
   title: "İstanbul — Global Immersion Experience | Arnab Majumdar",
@@ -12,20 +12,29 @@ export const metadata = {
     "NYU Stern's Global Immersion Experience in Türkiye: a geopolitical brief, the themes that came out of the week, and what the city was like.",
 };
 
-/**
- * Photographs live in Vercel Blob under this prefix. Nothing is uploaded there
- * yet, so every gallery below degrades to a note rather than an empty gap.
- */
+/** These live in their own blob store, separate from the achievements one. */
 const BLOB_PREFIX = "istanbul_gie";
 
 type Shot = { url: string; pathname: string };
 
+/**
+ * That store is private: its blob URLs answer 403 to a browser, so they cannot
+ * go into <Image> directly. Everything is served through /api/istanbul-image,
+ * which resolves the pathname and streams the bytes with the token attached.
+ * Make the store public and this indirection can go away.
+ */
+const imageSrc = (pathname: string) =>
+  `/api/istanbul-image?pathname=${encodeURIComponent(pathname)}`;
+
 async function getShots(): Promise<Shot[]> {
   try {
-    const { blobs } = await list({ token: process.env.ISTANBUL_READ_WRITE_TOKEN });
+    const { blobs } = await list({
+      prefix: BLOB_PREFIX,
+      token: process.env.ISTANBUL_READ_WRITE_TOKEN,
+    });
     return blobs.map(({ url, pathname }) => ({ url, pathname }));
   } catch {
-    // No token locally, or the prefix does not exist yet. The page still renders.
+    // No token locally, or the store is unreachable. The page still renders.
     return [];
   }
 }
@@ -34,17 +43,32 @@ const eyebrow = "text-xs uppercase tracking-[0.28em] text-purple-200";
 
 const Pending = ({ what }: { what: string }) => (
   <p className="rounded-2xl border border-dashed border-purple-200/40 bg-white/5 p-5 text-sm text-purple-100">
-    {what} appear here once they are uploaded to Vercel Blob under{" "}
-    <code className="rounded bg-black/30 px-1.5 py-0.5">{BLOB_PREFIX}/</code>.
+    {what} appears here once uploaded to the İstanbul store with an{" "}
+    <code className="rounded bg-black/30 px-1.5 py-0.5">{BLOB_PREFIX}</code> prefix.
   </p>
 );
 
 export default async function IstanbulPage() {
   const shots = await getShots();
-  const hero = shots[4];
-  const coffee = shots.filter((s) => /coffee/i.test(s.pathname)).slice(0, 2);
-  const paintings = shots.filter((s) => /paint/i.test(s.pathname)).slice(0, 4);
-  const framedPainting = shots.filter((s) => /paint/i.test(s.pathname)).slice(4, 5);
+  const isCoffee = (s: Shot) => /coffee/i.test(s.pathname);
+  const isPainting = (s: Shot) => /paint/i.test(s.pathname);
+
+  // Picked by content rather than by index, so a re-upload cannot shuffle a
+  // painting into the hero slot.
+  const hero = shots.find((s) => !isCoffee(s) && !isPainting(s)) ?? shots[0];
+  const coffee = shots.filter(isCoffee).slice(0, 2);
+
+  // Paired by filename fragment so each shop link always follows its painting.
+  const paintings = paintingShop
+    .map((item) => ({
+      ...item,
+      shot: shots.find((s) => s.pathname.toLowerCase().includes(item.match.toLowerCase())),
+    }))
+    .filter((item): item is typeof item & { shot: Shot } => Boolean(item.shot));
+
+  // Whichever painting is not one of the four on the shop.
+  const shopMatches = new Set(paintings.map((p) => p.shot.pathname));
+  const framedPainting = shots.filter((s) => isPainting(s) && !shopMatches.has(s.pathname)).slice(0, 1);
 
   return (
     <AnimationLayer
@@ -104,7 +128,7 @@ export default async function IstanbulPage() {
               {hero ? (
                 <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl bg-white/10">
                   <Image
-                    src={hero.url}
+                    src={imageSrc(hero.pathname)}
                     alt="İstanbul, from the Global Immersion Experience"
                     fill
                     sizes="(max-width: 768px) 90vw, 360px"
@@ -231,7 +255,7 @@ export default async function IstanbulPage() {
                 <div className="grid grid-cols-2 gap-4">
                   {coffee.map((shot) => (
                     <div key={shot.url} className="relative aspect-square overflow-hidden rounded-2xl">
-                      <Image src={shot.url} alt="Turkish coffee, read from the cup" fill className="object-cover" unoptimized />
+                      <Image src={imageSrc(shot.pathname)} alt="Turkish coffee, read from the cup" fill className="object-cover" unoptimized />
                     </div>
                   ))}
                 </div>
@@ -273,16 +297,37 @@ export default async function IstanbulPage() {
           {/* Paintings */}
           <Reveal className="space-y-4">
             <h3 className="font-nyu-ultra text-2xl">Paintings</h3>
+            <p className="max-w-2xl text-purple-100">
+              Painted after the trip. Each one is on the shop.
+            </p>
             {paintings.length ? (
               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-                {paintings.map((shot) => (
-                  <div key={shot.url} className="relative aspect-[3/4] overflow-hidden rounded-2xl">
-                    <Image src={shot.url} alt="Painting from İstanbul" fill className="object-cover" unoptimized />
-                  </div>
+                {paintings.map(({ shot, title, href }) => (
+                  <Link
+                    key={shot.pathname}
+                    href={href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="group flex flex-col overflow-hidden rounded-2xl border border-white/15 bg-white/5 transition hover:-translate-y-1 hover:bg-white/10"
+                  >
+                    <div className="relative aspect-[3/4] w-full overflow-hidden">
+                      <Image
+                        src={imageSrc(shot.pathname)}
+                        alt={title}
+                        fill
+                        className="object-cover transition group-hover:scale-[1.03]"
+                        unoptimized
+                      />
+                    </div>
+                    <div className="p-4">
+                      <h4 className="text-sm font-semibold leading-snug text-white group-hover:underline">{title}</h4>
+                      <p className="mt-2 text-xs uppercase tracking-[0.18em] text-purple-200">Shop this &rarr;</p>
+                    </div>
+                  </Link>
                 ))}
               </div>
             ) : (
-              <Pending what="The four paintings" />
+              <Pending what="The paintings" />
             )}
           </Reveal>
         </div>
@@ -330,12 +375,12 @@ export default async function IstanbulPage() {
             <div className=" gap-4 ">
               {framedPainting.map((shot) => (
                 <div key={shot.url} className="relative aspect-[16/9] overflow-hidden rounded-2xl">
-                  <Image src={shot.url} alt="Painting from İstanbul" fill className="object-cover" unoptimized />
+                  <Image src={imageSrc(shot.pathname)} alt="Framed painting from İstanbul" fill className="object-cover" unoptimized />
                 </div>
               ))}
             </div>
           ) : (
-            <Pending what="The four paintings" />
+            <Pending what="The framed painting" />
           )}
 
           <Reveal className="mt-12">

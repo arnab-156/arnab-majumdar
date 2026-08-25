@@ -278,3 +278,37 @@ export const videos: VideoTile[] = [
     note: "Opening the evening in Istanbul.",
   },
 ];
+export type Painting = {
+  /** Substring of the blob pathname this shop link belongs to. */
+  match: string;
+  title: string;
+  href: string;
+};
+
+/**
+ * Shop links for the paintings, paired to blobs by filename fragment rather
+ * than by position, so re-uploading in a different order cannot silently point
+ * a painting at the wrong product.
+ */
+export const paintingShop: Painting[] = [
+  {
+    match: "Painting_set_istanbul_1",
+    title: "İstanbul Delight — greeting cards, 5-design set",
+    href: "https://lotusmahal.com/products/istanbul-delight-greeting-cards-5-design-set",
+  },
+  {
+    match: "painting_set_islanbul_2",
+    title: "A Night in İstanbul — watercolour postcards",
+    href: "https://lotusmahal.com/products/a-night-in-istanbul-watercolor-postcards",
+  },
+  {
+    match: "painting_istanbul",
+    title: "I Dream of İstanbul — watercolour postcard",
+    href: "https://lotusmahal.com/products/i-dream-of-istanbul-watercolor-postcard",
+  },
+  {
+    match: "Painting_4",
+    title: "İstanbul Twilight — watercolour postcard",
+    href: "https://lotusmahal.com/products/istanbul-twilight-watercolor-postcard",
+  },
+];
