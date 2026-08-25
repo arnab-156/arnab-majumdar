@@ -44,6 +44,16 @@ export const ContactForm = () => {
   }, [siteKey]);
 
   useEffect(() => {
+    if (!siteKey) {
+      // Developer-facing only. Visitors get a working-looking form; the server
+      // is what actually turns the submission away.
+      console.warn(
+        "NEXT_PUBLIC_TURNSTILE_SITE_KEY is not set, so the Turnstile widget cannot render and /api/contact will reject submissions."
+      );
+    }
+  }, [siteKey]);
+
+  useEffect(() => {
     if (scriptReady) mountWidget();
     return () => {
       if (widgetId.current && window.turnstile) {
@@ -150,14 +160,7 @@ export const ContactForm = () => {
             <input id="contact-company" name="company" tabIndex={-1} autoComplete="off" />
           </div>
 
-          {siteKey ? (
-            <div ref={widgetRef} className="mt-6" />
-          ) : (
-            <p className="mt-6 rounded-xl border border-lotus-madder/40 bg-lotus-madder/5 p-3 text-sm text-lotus-madder">
-              NEXT_PUBLIC_TURNSTILE_SITE_KEY is not set, so the verification widget cannot load and the
-              form will be rejected by the server.
-            </p>
-          )}
+          {siteKey && <div ref={widgetRef} className="mt-6" />}
 
           {error && (
             <p className="mt-4 rounded-xl border border-lotus-madder/40 bg-lotus-madder/5 p-3 text-sm text-lotus-madder" role="alert">
