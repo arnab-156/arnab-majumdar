@@ -51,18 +51,37 @@ async function verifyTurnstile(token: string, ip: string | null) {
     };
 
     if (!data.success) {
+      // Cloudflare itself refused the token — usually because the host is not
+      // in the widget's domain list in the Turnstile dashboard.
+      console.error(
+        `Turnstile rejected the token (host: ${data.hostname ?? "unknown"}, codes: ${(data["error-codes"] ?? []).join(", ") || "none"})`
+      );
       return { ok: false as const, reason: "That verification did not check out. Please try again." };
     }
 
     // Cloudflare reports which host solved the challenge. Pinning it stops a
     // token minted on someone else's site from being spent against this one.
+    // Entries may be exact ("example.com") or a wildcard ("*.vercel.app"),
+    // which matters because Vercel gives every deployment a fresh hostname.
     const allowed = (process.env.TURNSTILE_HOSTNAMES ?? "")
       .split(",")
       .map((host) => host.trim().toLowerCase())
       .filter(Boolean);
 
-    if (allowed.length && data.hostname && !allowed.includes(data.hostname.toLowerCase())) {
-      console.error(`Turnstile solved on unexpected host: ${data.hostname}`);
+    const host = data.hostname?.toLowerCase();
+    const permitted =
+      !allowed.length ||
+      !host ||
+      allowed.some((entry) =>
+        entry.startsWith("*.")
+          ? host === entry.slice(2) || host.endsWith(entry.slice(1))
+          : host === entry
+      );
+
+    if (!permitted) {
+      console.error(
+        `Turnstile solved on unexpected host: ${host}. TURNSTILE_HOSTNAMES allows: ${allowed.join(", ")}`
+      );
       return { ok: false as const, reason: "That verification did not check out. Please try again." };
     }
 
