@@ -6,6 +6,8 @@ import { Resend } from "resend";
  * with Resend. Every secret comes from the environment — see .env.example.
  */
 
+const TURNSTILE_ACTION = "contact";
+
 const MAX = { name: 120, email: 200, subject: 160, message: 5000 };
 
 type Body = {
@@ -47,6 +49,7 @@ async function verifyTurnstile(token: string, ip: string | null) {
     const data = (await res.json()) as {
       success: boolean;
       hostname?: string;
+      action?: string;
       "error-codes"?: string[];
     };
 
@@ -82,6 +85,14 @@ async function verifyTurnstile(token: string, ip: string | null) {
       console.error(
         `Turnstile solved on unexpected host: ${host}. TURNSTILE_HOSTNAMES allows: ${allowed.join(", ")}`
       );
+      return { ok: false as const, reason: "That verification did not check out. Please try again." };
+    }
+
+    // Cloudflare echoes the action the widget was rendered with. Checking it
+    // stops a token minted by some other widget on this account being spent
+    // against the contact form.
+    if (data.action && data.action !== TURNSTILE_ACTION) {
+      console.error(`Turnstile action mismatch: got "${data.action}", expected "${TURNSTILE_ACTION}"`);
       return { ok: false as const, reason: "That verification did not check out. Please try again." };
     }
 

@@ -20,7 +20,19 @@ const field =
   "mt-2 w-full rounded-xl border border-lotus-indigo/25 bg-white/70 px-3 py-2 text-lotus-ink shadow-sm transition placeholder:text-lotus-ink/40 hover:border-lotus-indigo/50 focus:outline-none focus:ring-2 focus:ring-lotus-indigo dark:bg-white/5 dark:text-lotus-paper dark:placeholder:text-lotus-paper/40";
 const label = "text-sm font-semibold text-lotus-ink/80 dark:text-lotus-paper/80";
 
-export const ContactForm = ({ siteKey }: { siteKey?: string }) => {
+/**
+ * The widget's site key. Public by design — it ships in the markup of every
+ * site that uses Turnstile — so it is a default rather than a required env
+ * var, and every deployment works without another variable to set. Override
+ * with TURNSTILE_SITE_KEY when pointing at a different widget.
+ */
+const DEFAULT_SITE_KEY = "0x4AAAAAAEbo7qS6G6ZuDswz";
+
+/** Sent with the token and checked server-side, per Cloudflare's guidance. */
+export const TURNSTILE_ACTION = "contact";
+
+export const ContactForm = ({ siteKey: siteKeyProp }: { siteKey?: string }) => {
+  const siteKey = siteKeyProp || DEFAULT_SITE_KEY;
 
   const widgetRef = useRef<HTMLDivElement>(null);
   const widgetId = useRef<string | null>(null);
@@ -35,6 +47,7 @@ export const ContactForm = ({ siteKey }: { siteKey?: string }) => {
 
     widgetId.current = window.turnstile.render(widgetRef.current, {
       sitekey: siteKey,
+      action: TURNSTILE_ACTION,
       callback: (value: string) => setToken(value),
       "expired-callback": () => setToken(""),
       "error-callback": () => setToken(""),
@@ -85,12 +98,14 @@ export const ContactForm = ({ siteKey }: { siteKey?: string }) => {
 
       const data = await response.json();
 
+      // Tokens are single use, so retire this one either way and let the
+      // widget mint a fresh one for any following attempt.
+      window.turnstile?.reset(widgetId.current ?? undefined);
+      setToken("");
+
       if (!response.ok) {
         setError(data?.error ?? "That did not send. Please try again.");
         setStatus("error");
-        // A used token cannot be replayed, so ask for a fresh one.
-        window.turnstile?.reset(widgetId.current ?? undefined);
-        setToken("");
         return;
       }
 
