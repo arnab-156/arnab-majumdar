@@ -89,7 +89,7 @@ export const nyuCourses: NyuCourse[] = [
       name: "Tulin Erdem",
       url: "https://www.stern.nyu.edu/faculty/bio/tulin-erdem",
     },
-    projects: ["Geopolitical Analysis of Turkey"],
+    projects: ["Welcome to Istanbul"],
   },
   {
     name: "The Strategist",
@@ -172,14 +172,15 @@ export const nyuProjectInfo: Record<string, NyuProjectDetails> = {
     ],
     urls: [{ url: "https://example.com/projects/analysis-of-china" }],
   },
-  "Geopolitical Analysis of Turkey": {
-    description: "Geopolitical risk brief ahead of the Türkiye immersion, focusing on energy corridors and currency stability.",
+  "Welcome to Istanbul": {
+    description: "Geopolitical Analysis of Turkey & more",
     outcomes: [
+      "Geopolitical risk brief ahead of the Türkiye immersion, focusing on energy corridors and currency stability.",
       "Mapped Black Sea/Middle East corridor dynamics and their effect on FDI flows.",
       "Analyzed inflation and FX pass-through for consumer-facing businesses.",
       "Outlined cultural and regulatory considerations for market entry sequencing.",
     ],
-    urls: [{ title: "Open project", url: "https://turkey-geopolitics-xmuj88c.gamma.site/" }],
+    urls: [{ title: "Open project", url: "/nyu/istanbul" }],
   },
   "SOAR Student Success": {
     description:
