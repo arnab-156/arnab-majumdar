@@ -432,7 +432,11 @@ const SkillsStack = () => (
 );
 
 export default async function AchievementsPage() {
-  const { blobs } = await list();
+  const { blobs: allBlobs } = await list();
+
+  // The store is shared. /nyu/istanbul keeps its photographs under its own
+  // prefix, and without this they would turn up in this gallery too.
+  const blobs = allBlobs.filter(({ pathname }) => !pathname.startsWith("istanbul_gie"));
 
   const classRepTile = {
     src: "/class-rep.png",
