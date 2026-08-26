@@ -228,6 +228,12 @@ export type Place = {
   note: string;
   href: string;
   imageUrl?: string;
+  /**
+   * Substring of a blob pathname. A photograph of our own outranks the site's
+   * logo, and is framed as a photograph rather than padded like a logo. The
+   * `imageUrl` below it stays as the fallback for when the store is unreachable.
+   */
+  imageMatch?: string;
 };
 
 /** Images are the sites' own og:image, so they change when those sites do. */
@@ -237,6 +243,7 @@ export const places: Place[] = [
     name: "Aheste",
     note: "Meze rethought, plate by plate, on Beyoğlu's back streets.",
     href: "https://ahesterestaurant.com/",
+    imageMatch: "aheste",
     imageUrl:
       "https://static1.squarespace.com/static/55214176e4b019d71221d355/t/6523b238919e496206942a2b/1696838200074/AHESTE_NEW_LOGO.png?format=1500w",
   },
@@ -245,6 +252,7 @@ export const places: Place[] = [
     name: "Çiya Sofrası",
     note: "Chef Musa Dağdeviren's Kadıköy kitchen, and an argument that regional Anatolian cooking is worth preserving.",
     href: "https://maps.app.goo.gl/gu1jb6KrTngmsiU27",
+    imageMatch: "ciya",
   },
   {
     kind: "Television",
@@ -263,7 +271,16 @@ export const places: Place[] = [
   },
 ];
 
-export type VideoTile = { id: string; title: string; note: string };
+export type VideoTile = {
+  id: string;
+  title: string;
+  note: string;
+  /**
+   * Names this video for a link elsewhere on the page: an anchor of `#slug`
+   * opens it in the wall. Only videos something links to need one.
+   */
+  slug?: string;
+};
 
 export const videos: VideoTile[] = [
   {
@@ -276,6 +293,35 @@ export const videos: VideoTile[] = [
     id: "HZj1HyotM2g",
     title: "Professor Tülin Erdem addresses guests",
     note: "Opening the evening in Istanbul.",
+  },
+  { id: "5VM7AU1lrnw", title: "I dream of İstanbul", note: "A quick collage of the week." },
+  { id: "LEODfI8DG0o", title: "With love, İstanbul", note: "A quick bus tour of the city." },
+  {
+    id: "5Yg78jwC3IY",
+    slug: "reading-cup",
+    title: "The Reading Cup, New York",
+    note: "A world in a cup — the fortune-telling coffee, back home.",
+  },
+];
+
+export type CompanyPhoto = {
+  /** Substring of the blob pathname this caption belongs to. */
+  match: string;
+  name: string;
+  note: string;
+};
+
+/**
+ * Captions for the photographs taken inside the hosts' own rooms. Any blob
+ * whose name ends `_company` shows up in that strip; one listed here is
+ * captioned properly, and one that is not falls back to the name read off its
+ * filename, so a new photograph needs no code to appear.
+ */
+export const companyPhotos: CompanyPhoto[] = [
+  {
+    match: "eczacibasi",
+    name: "Eczacıbaşı Group",
+    note: "The panel, mid-session.",
   },
 ];
 export type Painting = {

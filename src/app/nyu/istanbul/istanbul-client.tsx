@@ -1,7 +1,7 @@
 'use client'
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
 import { YouTubeEmbed } from "@next/third-parties/google";
 import { themes, organisations, videos, type Org, type VideoTile } from "./istanbul-data";
 import styles from "./istanbul.module.css";
@@ -70,30 +70,33 @@ export const ThemeDeck = () => {
   );
 };
 
-/**
- * How many tiles share a screen: one at a time on a phone, a 2x2 batch on a
- * tablet, a single row of three on desktop. The breakpoints match the grid
- * classes below, so a batch always fills its rows exactly.
- */
-const usePerBatch = () => {
-  // Desktop until the client can measure; the effect settles it before paint
-  // on the first frame after hydration.
-  const [perBatch, setPerBatch] = useState(3);
+const widths = [
+  { name: "phone", query: "(max-width: 639px)" },
+  { name: "tablet", query: "(min-width: 640px) and (max-width: 1023px)" },
+] as const;
 
-  useEffect(() => {
-    const sizes = [
-      { mq: window.matchMedia("(max-width: 639px)"), perBatch: 1 },
-      { mq: window.matchMedia("(min-width: 640px) and (max-width: 1023px)"), perBatch: 4 },
-    ];
-    const read = () => setPerBatch(sizes.find((s) => s.mq.matches)?.perBatch ?? 3);
-
-    read();
-    sizes.forEach(({ mq }) => mq.addEventListener("change", read));
-    return () => sizes.forEach(({ mq }) => mq.removeEventListener("change", read));
-  }, []);
-
-  return perBatch;
+const subscribeToWidth = (changed: () => void) => {
+  const lists = widths.map(({ query }) => window.matchMedia(query));
+  lists.forEach((mq) => mq.addEventListener("change", changed));
+  return () => lists.forEach((mq) => mq.removeEventListener("change", changed));
 };
+
+const readWidth = () =>
+  widths.find(({ query }) => window.matchMedia(query).matches)?.name ?? "desktop";
+
+/**
+ * Which of Tailwind's sizes we are at, so the sliding sections can decide how
+ * much fits on one screen. Read from the same breakpoints as the grid classes
+ * they pair with, so a batch always fills its rows exactly.
+ *
+ * Subscribed rather than read in an effect, so the first client render already
+ * knows the size — a link that opens one video by name needs the batch size to
+ * be right the moment it lands, not a frame later.
+ */
+const useBreakpoint = () => useSyncExternalStore(subscribeToWidth, readWidth, () => "desktop");
+
+/** One video at a time on a phone, a 2x2 batch on a tablet, a row of three. */
+const videosPerBatch: Record<string, number> = { phone: 1, tablet: 4, desktop: 3 };
 
 const Tile = ({
   video,
@@ -157,7 +160,28 @@ const Tile = ({
 export const VideoWall = () => {
   const [playing, setPlaying] = useState<string | null>(null);
   const [batch, setBatch] = useState(0);
-  const perBatch = usePerBatch();
+  const perBatch = videosPerBatch[useBreakpoint()];
+  const wall = useRef<HTMLDivElement>(null);
+
+  // A link anywhere on the page can name a video by its slug — "#reading-cup"
+  // brings the wall into view with that one already playing. The hash is put
+  // back afterwards so pressing the same link a second time still fires.
+  useEffect(() => {
+    const open = () => {
+      const slug = window.location.hash.slice(1);
+      const index = slug ? videos.findIndex((v) => v.slug === slug) : -1;
+      if (index < 0) return;
+
+      setBatch(Math.floor(index / perBatch));
+      setPlaying(videos[index].id);
+      wall.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+      window.history.replaceState(null, "", window.location.pathname + window.location.search);
+    };
+
+    open();
+    window.addEventListener("hashchange", open);
+    return () => window.removeEventListener("hashchange", open);
+  }, [perBatch]);
 
   const batches = useMemo(() => {
     const out: VideoTile[][] = [];
@@ -178,7 +202,7 @@ export const VideoWall = () => {
   };
 
   return (
-    <div>
+    <div ref={wall}>
       <div className="overflow-hidden">
         <div
           className="flex transition-transform duration-500 ease-out motion-reduce:transition-none"
@@ -309,3 +333,112 @@ export const CompanyMarquee = () => (
     </ul>
   </div>
 );
+
+export type Panel = { src: string; name: string; note: string };
+
+const PanelFrame = ({ panel }: { panel: Panel }) => (
+  <figure className="relative h-[32rem] w-full overflow-hidden rounded-2xl border border-white/15 bg-black/40">
+    {/* These are taken on a phone and come out portrait, so the frame is a
+        fixed shape with the photograph sat inside it whole, over a blurred
+        copy of itself. Nothing is cropped, whatever shape the next one is. */}
+    <Image
+      src={panel.src}
+      alt=""
+      aria-hidden
+      fill
+      unoptimized
+      className="scale-110 object-cover opacity-40 blur-2xl"
+    />
+    <Image
+      src={panel.src}
+      alt={panel.name}
+      fill
+      unoptimized
+      className="object-contain p-4 pb-20"
+    />
+    <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 via-black/60 to-transparent p-5 pt-12">
+      <p className="font-nyu-ultra text-lg leading-tight text-white md:text-xl">{panel.name}</p>
+      <p className="mt-1 text-sm text-purple-100">{panel.note}</p>
+    </figcaption>
+  </figure>
+);
+
+/**
+ * Between section 4 and section 2 — the photographs taken inside the hosts'
+ * own rooms. A phone gets one at a time, sliding in from the right; anything
+ * wider has room to show them side by side.
+ */
+export const CompanyPanels = ({ panels }: { panels: Panel[] }) => {
+  const [index, setIndex] = useState(0);
+  const oneAtATime = useBreakpoint() === "phone";
+
+  // Every panel is on screen at once above the phone breakpoint, so there is
+  // nothing to step through and the track stays put.
+  const current = oneAtATime ? Math.min(index, panels.length - 1) : 0;
+  const stepping = oneAtATime && panels.length > 1;
+
+  if (panels.length === 0) return null;
+
+  return (
+    <div>
+      <div className="overflow-hidden">
+        <div
+          className="flex transition-transform duration-500 ease-out motion-reduce:transition-none"
+          style={{ transform: `translateX(-${current * 100}%)` }}
+        >
+          {oneAtATime ? (
+            panels.map((panel, i) => (
+              <div key={panel.src} className="w-full shrink-0" aria-hidden={i !== current}>
+                <PanelFrame panel={panel} />
+              </div>
+            ))
+          ) : (
+            <div
+              className={classNames(
+                "grid w-full shrink-0 items-start gap-6",
+                panels.length > 1 && "md:grid-cols-2"
+              )}
+            >
+              {panels.map((panel) => (
+                <PanelFrame key={panel.src} panel={panel} />
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+
+      {stepping && (
+        <div className="mt-6 flex flex-col gap-4">
+          <div className="flex flex-wrap items-center justify-between gap-4">
+            <p className="text-xs uppercase tracking-[0.28em] text-purple-200">
+              {current + 1} of {panels.length}
+            </p>
+            <div className="flex items-center gap-2">
+              {panels.map((panel, i) => (
+                <button
+                  key={panel.src}
+                  type="button"
+                  onClick={() => setIndex(i)}
+                  aria-label={`Go to ${panel.name}`}
+                  aria-current={i === current}
+                  className={classNames(
+                    "h-2 w-2 rounded-full transition",
+                    i === current ? "bg-purple-200" : "bg-white/25 hover:bg-white/50"
+                  )}
+                />
+              ))}
+            </div>
+          </div>
+
+          <button
+            type="button"
+            onClick={() => setIndex((current + 1) % panels.length)}
+            className="rounded-full border border-purple-200 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
+          >
+            {current === panels.length - 1 ? "Back to the first" : "Show next"}
+          </button>
+        </div>
+      )}
+    </div>
+  );
+};
