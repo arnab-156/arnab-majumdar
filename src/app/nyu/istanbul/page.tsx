@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { AnimationLayer, Reveal } from "@/app/components/animation";
 import { buttonStyle } from "@/app/utility/stylevariables";
-import { CompanyMarquee, CompanyPanels, ThemeDeck, VideoWall } from "./istanbul-client";
+import { CompanyMarquee, PhotoStrip, ThemeDeck, VideoWall } from "./istanbul-client";
 import { companyPhotos, learningOutcomes, paintingShop, places } from "./istanbul-data";
 
 export const metadata = {
@@ -70,13 +70,16 @@ export default async function IstanbulPage() {
     s.pathname.toLowerCase().includes(fragment.toLowerCase());
   const isPlacePhoto = (s: Shot) =>
     places.some((place) => place.imageMatch && matches(s, place.imageMatch));
+  /** A page of the booklet: a ciya photograph no place card has claimed. */
+  const isBooklet = (s: Shot) => /ciya/i.test(s.pathname) && !isPlacePhoto(s);
 
   // Picked by content rather than by index, so a re-upload cannot shuffle a
-  // painting into the hero slot — and so a photograph uploaded for a place or
-  // a host cannot take it either.
-  const hero = shots.filter(
-    (s) => !isPainting(s) && !isCoffee(s) && !isCompany(s) && !isPlacePhoto(s)
-  );
+  // painting into the hero slot. Everything with a home of its own is spoken
+  // for first, and what is left over is the hero — otherwise a photograph
+  // uploaded for a place, a host or the booklet lands on the top of the page.
+  const spokenFor = (s: Shot) =>
+    isPainting(s) || isCoffee(s) || isCompany(s) || isPlacePhoto(s) || isBooklet(s);
+  const hero = shots.filter((s) => !spokenFor(s));
   const coffee = shots.filter(isCoffee).slice(0, 2);
 
   // A photograph of our own outranks the site's own logo on a place card.
@@ -91,10 +94,21 @@ export default async function IstanbulPage() {
     const caption = companyPhotos.find((c) => matches(shot, c.match));
     return {
       src: imageSrc(shot.pathname),
-      name: caption?.name ?? hostFromPathname(shot.pathname),
-      note: caption?.note ?? "In the room with our hosts.",
+      alt: caption?.name ?? hostFromPathname(shot.pathname),
+      caption: {
+        name: caption?.name ?? hostFromPathname(shot.pathname),
+        note: caption?.note ?? "In the room with our hosts.",
+      },
     };
   });
+
+  // Pages of the booklet Çiya hands you: every ciya photograph the place card
+  // above has not already claimed, so a page uploaded later joins them on its
+  // own. Left uncaptioned — the heading says what they are.
+  const booklet = shots.filter(isBooklet).map((shot, i) => ({
+    src: imageSrc(shot.pathname),
+    alt: `Page ${i + 1} of the Çiya Sofrası booklet`,
+  }));
 
   // Paired by filename fragment so each shop link always follows its painting.
   const paintings = paintingShop
@@ -328,6 +342,23 @@ export default async function IstanbulPage() {
             ))}
           </AnimationLayer>
 
+          {/* The Çiya booklet, between the places and the paintings */}
+          {booklet.length > 0 && (
+            <Reveal className="space-y-4">
+              <div className="flex flex-wrap items-center gap-3">
+                <h3 className="font-nyu-ultra text-2xl">From the Çiya booklet</h3>
+                <span className="rounded-full border border-dashed border-purple-200/50 px-3 py-1 text-xs uppercase tracking-[0.18em] text-purple-200">
+                  More coming soon
+                </span>
+              </div>
+              <p className="max-w-2xl text-purple-100">
+                Pages from the booklet the restaurant hands you, on the history behind what is
+                cooked there. More of it going up as it is scanned.
+              </p>
+              <PhotoStrip panels={booklet} />
+            </Reveal>
+          )}
+
           {/* Paintings */}
           <Reveal className="space-y-4">
             <h3 id="paintings" className="font-nyu-ultra text-2xl">Paintings</h3>
@@ -425,7 +456,7 @@ export default async function IstanbulPage() {
         <section className="bg-white/[0.03] px-6 pb-14 md:px-12">
           <div className="mx-auto max-w-6xl">
             <Reveal>
-              <CompanyPanels panels={panels} />
+              <PhotoStrip panels={panels} />
             </Reveal>
           </div>
         </section>

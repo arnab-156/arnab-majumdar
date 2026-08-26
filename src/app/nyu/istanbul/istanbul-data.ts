@@ -252,7 +252,7 @@ export const places: Place[] = [
     name: "Çiya Sofrası",
     note: "Chef Musa Dağdeviren's Kadıköy kitchen, and an argument that regional Anatolian cooking is worth preserving.",
     href: "https://maps.app.goo.gl/gu1jb6KrTngmsiU27",
-    imageMatch: "ciya",
+    imageMatch: "ciya_1",
   },
   {
     kind: "Television",

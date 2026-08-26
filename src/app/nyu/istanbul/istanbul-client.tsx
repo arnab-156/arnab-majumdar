@@ -334,13 +334,23 @@ export const CompanyMarquee = () => (
   </div>
 );
 
-export type Panel = { src: string; name: string; note: string };
+export type Panel = {
+  src: string;
+  alt: string;
+  /** A photograph of a room is worth naming; a page of a booklet is not. */
+  caption?: { name: string; note: string };
+};
 
 const PanelFrame = ({ panel }: { panel: Panel }) => (
-  <figure className="relative h-[32rem] w-full overflow-hidden rounded-2xl border border-white/15 bg-black/40">
-    {/* These are taken on a phone and come out portrait, so the frame is a
-        fixed shape with the photograph sat inside it whole, over a blurred
-        copy of itself. Nothing is cropped, whatever shape the next one is. */}
+  <figure
+    className={classNames(
+      "relative w-full overflow-hidden rounded-2xl border border-white/15 bg-black/40",
+      panel.caption ? "h-[32rem]" : "h-[20rem] md:h-[30rem]"
+    )}
+  >
+    {/* One is shot on a phone and comes out portrait, the next is a spread and
+        comes out wide, so the frame is a fixed shape with the picture sat
+        inside it whole, over a blurred copy of itself. Nothing is cropped. */}
     <Image
       src={panel.src}
       alt=""
@@ -351,24 +361,28 @@ const PanelFrame = ({ panel }: { panel: Panel }) => (
     />
     <Image
       src={panel.src}
-      alt={panel.name}
+      alt={panel.alt}
       fill
       unoptimized
-      className="object-contain p-4 pb-20"
+      className={classNames("object-contain p-4", panel.caption && "pb-20")}
     />
-    <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 via-black/60 to-transparent p-5 pt-12">
-      <p className="font-nyu-ultra text-lg leading-tight text-white md:text-xl">{panel.name}</p>
-      <p className="mt-1 text-sm text-purple-100">{panel.note}</p>
-    </figcaption>
+    {panel.caption && (
+      <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 via-black/60 to-transparent p-5 pt-12">
+        <p className="font-nyu-ultra text-lg leading-tight text-white md:text-xl">
+          {panel.caption.name}
+        </p>
+        <p className="mt-1 text-sm text-purple-100">{panel.caption.note}</p>
+      </figcaption>
+    )}
   </figure>
 );
 
 /**
- * Between section 4 and section 2 — the photographs taken inside the hosts'
- * own rooms. A phone gets one at a time, sliding in from the right; anything
- * wider has room to show them side by side.
+ * A run of photographs — the hosts' own rooms between sections 4 and 2, the
+ * booklet pages inside section 3. A phone gets one at a time, sliding in from
+ * the right; anything wider has room to show them side by side.
  */
-export const CompanyPanels = ({ panels }: { panels: Panel[] }) => {
+export const PhotoStrip = ({ panels }: { panels: Panel[] }) => {
   const [index, setIndex] = useState(0);
   const oneAtATime = useBreakpoint() === "phone";
 
@@ -419,7 +433,7 @@ export const CompanyPanels = ({ panels }: { panels: Panel[] }) => {
                   key={panel.src}
                   type="button"
                   onClick={() => setIndex(i)}
-                  aria-label={`Go to ${panel.name}`}
+                  aria-label={`Go to ${panel.alt}`}
                   aria-current={i === current}
                   className={classNames(
                     "h-2 w-2 rounded-full transition",
