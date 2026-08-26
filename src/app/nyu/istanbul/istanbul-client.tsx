@@ -1,9 +1,9 @@
 'use client'
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { YouTubeEmbed } from "@next/third-parties/google";
-import { themes, organisations, videos, type Org } from "./istanbul-data";
+import { themes, organisations, videos, type Org, type VideoTile } from "./istanbul-data";
 import styles from "./istanbul.module.css";
 
 const classNames = (...v: Array<string | false | null | undefined>) => v.filter(Boolean).join(" ");
@@ -71,54 +71,197 @@ export const ThemeDeck = () => {
 };
 
 /**
- * Section 5 — a tile per video. Nothing embeds until it is chosen, so the page
- * does not pull three players on load.
+ * How many tiles share a screen: one at a time on a phone, a 2x2 batch on a
+ * tablet, a single row of three on desktop. The breakpoints match the grid
+ * classes below, so a batch always fills its rows exactly.
+ */
+const usePerBatch = () => {
+  // Desktop until the client can measure; the effect settles it before paint
+  // on the first frame after hydration.
+  const [perBatch, setPerBatch] = useState(3);
+
+  useEffect(() => {
+    const sizes = [
+      { mq: window.matchMedia("(max-width: 639px)"), perBatch: 1 },
+      { mq: window.matchMedia("(min-width: 640px) and (max-width: 1023px)"), perBatch: 4 },
+    ];
+    const read = () => setPerBatch(sizes.find((s) => s.mq.matches)?.perBatch ?? 3);
+
+    read();
+    sizes.forEach(({ mq }) => mq.addEventListener("change", read));
+    return () => sizes.forEach(({ mq }) => mq.removeEventListener("change", read));
+  }, []);
+
+  return perBatch;
+};
+
+const Tile = ({
+  video,
+  playing,
+  onPlay,
+  reachable,
+}: {
+  video: VideoTile;
+  playing: boolean;
+  onPlay: () => void;
+  reachable: boolean;
+}) => (
+  <div className="overflow-hidden rounded-2xl border border-purple-200/30 bg-white/5 p-4 backdrop-blur">
+    <h3 className="font-semibold text-white">{video.title}</h3>
+    <p className="mt-1 text-sm text-purple-100">{video.note}</p>
+
+    <div className="mt-4">
+      {playing ? (
+        // Shorts are vertical, so the usual 16:9 is flipped. The box is sized
+        // like the thumbnail it replaces, which keeps a batch's tiles level.
+        <div className="relative aspect-[9/16] w-full overflow-hidden rounded-xl bg-black/40">
+          <YouTubeEmbed
+            videoid={video.id}
+            height={400}
+            width={700}
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+          />
+        </div>
+      ) : (
+        <button
+          type="button"
+          onClick={onPlay}
+          // A tile in an off-screen batch is still in the document, so it is
+          // taken out of the tab order rather than left as a hidden stop.
+          tabIndex={reachable ? undefined : -1}
+          className="group relative flex aspect-[9/16] w-full items-center justify-center overflow-hidden rounded-xl bg-black/40"
+        >
+          <Image
+            src={`https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`}
+            alt=""
+            fill
+            aria-hidden
+            unoptimized
+            className="object-cover opacity-70 transition group-hover:opacity-90"
+          />
+          <span className="relative flex h-14 w-14 items-center justify-center rounded-full bg-white/90 text-xl text-[#2e0068] shadow-lg transition group-hover:scale-110">
+            ▶
+          </span>
+          <span className="sr-only">Play {video.title}</span>
+        </button>
+      )}
+    </div>
+  </div>
+);
+
+/**
+ * Section 5 — a tile per video, a batch per screen, and the next batch slides
+ * in from the right. Nothing embeds until it is chosen, so the page does not
+ * pull three players on load.
  */
 export const VideoWall = () => {
   const [playing, setPlaying] = useState<string | null>(null);
+  const [batch, setBatch] = useState(0);
+  const perBatch = usePerBatch();
+
+  const batches = useMemo(() => {
+    const out: VideoTile[][] = [];
+    for (let i = 0; i < videos.length; i += perBatch) out.push(videos.slice(i, i + perBatch));
+    return out;
+  }, [perBatch]);
+
+  // Widening the window can leave the current batch past the end of the new,
+  // shorter set, so the index is clamped on the way out rather than stored.
+  const current = Math.min(batch, batches.length - 1);
+  const single = perBatch === 1;
+
+  const go = (next: number) => {
+    setBatch((next + batches.length) % batches.length);
+    // Whatever was playing has just left the screen; stop it rather than let
+    // it carry on from off-stage.
+    setPlaying(null);
+  };
 
   return (
-    <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      {videos.map((video) => (
+    <div>
+      <div className="overflow-hidden">
         <div
-          key={video.id}
-          className="overflow-hidden rounded-2xl border border-purple-200/30 bg-white/5 p-4 backdrop-blur"
+          className="flex transition-transform duration-500 ease-out motion-reduce:transition-none"
+          style={{ transform: `translateX(-${current * 100}%)` }}
         >
-          <h3 className="font-semibold text-white">{video.title}</h3>
-          <p className="mt-1 text-sm text-purple-100">{video.note}</p>
-
-          <div className="mt-4">
-            {playing === video.id ? (
-              // Shorts are vertical, so the usual 16:9 is flipped.
-              <div className="flex justify-center">
-                <YouTubeEmbed videoid={video.id} height={400}
-                  width={700}
-                  style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+          {batches.map((group, i) => (
+            <div
+              key={group[0].id}
+              className="grid w-full shrink-0 items-start gap-6 sm:grid-cols-2 lg:grid-cols-3"
+              aria-hidden={i !== current}
+            >
+              {group.map((video) => (
+                <Tile
+                  key={video.id}
+                  video={video}
+                  playing={playing === video.id}
+                  reachable={i === current}
+                  onPlay={() => setPlaying(video.id)}
                 />
-              </div>
-            ) : (
-              <button
-                type="button"
-                onClick={() => setPlaying(video.id)}
-                className="group relative flex aspect-[9/16] w-full items-center justify-center overflow-hidden rounded-xl bg-black/40"
-              >
-                <Image
-                  src={`https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`}
-                  alt=""
-                  fill
-                  aria-hidden
-                  unoptimized
-                  className="object-cover opacity-70 transition group-hover:opacity-90"
-                />
-                <span className="relative flex h-14 w-14 items-center justify-center rounded-full bg-white/90 text-xl text-[#2e0068] shadow-lg transition group-hover:scale-110">
-                  ▶
-                </span>
-                <span className="sr-only">Play {video.title}</span>
-              </button>
-            )}
-          </div>
+              ))}
+            </div>
+          ))}
         </div>
-      ))}
+      </div>
+
+      {batches.length > 1 && (
+        <div className="mt-6 flex flex-col gap-4">
+          <div className="flex flex-wrap items-center justify-between gap-4">
+            <p className="text-xs uppercase tracking-[0.28em] text-purple-200">
+              {single
+                ? `Video ${current + 1} of ${videos.length}`
+                : `Set ${current + 1} of ${batches.length}`}
+            </p>
+
+            <div className="flex items-center gap-4">
+              <div className="flex items-center gap-2">
+                {batches.map((group, i) => (
+                  <button
+                    key={group[0].id}
+                    type="button"
+                    onClick={() => go(i)}
+                    aria-label={`Go to ${single ? "video" : "set"} ${i + 1}`}
+                    aria-current={i === current}
+                    className={classNames(
+                      "h-2 w-2 rounded-full transition",
+                      i === current ? "bg-purple-200" : "bg-white/25 hover:bg-white/50"
+                    )}
+                  />
+                ))}
+              </div>
+
+              {/* Arrows for the batched sizes; phones get the button below. */}
+              <div className="hidden items-center gap-2 sm:flex">
+                <button
+                  type="button"
+                  onClick={() => go(current - 1)}
+                  aria-label="Previous videos"
+                  className={navBtn}
+                >
+                  ‹
+                </button>
+                <button
+                  type="button"
+                  onClick={() => go(current + 1)}
+                  aria-label="Next videos"
+                  className={navBtn}
+                >
+                  ›
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* One video at a time on a phone, stepped by tapping. */}
+          <button
+            type="button"
+            onClick={() => go(current + 1)}
+            className="rounded-full border border-purple-200 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10 sm:hidden"
+          >
+            {current === batches.length - 1 ? "Back to the first" : "Show next"}
+          </button>
+        </div>
+      )}
     </div>
   );
 };
