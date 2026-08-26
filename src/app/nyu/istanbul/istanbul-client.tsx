@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { YouTubeEmbed } from "@next/third-parties/google";
-
 import { themes, organisations, videos, type Org } from "./istanbul-data";
 import styles from "./istanbul.module.css";
 

@@ -193,7 +193,7 @@ export default async function IstanbulPage() {
                   rel="noreferrer"
                   className={`${buttonStyle} mt-5 inline-block px-5 py-3 text-sm font-semibold`}
                 >
-                  Read the brief
+                  Read the brief &rarr;
                 </Link>
                 <p className="mt-2 text-xs text-purple-200">Opens in a new tab</p>
               </div>
@@ -333,9 +333,12 @@ export default async function IstanbulPage() {
                         href="https://lotusmahal.com/search?q=istanbul"
                         target="_blank"
                         rel="noreferrer"
-                        className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap rounded-lg border-2 border-white bg-black/20 px-6 py-3 text-sm font-semibold text-white backdrop-blur-sm transition-all hover:bg-white hover:text-black"
+                        className={`absolute bottom-8 left-1/2 z-10 -translate-x-1/2 
+                          whitespace-nowrap rounded-lg border-2 border-white bg-black/20 px-6 py-3 
+                          text-sm font-semibold text-white backdrop-blur-sm transition-all 
+                          hover:bg-white hover:text-black sm:block`}
                       >
-                        Click to see the entire İstanbul collection &mdash; opens in a new tab
+                        See entire collection &rarr;
                       </Link>
                     </div>
                   ))}
