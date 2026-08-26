@@ -91,7 +91,10 @@ export const VideoWall = () => {
             {playing === video.id ? (
               // Shorts are vertical, so the usual 16:9 is flipped.
               <div className="flex justify-center">
-                <YouTubeEmbed videoid={video.id} height={560} width={315} />
+                <YouTubeEmbed videoid={video.id} height={400}
+                  width={700}
+                  style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+                />
               </div>
             ) : (
               <button
