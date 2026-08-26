@@ -311,7 +311,7 @@ export default async function IstanbulPage() {
             )}
           </Reveal>
 
-          <section className="px-6 py-6 pb-6 md:px-12">
+          <section className="px-6 py-6 pb-6">
             <div className="mx-auto max-w-6xl">
               {framedPainting.length > 0 && (
                 <div className="gap-4">
@@ -421,18 +421,18 @@ export default async function IstanbulPage() {
                 {/* Absolute overlay to center the text */}
                 <div className="absolute inset-0 flex items-center justify-center bg-black/30">
                   <h6 className="text-white text-2xl font-bold z-10 drop-shadow-md">
-                    Building Bridges
+                    İstanbul, building bridges
                   </h6>
                 </div>
               </div>
             </div>
           )}
 
-          <Reveal className="mt-12">
+          <div className="mt-12 flex justify-center">
             <Link href="#navigation" className="text-purple-200 underline underline-offset-4 hover:text-white">
               go to top
             </Link>
-          </Reveal>
+          </div>
         </div>
       </section>
     </AnimationLayer>
