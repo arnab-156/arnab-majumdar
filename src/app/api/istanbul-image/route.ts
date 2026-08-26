@@ -23,8 +23,10 @@ export async function GET(request: NextRequest) {
   }
 
   // Without this the route would happily resolve anything in the store, and a
-  // traversal-looking pathname should never reach the blob API at all.
-  if (!pathname.startsWith(ALLOWED_PREFIX) || pathname.includes("..")) {
+  // traversal-looking pathname should never reach the blob API at all. The
+  // prefix is matched case-insensitively because the images have been uploaded
+  // both "istanbul_gie" and "Istanbul_gie".
+  if (!pathname.toLowerCase().startsWith(ALLOWED_PREFIX) || pathname.includes("..")) {
     return NextResponse.json({ error: "Not found" }, { status: 404 });
   }
 

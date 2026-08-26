@@ -3,8 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { AnimationLayer, Reveal } from "@/app/components/animation";
 import { buttonStyle } from "@/app/utility/stylevariables";
-import { CompanyMarquee, ThemeDeck, VideoWall } from "./istanbul-client";
-import { learningOutcomes, paintingShop, places } from "./istanbul-data";
+import { CompanyMarquee, PhotoStrip, ThemeDeck, VideoWall } from "./istanbul-client";
+import { companyPhotos, learningOutcomes, paintingShop, places } from "./istanbul-data";
 
 export const metadata = {
   title: "İstanbul — Global Immersion Experience | Arnab Majumdar",
@@ -28,11 +28,13 @@ const imageSrc = (pathname: string) =>
 
 async function getShots(): Promise<Shot[]> {
   try {
-    const { blobs } = await list({
-      prefix: BLOB_PREFIX,
-      token: process.env.ISTANBUL_READ_WRITE_TOKEN,
-    });
-    return blobs.map(({ url, pathname }) => ({ url, pathname }));
+    // Listed whole rather than by prefix: the API's prefix match is
+    // case-sensitive, and these have been uploaded both "istanbul_gie" and
+    // "Istanbul_gie", so the filter has to be the case-insensitive one.
+    const { blobs } = await list({ token: process.env.ISTANBUL_READ_WRITE_TOKEN });
+    return blobs
+      .filter(({ pathname }) => new RegExp(`^${BLOB_PREFIX}`, "i").test(pathname))
+      .map(({ url, pathname }) => ({ url, pathname }));
   } catch {
     // No token locally, or the store is unreachable. The page still renders.
     return [];
@@ -40,6 +42,16 @@ async function getShots(): Promise<Shot[]> {
 }
 
 const eyebrow = "text-xs uppercase tracking-[0.28em] text-purple-200";
+
+/** "Istanbul_gie12_eczacibasi_company.png" — the host is "Eczacibasi". */
+const hostFromPathname = (pathname: string) =>
+  pathname
+    .replace(/\.[^.]+$/, "")
+    .replace(new RegExp(`^${BLOB_PREFIX}[\\s_-]*\\d*[\\s_-]*`, "i"), "")
+    .replace(/[\s_-]*company$/i, "")
+    .replace(/[_-]+/g, " ")
+    .replace(/\b\w/g, (c) => c.toUpperCase())
+    .trim() || "In the room";
 
 const Pending = ({ what }: { what: string }) => (
   <p className="rounded-2xl border border-dashed border-purple-200/40 bg-white/5 p-5 text-sm text-purple-100">
@@ -52,11 +64,51 @@ export default async function IstanbulPage() {
   const shots = await getShots();
   const isCoffee = (s: Shot) => /coffee/i.test(s.pathname);
   const isPainting = (s: Shot) => /paint/i.test(s.pathname);
+  /** The convention for a photograph taken inside a host's own room. */
+  const isCompany = (s: Shot) => /company/i.test(s.pathname);
+  const matches = (s: Shot, fragment: string) =>
+    s.pathname.toLowerCase().includes(fragment.toLowerCase());
+  const isPlacePhoto = (s: Shot) =>
+    places.some((place) => place.imageMatch && matches(s, place.imageMatch));
+  /** A page of the booklet: a ciya photograph no place card has claimed. */
+  const isBooklet = (s: Shot) => /ciya/i.test(s.pathname) && !isPlacePhoto(s);
 
   // Picked by content rather than by index, so a re-upload cannot shuffle a
-  // painting into the hero slot.
-  const hero = shots.filter((s) => !isPainting(s) && !isCoffee(s));
+  // painting into the hero slot. Everything with a home of its own is spoken
+  // for first, and what is left over is the hero — otherwise a photograph
+  // uploaded for a place, a host or the booklet lands on the top of the page.
+  const spokenFor = (s: Shot) =>
+    isPainting(s) || isCoffee(s) || isCompany(s) || isPlacePhoto(s) || isBooklet(s);
+  const hero = shots.filter((s) => !spokenFor(s));
   const coffee = shots.filter(isCoffee).slice(0, 2);
+
+  // A photograph of our own outranks the site's own logo on a place card.
+  const placeCards = places.map((place) => {
+    const shot = place.imageMatch && shots.find((s) => matches(s, place.imageMatch!));
+    return { place, photo: shot ? imageSrc(shot.pathname) : undefined };
+  });
+
+  // Every `_company` photograph shows, captioned if one has been written for
+  // it and named off its filename if not.
+  const panels = shots.filter(isCompany).map((shot) => {
+    const caption = companyPhotos.find((c) => matches(shot, c.match));
+    return {
+      src: imageSrc(shot.pathname),
+      alt: caption?.name ?? hostFromPathname(shot.pathname),
+      caption: {
+        name: caption?.name ?? hostFromPathname(shot.pathname),
+        note: caption?.note ?? "In the room with our hosts.",
+      },
+    };
+  });
+
+  // Pages of the booklet Çiya hands you: every ciya photograph the place card
+  // above has not already claimed, so a page uploaded later joins them on its
+  // own. Left uncaptioned — the heading says what they are.
+  const booklet = shots.filter(isBooklet).map((shot, i) => ({
+    src: imageSrc(shot.pathname),
+    alt: `Page ${i + 1} of the Çiya Sofrası booklet`,
+  }));
 
   // Paired by filename fragment so each shop link always follows its painting.
   const paintings = paintingShop
@@ -216,7 +268,7 @@ export default async function IstanbulPage() {
           {/* Coffee */}
           <Reveal className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
             <div className="space-y-4">
-              <h3 className="font-nyu-ultra text-2xl">The Reading Up</h3>
+              <h3 className="font-nyu-ultra text-2xl">The Reading Cup</h3>
               <p className="leading-relaxed text-purple-50">
                 A fortune-telling Turkish coffee joint, in New York City. You drink the coffee, turn
                 the cup over onto the saucer, wait for the grounds to settle, and someone reads what
@@ -228,6 +280,16 @@ export default async function IstanbulPage() {
                 custom to people who have never turned a cup over — and the whole thing runs on
                 twenty minutes and a saucer.
               </p>
+              {/* Opens that short down in the video wall, rather than sending
+                  anyone off the page to find it. A plain anchor rather than a
+                  Link: the router pushes a hash without firing hashchange, and
+                  the wall listens for that. */}
+              <a
+                href="#reading-cup"
+                className={`${buttonStyle} inline-block px-5 py-3 text-sm font-semibold`}
+              >
+                Watch the cup being read &rarr;
+              </a>
             </div>
             <div>
               {coffee.length ? (
@@ -247,7 +309,7 @@ export default async function IstanbulPage() {
 
           {/* Places */}
           <AnimationLayer as="div" className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4" method="rise" distance={44} stagger={80} staggerCycle={4}>
-            {places.map((place) => (
+            {placeCards.map(({ place, photo }) => (
               <Reveal
                 as="a"
                 key={place.name}
@@ -256,9 +318,15 @@ export default async function IstanbulPage() {
                 rel="noreferrer"
                 className="group flex flex-col overflow-hidden rounded-2xl border border-white/15 bg-white/5 transition hover:-translate-y-1 hover:bg-white/10"
               >
-                <div className="relative aspect-[4/3] w-full overflow-hidden bg-white">
-                  {place.imageUrl ? (
-                    <Image src={place.imageUrl} alt={place.name} fill className="object-contain p-3" unoptimized />
+                <div className={`relative aspect-[4/3] w-full overflow-hidden ${photo ? "bg-black/30" : "bg-white"}`}>
+                  {photo || place.imageUrl ? (
+                    <Image
+                      src={photo ?? place.imageUrl!}
+                      alt={place.name}
+                      fill
+                      className={photo ? "object-cover" : "object-contain p-3"}
+                      unoptimized
+                    />
                   ) : (
                     <span className="flex h-full items-center justify-center px-4 text-center font-nyu-ultra text-lg uppercase text-[#2e0068]">
                       {place.name}
@@ -273,6 +341,23 @@ export default async function IstanbulPage() {
               </Reveal>
             ))}
           </AnimationLayer>
+
+          {/* The Çiya booklet, between the places and the paintings */}
+          {booklet.length > 0 && (
+            <Reveal className="space-y-4">
+              <div className="flex flex-wrap items-center gap-3">
+                <h3 className="font-nyu-ultra text-2xl">From the Çiya booklet</h3>
+                <span className="rounded-full border border-dashed border-purple-200/50 px-3 py-1 text-xs uppercase tracking-[0.18em] text-purple-200">
+                  More coming soon
+                </span>
+              </div>
+              <p className="max-w-2xl text-purple-100">
+                Pages from the booklet the restaurant hands you, on the history behind what is
+                cooked there. More of it going up as it is scanned.
+              </p>
+              <PhotoStrip panels={booklet} />
+            </Reveal>
+          )}
 
           {/* Paintings */}
           <Reveal className="space-y-4">
@@ -311,7 +396,7 @@ export default async function IstanbulPage() {
             )}
           </Reveal>
 
-          <section className="px-6 py-6 pb-6 md:px-12">
+          <section className="px-6 py-6 pb-6">
             <div className="mx-auto max-w-6xl">
               {framedPainting.length > 0 && (
                 <div className="gap-4">
@@ -365,6 +450,17 @@ export default async function IstanbulPage() {
           </Reveal>
         </div>
       </section>
+
+      {/* 4b — INSIDE THE HOSTS' ROOMS */}
+      {panels.length > 0 && (
+        <section className="bg-white/[0.03] px-6 pb-14 md:px-12">
+          <div className="mx-auto max-w-6xl">
+            <Reveal>
+              <PhotoStrip panels={panels} />
+            </Reveal>
+          </div>
+        </section>
+      )}
 
       {/* 2 — OVERVIEW */}
       <section className="bg-white/[0.03] px-6 py-14 md:px-12">
@@ -421,18 +517,18 @@ export default async function IstanbulPage() {
                 {/* Absolute overlay to center the text */}
                 <div className="absolute inset-0 flex items-center justify-center bg-black/30">
                   <h6 className="text-white text-2xl font-bold z-10 drop-shadow-md">
-                    Building Bridges
+                    İstanbul, building bridges
                   </h6>
                 </div>
               </div>
             </div>
           )}
 
-          <Reveal className="mt-12">
+          <div className="mt-12 flex justify-center">
             <Link href="#navigation" className="text-purple-200 underline underline-offset-4 hover:text-white">
               go to top
             </Link>
-          </Reveal>
+          </div>
         </div>
       </section>
     </AnimationLayer>
