@@ -141,6 +141,26 @@ export const nyuCourses: NyuCourse[] = [
     },
     projects: ["Sustainability Due Diligence: Coty Inc."],
   },
+  {
+    name: "Social Entrepreneurship",
+    inProgress: true,
+    credits: 2.5,
+    faculty: {
+      name: "Hans Taparia",
+      url: "https://www.stern.nyu.edu/faculty/bio/hans-taparia",
+    },
+    projects: [],
+  },
+  {
+    name: "Behavioral Finance",
+    inProgress: true,
+    credits: 2.5,
+    faculty: {
+      name: "Ian D'Souza",
+      url: "https://www.stern.nyu.edu/faculty/bio/ian-dsouza",
+    },
+    projects: [],
+  },
 ];
 
 export const nyuProjectInfo: Record<string, NyuProjectDetails> = {
