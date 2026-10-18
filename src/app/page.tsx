@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { AnimationLayer, Reveal } from "./components/animation";
 import { HomeClickTracker } from "./components/home-click-tracker";
 import { StudioTile } from "./components/studio-tile";
-import { ReadIcon } from "./components/icons";
+import { ApparelIcon, ReadIcon } from "./components/icons";
 import styles from './hero.module.css';
 import { nyuProjects } from './nyu/projects-data';
 import { cardWrapperStyle, heroPrimaryButtonStyle, heroOutlineButtonStyle } from './utility/stylevariables';
@@ -197,16 +197,14 @@ export default function Home() {
             />
           </Reveal>
 
-          <Reveal className={tileWrapperStyle} id="aster">
+          <Reveal className={tileWrapperStyle} id="fashion">
             <StudioTile
-              eyebrow="Made in US Collaboration:"
-              title="Aster for Lotus - Made in Rhode Island"
-              description="Luxurious hand-crafted candle featuring exquisite watercolor artwork on a heavy whiskey-colored glass jar."
-              imageUrl="https://lotusmahal.com/cdn/shop/files/DSCF2076_42f9aa66-c21a-4b76-a0db-88a679d0039e.jpg?v=1741617890&width=1646"
-              imageAlt="Aster for Lotus candle in a whiskey-coloured glass jar"
-              href="https://lotusmahal.com/products/aster-for-lotus"
-              buttonText="See Product"
-              openInNewTab
+              eyebrow="Education & experience"
+              title="Fashion"
+              description="My fashion courses and experience in one place, starting with Fashion 101 flashcards."
+              media={<ApparelIcon height="100px" width="100px" />}
+              href="/fashion"
+              buttonText="Explore fashion"
             />
           </Reveal>
 
@@ -218,6 +216,19 @@ export default function Home() {
               media={<ReadIcon height="100px" width="100px" />}
               href="/tech/comic"
               buttonText="Read NOW!"
+            />
+          </Reveal>
+
+          <Reveal className={tileWrapperStyle} id="aster">
+            <StudioTile
+              eyebrow="Made in US Collaboration:"
+              title="Aster for Lotus - Made in Rhode Island"
+              description="Luxurious hand-crafted candle featuring exquisite watercolor artwork on a heavy whiskey-colored glass jar."
+              imageUrl="https://lotusmahal.com/cdn/shop/files/DSCF2076_42f9aa66-c21a-4b76-a0db-88a679d0039e.jpg?v=1741617890&width=1646"
+              imageAlt="Aster for Lotus candle in a whiskey-coloured glass jar"
+              href="https://lotusmahal.com/products/aster-for-lotus"
+              buttonText="See Product"
+              openInNewTab
             />
           </Reveal>
 
