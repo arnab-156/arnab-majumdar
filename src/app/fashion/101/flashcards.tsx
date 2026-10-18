@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 
 import type { Chapter } from "./cards-data";
 
@@ -34,6 +34,7 @@ export const Flashcards = ({ chapters }: { chapters: Chapter[] }) => {
   const [index, setIndex] = useState(0);
   const [flipped, setFlipped] = useState(false);
   const [known, setKnown] = useState<Set<string>>(new Set());
+  const deckRef = useRef<HTMLDivElement>(null);
 
   const deck = useMemo(() => {
     const source = chapterId === "all" ? chapters : chapters.filter((c) => c.id === chapterId);
@@ -66,6 +67,8 @@ export const Flashcards = ({ chapters }: { chapters: Chapter[] }) => {
     setOrder(null);
     setIndex(0);
     setFlipped(false);
+    // On phones the chapter pills fill the screen, so bring the card up to meet the tap.
+    deckRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   const shuffle = () => {
@@ -121,7 +124,7 @@ export const Flashcards = ({ chapters }: { chapters: Chapter[] }) => {
       </div>
 
       {/* Progress: how much of this deck is marked known. */}
-      <div className="mt-6 flex items-center gap-3 text-sm text-lotus-ink/70 dark:text-lotus-paper/70">
+      <div ref={deckRef} className="mt-6 flex scroll-mt-12 items-center gap-3 text-sm text-lotus-ink/70 dark:text-lotus-paper/70">
         <div className="h-2 flex-1 overflow-hidden rounded-full bg-lotus-indigo/10 dark:bg-white/10">
           <div
             className="h-full bg-lotus-madder transition-all"
