@@ -28,6 +28,13 @@ const courses: Course[] = [
     swatch: "bg-lotus-madder",
   },
   {
+    code: "150",
+    title: "Careers in Fashion",
+    note: "Who does what, from trend forecasting and sourcing to buying, styling and beauty. Study it as flashcards.",
+    href: "/fashion/150",
+    swatch: "bg-lotus-ink",
+  },
+  {
     code: "AE",
     title: "Apparel Evaluation",
     note: "Judging fit, fabric and construction.",

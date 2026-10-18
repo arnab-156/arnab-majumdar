@@ -43,12 +43,6 @@ export default function Fashion101Page() {
               and mark the ones you know until the deck is empty.
             </p>
           </aside>
-          <Link
-            href="/fashion/101/resources"
-            className="mt-6 inline-flex text-sm font-semibold text-lotus-indigo hover:underline dark:text-lotus-paper"
-          >
-            Additional resources: fashion careers →
-          </Link>
         </Reveal>
       </section>
 

@@ -1,7 +1,7 @@
-import type { Chapter } from "../cards-data";
+import type { Chapter } from "../101/cards-data";
 
 /**
- * Careers flashcards for /fashion/101/resources, one deck per chapter of the
+ * Careers flashcards for /fashion/150, one deck per chapter of the
  * FCS 150 (Intro to Merchandising) careers text. Each card names a job or a
  * term on the front and explains it on the back, written fresh for this page.
  */
