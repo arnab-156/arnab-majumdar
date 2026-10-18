@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ConnectPanel } from "../components/connect-panel";
+import { ApparelIcon } from "../components/icons";
 import { StudioTile } from "../components/studio-tile";
 import {
   buttonStyle,
@@ -144,6 +145,16 @@ export default function ExperiencesPage() {
               imageAlt="Software Engineer 2"
               mediaOnDark
               href="https://www.shoprunner.com/"
+            />
+          </Reveal>
+
+          <Reveal className={cardWrapperStyle}>
+            <StudioTile
+              align="center"
+              title="Fashion"
+              description="Fashion education and experience, from Fashion 101 flashcards to apparel evaluation."
+              media={<ApparelIcon height="100px" width="100px" />}
+              href="/fashion"
             />
           </Reveal>
 
