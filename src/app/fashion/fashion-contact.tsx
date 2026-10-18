@@ -1,7 +1,6 @@
 import Link from "next/link";
 
 import { Reveal } from "../components/animation";
-import { heroPrimaryButtonStyle } from "../utility/stylevariables";
 
 /** The closing call to action every /fashion page ends on. */
 export const FashionContact = () => (
@@ -12,7 +11,7 @@ export const FashionContact = () => (
       </h2>
       <Link
         href="/contact"
-        className={`${heroPrimaryButtonStyle} mt-6 bg-lotus-paper text-lotus-indigo hover:bg-white`}
+        className="mt-6 inline-flex items-center rounded-xl bg-lotus-paper px-5 py-3 text-sm font-semibold text-lotus-indigo shadow-lg transition hover:-translate-y-[2px] hover:bg-white focus:outline-none focus:ring-2 focus:ring-lotus-paper focus:ring-offset-2 focus:ring-offset-lotus-indigo"
       >
         Contact me
       </Link>
