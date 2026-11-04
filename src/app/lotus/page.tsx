@@ -277,6 +277,20 @@ export default function Lotus() {
 
             <Reveal>
               <Tile
+                href="/BaltimoreFoodDesert"
+                title="Baltimore Grocery Survey"
+                subTitle="Research: where Baltimore buys its groceries, and how to bring fresh food closer to home."
+                url="bg-[url('/baltimore-grocery-survey-qr.svg')]"
+                shadowColor={tileShadow}
+                // Smaller than the tile and pinned to the top, so the caption
+                // panel doesn't cover the code and stop it scanning.
+                customClassName={`${tileWrapper} !bg-[length:auto_62%] !bg-[position:center_1.5rem]`}
+                imageContain
+              />
+            </Reveal>
+
+            <Reveal>
+              <Tile
                 title="Eye on India - The Saree Project"
                 subTitle="Fashion + Education + Sustainability"
                 href="/lotus/eye-on-india"

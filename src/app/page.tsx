@@ -197,6 +197,19 @@ export default function Home() {
             />
           </Reveal>
 
+          {/* The QR opens the survey itself; the button goes to the research page. */}
+          <Reveal className={tileWrapperStyle} id="baltimore-food-desert">
+            <StudioTile
+              eyebrow="Research · Lotus Mahal"
+              title="Where does Baltimore buy its groceries?"
+              description="A 5-minute survey on where Baltimore residents shop and how they get there. Scan to take it, or read about the research."
+              imageUrl="/baltimore-grocery-survey-qr.svg"
+              imageAlt="QR code linking to the Baltimore Grocery Survey"
+              href="/BaltimoreFoodDesert"
+              buttonText="About the survey"
+            />
+          </Reveal>
+
           <Reveal className={tileWrapperStyle} id="fashion">
             <StudioTile
               eyebrow="Education & experience"
