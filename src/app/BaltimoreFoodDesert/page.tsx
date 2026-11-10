@@ -64,26 +64,43 @@ export default function BaltimoreFoodDesertPage() {
         <div className={`${heroStyles.heroAurora} pointer-events-none absolute inset-0`} aria-hidden />
         <div className={`${heroStyles.ruleGrid} pointer-events-none absolute inset-0 opacity-60`} aria-hidden />
 
-        <div className="relative mx-auto max-w-6xl">
-          <p className={eyebrow}>Research · Baltimore food access</p>
-          <h1 className="mt-2 font-nyu-ultra text-4xl leading-tight md:text-7xl">
-            Where does Baltimore buy its groceries?
-          </h1>
-          <aside className="mt-6 border-l-2 border-lotus-madder py-1 pl-6">
-            <p className={bodyText}>
-              I&apos;m Arnab Majumdar, and I study food access in Baltimore. Business data shows where food is sold.
-              This survey asks where people actually shop, how they get there, and what would make fresh food easier
-              to buy close to home.
-            </p>
-          </aside>
-          <div className="mt-8">
-            <SurveyButton />
-            <p className="mt-3">
-              <small className="text-sm text-lotus-ink/70 dark:text-lotus-paper/70">
-                Opens in Jotform. For adults 18 and older in the Baltimore area.
-              </small>
-            </p>
+        <div className="relative mx-auto grid max-w-6xl items-center gap-10 md:grid-cols-[1.5fr_0.5fr]">
+          <div>
+            <p className={eyebrow}>Research · Baltimore food access</p>
+            <h1 className="mt-2 font-nyu-ultra text-4xl leading-tight md:text-6xl">
+              Where does Baltimore buy its groceries?
+            </h1>
+            <aside className="mt-6 border-l-2 border-lotus-madder py-1 pl-6">
+              <p className={bodyText}>
+                I&apos;m Arnab Majumdar, and I study food access in Baltimore. Business data shows where food is sold.
+                This survey asks where people actually shop, how they get there, and what would make fresh food easier
+                to buy close to home.
+              </p>
+            </aside>
+            <div className="mt-8">
+              <SurveyButton />
+              <p className="mt-3">
+                <small className="text-sm text-lotus-ink/70 dark:text-lotus-paper/70">
+                  Opens in Jotform. For adults 18 and older in the Baltimore area.
+                </small>
+              </p>
+            </div>
           </div>
+
+          {/* Beside the intro on desktop; below the button on phones, so the
+              button stays above the fold. youtube-nocookie keeps YouTube from
+              setting cookies until someone presses play. */}
+          <figure className="mx-auto w-full max-w-[280px]">
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/2ZQQG0cRIc4"
+              title="Baltimore Food Desert, a YouTube Short by Arnab Majumdar"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+              loading="lazy"
+              className="aspect-[9/16] w-full rounded-2xl border border-lotus-indigo/15 bg-lotus-ink shadow-xl dark:border-lotus-paper/15"
+            ></iframe>
+          </figure>
         </div>
       </section>
 
