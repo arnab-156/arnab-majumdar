@@ -3,9 +3,10 @@
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
+import { type ReactNode, useEffect, useMemo, useState } from "react";
 
 import { AnimationLayer, Reveal } from "@/app/components/animation";
+import { ChessQueenIcon } from "@/app/components/icons";
 import { buttonStyle } from "@/app/utility/stylevariables";
 import {
   nyuCourses as courses,
@@ -14,11 +15,17 @@ import {
   type NyuProject,
 } from "./projects-data";
 
-type BadgeKey = "pdph" | "core" | "sustainabilityElective" | "financeElective" | "inProgress";
+type BadgeKey =
+  | "pdph"
+  | "core"
+  | "sustainabilityElective"
+  | "financeElective"
+  | "strategyElective"
+  | "inProgress";
 
 const courseBadges: Array<{
   key: BadgeKey;
-  symbol: string;
+  symbol: ReactNode;
   label: string;
   badgeClass: string;
 }> = [
@@ -44,7 +51,13 @@ const courseBadges: Array<{
     key: "financeElective",
     symbol: "$",
     label: "Finance",
-    badgeClass: "bg-emerald-800 text-white text-sm",
+    badgeClass: "bg-emerald-900 text-white text-sm",
+  },
+  {
+    key: "strategyElective",
+    symbol: <ChessQueenIcon className="h-4 w-4" aria-hidden />,
+    label: "Strategy",
+    badgeClass: "bg-green-600 text-white",
   },
   {
     key: "inProgress",

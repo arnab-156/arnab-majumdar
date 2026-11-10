@@ -4,6 +4,7 @@ export type NyuCourse = {
   core?: boolean;
   sustainabilityElective?: boolean;
   financeElective?: boolean;
+  strategyElective?: boolean;
   inProgress?: boolean;
   credits?: number;
   faculty: { name: string; url?: string };
@@ -167,11 +168,32 @@ export const nyuCourses: NyuCourse[] = [
   {
     name: "Behavioral Finance",
     financeElective: true,
-    inProgress: true,
+    pdph: true,
     credits: 2.5,
     faculty: {
       name: "Ian D'Souza",
       url: "https://www.stern.nyu.edu/faculty/bio/ian-dsouza",
+    },
+    projects: [],
+  },
+  {
+    name: "Climate Finance",
+    sustainabilityElective: true,
+    financeElective: true,
+    inProgress: true,
+    faculty: {
+      name: "Johannes Stroebel",
+      url: "https://www.stern.nyu.edu/faculty/bio/johannes-stroebel",
+    },
+    projects: [],
+  },
+  {
+    name: "Game Theory",
+    strategyElective: true,
+    inProgress: true,
+    faculty: {
+      name: "Robert Seamans",
+      url: "https://www.stern.nyu.edu/faculty/bio/robert-seamans",
     },
     projects: [],
   },
