@@ -57,7 +57,8 @@ const courseBadges: Array<{
     key: "strategyElective",
     symbol: <ChessQueenIcon className="h-4 w-4" aria-hidden />,
     label: "Strategy",
-    badgeClass: "bg-green-600 text-white",
+    badgeClass:
+      "bg-black text-white border border-white/20 dark:bg-white dark:text-black dark:border-black/30",
   },
   {
     key: "inProgress",

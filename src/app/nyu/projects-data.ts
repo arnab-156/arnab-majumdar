@@ -197,6 +197,15 @@ export const nyuCourses: NyuCourse[] = [
     },
     projects: [],
   },
+  {
+    name: "Endless Frontier Labs",
+    strategyElective: true,
+    faculty: {
+      name: "Deepak Hegde",
+      url: "https://www.stern.nyu.edu/faculty/bio/deepak-hegde",
+    },
+    projects: [],
+  },
 ];
 
 export const nyuProjectInfo: Record<string, NyuProjectDetails> = {
