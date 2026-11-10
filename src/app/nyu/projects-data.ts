@@ -181,6 +181,7 @@ export const nyuCourses: NyuCourse[] = [
     sustainabilityElective: true,
     financeElective: true,
     inProgress: true,
+    credits: 2.5,
     faculty: {
       name: "Johannes Stroebel",
       url: "https://www.stern.nyu.edu/faculty/bio/johannes-stroebel",
@@ -191,6 +192,7 @@ export const nyuCourses: NyuCourse[] = [
     name: "Game Theory",
     strategyElective: true,
     inProgress: true,
+    credits: 2.5,
     faculty: {
       name: "Robert Seamans",
       url: "https://www.stern.nyu.edu/faculty/bio/robert-seamans",
@@ -200,6 +202,7 @@ export const nyuCourses: NyuCourse[] = [
   {
     name: "Endless Frontier Labs",
     strategyElective: true,
+    credits: 6,
     faculty: {
       name: "Deepak Hegde",
       url: "https://www.stern.nyu.edu/faculty/bio/deepak-hegde",
