@@ -24,3 +24,18 @@ export const ChessQueenIcon = (props: SVGProps<SVGSVGElement>) => (
     <path d="M4.2 10.5L6 17h12l1.8-6.5-4.1 2.7L12 7.2l-3.7 6-4.1-2.7zM5.5 18.5h13a1 1 0 0 1 0 2h-13a1 1 0 0 1 0-2z" />
   </svg>
 );
+
+export const GoldMedalIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" viewBox="0 0 24 24" fill="none" {...props}>
+    <path
+      d="M7.5 2h3.5l1 5.2L9.2 8 6.5 2.8A.6.6 0 0 1 7.5 2Zm9 0H13l-1 5.2L14.8 8l2.7-5.2A.6.6 0 0 0 16.5 2Z"
+      fill="currentColor"
+      opacity="0.85"
+    />
+    <circle cx="12" cy="14.5" r="6.5" stroke="currentColor" strokeWidth="1.8" fill="currentColor" fillOpacity="0.18" />
+    <path
+      d="M12 10.6l1.18 2.39 2.64.38-1.91 1.86.45 2.63L12 16.62l-2.36 1.24.45-2.63-1.91-1.86 2.64-.38L12 10.6Z"
+      fill="currentColor"
+    />
+  </svg>
+);
