@@ -103,13 +103,30 @@ export default function Home() {
 
               <Reveal method="left" delay={220} className="flex flex-wrap items-center gap-4 pt-2">
                 <Link
-                  href="/experiences"
+                  href="/contact"
                   className={heroPrimaryButtonStyle}
                 >
-                  See the work
+                  Contact me
                 </Link>
-                <Link href="/about" className={heroOutlineButtonStyle}>
-                  Read the full story
+                <Link
+                  href="/contact#book-now"
+                  className={`${heroOutlineButtonStyle} gap-2`}
+                >
+                  <Image
+                    src="/calendar.svg"
+                    alt=""
+                    width={18}
+                    height={18}
+                    aria-hidden
+                    unoptimized
+                  />
+                  Book a time
+                </Link>
+                <Link
+                  href="/experiences"
+                  className={heroOutlineButtonStyle}
+                >
+                  See the work
                 </Link>
               </Reveal>
 
@@ -130,6 +147,11 @@ export default function Home() {
                 <Link href="/nyu" className="group inline-flex items-center gap-2 hover:text-lotus-indigo dark:hover:text-lotus-paper">
                   <span className="h-px w-5 bg-lotus-madder" aria-hidden />
                   <span className="group-hover:underline">Executive MBA, NYU Stern &mdash; Class of A27</span>
+                </Link>
+                <span className="hidden sm:inline text-lotus-ink/30 dark:text-lotus-paper/30" aria-hidden>&bull;</span>
+                <Link href="/about" className="group inline-flex items-center gap-2 hover:text-lotus-indigo dark:hover:text-lotus-paper">
+                  <span className="h-px w-5 bg-lotus-madder" aria-hidden />
+                  <span className="group-hover:underline">Read the full story</span>
                 </Link>
               </Reveal>
             </Reveal>
@@ -166,207 +188,341 @@ export default function Home() {
           </AnimationLayer>
         </section>
 
-        <AnimationLayer
-          as="div"
-          className="grid text-center lg:w-half lg:max-w-5xl lg:grid-cols-3 lg:text-left"
-          method="rise"
-          distance={44}
-          stagger={90}
-          staggerCycle={3}
+        {/* SECTION 1: WORK WITH ME */}
+        <section
+          id="work-with-me"
+          aria-labelledby="work-with-me-heading"
+          className="w-full px-6 pt-16 pb-10 md:px-12"
         >
-          <Reveal className={tileWrapperStyle}>
-            <StudioTile
-              eyebrow="Read the full story"
-              title="About Arnab!"
-              description="Welcome! Explore Arnab&#39;s world of design, with both real-world and conceptual projects."
-              imageUrl="/headshot.png"
-              imageAlt="Portrait of Arnab Majumdar"
-              href="/about"
-              buttonText="go to about"
-            />
-          </Reveal>
+          <div className="mx-auto max-w-6xl">
+            <Reveal className="px-4 text-left">
+              <p className="text-xs uppercase tracking-[0.28em] text-lotus-indigo dark:text-lotus-paper/70">
+                Consulting &middot; Strategy &middot; Advisory
+              </p>
+              <h2
+                id="work-with-me-heading"
+                className="mt-2 font-nyu-ultra text-3xl text-lotus-ink dark:text-lotus-paper md:text-4xl"
+              >
+                Work With Me
+              </h2>
+              <p className="mt-2 max-w-2xl text-lotus-ink/70 dark:text-lotus-paper/70">
+                If you are a small business, a retailer, an educator, or a community organization
+                looking to turn strategy into accessible digital experiences, let&apos;s connect.
+              </p>
+            </Reveal>
 
-          {/* The one tile that asks for something outright. */}
-          <Reveal className={tileWrapperStyle}>
-            <StudioTile
-              eyebrow="Work with me"
-              description="If you are a small business, a retailer, or an educator who wants to use the latest technologies & practices, let&#39;s talk."
-              href="/contact"
-              ariaLabel="go to the contact form"
-              buttonText="Contact me"
-            />
-          </Reveal>
-
-          {/* The QR opens the survey itself; the button goes to the research page. */}
-          <Reveal className={tileWrapperStyle} id="baltimore-food-desert">
-            <StudioTile
-              eyebrow="Research · Lotus Mahal"
-              title="Where does Baltimore buy its groceries?"
-              description="A 5-minute survey on where Baltimore residents shop and how they get there. Scan to take it, or read about the research."
-              imageUrl="/baltimore-grocery-survey-qr.svg"
-              imageAlt="QR code linking to the Baltimore Grocery Survey"
-              href="/BaltimoreFoodDesert"
-              buttonText="About the survey"
-            />
-          </Reveal>
-
-          <Reveal className={tileWrapperStyle} id="fashion">
-            <StudioTile
-              eyebrow="Education & experience"
-              title="Fashion"
-              description="My fashion courses and experience in one place, starting with Fashion 101 flashcards."
-              media={<ApparelIcon height="100px" width="100px" />}
-              href="/fashion"
-              buttonText="Explore fashion"
-            />
-          </Reveal>
-
-          <Reveal className={tileWrapperStyle}>
-            <StudioTile
-              eyebrow="Updated Daily!"
-              title="Comic of the day!"
-              description="Have fun reading some fun comics!! More Features to come!"
-              media={<ReadIcon height="100px" width="100px" />}
-              href="/tech/comic"
-              buttonText="Read NOW!"
-            />
-          </Reveal>
-
-          <Reveal className={tileWrapperStyle} id="aster">
-            <StudioTile
-              eyebrow="Made in US Collaboration:"
-              title="Aster for Lotus - Made in Rhode Island"
-              description="Luxurious hand-crafted candle featuring exquisite watercolor artwork on a heavy whiskey-colored glass jar."
-              imageUrl="https://lotusmahal.com/cdn/shop/files/DSCF2076_42f9aa66-c21a-4b76-a0db-88a679d0039e.jpg?v=1741617890&width=1646"
-              imageAlt="Aster for Lotus candle in a whiskey-coloured glass jar"
-              href="https://lotusmahal.com/products/aster-for-lotus"
-              buttonText="See Product"
-              openInNewTab
-            />
-          </Reveal>
-
-          <Reveal className={tileWrapperStyle} id="garden-of-swann">
-            <StudioTile
-              eyebrow="Stories of Courage"
-              title="World Pride Garden of Swann Washington D.C."
-              description="Click to learn more about Fashion + Activism of William Dorsey Swann"
-              imageUrl="https://live.staticflickr.com/65535/55041103674_dd84ce4ce4_w.jpg"
-              imageAlt="World Pride Garden of Swann official event partner artwork"
-              href="/lotus/garden-of-swann"
-              buttonText="Learn More"
-            />
-          </Reveal>
-
-          <Reveal className={tileWrapperStyle}>
-            <StudioTile
-              eyebrow="Expanding Retail Experiences:"
-              title="Owner and CEO - Made of Chicago"
-              description="Click here to know more about the innovation, technology, and design."
-              imageUrl="https://live.staticflickr.com/65535/53808934296_8330a5b182_w.jpg"
-              imageAlt="Made of Chicago vending machine"
-              href="/moc"
-              buttonText="Learn More"
-            />
-          </Reveal>
-
-          <Reveal className={tileWrapperStyle} id="cp">
-            <StudioTile
-              eyebrow="Project from New Orleans:"
-              title="Commander&#39;s Palace Project"
-              description="Developed a new website for Commander&#39;s Palace using Webflow CMS, event scheduling APIs, and agency-provided Figma designs."
-              href="/lotus#commanders"
-              buttonText="Learn More"
+            <AnimationLayer
+              as="div"
+              className="mt-6 grid text-center lg:grid-cols-3 lg:text-left"
+              method="rise"
+              distance={44}
+              stagger={90}
+              staggerCycle={3}
             >
-              <ul className="list-disc list-inside">
-                <li>Distinct Mobile and Desktop Experience</li>
-              </ul>
-            </StudioTile>
-          </Reveal>
+              {/* Direct message route */}
+              <Reveal className={tileWrapperStyle}>
+                <StudioTile
+                  eyebrow="Work with me"
+                  title="Send a Message"
+                  description="If you are a small business, a retailer, or an educator who wants to use the latest technologies & practices, let&#39;s talk."
+                  href="/contact"
+                  ariaLabel="go to the contact form"
+                  buttonText="Contact me"
+                />
+              </Reveal>
 
-          <Reveal className={tileWrapperStyle}>
-            <StudioTile
-              eyebrow="Free to play"
-              title="Free trivia for you to enjoy on the go!"
-              description="Version 1 is live. Version 2 coming soon."
-              imageUrl="/quiz.png"
-              imageAlt="Trivia game artwork"
-              href="/games/quiz"
-              buttonText="Play NOW!"
-            />
-          </Reveal>
+              {/* Calendar booking route */}
+              <Reveal className={tileWrapperStyle}>
+                <StudioTile
+                  eyebrow="Click Book NOW! button to schedule a meeting."
+                  title="Building Bridges. Creating Momentum."
+                  description="What I help with:"
+                  href="/contact#book-now"
+                  buttonText="Book NOW!"
+                >
+                  <ul className="list-disc list-inside space-y-1">
+                    <li>Strategic planning for small businesses and organizations</li>
+                    <li>E-commerce strategy, UX, and product solutions</li>
+                    <li>Manufacturing, sourcing, and operational alignment</li>
+                  </ul>
+                </StudioTile>
+              </Reveal>
 
-          <Reveal className={tileWrapperStyle}>
-            <StudioTile
-              eyebrow="Click Book NOW! button to schedule a meeting."
-              title="Building Bridges. Creating Momentum."
-              description="What I help with:"
-              href="/help"
-              buttonText="Book NOW!"
+              {/* Education & mission-driven advisory */}
+              <Reveal className={tileWrapperStyle}>
+                <StudioTile
+                  eyebrow="Click learn more to view my experiences."
+                  title="Turning ideas into outcomes. &#10024;"
+                  description="What I help with:"
+                  href="/experiences"
+                  buttonText="Learn More"
+                >
+                  <ul className="list-disc list-inside space-y-1">
+                    <li>Education: program review, strategic planning, and training</li>
+                    <li>Student-led projects and career-ready initiatives</li>
+                    <li>Community organizers and mission-driven programming</li>
+                  </ul>
+                </StudioTile>
+              </Reveal>
+            </AnimationLayer>
+          </div>
+        </section>
+
+        {/* SECTION 2: SELECTED WORK & VENTURES */}
+        <section
+          id="selected-work"
+          aria-labelledby="selected-work-heading"
+          className="w-full px-6 py-12 md:px-12"
+        >
+          <div className="mx-auto max-w-6xl">
+            <Reveal className="px-4 text-left">
+              <p className="text-xs uppercase tracking-[0.28em] text-lotus-indigo dark:text-lotus-paper/70">
+                The Lotus Mahal &amp; Ventures
+              </p>
+              <h2
+                id="selected-work-heading"
+                className="mt-2 font-nyu-ultra text-3xl text-lotus-ink dark:text-lotus-paper md:text-4xl"
+              >
+                Selected Work &amp; Ventures
+              </h2>
+              <p className="mt-2 max-w-2xl text-lotus-ink/70 dark:text-lotus-paper/70">
+                Platforms, retail concepts, cultural programming, and collaborations built across
+                fashion, hospitality, and commerce.
+              </p>
+            </Reveal>
+
+            <AnimationLayer
+              as="div"
+              className="mt-6 grid text-center lg:grid-cols-3 lg:text-left"
+              method="rise"
+              distance={44}
+              stagger={90}
+              staggerCycle={3}
             >
-              <ul className="list-disc list-inside space-y-1">
-                <li>Strategic planning for small businesses and organizations</li>
-                <li>E-commerce strategy, UX, and product solutions</li>
-                <li>Manufacturing, sourcing, and operational alignment</li>
-              </ul>
-            </StudioTile>
-          </Reveal>
+              <Reveal className={tileWrapperStyle} id="cp">
+                <StudioTile
+                  eyebrow="Project from New Orleans:"
+                  title="Commander&#39;s Palace Project"
+                  description="Developed a new website for Commander&#39;s Palace using Webflow CMS, event scheduling APIs, and agency-provided Figma designs."
+                  href="/lotus#commanders"
+                  buttonText="Learn More"
+                >
+                  <ul className="list-disc list-inside">
+                    <li>Distinct Mobile and Desktop Experience</li>
+                  </ul>
+                </StudioTile>
+              </Reveal>
 
-          <Reveal className={tileWrapperStyle}>
-            <StudioTile
-              eyebrow="Click learn more to view my experiences."
-              title="Turning ideas into outcomes. &#10024;"
-              description="What I help with:"
-              href="/experiences"
-              buttonText="Learn More"
+              <Reveal className={tileWrapperStyle} id="garden-of-swann">
+                <StudioTile
+                  eyebrow="Stories of Courage"
+                  title="World Pride Garden of Swann Washington D.C."
+                  description="Click to learn more about Fashion + Activism of William Dorsey Swann"
+                  imageUrl="https://live.staticflickr.com/65535/55041103674_dd84ce4ce4_w.jpg"
+                  imageAlt="World Pride Garden of Swann official event partner artwork"
+                  href="/lotus/garden-of-swann"
+                  buttonText="Learn More"
+                />
+              </Reveal>
+
+              <Reveal className={tileWrapperStyle}>
+                <StudioTile
+                  eyebrow="Expanding Retail Experiences:"
+                  title="Owner and CEO - Made of Chicago"
+                  description="Click here to know more about the innovation, technology, and design."
+                  imageUrl="https://live.staticflickr.com/65535/53808934296_8330a5b182_w.jpg"
+                  imageAlt="Made of Chicago vending machine"
+                  href="/moc"
+                  buttonText="Learn More"
+                />
+              </Reveal>
+
+              <Reveal className={tileWrapperStyle} id="aster">
+                <StudioTile
+                  eyebrow="Made in US Collaboration:"
+                  title="Aster for Lotus - Made in Rhode Island"
+                  description="Luxurious hand-crafted candle featuring exquisite watercolor artwork on a heavy whiskey-colored glass jar."
+                  imageUrl="https://lotusmahal.com/cdn/shop/files/DSCF2076_42f9aa66-c21a-4b76-a0db-88a679d0039e.jpg?v=1741617890&width=1646"
+                  imageAlt="Aster for Lotus candle in a whiskey-coloured glass jar"
+                  href="https://lotusmahal.com/products/aster-for-lotus"
+                  buttonText="See Product"
+                  openInNewTab
+                />
+              </Reveal>
+
+              <Reveal className={tileWrapperStyle}>
+                <StudioTile
+                  eyebrow="Thank you for your support! Please visit store"
+                  title="Made with Love, Free to Use"
+                  description="All images and icons are carefully chosen to be either personal creations or royalty-free!"
+                  imageUrl="https://lotusmahal.com/cdn/shop/files/12815231453993207167_2048.jpg?v=1729536713&width=823"
+                  imageAlt="Greeting card by Lotus Mahal called Basant Raga, a woman singing in the calling of the spring"
+                  href="https://lotusmahal.com/"
+                  buttonText="go to Lotus Mahal"
+                  openInNewTab
+                />
+              </Reveal>
+
+              <Reveal className={tileWrapperStyle}>
+                <StudioTile
+                  eyebrow="Read the full story"
+                  title="About Arnab!"
+                  description="Welcome! Explore Arnab&#39;s world of design, with both real-world and conceptual projects."
+                  imageUrl="/headshot.png"
+                  imageAlt="Portrait of Arnab Majumdar"
+                  href="/about"
+                  buttonText="go to about"
+                />
+              </Reveal>
+            </AnimationLayer>
+          </div>
+        </section>
+
+        {/* SECTION 3: RESEARCH, TEACHING & RESUME */}
+        <section
+          id="research-and-background"
+          aria-labelledby="research-heading"
+          className="w-full px-6 py-12 md:px-12"
+        >
+          <div className="mx-auto max-w-6xl">
+            <Reveal className="px-4 text-left">
+              <p className="text-xs uppercase tracking-[0.28em] text-lotus-indigo dark:text-lotus-paper/70">
+                Research &middot; Education &middot; Credentials
+              </p>
+              <h2
+                id="research-heading"
+                className="mt-2 font-nyu-ultra text-3xl text-lotus-ink dark:text-lotus-paper md:text-4xl"
+              >
+                Research, Teaching &amp; R&eacute;sum&eacute;
+              </h2>
+              <p className="mt-2 max-w-2xl text-lotus-ink/70 dark:text-lotus-paper/70">
+                Community research, fashion curriculum resources, and a full record of academic and
+                industry work.
+              </p>
+            </Reveal>
+
+            <AnimationLayer
+              as="div"
+              className="mt-6 grid text-center lg:grid-cols-3 lg:text-left"
+              method="rise"
+              distance={44}
+              stagger={90}
+              staggerCycle={3}
             >
-              <ul className="list-disc list-inside space-y-1">
-                <li>Education: program review, strategic planning, and training</li>
-                <li>Student-led projects and career-ready initiatives</li>
-                <li>Community organizers and mission-driven programming</li>
-              </ul>
-            </StudioTile>
-          </Reveal>
+              {/* The QR opens the survey itself; the button goes to the research page. */}
+              <Reveal className={tileWrapperStyle} id="baltimore-food-desert">
+                <StudioTile
+                  eyebrow="Research · Lotus Mahal"
+                  title="Where does Baltimore buy its groceries?"
+                  description="A 5-minute survey on where Baltimore residents shop and how they get there. Scan to take it, or read about the research."
+                  imageUrl="/baltimore-grocery-survey-qr.svg"
+                  imageAlt="QR code linking to the Baltimore Grocery Survey"
+                  href="/BaltimoreFoodDesert"
+                  buttonText="About the survey"
+                />
+              </Reveal>
 
-          <Reveal className={tileWrapperStyle}>
-            <StudioTile
-              eyebrow="Thank you for your support! Please visit store"
-              title="Made with Love, Free to Use"
-              description="All images and icons are carefully chosen to be either personal creations or royalty-free!"
-              imageUrl="https://lotusmahal.com/cdn/shop/files/12815231453993207167_2048.jpg?v=1729536713&width=823"
-              imageAlt="Greeting card by Lotus Mahal called Basant Raga, a woman singing in the calling of the spring"
-              href="https://lotusmahal.com/"
-              buttonText="go to Lotus Mahal"
-              openInNewTab
-            />
-          </Reveal>
+              <Reveal className={tileWrapperStyle} id="fashion">
+                <StudioTile
+                  eyebrow="Education & experience"
+                  title="Fashion"
+                  description="My fashion courses and experience in one place, starting with Fashion 101 flashcards."
+                  media={<ApparelIcon height="100px" width="100px" />}
+                  href="/fashion"
+                  buttonText="Explore fashion"
+                />
+              </Reveal>
 
-          <Reveal className={tileWrapperStyle}>
-            <StudioTile
-              eyebrow="R&eacute;sum&eacute;"
-              title="Download resume here"
-              description="A PDF file will download."
-              imageUrl="/cv.png"
-              imageAlt="First page of Arnab&#39;s resume"
-              href="/resume"
-              buttonText="Download NOW!"
-              openInNewTab
-            />
-          </Reveal>
+              <Reveal className={tileWrapperStyle}>
+                <StudioTile
+                  eyebrow="R&eacute;sum&eacute;"
+                  title="Download resume here"
+                  description="A PDF file will download."
+                  imageUrl="/cv.png"
+                  imageAlt="First page of Arnab&#39;s resume"
+                  href="/resume"
+                  buttonText="Download NOW!"
+                  openInNewTab
+                />
+              </Reveal>
+            </AnimationLayer>
+          </div>
+        </section>
 
-          <Reveal className={tileWrapperStyle}>
-            <StudioTile
-              eyebrow="Free to play"
-              title="Tic Tac Toe for you to enjoy on the go!"
-              description="A simple Tic Tac Toe game for when you are bored."
-              imageUrl="/tic-tac-toe.gif"
-              imageAlt="Tic Tac Toe board"
-              href="/games/tic-tac-toe"
-              buttonText="Play NOW!"
-            />
-          </Reveal>
+        {/* SECTION 4: GAMES & DAILY EXTRAS */}
+        <section
+          id="play-and-extras"
+          aria-labelledby="play-heading"
+          className="w-full bg-lotus-paper-deep px-6 py-16 dark:bg-[#16181c] md:px-12"
+        >
+          <div className="mx-auto max-w-6xl">
+            <Reveal className="px-4 text-left">
+              <p className="text-xs uppercase tracking-[0.28em] text-lotus-indigo dark:text-lotus-paper/70">
+                Free to play &middot; Updated daily
+              </p>
+              <h2
+                id="play-heading"
+                className="mt-2 font-nyu-ultra text-3xl text-lotus-ink dark:text-lotus-paper md:text-4xl"
+              >
+                Games &amp; Daily Extras
+              </h2>
+              <p className="mt-2 max-w-2xl text-lotus-ink/70 dark:text-lotus-paper/70">
+                Quick breaks built with React &mdash; daily comics, trivia, and classic games to enjoy
+                on the go.
+              </p>
+            </Reveal>
 
-        </AnimationLayer>
-        <Link href="#navigation" className='hover:underline text-purple-800'>go to top</Link>
+            <AnimationLayer
+              as="div"
+              className="mt-6 grid text-center lg:grid-cols-3 lg:text-left"
+              method="rise"
+              distance={44}
+              stagger={90}
+              staggerCycle={3}
+            >
+              <Reveal className={tileWrapperStyle}>
+                <StudioTile
+                  eyebrow="Updated Daily!"
+                  title="Comic of the day!"
+                  description="Have fun reading some fun comics!! More Features to come!"
+                  media={<ReadIcon height="100px" width="100px" />}
+                  href="/tech/comic"
+                  buttonText="Read NOW!"
+                />
+              </Reveal>
+
+              <Reveal className={tileWrapperStyle}>
+                <StudioTile
+                  eyebrow="Free to play"
+                  title="Free trivia for you to enjoy on the go!"
+                  description="Version 1 is live. Version 2 coming soon."
+                  imageUrl="/quiz.png"
+                  imageAlt="Trivia game artwork"
+                  href="/games/quiz"
+                  buttonText="Play NOW!"
+                />
+              </Reveal>
+
+              <Reveal className={tileWrapperStyle}>
+                <StudioTile
+                  eyebrow="Free to play"
+                  title="Tic Tac Toe for you to enjoy on the go!"
+                  description="A simple Tic Tac Toe game for when you are bored."
+                  imageUrl="/tic-tac-toe.gif"
+                  imageAlt="Tic Tac Toe board"
+                  href="/games/tic-tac-toe"
+                  buttonText="Play NOW!"
+                />
+              </Reveal>
+            </AnimationLayer>
+          </div>
+        </section>
+
+        <div className="pt-8">
+          <Link href="#navigation" className="text-lotus-indigo underline underline-offset-4 hover:no-underline dark:text-lotus-paper/80">
+            go to top
+          </Link>
+        </div>
       </AnimationLayer>
     </HomeClickTracker>
   );

@@ -562,7 +562,7 @@ export default async function AchievementsPage() {
             Let{"'"}s build something better, together. Let{"'"}s collaborate or share
             notes—especially if you{"'"}re curating a summit, class, or exhibit.
           </p>
-          <Link href="/help" className={buttonStyle} aria-label="Schedule a conversation">
+          <Link href="/contact" className={buttonStyle} aria-label="Schedule a conversation">
             Connect With Arnab
           </Link>
         </section>
