@@ -353,7 +353,7 @@ export default function LeadershipCommitmentPlanPage() {
               </p>
             </Reveal>
             <Reveal className="pt-2">
-              <Link href="/help" className={buttonStyle}>
+              <Link href="/contact" className={buttonStyle}>
                 Work with me
               </Link>
             </Reveal>

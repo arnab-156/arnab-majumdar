@@ -132,7 +132,7 @@ export const audiences: Audience[] = [
       { label: "Referral and escalation", status: "soon" },
       {
         label: "Ask me directly",
-        href: "/help",
+        href: "/contact#book-now",
         note: "Book a conversation if a case does not fit any of the above.",
       },
     ],
@@ -162,7 +162,7 @@ export const audiences: Audience[] = [
       },
       {
         label: "Talk a decision through",
-        href: "/help",
+        href: "/contact#book-now",
         note: "Useful when the numbers alone do not settle it.",
       },
     ],

@@ -277,7 +277,7 @@ export default function EducationPage() {
             Sections marked WIP are next in line. If something you need is missing, saying so is the
             fastest way to get it written.
           </p>
-          <Link href="/help" className={`${heroPrimaryButtonStyle} mt-6`}>
+          <Link href="/contact" className={`${heroPrimaryButtonStyle} mt-6`}>
             Tell me what is missing
           </Link>
         </Reveal>

@@ -313,7 +313,7 @@ export default function GardenOfSwannPage() {
         <section className="bg-gray-100 dark:bg-zinc-800 text-center p-10 font-nyu transition-colors duration-300">
           <h3 className="text-xl font-medium font-nyu-ultra">Want to learn more?</h3>
           <p className="font-nyu-thin text-gray-700 dark:text-gray-200">
-            Connect with me on my <Link href="/help" className={`${buttonStyle} inline-block`}>Calendar</Link>
+            Connect with me on my <Link href="/contact#book-now" className={`${buttonStyle} inline-block`}>Calendar</Link>
             or follow the story on the social platforms.
           </p>
         </section>

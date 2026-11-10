@@ -15,7 +15,7 @@ export const Navigation = () => {
              hover:w-[96%] hover:sm:w-full hover:ml-2 hover:sm:ml-0 lg:h-24 hover:bg-gradient-to-t from-purple-800 to-zinc-800/30 hover:opacity-99 dark:hover:bg-purple-800
              left-0 bottom-3 lg:top-0 
              `}>
-                <div className="h-0 group-hover:h-auto transition ease-in-out delay-[1500ms] grid-cols-4 group-hover:grid sm:grid-cols-4 sm:gap-2 lg:grid">
+                <div className="h-0 group-hover:h-auto transition ease-in-out delay-[1500ms] grid-cols-4 group-hover:grid sm:grid-cols-4 md:grid-cols-5 sm:gap-2 lg:grid">
                     <Link
                         href="/"
                         tabIndex={0}
@@ -41,14 +41,20 @@ export const Navigation = () => {
                         <span className="p-2 m-2 hidden sm:group-hover:block">Experiences</span>
                     </Link>
 
-                    {/* <Link className={`${roundButtonStyle} group-hover:border-white group-hover:text-white justify-center items-center`} href="/edu">education</Link> */}
-
                     <Link
                         href="/nyu"
                         tabIndex={0}
                         className={`${roundButtonStyle} group-hover:border-white group-hover:text-white justify-center items-center`}
                     >
                         <div className="p-2 m-2 hidden group-hover:block">NYU <span className="hidden sm:inline-flex">{` Stern`}</span></div>
+                    </Link>
+
+                    <Link
+                        href="/contact"
+                        tabIndex={0}
+                        className={`${roundButtonStyle} max-md:hidden group-hover:border-white group-hover:text-white justify-center items-center`}
+                    >
+                        <span className="p-2 m-2 hidden group-hover:block">Contact</span>
                     </Link>
                 </div>
             </section>
@@ -92,7 +98,7 @@ export const Navigation = () => {
                             />
                         </Link>
                         <Link
-                            href="/help" aria-label="go to calendar to schedule a google meet"
+                            href="/contact#book-now" aria-label="go to calendar to schedule a google meet"
                         >
                             <Image
                                 className="hover:scale-110"
