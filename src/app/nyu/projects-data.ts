@@ -1,8 +1,10 @@
 export type NyuCourse = {
   name: string;
-  passWithDistinction?: boolean;
-  highPass?: boolean;
-  langoneExtraClass?: boolean;
+  pdph?: boolean;
+  core?: boolean;
+  sustainabilityElective?: boolean;
+  financeElective?: boolean;
+  strategyElective?: boolean;
   inProgress?: boolean;
   credits?: number;
   faculty: { name: string; url?: string };
@@ -28,14 +30,16 @@ export type NyuProject = {
 export const nyuCourses: NyuCourse[] = [
   {
     name: "Firms and Markets",
-    passWithDistinction: true,
+    pdph: true,
+    core: true,
     credits: 3,
     faculty: { name: "Simon Bowmaker", url: "https://www.simonbowmaker.com/" },
     projects: [],
   },
   {
     name: "Financial Accounting",
-    passWithDistinction: true,
+    pdph: true,
+    core: true,
     credits: 3,
     faculty: {
       name: "Ilan Guttman",
@@ -45,13 +49,15 @@ export const nyuCourses: NyuCourse[] = [
   },
   {
     name: "The Global Economy",
-    passWithDistinction: true,
+    pdph: true,
+    core: true,
     credits: 3,
     faculty: { name: "Julen Esteban-Pretel" },
     projects: ["Macroscopic Analysis of Germany", "Analysis of China"],
   },
   {
     name: "Leadership in Organizations",
+    core: true,
     credits: 3,
     faculty: {
       name: "Nathan Pettit",
@@ -61,6 +67,7 @@ export const nyuCourses: NyuCourse[] = [
   },
   {
     name: "Strategic Communications",
+    core: true,
     credits: 1.5,
     faculty: {
       name: "Brian Hanssen",
@@ -70,20 +77,23 @@ export const nyuCourses: NyuCourse[] = [
   },
   {
     name: "Professional Responsibility",
+    core: true,
     credits: 1.5,
     faculty: { name: "Alison Taylor", url: "https://www.alisontaylor.co/" },
     projects: ["What I learned from Whistleblowers?"],
   },
   {
     name: "Business Statistics and Data Analytics",
-    highPass: true,
+    pdph: true,
+    core: true,
     credits: 3,
     faculty: { name: "Grace Haaf", url: "https://www.stern.nyu.edu/faculty/bio/grace-haaf" },
     projects: [],
   },
   {
     name: "Global Immersion Experience in Turkiye",
-    highPass: true,
+    pdph: true,
+    core: true,
     credits: 3,
     faculty: {
       name: "Tulin Erdem",
@@ -93,7 +103,6 @@ export const nyuCourses: NyuCourse[] = [
   },
   {
     name: "The Strategist",
-    langoneExtraClass: true,
     credits: 1.5,
     faculty: {
       name: "Adam Brandenburger",
@@ -103,7 +112,8 @@ export const nyuCourses: NyuCourse[] = [
   },
   {
     name: "Strategy",
-    passWithDistinction: true,
+    pdph: true,
+    core: true,
     credits: 3,
     faculty: {
       name: "Sonia Marciano",
@@ -113,7 +123,8 @@ export const nyuCourses: NyuCourse[] = [
   },
   {
     name: "Foundations of Finance",
-    highPass: true,
+    pdph: true,
+    core: true,
     credits: 3,
     faculty: {
       name: "Alexi Savov",
@@ -123,7 +134,8 @@ export const nyuCourses: NyuCourse[] = [
   },
   {
     name: "Marketing",
-    passWithDistinction: true,
+    pdph: true,
+    core: true,
     credits: 3,
     faculty: {
       name: "Thomaï Serdari",
@@ -133,7 +145,8 @@ export const nyuCourses: NyuCourse[] = [
   },
   {
     name: "Sustainability Value Creation in Private Markets",
-    langoneExtraClass: true,
+    sustainabilityElective: true,
+    financeElective: true,
     credits: 3,
     faculty: {
       name: "Angela Jhanji",
@@ -143,6 +156,7 @@ export const nyuCourses: NyuCourse[] = [
   },
   {
     name: "Social Entrepreneurship",
+    sustainabilityElective: true,
     inProgress: true,
     credits: 2.5,
     faculty: {
@@ -153,11 +167,45 @@ export const nyuCourses: NyuCourse[] = [
   },
   {
     name: "Behavioral Finance",
-    inProgress: true,
+    financeElective: true,
+    pdph: true,
     credits: 2.5,
     faculty: {
       name: "Ian D'Souza",
       url: "https://www.stern.nyu.edu/faculty/bio/ian-dsouza",
+    },
+    projects: [],
+  },
+  {
+    name: "Climate Finance",
+    sustainabilityElective: true,
+    financeElective: true,
+    inProgress: true,
+    credits: 2.5,
+    faculty: {
+      name: "Johannes Stroebel",
+      url: "https://www.stern.nyu.edu/faculty/bio/johannes-stroebel",
+    },
+    projects: [],
+  },
+  {
+    name: "Game Theory",
+    strategyElective: true,
+    inProgress: true,
+    credits: 2.5,
+    faculty: {
+      name: "Robert Seamans",
+      url: "https://www.stern.nyu.edu/faculty/bio/robert-seamans",
+    },
+    projects: [],
+  },
+  {
+    name: "Endless Frontier Labs",
+    strategyElective: true,
+    credits: 6,
+    faculty: {
+      name: "Deepak Hegde",
+      url: "https://www.stern.nyu.edu/faculty/bio/deepak-hegde",
     },
     projects: [],
   },

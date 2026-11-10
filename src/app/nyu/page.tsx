@@ -3,11 +3,70 @@
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
+import { type ReactNode, useEffect, useMemo, useState } from "react";
 
 import { AnimationLayer, Reveal } from "@/app/components/animation";
+import { ChessQueenIcon } from "@/app/components/icons";
 import { buttonStyle } from "@/app/utility/stylevariables";
-import { nyuCourses as courses, nyuProjectInfo as projectInfo, type NyuProject } from "./projects-data";
+import {
+  nyuCourses as courses,
+  nyuProjectInfo as projectInfo,
+  type NyuCourse,
+  type NyuProject,
+} from "./projects-data";
+
+type BadgeKey =
+  | "pdph"
+  | "core"
+  | "sustainabilityElective"
+  | "financeElective"
+  | "strategyElective"
+  | "inProgress";
+
+const courseBadges: Array<{
+  key: BadgeKey;
+  symbol: ReactNode;
+  label: string;
+  badgeClass: string;
+}> = [
+  {
+    key: "pdph",
+    symbol: "PD/H",
+    label: "Pass with Distinction / High Pass",
+    badgeClass: "bg-amber-300 text-black text-[10px] tracking-tight",
+  },
+  {
+    key: "core",
+    symbol: "C",
+    label: "Core",
+    badgeClass: "bg-purple-200 text-[#57068c] text-sm",
+  },
+  {
+    key: "sustainabilityElective",
+    symbol: "S",
+    label: "Sustainability & Innovation",
+    badgeClass: "bg-blue-600 text-white text-sm",
+  },
+  {
+    key: "financeElective",
+    symbol: "$",
+    label: "Finance",
+    badgeClass: "bg-emerald-900 text-white text-sm",
+  },
+  {
+    key: "strategyElective",
+    symbol: <ChessQueenIcon className="h-4 w-4" aria-hidden />,
+    label: "Strategy",
+    badgeClass:
+      "bg-black text-white border border-white/20 dark:bg-white dark:text-black dark:border-black/30",
+  },
+  {
+    key: "inProgress",
+    symbol: "I/P",
+    label: "In-Progress",
+    badgeClass: "bg-sky-300 text-sky-950 text-[10px] tracking-tight",
+  },
+];
 
 const specializations = ["Strategy", "Sustainability & Innovation", "Finance"];
 
@@ -48,7 +107,19 @@ const classNames = (...values: Array<string | false | null | undefined>) =>
 export default function NYUPage() {
   const [activeSlide, setActiveSlide] = useState(0);
   const [selectedCourse, setSelectedCourse] = useState<string | null>(null);
+  const [selectedBadge, setSelectedBadge] = useState<BadgeKey | null>(null);
   const [activeProject, setActiveProject] = useState<NyuProject | null>(null);
+
+  const sortedCourses = useMemo<NyuCourse[]>(() => {
+    if (!selectedBadge) return courses;
+    const matching = courses.filter((course) => Boolean(course[selectedBadge]));
+    const others = courses.filter((course) => !course[selectedBadge]);
+    return [...matching, ...others];
+  }, [selectedBadge]);
+
+  const handleBadgeClick = (key: BadgeKey) => {
+    setSelectedBadge((current) => (current === key ? null : key));
+  };
 
   const projects = useMemo<NyuProject[]>(
     () =>
@@ -373,12 +444,17 @@ export default function NYUPage() {
             <Reveal className="flex items-center justify-between flex-wrap gap-4">
               <div>
                 <h2 className="text-3xl md:text-4xl font-nyu-ultra">Courses</h2>
-                <p className="text-gray-700 dark:text-gray-300">Tap to focus a course and see related projects.</p>
+                <p className="text-gray-700 dark:text-gray-300">
+                  Tap a symbol below to highlight and sort courses, or tap a course to see related projects.
+                </p>
               </div>
-              {selectedCourse && (
+              {(selectedCourse || selectedBadge) && (
                 <button
                   type="button"
-                  onClick={() => setSelectedCourse(null)}
+                  onClick={() => {
+                    setSelectedCourse(null);
+                    setSelectedBadge(null);
+                  }}
                   className={classNames(buttonStyle, "text-sm shadow-md")}
                 >
                   Show all courses
@@ -386,83 +462,125 @@ export default function NYUPage() {
               )}
             </Reveal>
 
-            <Reveal className="overflow-x-auto pb-4">
-              <div className="grid grid-rows-1 grid-flow-col gap-4 md:grid-rows-2">
-                {courses.map((course) => (
+            {/* SYMBOLS & SIGNS LEGEND / FILTER BAR */}
+            <Reveal className="flex flex-wrap items-center gap-3 rounded-2xl border border-purple-200/80 bg-white/80 p-3 shadow-sm dark:border-purple-900/60 dark:bg-purple-950/30">
+              <span className="px-2 text-xs font-semibold uppercase tracking-[0.2em] text-purple-800 dark:text-purple-200">
+                Symbols &amp; Signs:
+              </span>
+              {courseBadges.map((badge) => {
+                const isActive = selectedBadge === badge.key;
+                return (
                   <button
-                    key={course.name}
+                    key={badge.key}
                     type="button"
-                    onClick={() => handleCourseClick(course.name)}
+                    onClick={() => handleBadgeClick(badge.key)}
+                    aria-pressed={isActive}
                     className={classNames(
-                      "min-w-[260px] max-w-[320px] rounded-2xl p-5 text-left border flex flex-col h-full tile-3d",
-                      "bg-[#57068c] text-white border-purple-200/40",
-                      "dark:bg-white dark:text-[#2e0068] dark:border-purple-900/60",
-                      selectedCourse === course.name && "tile-3d-active ring-4 ring-purple-200 dark:ring-purple-700"
+                      "inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-xs font-semibold transition",
+                      isActive
+                        ? "border-[#57068c] bg-[#57068c] text-white shadow-md scale-105 dark:border-purple-300 dark:bg-purple-200 dark:text-[#2e0068]"
+                        : "border-purple-200 bg-white text-gray-800 hover:border-purple-400 hover:bg-purple-50 dark:border-purple-800 dark:bg-zinc-900 dark:text-gray-100 dark:hover:bg-purple-900/40"
                     )}
                   >
-                    <div className="flex h-full flex-col gap-3">
-                      <div className="flex items-start justify-between gap-2">
-                        <h3 className="text-lg font-semibold leading-tight">{course.name}</h3>
-                      </div>
+                    <span
+                      className={classNames(
+                        "inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full font-bold leading-none shadow-sm",
+                        badge.badgeClass
+                      )}
+                    >
+                      {badge.symbol}
+                    </span>
+                    <span>{badge.label}</span>
+                  </button>
+                );
+              })}
+            </Reveal>
 
-                      <div className="text-sm text-purple-50 dark:text-[#2e0068]">
-                        <div className="text-xs uppercase tracking-[0.2em] text-purple-200 dark:text-purple-500">Taught by</div>
-                        {course.faculty.url ? (
-                          <Link
-                            href={course.faculty.url}
-                            target="_blank"
-                            rel="noreferrer"
-                            className="font-semibold underline decoration-purple-200 underline-offset-4 hover:text-amber-200 dark:text-[#2e0068] dark:hover:text-purple-700"
-                          >
-                            {course.faculty.name}
-                          </Link>
-                        ) : (
-                          <div className="font-semibold">{course.faculty.name}</div>
-                        )}
-                      </div>
+            <Reveal className="overflow-x-auto pb-4 pt-1">
+              <div className="grid grid-rows-1 grid-flow-col gap-4 md:grid-rows-2">
+                {sortedCourses.map((course) => {
+                  const matchesBadge = selectedBadge ? Boolean(course[selectedBadge]) : true;
+                  const isHighlighted = Boolean(selectedBadge && matchesBadge);
+                  const isGrayedOut = Boolean(selectedBadge && !matchesBadge);
 
-                      <div className="flex-1" />
+                  return (
+                    <button
+                      key={course.name}
+                      type="button"
+                      onClick={() => handleCourseClick(course.name)}
+                      className={classNames(
+                        "min-w-[260px] max-w-[320px] rounded-2xl p-5 text-left border flex flex-col h-full tile-3d transition-all duration-300",
+                        "bg-[#57068c] text-white border-purple-200/40",
+                        "dark:bg-white dark:text-[#2e0068] dark:border-purple-900/60",
+                        selectedCourse === course.name && "tile-3d-active ring-4 ring-purple-200 dark:ring-purple-700",
+                        isHighlighted && "ring-4 ring-amber-300 shadow-xl dark:ring-purple-500",
+                        isGrayedOut && "opacity-40 grayscale"
+                      )}
+                    >
+                      <div className="flex h-full flex-col gap-3">
+                        <div className="flex items-start justify-between gap-2">
+                          <h3 className="text-lg font-semibold leading-tight">{course.name}</h3>
+                        </div>
 
-                      <div className="flex items-end justify-between gap-2">
-                        <div className="flex flex-col gap-1">
-                          {course.passWithDistinction && (
-                            <span className="inline-flex items-center rounded-full bg-amber-300 px-3 py-1 text-xs font-semibold text-black shadow-sm">
-                              Pass with distinction
-                            </span>
-                          )}
-                          {course.highPass && (
-                            <span className="inline-flex items-center rounded-full bg-purple-200 px-3 py-1 text-xs font-semibold text-[#57068c] shadow-sm">
-                              High Pass
-                            </span>
-                          )}
-                          {course.langoneExtraClass && (
-                            <span className="inline-flex items-center rounded-full bg-slate-300 px-3 py-1 text-xs font-semibold text-slate-800 shadow-sm">
-                              Langone
-                            </span>
-                          )}
-                          {course.inProgress && (
-                            <span className="inline-flex items-center rounded-full bg-sky-300 px-3 py-1 text-xs font-semibold text-sky-950 shadow-sm">
-                              In-Progress
-                            </span>
+                        <div className="text-sm text-purple-50 dark:text-[#2e0068]">
+                          <div className="text-xs uppercase tracking-[0.2em] text-purple-200 dark:text-purple-500">Taught by</div>
+                          {course.faculty.url ? (
+                            <Link
+                              href={course.faculty.url}
+                              target="_blank"
+                              rel="noreferrer"
+                              className="font-semibold underline decoration-purple-200 underline-offset-4 hover:text-amber-200 dark:text-[#2e0068] dark:hover:text-purple-700"
+                            >
+                              {course.faculty.name}
+                            </Link>
+                          ) : (
+                            <div className="font-semibold">{course.faculty.name}</div>
                           )}
                         </div>
-                        {course.credits !== undefined && (
-                          <div
-                            className={classNames(
-                              "border rounded-full px-2 py-1 text-right font-light leading-none shrink-0",
-                              course.credits <= 1.5
-                                ? "border-white bg-white text-[#57068c] dark:border-[#2e0068] dark:bg-[#2e0068] dark:text-white"
-                                : "border-white/80 dark:border-[#2e0068]/60"
-                            )}
-                          >
-                            <span className="text-base">{course.credits}</span>
-                            <span className="text-[10px]"> Cr.</span>
+
+                        <div className="flex-1" />
+
+                        <div className="flex items-end justify-between gap-2">
+                          <div className="flex flex-wrap items-center gap-1.5">
+                            {courseBadges
+                              .filter((badge) => Boolean(course[badge.key]))
+                              .map((badge) => (
+                                <span
+                                  key={badge.key}
+                                  title={badge.label}
+                                  aria-label={badge.label}
+                                  onClick={(event) => {
+                                    event.stopPropagation();
+                                    handleBadgeClick(badge.key);
+                                  }}
+                                  className={classNames(
+                                    "inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full font-bold leading-none shadow-sm transition hover:scale-110",
+                                    badge.badgeClass,
+                                    selectedBadge === badge.key && "ring-2 ring-white dark:ring-[#2e0068]"
+                                  )}
+                                >
+                                  {badge.symbol}
+                                </span>
+                              ))}
                           </div>
-                        )}
+                          {course.credits !== undefined && (
+                            <div
+                              className={classNames(
+                                "border rounded-full px-2 py-1 text-right font-light leading-none shrink-0",
+                                course.credits <= 1.5
+                                  ? "border-white bg-white text-[#57068c] dark:border-[#2e0068] dark:bg-[#2e0068] dark:text-white"
+                                  : "border-white/80 dark:border-[#2e0068]/60"
+                              )}
+                            >
+                              <span className="text-base">{course.credits}</span>
+                              <span className="text-[10px]"> Cr.</span>
+                            </div>
+                          )}
+                        </div>
                       </div>
-                    </div>
-                  </button>
-                ))}
+                    </button>
+                  );
+                })}
               </div>
             </Reveal>
           </div>

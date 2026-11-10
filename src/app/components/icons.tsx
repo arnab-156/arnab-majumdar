@@ -13,3 +13,14 @@ export const PauseIcon = (props: SVGProps<SVGSVGElement>) => <svg xmlns="http://
 export const ComputerIcon = (props: SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" width="1.2rem" height="1.2rem" viewBox="0 0 24 24" {...props}><path fill="currentColor" d="M1.77 19.462v-1h20.46v1zm2.846-2q-.691 0-1.153-.463T3 15.846V6.077q0-.69.463-1.153t1.152-.462h14.77q.69 0 1.152.462T21 6.077v9.77q0 .69-.463 1.152t-1.153.463zm0-1h14.769q.23 0 .423-.193t.192-.423V6.077q0-.23-.192-.423q-.193-.193-.424-.193H4.616q-.231 0-.424.193Q4 5.846 4 6.077v9.77q0 .23.192.422t.423.193m-.615 0v-11z" /></svg>;
 
 export const ReadIcon = (props: SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" width="1.2rem" height="1.2rem" viewBox="0 0 24 24"  {...props}><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.756 16.358a1.09 1.09 0 0 0 1.154 1.198a16.576 16.576 0 0 1 3.54.338c1.635.2 3.197.794 4.552 1.731V6.448A10.16 10.16 0 0 0 7.45 4.694a16.597 16.597 0 0 0-3.605-.316a1.09 1.09 0 0 0-1.09 1.09zm18.492 0a1.089 1.089 0 0 1-1.154 1.154a16.576 16.576 0 0 0-3.54.338a10.16 10.16 0 0 0-4.552 1.775V6.448a10.16 10.16 0 0 1 4.552-1.754a16.597 16.597 0 0 1 3.605-.316a1.089 1.089 0 0 1 1.089 1.155zM5.621 8.234h1.252m-1.252 6.011h1.834M5.78 11.24h3.35" /></svg>;
+
+export const ChessQueenIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" viewBox="0 0 24 24" fill="currentColor" {...props}>
+    <circle cx="12" cy="4" r="1.5" />
+    <circle cx="6.5" cy="5.5" r="1.5" />
+    <circle cx="17.5" cy="5.5" r="1.5" />
+    <circle cx="3" cy="8.5" r="1.5" />
+    <circle cx="21" cy="8.5" r="1.5" />
+    <path d="M4.2 10.5L6 17h12l1.8-6.5-4.1 2.7L12 7.2l-3.7 6-4.1-2.7zM5.5 18.5h13a1 1 0 0 1 0 2h-13a1 1 0 0 1 0-2z" />
+  </svg>
+);
