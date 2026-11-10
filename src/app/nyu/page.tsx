@@ -24,9 +24,9 @@ const courseBadges: Array<{
 }> = [
   {
     key: "pdph",
-    symbol: "PD/PH",
+    symbol: "PD/H",
     label: "Pass with Distinction / High Pass",
-    badgeClass: "bg-amber-300 text-black text-[9px] tracking-tighter",
+    badgeClass: "bg-amber-300 text-black text-[10px] tracking-tight",
   },
   {
     key: "core",
