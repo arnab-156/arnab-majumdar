@@ -15,7 +15,7 @@ export const Navigation = () => {
              hover:w-[96%] hover:sm:w-full hover:ml-2 hover:sm:ml-0 lg:h-24 hover:bg-gradient-to-t from-purple-800 to-zinc-800/30 hover:opacity-99 dark:hover:bg-purple-800
              left-0 bottom-3 lg:top-0 
              `}>
-                <div className="h-0 group-hover:h-auto transition ease-in-out delay-[1500ms] grid-cols-5 group-hover:grid sm:grid-cols-5 sm:gap-2 lg:grid">
+                <div className="h-0 group-hover:h-auto transition ease-in-out delay-[1500ms] grid-cols-4 group-hover:grid sm:grid-cols-4 md:grid-cols-5 sm:gap-2 lg:grid">
                     <Link
                         href="/"
                         tabIndex={0}
@@ -52,7 +52,7 @@ export const Navigation = () => {
                     <Link
                         href="/contact"
                         tabIndex={0}
-                        className={`${roundButtonStyle} group-hover:border-white group-hover:text-white justify-center items-center`}
+                        className={`${roundButtonStyle} max-md:hidden group-hover:border-white group-hover:text-white justify-center items-center`}
                     >
                         <span className="p-2 m-2 hidden group-hover:block">Contact</span>
                     </Link>
