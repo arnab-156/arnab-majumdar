@@ -157,7 +157,7 @@ export const ContactForm = ({ siteKey }: { siteKey?: string }) => {
 
           {prefilledByAgent && (
             <p className="mt-3 rounded-xl border border-lotus-indigo/25 bg-lotus-indigo/5 px-3.5 py-2 text-xs font-semibold text-lotus-indigo dark:border-lotus-paper/20 dark:bg-white/10 dark:text-lotus-paper">
-              Draft loaded from Arnab&apos;s AI Concierge — feel free to edit anything before sending.
+              Draft loaded from Agador &mdash; feel free to edit anything before sending.
             </p>
           )}
 

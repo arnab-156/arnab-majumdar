@@ -26,11 +26,11 @@ type ChatMessage = {
 };
 
 const PORTFOLIO_CONTEXT = `
-You are Arnab Majumdar's AI Concierge on arnabmajumdar.com.
+You are Agador Spartacus ("Agador"), Arnab Majumdar's AI Concierge on arnabmajumdar.com.
 Your job is to warmly, concisely, and accurately help visitors:
 1. Learn about Arnab's background, work, ventures, and NYU Stern Executive MBA.
 2. Scope how Arnab can help them (consulting, retail tech, e-commerce/UX, WCAG accessibility, education/curriculum review, speaking, or collaboration).
-3. Help them either draft/pre-fill a message for the contact form on this page (#send-message) OR book a live conversation on Arnab's Google Calendar (#book-now).
+3. Help them either draft/pre-fill a message for the contact form slide (#send-message) OR book a live conversation on Arnab's Google Calendar slide (#book-now).
 
 Key facts about Arnab Majumdar:
 - Headline: Turns strategy into accessible, high-performing digital experiences for retailers, universities, restaurants, and the people who run them.
@@ -86,10 +86,10 @@ function buildLocalConciergeReply(messages: ChatMessage[]): AgentResponsePayload
   ) {
     return {
       reply:
-        "You can book a live Google Meet directly on Arnab's calendar right here on this page — it shows real-time availability. If you'd also like to send context ahead of the call, I can pre-fill the message form below for you.",
+        "You can book a live Google Meet directly on Arnab's calendar on the Calendar slide — it shows real-time availability. If you'd also like to send context ahead of the call, I can pre-fill the Message slide for you.",
       suggestedLinks: [
-        { label: "Jump to Calendar (#book-now)", href: "#book-now" },
-        { label: "Send a message (#send-message)", href: "#send-message" },
+        { label: "Slide to Calendar", href: "#book-now" },
+        { label: "Slide to Message Form", href: "#send-message" },
       ],
       draft: {
         subject: "Context for our upcoming conversation",
@@ -110,14 +110,14 @@ function buildLocalConciergeReply(messages: ChatMessage[]): AgentResponsePayload
       latestUserMessage.length > 20 ? latestUserMessage : "a potential collaboration or consulting project";
     return {
       reply:
-        "Arnab works with small businesses, retailers, universities, and mission-driven organizations on strategic planning, e-commerce & UX, WCAG accessibility, manufacturing/sourcing alignment, and educational program design.\n\nI've prepared a message draft below based on what you shared — click **Pre-fill message form** to load it into the form, or jump straight to his calendar if you'd rather talk live.",
+        "Arnab works with small businesses, retailers, universities, and mission-driven organizations on strategic planning, e-commerce & UX, WCAG accessibility, manufacturing/sourcing alignment, and educational program design.\n\nI've prepared a message draft for you — click **Pre-fill message form** to slide over to the form with your draft loaded, or slide to his calendar if you'd rather talk live.",
       suggestedLinks: [
         { label: "Explore The Lotus Mahal", href: "/lotus" },
         { label: "See Career Experiences", href: "/experiences" },
       ],
       draft: {
-        subject: "Inquiry via arnabmajumdar.com — Working Together",
-        message: `Hi Arnab,\n\nI was chatting with your website concierge and would love to connect regarding: ${cleanedTopic}\n\n• Organization / Context: \n• What we're looking to achieve: \n• Preferred next step (email or quick call): \n\nBest regards,`,
+        subject: "Inquiry via Agador (arnabmajumdar.com) — Working Together",
+        message: `Hi Arnab,\n\nI was chatting with Agador on your website and would love to connect regarding: ${cleanedTopic}\n\n• Organization / Context: \n• What we're looking to achieve: \n• Preferred next step (email or quick call): \n\nBest regards,`,
       },
       recommendCalendar: true,
     };
@@ -196,7 +196,7 @@ function buildLocalConciergeReply(messages: ChatMessage[]): AgentResponsePayload
   // Default helpful response for any custom message
   return {
     reply:
-      "I can tell you about Arnab's consulting services at The Lotus Mahal, his engineering & accessibility leadership (Bonobos, ShopRunner by FedEx), his NYU Stern Executive MBA coursework, or his academic teaching.\n\nIf you're ready to reach out, I've also prepared a message draft from your note below — you can load it directly into the contact form with one click, or book a time on his calendar!",
+      "I'm Agador Spartacus, Arnab's Concierge! I can tell you about Arnab's consulting services at The Lotus Mahal, his engineering & accessibility leadership (Bonobos, ShopRunner by FedEx), his NYU Stern Executive MBA coursework, or his academic teaching.\n\nIf you're ready to reach out, I've also prepared a message draft from your note — click **Pre-fill message form** to slide over to the message form, or slide to his calendar to book a time!",
     suggestedLinks: [
       { label: "See Career Experiences", href: "/experiences" },
       { label: "NYU Stern MBA", href: "/nyu" },
@@ -205,7 +205,7 @@ function buildLocalConciergeReply(messages: ChatMessage[]): AgentResponsePayload
     ],
     draft: latestUserMessage
       ? {
-          subject: "Message from arnabmajumdar.com visitor",
+          subject: "Message via Agador (arnabmajumdar.com)",
           message: `Hi Arnab,\n\n${latestUserMessage}\n\nBest,`,
         }
       : null,
