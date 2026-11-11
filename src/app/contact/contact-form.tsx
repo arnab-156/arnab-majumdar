@@ -24,10 +24,33 @@ export const ContactForm = ({ siteKey }: { siteKey?: string }) => {
 
   const widgetRef = useRef<HTMLDivElement>(null);
   const widgetId = useRef<string | null>(null);
+  const subjectInputRef = useRef<HTMLInputElement>(null);
+  const messageInputRef = useRef<HTMLTextAreaElement>(null);
   const [token, setToken] = useState("");
   const [scriptReady, setScriptReady] = useState(false);
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState("");
+  const [prefilledByAgent, setPrefilledByAgent] = useState(false);
+
+  useEffect(() => {
+    const handlePrefill = (event: Event) => {
+      const detail = (event as CustomEvent<{ subject?: string; message?: string }>).detail;
+      if (!detail) return;
+      if (subjectInputRef.current && detail.subject !== undefined) {
+        subjectInputRef.current.value = detail.subject;
+      }
+      if (messageInputRef.current && detail.message !== undefined) {
+        messageInputRef.current.value = detail.message;
+      }
+      setPrefilledByAgent(true);
+      setTimeout(() => {
+        messageInputRef.current?.focus();
+      }, 250);
+    };
+
+    window.addEventListener("arnab:prefill-contact", handlePrefill);
+    return () => window.removeEventListener("arnab:prefill-contact", handlePrefill);
+  }, []);
 
   // Explicit render, so the widget survives React re-rendering the form.
   const mountWidget = useCallback(() => {
@@ -132,6 +155,12 @@ export const ContactForm = ({ siteKey }: { siteKey?: string }) => {
             Send a message
           </legend>
 
+          {prefilledByAgent && (
+            <p className="mt-3 rounded-xl border border-lotus-indigo/25 bg-lotus-indigo/5 px-3.5 py-2 text-xs font-semibold text-lotus-indigo dark:border-lotus-paper/20 dark:bg-white/10 dark:text-lotus-paper">
+              Draft loaded from Arnab&apos;s AI Concierge — feel free to edit anything before sending.
+            </p>
+          )}
+
           <div className="mt-5 grid gap-4 sm:grid-cols-2">
             <div>
               <label className={label} htmlFor="contact-name">Your name</label>
@@ -145,12 +174,12 @@ export const ContactForm = ({ siteKey }: { siteKey?: string }) => {
 
           <div className="mt-4">
             <label className={label} htmlFor="contact-subject">Subject <span className="font-normal text-lotus-ink/50 dark:text-lotus-paper/50">(optional)</span></label>
-            <input id="contact-subject" name="subject" maxLength={160} className={field} />
+            <input ref={subjectInputRef} id="contact-subject" name="subject" maxLength={160} className={field} />
           </div>
 
           <div className="mt-4">
             <label className={label} htmlFor="contact-message">Message</label>
-            <textarea id="contact-message" name="message" required rows={6} maxLength={5000} className={field} />
+            <textarea ref={messageInputRef} id="contact-message" name="message" required rows={6} maxLength={5000} className={field} />
           </div>
 
           {/* Honeypot — hidden from people, tempting to bots. */}

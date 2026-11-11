@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { AnimationLayer, Reveal } from "../components/animation";
+import { AgentConcierge } from "./agent-concierge";
 import { ContactForm } from "./contact-form";
 import styles from "../hero.module.css";
 import { heroOutlineButtonStyle, heroPrimaryButtonStyle } from "../utility/stylevariables";
@@ -41,7 +42,10 @@ export default function ContactPage() {
           </aside>
 
           <div className="mt-6 flex flex-wrap items-center gap-4">
-            <Link href="#send-message" className={heroPrimaryButtonStyle}>
+            <Link href="#assistant" className={heroPrimaryButtonStyle}>
+              Chat with AI Concierge
+            </Link>
+            <Link href="#send-message" className={heroOutlineButtonStyle}>
               Send a message
             </Link>
             <Link href="#book-now" className={`${heroOutlineButtonStyle} gap-2`}>
@@ -83,6 +87,13 @@ export default function ContactPage() {
               <span className="group-hover:underline">Bluesky</span>
             </Link>
           </div>
+        </Reveal>
+      </section>
+
+      {/* AI CONCIERGE */}
+      <section id="assistant" className="w-full scroll-mt-24 px-6 pb-12 md:px-12">
+        <Reveal>
+          <AgentConcierge />
         </Reveal>
       </section>
 
