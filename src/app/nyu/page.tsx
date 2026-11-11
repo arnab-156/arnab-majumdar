@@ -6,7 +6,7 @@ import Link from "next/link";
 import { type ReactNode, useEffect, useMemo, useState } from "react";
 
 import { AnimationLayer, Reveal } from "@/app/components/animation";
-import { ChessQueenIcon } from "@/app/components/icons";
+import { ChessQueenIcon, GoldMedalIcon } from "@/app/components/icons";
 import { buttonStyle } from "@/app/utility/stylevariables";
 import {
   nyuCourses as courses,
@@ -31,9 +31,10 @@ const courseBadges: Array<{
 }> = [
   {
     key: "pdph",
-    symbol: "PD/H",
+    symbol: <GoldMedalIcon className="h-4 w-4" aria-hidden />,
     label: "Pass with Distinction / High Pass",
-    badgeClass: "bg-amber-300 text-black text-[10px] tracking-tight",
+    badgeClass:
+      "bg-gradient-to-br from-amber-200 via-amber-300 to-amber-500 text-amber-950 ring-1 ring-amber-500/50",
   },
   {
     key: "core",
