@@ -193,9 +193,9 @@ export default function NYUPage() {
 
           <div className="space-y-4">
             <p className="text-sm uppercase tracking-[0.2em] text-purple-700 dark:text-purple-200">Student Leadership</p>
-            <h3 className="text-3xl font-nyu-ultra">Class Representative</h3>
+            <h3 className="text-3xl font-nyu-ultra italic">Class Representative Emeritus</h3>
             <p className="text-lg text-gray-800 dark:text-gray-100">
-              Elected by peers to advocate for student issues, coordinate events, and elevate the Executive MBA Class of A27 experience.
+              Elected by peers to advocate for student issues, coordinate events, and elevate the Executive MBA Class of A27 first year experience.
             </p>
             <p className="text-gray-700 dark:text-gray-200">
               This role keeps student voices at the center of every conversation with faculty and administration.
