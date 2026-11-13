@@ -103,6 +103,7 @@ export const nyuCourses: NyuCourse[] = [
   },
   {
     name: "The Strategist",
+    strategyElective: true,
     credits: 1.5,
     faculty: {
       name: "Adam Brandenburger",
@@ -114,6 +115,7 @@ export const nyuCourses: NyuCourse[] = [
     name: "Strategy",
     pdph: true,
     core: true,
+    strategyElective: true,
     credits: 3,
     faculty: {
       name: "Sonia Marciano",
@@ -202,6 +204,7 @@ export const nyuCourses: NyuCourse[] = [
   {
     name: "Endless Frontier Labs",
     strategyElective: true,
+    inProgress: true,
     credits: 6,
     faculty: {
       name: "Deepak Hegde",

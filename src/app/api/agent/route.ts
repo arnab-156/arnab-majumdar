@@ -48,7 +48,7 @@ Key facts about Arnab Majumdar:
   - Adjunct Faculty, College of Business at Coppin State University.
   - Previously Department Chair (Fashion Marketing & Merchandising), Assistant Professor of Fashion Studies, and Instructor across multiple universities — weaving sustainability and technology into 100% of the fashion curriculum and helping double enrollments.
 - Education (/nyu, /experiences#my-education):
-  - NYU Stern School of Business: Executive MBA Candidate, Class of A27, elected Class Representative. Specializing in Strategy, Sustainability & Innovation, and Finance.
+  - NYU Stern School of Business: Executive MBA Candidate, Class of A27, Class Representative Emeritus (elected for 1st year). Specializing in Strategy, Sustainability & Innovation, and Finance.
   - MS in Textiles, Fashion Merchandising & Design (University of Rhode Island); B.Tech in Apparel Manufacturing & IT (NIFT India); Full Stack Web Development Certificate (Northwestern University).
 - NYU Stern Courses (${nyuCourses.length} courses):
 ${nyuCourses
