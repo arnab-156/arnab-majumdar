@@ -3,58 +3,59 @@
 import Image from "next/image";
 import Link from 'next/link';
 import { LotusIcon } from "../components/icons";
-import { roundButtonStyle } from "@/app/utility/stylevariables";
+import { roundButtonStyle } from "../utility/stylevariables";
 
 export const Navigation = () => {
     return (<nav className="flex flex-col items-center justify-between font-nyu" id="navigation">
         <div className="z-10 w-full items-center justify-between flex justify-content font-mono text-sm lg:text-transparent hover:lg:text-black dark:hover:lg:text-white lg:shadow-2xl lg:shadow-purple-800/40 hover:lg:shadow-none">
             {/* Header on desktop and footer on mobile */}
-            <section className={`group rounded-[36px] fixed flex w-3/4 ml-[13%] sm:ml-0 py-3 justify-center border-b border-gray-300  mobile-purple-gray-shimmer backdrop-blur-md 
+            <section className={`group rounded-[36px] fixed flex w-[96%] ml-[2%] sm:w-full sm:ml-0 py-2 sm:py-3 justify-center border-b border-gray-300 backdrop-blur-md
              dark:border-neutral-800
-             sm:w-full lg:w-full lg:static lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30 
-             hover:w-[96%] hover:sm:w-full hover:ml-2 hover:sm:ml-0 lg:h-24 hover:bg-gradient-to-t from-purple-800 to-zinc-800/30 hover:opacity-99 dark:hover:bg-purple-800
-             left-0 bottom-3 lg:top-0 
+             from-purple-800 to-zinc-800/30 max-lg:bg-gradient-to-t max-lg:dark:bg-purple-800
+             lg:w-full lg:static lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30 lg:h-24
+             lg:hover:bg-gradient-to-t lg:dark:hover:bg-purple-800
+             left-0 bottom-3 lg:top-0
              `}>
-                <div className="h-0 group-hover:h-auto transition ease-in-out delay-[1500ms] grid-cols-4 group-hover:grid sm:grid-cols-4 md:grid-cols-5 sm:gap-2 lg:grid">
+                <div className="grid h-auto lg:h-0 lg:group-hover:h-auto transition ease-in-out lg:delay-[1500ms] grid-cols-4 sm:grid-cols-4 md:grid-cols-5 gap-1 sm:gap-2 px-2 sm:px-0 w-full sm:w-auto">
                     <Link
                         href="/"
                         tabIndex={0}
-                        className={`${roundButtonStyle} group-hover:border-white group-hover:text-white justify-center items-center`}
+                        className={`${roundButtonStyle} lg:group-hover:border-white lg:group-hover:text-white justify-center items-center`}
                     >
-                        <span className="p-2 m-2 hidden group-hover:block">Home</span>
+                        <span className="px-2 py-1 lg:p-2 lg:m-2 block lg:hidden lg:group-hover:block">Home</span>
                     </Link>
 
                     <Link
                         href="/about"
                         tabIndex={0}
-                        className={`${roundButtonStyle} group-hover:border-white group-hover:text-white justify-center items-center`}
+                        className={`${roundButtonStyle} lg:group-hover:border-white lg:group-hover:text-white justify-center items-center`}
                     >
-                        <span className="p-2 m-2 hidden group-hover:block">About</span>
+                        <span className="px-2 py-1 lg:p-2 lg:m-2 block lg:hidden lg:group-hover:block">About</span>
                     </Link>
 
                     <Link
                         href="/experiences"
                         tabIndex={0}
-                        className={`${roundButtonStyle} group-hover:border-white group-hover:text-white justify-center items-center`}
+                        className={`${roundButtonStyle} lg:group-hover:border-white lg:group-hover:text-white justify-center items-center`}
                     >
-                        <span className="p-2 m-2 hidden group-hover:block lg:group-hover:hidden md:group-hover:hidden">Career</span>
-                        <span className="p-2 m-2 hidden sm:group-hover:block">Experiences</span>
+                        <span className="px-2 py-1 block sm:hidden">Career</span>
+                        <span className="px-2 py-1 lg:p-2 lg:m-2 hidden sm:block lg:hidden lg:group-hover:block">Experiences</span>
                     </Link>
 
                     <Link
                         href="/nyu"
                         tabIndex={0}
-                        className={`${roundButtonStyle} group-hover:border-white group-hover:text-white justify-center items-center`}
+                        className={`${roundButtonStyle} lg:group-hover:border-white lg:group-hover:text-white justify-center items-center`}
                     >
-                        <div className="p-2 m-2 hidden group-hover:block">NYU <span className="hidden sm:inline-flex">{` Stern`}</span></div>
+                        <div className="px-2 py-1 lg:p-2 lg:m-2 block lg:hidden lg:group-hover:block whitespace-nowrap">NYU <span className="hidden sm:inline-flex">{` Stern`}</span></div>
                     </Link>
 
                     <Link
                         href="/contact"
                         tabIndex={0}
-                        className={`${roundButtonStyle} max-md:hidden group-hover:border-white group-hover:text-white justify-center items-center`}
+                        className={`${roundButtonStyle} max-md:hidden lg:group-hover:border-white lg:group-hover:text-white justify-center items-center`}
                     >
-                        <span className="p-2 m-2 hidden group-hover:block">Contact</span>
+                        <span className="px-2 py-1 lg:p-2 lg:m-2 block lg:hidden lg:group-hover:block">Contact</span>
                     </Link>
                 </div>
             </section>
