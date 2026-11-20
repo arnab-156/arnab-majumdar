@@ -159,13 +159,13 @@ export const nyuCourses: NyuCourse[] = [
   {
     name: "Social Entrepreneurship",
     sustainabilityElective: true,
-    inProgress: true,
+    pdph: true,
     credits: 2.5,
     faculty: {
       name: "Hans Taparia",
       url: "https://www.stern.nyu.edu/faculty/bio/hans-taparia",
     },
-    projects: [],
+    projects: ["Baltimore Food Deserts"],
   },
   {
     name: "Behavioral Finance",
@@ -215,6 +215,20 @@ export const nyuCourses: NyuCourse[] = [
 ];
 
 export const nyuProjectInfo: Record<string, NyuProjectDetails> = {
+  "Baltimore Food Deserts": {
+    description:
+      "Primary field research and venture discovery for Lotus Fruits (run with Coppin State University) examining fresh-food access across Baltimore. Business listings show more than 500 grocery outlets in Baltimore City, yet only 28 are full supermarkets and 77% of city land sits over half a mile from one — so this study pairs spatial business data with an anonymous 23-question resident survey and optional receipt study to learn where households actually shop, how they get there, and what would make fresh food easier to buy close to home.",
+    outcomes: [
+      "Separated headline store counts from lived food access: among 500+ grocery listings in Baltimore's business data, only 28 are full supermarkets, with 1 in 4 residents living in a Healthy Food Priority Area.",
+      "Paired secondary spatial data (SimplyAnalytics and the Johns Hopkins Center for a Livable Future) with an anonymous, ZIP-level 23-question survey and optional receipt study capturing real travel, basket, and spend behavior.",
+      "Focused outreach on West Baltimore, East Baltimore, Brooklyn, and Curtis Bay — the areas farthest from a full supermarket — supported by a mobile-first survey page, YouTube Short explainer, and scannable QR code.",
+      "Grounded the Lotus Fruits social-enterprise model in primary community demand evidence before designing neighborhood fresh-food distribution.",
+    ],
+    urls: [
+      { title: "Project page", url: "/BaltimoreFoodDesert" },
+      { title: "Take the survey", url: "https://form.jotform.com/263075465995068" },
+    ],
+  },
   "Sustainability Due Diligence: Coty Inc.": {
     description:
       "A simulated investment committee: four teams ran a full sustainability diligence on a global beauty company, and I led the risk assessment workstream — identifying material risks, assigning severity, proposing mitigations, and defending the analysis under IC questioning.",
