@@ -39,3 +39,30 @@ export const GoldMedalIcon = (props: SVGProps<SVGSVGElement>) => (
     />
   </svg>
 );
+
+type TabIconProps = SVGProps<SVGSVGElement> & { filled?: boolean };
+
+// Bottom tab bar icons: outline by default, filled for the active tab.
+export const HomeTabIcon = ({ filled, ...props }: TabIconProps) => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" {...props}>
+        <path fill="currentColor" d={filled
+            ? "M4 21V9l8-6l8 6v12h-7v-7h-2v7z"
+            : "M6 19h3v-6h6v6h3v-9l-6-4.5L6 10zm-2 2V9l8-6l8 6v12h-7v-6h-2v6z"} />
+    </svg>
+);
+
+export const BriefcaseTabIcon = ({ filled, ...props }: TabIconProps) => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" {...props}>
+        <path fill="currentColor" d={filled
+            ? "M4 21q-.825 0-1.412-.587T2 19V8q0-.825.588-1.412T4 6h4V4q0-.825.588-1.412T10 2h4q.825 0 1.413.588T16 4v2h4q.825 0 1.413.588T22 8v11q0 .825-.587 1.413T20 21zm6-15h4V4h-4z"
+            : "M4 21q-.825 0-1.412-.587T2 19V8q0-.825.588-1.412T4 6h4V4q0-.825.588-1.412T10 2h4q.825 0 1.413.588T16 4v2h4q.825 0 1.413.588T22 8v11q0 .825-.587 1.413T20 21zm0-2h16V8H4zm6-13h4V4h-4z"} />
+    </svg>
+);
+
+export const MailTabIcon = ({ filled, ...props }: TabIconProps) => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" {...props}>
+        <path fill="currentColor" d={filled
+            ? "M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h16q.825 0 1.413.588T22 6v12q0 .825-.587 1.413T20 20zm8-7l8-5V6l-8 5l-8-5v2z"
+            : "M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h16q.825 0 1.413.588T22 6v12q0 .825-.587 1.413T20 20zm8-7L4 8v10h16V8zm0-2l8-5H4z"} />
+    </svg>
+);
