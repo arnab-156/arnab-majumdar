@@ -258,6 +258,34 @@ export const Navigation = () => {
                             />
                         </Link>
                         <Link
+                            href="https://www.instagram.com/arnab_by_the_ocean"
+                            title="instagram profile of arnab"
+                            target="_blank"
+                        >
+                            <Image
+                                className="hover:scale-110 mr-2"
+                                src="/instagram.svg"
+                                alt="instagram logo"
+                                width={30}
+                                height={30}
+                                unoptimized
+                            />
+                        </Link>
+                        <Link
+                            href="https://www.youtube.com/arnab156"
+                            title="youtube channel of arnab"
+                            target="_blank"
+                        >
+                            <Image
+                                className="hover:scale-110 mr-2"
+                                src="/youtube.svg"
+                                alt="youtube logo"
+                                width={30}
+                                height={30}
+                                unoptimized
+                            />
+                        </Link>
+                        <Link
                             href="/contact#book-now" aria-label="go to calendar to schedule a google meet"
                         >
                             <Image

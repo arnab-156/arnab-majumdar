@@ -27,6 +27,8 @@ test('renders desktop navigation links and contact options', () => {
     expect(screen.getByText('contact information')).toBeInTheDocument();
     expect(screen.getByAltText('bluesky logo')).toBeInTheDocument();
     expect(screen.getByAltText('linkedin image')).toBeInTheDocument();
+    expect(screen.getByAltText('instagram logo').closest('a')).toHaveAttribute('href', 'https://www.instagram.com/arnab_by_the_ocean');
+    expect(screen.getByAltText('youtube logo').closest('a')).toHaveAttribute('href', 'https://www.youtube.com/arnab156');
     expect(screen.getByAltText('google calendar')).toBeInTheDocument();
 });
 
